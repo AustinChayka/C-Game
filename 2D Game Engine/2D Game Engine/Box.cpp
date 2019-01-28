@@ -16,7 +16,7 @@ void Box::Update(LevelManager * game) {
 
 }
 
-void Box::OnCollision(GameObject * go) {
+void Box::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(go->IsMoveable() && GetCollisionWall(go) != TOP) 
 		go->SetVX(go->GetVX() / 1.75f);

@@ -7,21 +7,21 @@ class Projectile : public GameObject {
 
 public:
 
-	Projectile(float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner);
+	Projectile(const char * path, float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner);
 
 	~Projectile();
 
 	void Update(LevelManager * game);
 
-	void OnCollision(GameObject * go);
+	void OnCollision(GameObject * go, LevelManager * game);
 	
-private:
+protected:
 
 	int xDir, yDir;
 
 	GameObject * spawner;
 
-	int particleDelay = 10, maxDistance = 1000;
+	int maxDistance = 1000;
 
 };
 

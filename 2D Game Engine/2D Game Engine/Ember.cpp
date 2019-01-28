@@ -13,13 +13,13 @@ Ember::Ember(float init_x, float init_y, float init_vX, float init_vY) : Particl
 
 Ember::~Ember() {}
 
-void Ember::OnCollision(GameObject * go) {
+void Ember::OnCollision(GameObject * go, LevelManager * game) {
 
 	int wall = GetCollisionWall(go);
 	
 	dead = true;
 
-	if(spawnFire != -1) spawnFire = 1;
+	game->AddObject(new Fire(x, y - 10, (int)(2.5 * width / 5)));
 
 }
 
@@ -28,10 +28,5 @@ void Ember::Update(LevelManager * game) {
 	Particle::Update(game);
 
 	vY += .3f;
-
-	if(spawnFire == 1) {
-		game->AddObject(new Fire(x, y - 10, (int)(2.5 * width / 5)));
-		spawnFire = -1;
-	}
 
 }

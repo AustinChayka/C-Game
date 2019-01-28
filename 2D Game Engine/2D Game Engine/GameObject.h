@@ -24,7 +24,7 @@ public:
 	virtual void RenderObject();
 
 	bool CollidesWith(GameObject * go);
-	virtual void OnCollision(GameObject * go) {}
+	virtual void OnCollision(GameObject * go, LevelManager * game) {}
 
 	float GetX();
 	float GetY();

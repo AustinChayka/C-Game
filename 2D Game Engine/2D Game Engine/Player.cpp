@@ -1,7 +1,7 @@
 #include "Player.h"
 
 #include "Game.h"
-#include "Projectile.h"
+#include "Fireball.h"
 #include "Smoke.h"
 
 Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
@@ -75,7 +75,7 @@ void Player::Update(LevelManager * game) {
 
 	if(attack && shot == 0) {
 		if(!attackLock && manaFatigue >= 2) {
-			game->AddObject(new Projectile(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this));
+			game->AddObject(new Fireball(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this));
 			shot = shotDelay;
 			manaFatigue -= 2;
 		} else if(smokeDelay == 0) {

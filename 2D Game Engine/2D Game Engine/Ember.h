@@ -11,13 +11,9 @@ public:
 
 	~Ember();
 
-	void OnCollision(GameObject * go);
+	void OnCollision(GameObject * go, LevelManager * game);
 
 	void Update(LevelManager * game);
-
-private:
-
-	int spawnFire = 0;
 
 };
 

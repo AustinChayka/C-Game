@@ -18,7 +18,7 @@ public:
 
 	void LoadLevel(int n);
 
-	void GenerateLevel(char * path, int sizeX, int sizeY);
+	void GenerateLevel(int sizeX, int sizeY);
 
 	void Update(StateManager * sm);
 	void Render();

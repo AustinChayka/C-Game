@@ -42,7 +42,7 @@ void LevelManager::LoadLevel(int n) {
 
 }
 
-void LevelManager::GenerateLevel(char * path, int sizeX, int sizeY) {
+void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 
 	//TODO: rng level gen
 

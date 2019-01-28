@@ -12,7 +12,7 @@ public:
 
 	void Update(LevelManager * game);
 
-	void OnCollision(GameObject * go);
+	void OnCollision(GameObject * go, LevelManager * game);
 
 private:
 

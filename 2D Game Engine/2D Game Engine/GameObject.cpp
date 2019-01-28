@@ -67,8 +67,8 @@ void GameObject::UpdateObject(LevelManager * game) {
 	
 	grounded = false;
 	if(collidable) for(auto go : game->GetObjects()) if(this->CollidesWith(go)) {
-		go->OnCollision(this);
-		OnCollision(go);
+		go->OnCollision(this, game);
+		OnCollision(go, game);
 		if(go->IsMoveable()) go->LockCollision(this);
 	}
 

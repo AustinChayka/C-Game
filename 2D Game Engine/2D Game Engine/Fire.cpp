@@ -20,7 +20,7 @@ void Fire::Update(LevelManager * game) {
 
 }
 
-void Fire::OnCollision(GameObject * go) {
+void Fire::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(lifeTime == -1) lifeTime = 145;
 
