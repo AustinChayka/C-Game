@@ -30,4 +30,6 @@ void Fire::OnCollision(GameObject * go) {
 		LockY(go);
 	} else grounded = false;
 
+	go->DealDamage(1);
+
 }

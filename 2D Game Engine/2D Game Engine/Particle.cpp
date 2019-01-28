@@ -3,7 +3,7 @@
 
 Particle::Particle(float init_x, float init_y, float init_width, float init_height, 
 	float r, float g, float b, float a) : GameObject(nullptr, init_x, init_y, init_width, init_height) {
-
+	
 	red = r;
 	green = g;
 	blue = b;
@@ -15,12 +15,12 @@ Particle::~Particle() {}
 
 void Particle::Update(LevelManager * game) {
 
-	if(shrink && width > 1) {
+	if(shrink) if(width > 1) {
 		width -= .1f;
 		height -= .1f;
 	} else dead = true;
 
-	if(fade && alpha > 0) alpha -= .5f;
+	if(fade) if(alpha > 0) alpha -= .5f;
 	else dead = true;
 	
 }

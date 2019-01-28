@@ -13,7 +13,7 @@ public:
 	virtual void Update(LevelManager * game);
 	virtual void RenderObject();
 
-private:
+protected:
 
 	float red, green, blue, alpha;
 	SDL_Rect rect;

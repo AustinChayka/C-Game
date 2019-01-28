@@ -55,7 +55,12 @@ void GameObject::UpdateObject(LevelManager * game) {
 	
 	Update(game);
 
-	if(damageable && health <= 0) dead = true;
+	if(damageable && health <= 0) {
+		OnDeath(game);
+		dead = true;
+	}
+
+	if(damageDelay < 20) damageDelay++;
 	
 	x += vX;
 	y += vY;
@@ -132,7 +137,7 @@ int GameObject::GetHeight() {
 
 void GameObject::LockX(GameObject * go) {
 
-	if(x >= go->GetX()) x = go->GetX() + go->GetWidth();
+	if(x > go->GetX()) x = go->GetX() + go->GetWidth();
 	else x = go->GetX() - width;
 
 	vX = 0;
@@ -150,6 +155,8 @@ void GameObject::LockY(GameObject * go) {
 	vY = 0;
 
 }
+
+void GameObject::OnDeath(LevelManager * game) {}
 
 float GameObject::GetXCenter() {
 
@@ -193,10 +200,17 @@ void GameObject::SetY(float new_y) {
 
 }
 
+int GameObject::GetHealth() {
+
+	return health;
+
+}
+
 void GameObject::DealDamage(int d) {
 
-	if(!damageable) return;
+	if(!damageable || damageDelay != 20) return;
 	health -= d;
+	damageDelay = 0;
 
 }
 

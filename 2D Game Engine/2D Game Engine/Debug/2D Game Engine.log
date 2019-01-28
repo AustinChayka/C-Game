@@ -1,64 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (2D Game Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Box.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Camera.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(93): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(98): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(99): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Ember.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\ember.cpp(33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Fire.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Game.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\game.cpp(47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameObject.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  GUI.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
   LevelManager.cpp
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(53): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  MenuState.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Particle.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(5): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Platform.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(30): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(32): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(33): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-  Projectile.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\projectile.cpp(31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  StateManager.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Player.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  TextureManager.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(54): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\Debug\Game.exe

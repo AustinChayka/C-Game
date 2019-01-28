@@ -39,6 +39,7 @@ public:
 	void SetVX(float new_vX);
 	void SetX(float new_x);
 	void SetY(float new_y);
+	int GetHealth();
 	
 	virtual void DealDamage(int d);
 
@@ -64,7 +65,9 @@ protected:
 	void LockY(GameObject * go);
 
 	bool damageable = false;
-	int health = -1;
+	int health = -1, damageDelay = 20;
+
+	virtual void OnDeath(LevelManager * game);
 	
 };
 

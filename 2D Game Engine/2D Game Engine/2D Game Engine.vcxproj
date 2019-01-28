@@ -148,6 +148,7 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Smoke.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="Smoke.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TextureManager.h" />

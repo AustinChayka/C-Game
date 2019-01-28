@@ -1,7 +1,7 @@
 #ifndef GUI_h
 #define GUI_h
 
-#include "GameObject.h";
+#include "GameObject.h"
 
 class GUI {
 
@@ -18,6 +18,9 @@ public:
 private:
 
 	GameObject * player;
+
+	int prevHealth = 0, showHealth = 0, showManaFatigue = 0;
+	float prevManaFatigue = 0;
 
 };
 

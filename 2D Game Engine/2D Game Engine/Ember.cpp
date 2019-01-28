@@ -30,7 +30,7 @@ void Ember::Update(LevelManager * game) {
 	vY += .3f;
 
 	if(spawnFire == 1) {
-		game->AddObject(new Fire(x, y - 10, 2.5 * width / 5));
+		game->AddObject(new Fire(x, y - 10, (int)(2.5 * width / 5)));
 		spawnFire = -1;
 	}
 
