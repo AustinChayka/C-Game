@@ -25,6 +25,8 @@ public:
 
 	bool CollidesWith(GameObject * go);
 	virtual void OnCollision(GameObject * go, LevelManager * game) {}
+	float DistanceToSquared(GameObject * go);
+	bool IsSolid();
 
 	float GetX();
 	float GetY();
@@ -58,7 +60,7 @@ protected:
 	SDL_Texture * texture;
 	SDL_Rect srcRect, destRect;
 	
-	bool collidable = false, grounded, dead = false, moveable = true;
+	bool collidable = false, grounded, dead = false, moveable = true, solid = true;
 	enum Wall {
 		TOP = 1,
 		RIGHT = 2,

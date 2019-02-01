@@ -33,4 +33,6 @@ void Projectile::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(go != spawner) dead = true;
 
+	go->DealDamage(3);
+
 }

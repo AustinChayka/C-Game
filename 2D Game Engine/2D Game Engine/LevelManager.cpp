@@ -28,14 +28,7 @@ void LevelManager::LoadLevel(int n) {
 	switch(n) {
 
 		case 0:
-			player->SetX(50);
-			player->SetY(50);
-			AddObject(new Block(50, 300, 30, 1));
-			AddObject(new Platform(500, 100, 10));
-			AddObject(new Block(-50, 0, 4, 1));
-			AddObject(new Box(300, -200));
-			AddObject(new Spirit(100, 50));
-			break;
+			GenerateLevel(2, NULL);
 			
 		default:
 			break;
@@ -48,6 +41,29 @@ void LevelManager::LoadLevel(int n) {
 void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 
 	//TODO: rng level gen
+
+	int n = 0;
+
+	float roomOffsetX = 0, roomOffsetY = 0;
+
+	for (int i = 0; i < sizeX; i++) {
+
+		switch (n) {
+
+			case 0:
+				player->SetX(100);
+				player->SetY(100);
+				AddObject(new Block(0 + roomOffsetX, 300 + roomOffsetY, 20, 1));
+				AddObject(new Platform(550 + roomOffsetX, 100 + roomOffsetY, 10));
+				AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 4, 1));
+				AddObject(new Box(350 + roomOffsetX, -200 + roomOffsetY));
+				AddObject(new Spirit(150 + roomOffsetX, 50 + roomOffsetY));
+				roomOffsetX += 20 * 60;
+				break;
+
+		}
+
+	}
 
 }
 

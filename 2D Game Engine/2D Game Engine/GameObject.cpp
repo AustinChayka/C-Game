@@ -68,7 +68,7 @@ void GameObject::UpdateObject(LevelManager * game) {
 	grounded = false;
 	if(collidable) for(auto go : game->GetObjects()) if(this->CollidesWith(go)) {
 		go->OnCollision(this, game);
-		if(go->IsMoveable()) go->LockCollision(this);
+		if(solid && go->IsMoveable()) go->LockCollision(this);
 	}
 
 	srcRect.x = (int)tileX * spriteWidth;
@@ -95,6 +95,18 @@ bool GameObject::CollidesWith(GameObject * go) {
 		&& x + width > go->GetX()
 		&& y < go->GetY() + go->GetHeight()
 		&& y + height > go->GetY();
+
+}
+
+float GameObject::DistanceToSquared(GameObject * go) {
+
+	return pow(x - go->GetX(), 2) + pow(y - go->GetY(), 2);
+
+}
+
+bool GameObject::IsSolid() {
+
+	return solid;
 
 }
 

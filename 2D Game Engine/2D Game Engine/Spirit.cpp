@@ -5,8 +5,17 @@
 
 Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 35, 51) {
 
-	collidable = false;
+	collidable = true;
 	moveable = false;
+	solid = false;
+
+	targetX = x;
+	targetY = y;
+
+	deg = rand() % 360;
+
+	damageable = true;
+	health = 4;
 
 }
 
@@ -14,15 +23,15 @@ Spirit::~Spirit() {}
 
 void Spirit::Update(LevelManager * game) {
 
-	for(auto go : game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr) {
+	for(auto go : game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 100000) {
 
 		targetX = go->GetX();
 		targetY = go->GetY();
 
 	}
 
-	vX = cos(deg) * radius + (targetX - x) / radius;
-	vY = sin(deg) * radius + (targetY - y) / radius;
+	vX = sin(deg) * radius + (targetX - x) / radius;
+	vY = cos(deg) * radius + (targetY - y) / radius;
 
 	deg += .05f;
 

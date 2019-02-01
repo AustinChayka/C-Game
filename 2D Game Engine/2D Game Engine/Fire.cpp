@@ -24,12 +24,12 @@ void Fire::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(lifeTime == -1) lifeTime = 145;
 
-	if(GetCollisionWall(go) == BOTTOM) {
+	if(go->IsSolid() && GetCollisionWall(go) == BOTTOM) {
 		grounded = true;
 		vY = 0;
 		LockY(go);
 	} else grounded = false;
 
-	go->DealDamage(1);
+	if(go->IsSolid()) go->DealDamage(1);
 
 }
