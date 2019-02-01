@@ -68,7 +68,6 @@ void GameObject::UpdateObject(LevelManager * game) {
 	grounded = false;
 	if(collidable) for(auto go : game->GetObjects()) if(this->CollidesWith(go)) {
 		go->OnCollision(this, game);
-		OnCollision(go, game);
 		if(go->IsMoveable()) go->LockCollision(this);
 	}
 
@@ -203,6 +202,13 @@ void GameObject::SetY(float new_y) {
 int GameObject::GetHealth() {
 
 	return health;
+
+}
+
+bool GameObject::IsAt(float xTarget, float yTarget) {
+
+	return xTarget <= x + width && xTarget >= x &&
+		yTarget <= y + height && yTarget >= y;
 
 }
 

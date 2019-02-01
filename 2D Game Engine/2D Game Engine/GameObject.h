@@ -40,8 +40,15 @@ public:
 	void SetX(float new_x);
 	void SetY(float new_y);
 	int GetHealth();
+
+	bool IsAt(float xTarget, float yTarget);
 	
 	virtual void DealDamage(int d);
+	
+	void LockCollision(GameObject * go);
+	int GetCollisionWall(GameObject * go);
+	void LockX(GameObject * go);
+	void LockY(GameObject * go);
 
 protected:
 
@@ -52,17 +59,12 @@ protected:
 	SDL_Rect srcRect, destRect;
 	
 	bool collidable = false, grounded, dead = false, moveable = true;
-	void LockCollision(GameObject * go);
-	int GetCollisionWall(GameObject * go);
 	enum Wall {
 		TOP = 1,
 		RIGHT = 2,
 		BOTTOM = 3,
 		LEFT = 4
 	};
-
-	void LockX(GameObject * go);
-	void LockY(GameObject * go);
 
 	bool damageable = false;
 	int health = -1, damageDelay = 20;

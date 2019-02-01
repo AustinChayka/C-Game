@@ -9,6 +9,9 @@ Particle::Particle(float init_x, float init_y, float init_width, float init_heig
 	blue = b;
 	alpha = a;
 
+	moveable = false;
+	collidable = false;
+
 }
 
 Particle::~Particle() {}

@@ -4,8 +4,9 @@
 #include "Platform.h"
 #include "Box.h"
 #include <fstream>
-
 #include "Game.h"
+#include "Block.h"
+#include "Spirit.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -29,9 +30,11 @@ void LevelManager::LoadLevel(int n) {
 		case 0:
 			player->SetX(50);
 			player->SetY(50);
-			AddObject(new Platform(50, 300, 35));
+			AddObject(new Block(50, 300, 30, 1));
 			AddObject(new Platform(500, 100, 10));
+			AddObject(new Block(-50, 0, 4, 1));
 			AddObject(new Box(300, -200));
+			AddObject(new Spirit(100, 50));
 			break;
 			
 		default:
