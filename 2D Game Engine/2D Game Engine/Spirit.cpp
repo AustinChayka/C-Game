@@ -2,6 +2,7 @@
 
 #include "Player.h"
 #include "Particle.h"
+#include "CursedFireball.h"
 
 Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 35, 51) {
 
@@ -28,6 +29,14 @@ void Spirit::Update(LevelManager * game) {
 		targetX = go->GetX();
 		targetY = go->GetY();
 
+		if (projectileTimer < 0) {
+
+			float dX = go->GetX() - x, dY = go->GetY() - y;
+			game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, this));
+			projectileTimer = projectileDelay;
+
+		} else projectileTimer--;
+
 	}
 
 	vX = sin(deg) * radius + (targetX - x) / radius;
@@ -37,11 +46,11 @@ void Spirit::Update(LevelManager * game) {
 
 	if(deg > 360) deg = 0;
 
-	if(delay < 0) {
+	if(particleTimer < 0) {
 
 		game->AddObject(new Particle(GetXCenter() - 3, GetYCenter() - 3, 6, 6, 99, 206, 194, 184));
-		delay = particleDelay;
+		particleTimer = particleDelay;
 
-	} else delay--;
+	} else particleTimer--;
 		
 }

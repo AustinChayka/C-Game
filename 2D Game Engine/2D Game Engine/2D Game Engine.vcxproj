@@ -138,6 +138,8 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CursedFire.cpp" />
+    <ClCompile Include="CursedFireball.cpp" />
     <ClCompile Include="Ember.cpp" />
     <ClCompile Include="Fire.cpp" />
     <ClCompile Include="Fireball.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CursedFire.h" />
+    <ClInclude Include="CursedFireball.h" />
     <ClInclude Include="Ember.h" />
     <ClInclude Include="Fire.h" />
     <ClInclude Include="Fireball.h" />

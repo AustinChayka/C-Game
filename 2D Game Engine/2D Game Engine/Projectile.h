@@ -21,7 +21,7 @@ protected:
 
 	GameObject * spawner;
 
-	int maxDistance = 1000;
+	int maxDistance = 1000, damage = 1;
 
 };
 

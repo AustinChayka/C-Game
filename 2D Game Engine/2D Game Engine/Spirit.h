@@ -16,7 +16,7 @@ public:
 private :
 
 	float deg, targetX = 0, targetY = 0, radius = 15;
-	int particleDelay = 4, delay = particleDelay;
+	int particleDelay = 4, particleTimer = particleDelay, projectileDelay = 180, projectileTimer = projectileDelay;
 
 };
 
