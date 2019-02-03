@@ -10,13 +10,10 @@ Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 35, 51)
 	moveable = false;
 	solid = false;
 
-	targetX = x;
-	targetY = y;
-
 	deg = rand() % 360;
 
 	damageable = true;
-	health = 4;
+	health = 1;
 
 }
 
@@ -24,23 +21,26 @@ Spirit::~Spirit() {}
 
 void Spirit::Update(LevelManager * game) {
 
-	for(auto go : game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 100000) {
+	lm = game;
 
-		targetX = go->GetX();
-		targetY = go->GetY();
+	for(auto go : game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && HasLineOfSight(go, game)) {
 
-		if (projectileTimer < 0) {
-
-			float dX = go->GetX() - x, dY = go->GetY() - y;
-			game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, this));
-			projectileTimer = projectileDelay;
-
-		} else projectileTimer--;
-
+		target = go;
+				
 	}
 
-	vX = sin(deg) * radius + (targetX - x) / radius;
-	vY = cos(deg) * radius + (targetY - y) / radius;
+	if(target == nullptr) return;
+
+	if(projectileTimer < 0 && HasLineOfSight(target, game)) {
+
+		float dX = target->GetX() - x, dY = target->GetY() - y;
+		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, this));
+		projectileTimer = projectileDelay;
+
+	} else projectileTimer--;
+	
+	vX = sin(deg) * radius + (target->GetXCenter() - x) / radius;
+	vY = cos(deg) * radius + (target->GetYCenter() - y) / radius;
 
 	deg += .05f;
 
@@ -52,5 +52,7 @@ void Spirit::Update(LevelManager * game) {
 		particleTimer = particleDelay;
 
 	} else particleTimer--;
+
+	std::cout << HasLineOfSight(target, game) << std::endl;
 		
 }

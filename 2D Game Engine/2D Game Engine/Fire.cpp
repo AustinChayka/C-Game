@@ -3,6 +3,8 @@
 Fire::Fire(float init_x, float init_y, float scale) : GameObject("assets/Fire.png", init_x, init_y, 10, 10, scale) {
 
 	moveable = false;
+	
+	tileX = rand() % 4;
 
 }
 

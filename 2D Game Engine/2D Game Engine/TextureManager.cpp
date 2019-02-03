@@ -9,3 +9,11 @@ SDL_Texture * TextureManager::LoadTexture(SDL_Renderer * renderer, const char * 
 	return texture;
 
 }
+
+SDL_Texture * TextureManager::LoadText(SDL_Renderer * renderer, int fontSize, SDL_Color fontColor, const char * text) {
+
+	//font
+
+	return nullptr;
+
+}

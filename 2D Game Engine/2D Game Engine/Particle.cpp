@@ -1,6 +1,5 @@
 #include "Particle.h"
 
-
 Particle::Particle(float init_x, float init_y, float init_width, float init_height, 
 	float r, float g, float b, float a) : GameObject(nullptr, init_x, init_y, init_width, init_height) {
 	

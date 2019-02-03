@@ -93,11 +93,11 @@
     <ClCompile Include="Spirit.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="CursedFireball.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CursedFire.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CursedFireball.cpp">
+      <Filter>Source Files\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,11 +158,11 @@
     <ClInclude Include="Spirit.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="CursedFireball.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CursedFire.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CursedFireball.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

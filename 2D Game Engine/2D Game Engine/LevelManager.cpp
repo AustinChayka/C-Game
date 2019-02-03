@@ -28,7 +28,7 @@ void LevelManager::LoadLevel(int n) {
 	switch(n) {
 
 		case 0:
-			GenerateLevel(2, NULL);
+			GenerateLevel(1, NULL);
 			
 		default:
 			break;
@@ -57,7 +57,7 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 				AddObject(new Platform(550 + roomOffsetX, 100 + roomOffsetY, 10));
 				AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 4, 1));
 				AddObject(new Box(350 + roomOffsetX, -200 + roomOffsetY));
-				AddObject(new Spirit(150 + roomOffsetX, 50 + roomOffsetY));
+				AddObject(new Spirit(150 + roomOffsetX, -100 + roomOffsetY));
 				roomOffsetX += 20 * 60;
 				break;
 

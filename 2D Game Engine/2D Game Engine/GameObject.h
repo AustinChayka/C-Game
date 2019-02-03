@@ -28,6 +28,10 @@ public:
 	float DistanceToSquared(GameObject * go);
 	bool IsSolid();
 
+	bool HasLineOfSight(GameObject * go, LevelManager * game);
+	void DrawLineOfSight(GameObject * go, LevelManager * game);
+	bool OnScreen();
+
 	float GetX();
 	float GetY();
 	float GetVX();

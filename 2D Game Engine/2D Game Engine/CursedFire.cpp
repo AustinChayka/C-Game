@@ -4,6 +4,8 @@ CursedFire::CursedFire(float x, float y, float scale) : GameObject("assets/Curse
 
 	moveable = false;
 
+	tileX = rand() % 4;
+
 }
 
 CursedFire::~CursedFire() {
