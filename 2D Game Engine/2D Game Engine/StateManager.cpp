@@ -7,6 +7,8 @@ MenuState * pauseMenu = nullptr;
 StateManager::StateManager() : levelManager() {
 
 	levelManager = new LevelManager();
+	mainMenu = new MenuState();
+	pauseMenu = new MenuState();
 	
 	levelManager->LoadLevel(0);
 

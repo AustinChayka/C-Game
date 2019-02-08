@@ -36,6 +36,8 @@ Game::Game(const char * title, int xPos, int yPos, int init_width, int init_heig
 				SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 				SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
+				TTF_Init();
+
 				running = true;
 
 			} else std::cout << "Failed to create renderer. Error: " << SDL_GetError() << std::endl;
@@ -99,6 +101,7 @@ void Game::Clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
+	TTF_Quit();
 
 	std::cout << "Game systems cleaned." << std::endl;
 
