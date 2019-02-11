@@ -1,5 +1,7 @@
 #include "StateManager.h"
 
+#include "GameOverScreen.h"
+
 LevelManager * levelManager = nullptr;
 MenuState * mainMenu = nullptr;
 MenuState * pauseMenu = nullptr;
@@ -9,6 +11,7 @@ StateManager::StateManager() : levelManager() {
 	levelManager = new LevelManager();
 	mainMenu = new MenuState();
 	pauseMenu = new MenuState();
+	gameOver = new GameOverScreen();
 	
 	levelManager->LoadLevel(0);
 
@@ -40,6 +43,9 @@ void StateManager::Update() {
 			pauseMenu->Update(this);
 			break;
 
+		case 3:
+			gameOver->Update(this);
+
 		default:
 			break;
 			
@@ -62,6 +68,9 @@ void StateManager::Render() {
 		case 2:
 			pauseMenu->Render();
 			break;
+
+		case 3:
+			gameOver->Render();
 
 		default:
 			break;

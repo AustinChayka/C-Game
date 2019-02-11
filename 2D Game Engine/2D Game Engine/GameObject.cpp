@@ -2,6 +2,8 @@
 #include <cmath>
 #include "Particle.h"
 
+#include "Debris.h"
+
 GameObject::GameObject(const char * textureSheet, float init_x, float init_y, int init_width, int init_height) {
 
 	if(textureSheet != nullptr) texture = TextureManager::LoadTexture(Game::renderer, textureSheet);
@@ -288,6 +290,36 @@ void GameObject::LockY(GameObject * go) {
 
 }
 
+void GameObject::SetCollidable(bool c) {
+
+	collidable = c;
+
+}
+
+void GameObject::SetMoveable(bool m) {
+
+	moveable = m;
+
+}
+
+void GameObject::SetSolid(bool s) {
+
+	solid = s;
+
+}
+
+int GameObject::GetRenderLayer() {
+
+	return renderLayer;
+
+}
+
+SDL_Rect * GameObject::GetSrcRect() {
+
+	return &srcRect;
+
+}
+
 void GameObject::OnDeath(LevelManager * game) {}
 
 float GameObject::GetXCenter() {
@@ -317,6 +349,12 @@ bool GameObject::IsMoveable() {
 void GameObject::SetVX(float new_vX) {
 
 	vX = new_vX;
+
+}
+
+void GameObject::SetVY(float new_vY) {
+
+	vY = new_vY;
 
 }
 

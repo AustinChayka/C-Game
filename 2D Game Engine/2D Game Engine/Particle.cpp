@@ -10,6 +10,24 @@ Particle::Particle(float init_x, float init_y, float init_width, float init_heig
 
 	moveable = false;
 	collidable = false;
+	solid = false;
+
+	img = false;
+
+}
+
+Particle::Particle(const char * filepath, float init_x, float init_y, float init_width, float init_height, float scale) : 
+	GameObject(filepath, init_x, init_y, init_width, init_height, scale) {
+	
+	moveable = false;
+	collidable = false;
+	solid = false;
+
+	img = true; 
+
+	alpha = 255;
+
+	shrink = false;
 
 }
 
@@ -18,20 +36,39 @@ Particle::~Particle() {}
 void Particle::Update(LevelManager * game) {
 
 	if(shrink) if(width > 1) {
-		width -= .1f;
-		height -= .1f;
+		width -= shrinkSpeed;
+		height -= shrinkSpeed;
 	} else dead = true;
 
-	if(fade) if(alpha > 0) alpha -= .5f;
+	if(fade) if(alpha > 0) alpha -= fadeSpeed;
 	else dead = true;
-	
+
+	if(img) SDL_SetTextureAlphaMod(texture, alpha);
+		
 }
 
 void Particle::RenderObject() {
+
+	if(img) {
+		SDL_RenderCopy(Game::renderer, texture, &srcRect, &destRect);
+		return;
+	}
 	
 	SDL_SetRenderDrawColor(Game::renderer, (Uint8)red, (Uint8)green, (Uint8)blue, (Uint8)alpha);
 	for(int i = 0; i < height; i++) for(int j = 0; j < width; j++) 
 		SDL_RenderDrawPoint(Game::renderer, (x + j - Game::camera->GetX()) * Game::camera->GetScale(), 
 			(y + i - Game::camera->GetY()) * Game::camera->GetScale());
+
+}
+
+void Particle::SetFadeSpeed(float s) {
+
+	fadeSpeed = s;
+
+}
+
+void Particle::SetShrinkSpeed(float s) {
+
+	shrinkSpeed = s;
 
 }

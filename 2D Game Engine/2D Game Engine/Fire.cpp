@@ -1,10 +1,15 @@
 #include "Fire.h"
 
-Fire::Fire(float init_x, float init_y, float scale) : GameObject("assets/Fire.png", init_x, init_y, 10, 10, scale) {
+Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) : GameObject("assets/Fire.png", init_x, init_y, 10, 10, scale) {
 
 	moveable = false;
+	solid = false;
 	
 	tileX = rand() % 4;
+
+	spawner = init_spawner;
+
+	renderLayer = 2;
 
 }
 
@@ -32,6 +37,6 @@ void Fire::OnCollision(GameObject * go, LevelManager * game) {
 		LockY(go);
 	} else grounded = false;
 
-	if(go->IsSolid()) go->DealDamage(1);
+	if(go != spawner && go->IsSolid()) go->DealDamage(1);
 
 }

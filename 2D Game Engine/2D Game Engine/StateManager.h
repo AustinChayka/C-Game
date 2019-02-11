@@ -25,6 +25,7 @@ private:
 	LevelManager * levelManager;
 	MenuState * mainMenu;
 	MenuState * pauseMenu;
+	MenuState * gameOver;
 
 	int activeState = 1;
 	bool stateChanged = false;

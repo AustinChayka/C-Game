@@ -14,7 +14,7 @@ void Fireball::Update(LevelManager * game) {
 	Projectile::Update(game);
 
 	if(particleDelay == 0) {
-		game->AddObject(new Ember(GetXCenter(), GetYCenter(), rand() % 3 * -xDir, rand() % 10 - 5));
+		game->AddObject(new Ember(GetXCenter(), GetYCenter(), rand() % 3 * -xDir, rand() % 10 - 5, spawner));
 		particleDelay = 3;
 	} else particleDelay--;
 
@@ -27,6 +27,6 @@ void Fireball::OnCollision(GameObject * go, LevelManager * game) {
 	Projectile::OnCollision(go, game);
 
 	for(int i = 0; i < rand() % 7 + 3; i++)
-		game->AddObject(new Ember(xDir == 1 ? x : x + width, GetYCenter(), (rand() % 5 + 2) * -xDir, rand() % 10 - 5));
+		game->AddObject(new Ember(xDir == 1 ? x : x + width, GetYCenter(), (rand() % 5 + 2) * -xDir, rand() % 10 - 5, spawner));
 
 }

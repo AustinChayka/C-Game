@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Particle.h"
 #include "CursedFireball.h"
+#include "Debris.h"
 
 Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 35, 51) {
 
@@ -39,10 +40,10 @@ void Spirit::Update(LevelManager * game) {
 
 	} else projectileTimer--;
 	
-	vX = sin(deg) * radius + (target->GetXCenter() - x) / radius;
-	vY = cos(deg) * radius + (target->GetYCenter() - y) / radius;
+	vX = -sin(deg * M_PI / 180) * radius + (target->GetXCenter() - x) / radius;
+	vY = -cos(deg * M_PI / 180) * radius + (target->GetYCenter() - y) / radius;
 
-	deg += .05f;
+	deg += rotPerSec * 360 / 60;
 
 	if(deg > 360) deg = 0;
 
@@ -52,7 +53,11 @@ void Spirit::Update(LevelManager * game) {
 		particleTimer = particleDelay;
 
 	} else particleTimer--;
-
-	std::cout << HasLineOfSight(target, game) << std::endl;
 		
+}
+
+void Spirit::OnDeath(LevelManager * game) {
+
+	game->AddObject(new Debris("assets/Spirit.png", 35, 51, tileX, tileY, 1, x, y));
+
 }

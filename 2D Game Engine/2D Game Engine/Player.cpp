@@ -12,7 +12,7 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 	collidable = true;
 
 	health = 10;
-	damageable = false;
+	damageable = true;
 	
 }
 

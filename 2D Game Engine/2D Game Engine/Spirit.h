@@ -17,9 +17,11 @@ public:
 
 private :
 
-	float deg, radius = 15;
+	float deg, radius = 15, rotPerSec = 0.5f;
 	int particleDelay = 4, particleTimer = particleDelay, projectileDelay = 180, projectileTimer = projectileDelay;
 	GameObject * target;
+
+	void OnDeath(LevelManager * game);
 
 };
 

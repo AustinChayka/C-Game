@@ -3,8 +3,11 @@
 CursedFire::CursedFire(float x, float y, float scale) : GameObject("assets/CursedFire.png", x, y, 10, 10, scale) {
 
 	moveable = false;
+	solid = false;
 
 	tileX = rand() % 4;
+
+	renderLayer = 2;
 
 }
 

@@ -43,6 +43,7 @@ public:
 	bool IsDead();
 	bool IsMoveable();
 	void SetVX(float new_vX);
+	void SetVY(float new_vY);
 	void SetX(float new_x);
 	void SetY(float new_y);
 	int GetHealth();
@@ -55,6 +56,14 @@ public:
 	int GetCollisionWall(GameObject * go);
 	void LockX(GameObject * go);
 	void LockY(GameObject * go);
+
+	void SetCollidable(bool c);
+	void SetMoveable(bool m);
+	void SetSolid(bool s);
+
+	int GetRenderLayer();
+
+	SDL_Rect * GetSrcRect();
 
 protected:
 
@@ -76,6 +85,8 @@ protected:
 	int health = -1, damageDelay = 20;
 
 	virtual void OnDeath(LevelManager * game);
+
+	int renderLayer = 1;
 	
 };
 

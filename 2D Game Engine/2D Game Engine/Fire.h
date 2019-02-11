@@ -7,7 +7,7 @@ class Fire : public GameObject {
 
 public:
 
-	Fire(float x, float y, float scale);
+	Fire(float x, float y, float scale, GameObject * init_spawner);
 	~Fire();
 
 	void Update(LevelManager * game);
@@ -17,6 +17,8 @@ public:
 private:
 
 	float lifeTime = -1;
+
+	GameObject * spawner;
 
 };
 

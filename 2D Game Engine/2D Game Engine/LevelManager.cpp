@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "Block.h"
 #include "Spirit.h"
+#include "Pot.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -58,6 +59,8 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 				AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 4, 1));
 				AddObject(new Box(350 + roomOffsetX, -200 + roomOffsetY));
 				AddObject(new Spirit(150 + roomOffsetX, -100 + roomOffsetY));
+				AddObject(new Pot(650 + roomOffsetX, 100 -24 * 3 + roomOffsetY, true));
+				AddObject(new Pot(750 + roomOffsetX, 100 -24 * 3 + roomOffsetY, false));
 				roomOffsetX += 20 * 60;
 				break;
 
@@ -68,7 +71,7 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 }
 
 void LevelManager::Update(StateManager * sm) {
-	
+		
 	for(int i = 0; i < objects.size(); i++) {
 
 		objects.at(i)->UpdateObject(this);
@@ -80,13 +83,22 @@ void LevelManager::Update(StateManager * sm) {
 
 	}
 
+	if(player->IsDead()) {
+		sm->ChangeState(3);
+		return;
+	}
+
 	Game::gui->Update();
 
 }
 
 void LevelManager::Render() {
 
-	for(auto go : objects) go->RenderObject();
+	for(int layer = 0; layer <= 2; layer++) {
+
+		for(auto go : objects) if(go->GetRenderLayer() == layer) go->RenderObject();
+
+	}
 
 	Game::gui->Render();
 

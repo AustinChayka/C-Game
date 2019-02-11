@@ -14,8 +14,8 @@ public:
 
 	~MenuState();
 
-	void Update(StateManager * sm);
-	void Render();
+	virtual void Update(StateManager * sm);
+	virtual void Render();
 
 private:
 
