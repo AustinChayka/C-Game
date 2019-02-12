@@ -148,6 +148,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="ImageTile.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GUI.h" />
+    <ClInclude Include="ImageTile.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Particle.h" />

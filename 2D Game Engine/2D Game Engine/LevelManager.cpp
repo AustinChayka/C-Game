@@ -61,6 +61,10 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 				AddObject(new Spirit(150 + roomOffsetX, -100 + roomOffsetY));
 				AddObject(new Pot(650 + roomOffsetX, 100 -24 * 3 + roomOffsetY, true));
 				AddObject(new Pot(750 + roomOffsetX, 100 -24 * 3 + roomOffsetY, false));
+				for(int y = 0; y < 5; y++) for(int x = 0; x < 20; x++)  {
+					AddTile(new ImageTile("assets/Block.png", x * 60, y * 60, 20, 20, 0, 0, 3, 0));
+					SDL_SetTextureColorMod(tiles.back()->GetTexture(), 100, 100, 100);
+				}
 				roomOffsetX += 20 * 60;
 				break;
 
@@ -71,6 +75,8 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 }
 
 void LevelManager::Update(StateManager * sm) {
+
+	for(auto it : tiles) it->Update();
 		
 	for(int i = 0; i < objects.size(); i++) {
 
@@ -96,6 +102,7 @@ void LevelManager::Render() {
 
 	for(int layer = 0; layer <= 2; layer++) {
 
+		for(auto it : tiles) if (it->GetLayer() == layer) it->Render();
 		for(auto go : objects) if(go->GetRenderLayer() == layer) go->RenderObject();
 
 	}
@@ -107,6 +114,12 @@ void LevelManager::Render() {
 void LevelManager::AddObject(GameObject * go) {
 
 	objects.push_back(go);
+
+}
+
+void LevelManager::AddTile(ImageTile * it) {
+
+	tiles.push_back(it);
 
 }
 

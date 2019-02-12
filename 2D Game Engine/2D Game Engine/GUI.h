@@ -3,6 +3,8 @@
 
 #include "GameObject.h"
 
+class GameObject;
+
 class GUI {
 
 public:

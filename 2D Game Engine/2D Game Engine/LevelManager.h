@@ -4,9 +4,11 @@
 #include "StateManager.h"
 #include <vector>
 #include "GameObject.h"
+#include "ImageTile.h"
 
 class StateManager;
 class GameObject;
+class ImageTile;
 
 class LevelManager {
 	
@@ -25,6 +27,7 @@ public:
 
 	void AddObject(GameObject * go);
 	std::vector<GameObject *> GetObjects();
+	void AddTile(ImageTile * it);
 
 	void NextLevel();
 
@@ -33,6 +36,7 @@ public:
 private:
 
 	std::vector<GameObject *> objects;
+	std::vector<ImageTile *> tiles;
 
 	int currentLevel = 0;
 	
