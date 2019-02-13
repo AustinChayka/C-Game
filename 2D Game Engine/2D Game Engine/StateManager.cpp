@@ -24,8 +24,7 @@ StateManager::~StateManager() {}
 void StateManager::Update() {
 
 	if(!stateChanged && Game::event.type == SDL_KEYDOWN && Game::event.key.keysym.sym == SDLK_ESCAPE) {
-		if(activeState == 0) ChangeState(1);
-		else ChangeState(0);
+		if(activeState == 1) ChangeState(0);
 		stateChanged = true;
 	} else if(Game::event.type == SDL_KEYUP && Game::event.key.keysym.sym == SDLK_ESCAPE) stateChanged = false;
 	

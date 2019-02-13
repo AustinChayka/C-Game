@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CursedFire.cpp" />
     <ClCompile Include="CursedFireball.cpp" />
@@ -154,6 +155,7 @@
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Platform.cpp" />
+    <ClCompile Include="PlayButton.cpp" />
     <ClCompile Include="Pot.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Smoke.cpp" />
@@ -165,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CursedFire.h" />
     <ClInclude Include="CursedFireball.h" />
@@ -181,6 +184,7 @@
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Platform.h" />
+    <ClInclude Include="PlayButton.h" />
     <ClInclude Include="Pot.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Smoke.h" />

@@ -52,20 +52,33 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 		switch (n) {
 
 			case 0:
-				player->SetX(100);
-				player->SetY(100);
-				AddObject(new Block(0 + roomOffsetX, 300 + roomOffsetY, 20, 1));
-				AddObject(new Platform(550 + roomOffsetX, 100 + roomOffsetY, 10));
-				AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 4, 1));
-				AddObject(new Box(350 + roomOffsetX, -200 + roomOffsetY));
-				AddObject(new Spirit(150 + roomOffsetX, -100 + roomOffsetY));
-				AddObject(new Pot(650 + roomOffsetX, 100 -24 * 3 + roomOffsetY, true));
-				AddObject(new Pot(750 + roomOffsetX, 100 -24 * 3 + roomOffsetY, false));
-				for(int y = 0; y < 5; y++) for(int x = 0; x < 20; x++)  {
-					AddTile(new ImageTile("assets/Block.png", x * 60, y * 60, 20, 20, 0, 0, 3, 0));
+				player->SetX(200);
+				player->SetY(200);
+				AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 20, 1));
+				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX,
+					0 + roomOffsetY, 20, 20, 3, 2, 3, 2));
+				AddObject(new Block(0 + roomOffsetX, 60 + roomOffsetY, 1, 8));
+				for(int i = 0; i < 10; i++) AddTile(new ImageTile("assets/Block.png", 0 + roomOffsetX, i * 60 + roomOffsetY,
+					20, 20, 1, 2, 3, 2));
+				AddObject(new Block(0 + roomOffsetX, 60 * 9 + roomOffsetY, 20, 1));
+				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX, 60 * 9 + roomOffsetY,
+					20, 20, 4, 2, 3, 2));
+				AddObject(new Block(19 * 60 + roomOffsetX, 60 + roomOffsetY, 1, 8));
+				for(int i = 0; i < 10; i++) AddTile(new ImageTile("assets/Block.png", 19 * 60 + 1 + roomOffsetX, i * 60 + roomOffsetY,
+					20, 20, 2, 2, 3, 2));
+				AddObject(new Platform(12 * 60 + roomOffsetX + 25, 60 * 6 + roomOffsetY + 1, 7));
+				AddObject(new Block(18 * 60 + roomOffsetX, 60 * 6 + roomOffsetY, 1, 1));
+				AddObject(new Block(11 * 60 + roomOffsetX + 25, 60 * 6 + roomOffsetY, 1, 1));
+				for(int y = 0; y < 9; y++) for(int x = 0; x < 20; x++)  {
+					AddTile(new ImageTile("assets/Block.png", x * 60 + roomOffsetX, y * 60 + roomOffsetY, 20, 20, 0, 0, 3, 0));
 					SDL_SetTextureColorMod(tiles.back()->GetTexture(), 100, 100, 100);
 				}
-				roomOffsetX += 20 * 60;
+				AddObject(new Pot(400 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, true));
+				AddObject(new Pot(300 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
+				AddObject(new Pot(440 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
+				AddObject(new Pot(360 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
+				//AddObject(new Spirit(360 + roomOffsetX, 300 + roomOffsetY));
+				//AddObject(new Spirit(360 + roomOffsetX, 400+ roomOffsetY));
 				break;
 
 		}

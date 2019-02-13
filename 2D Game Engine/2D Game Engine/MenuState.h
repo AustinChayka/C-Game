@@ -3,8 +3,11 @@
 
 #include "StateManager.h"
 #include "SDL.h"
+#include "Button.h"
+#include <vector>
 
 class StateManager;
+class Button;
 
 class MenuState {
 
@@ -21,6 +24,8 @@ private:
 
 	SDL_Texture * text;
 	SDL_Rect destRect;
+
+	std::vector<Button *> buttons;
 
 };
 
