@@ -1,0 +1,70 @@
+#include "Door.h"
+
+Door::Door(float x, float y) : GameObject("assets/Door.png", x, y, 20, 40, 3) {
+
+	renderLayer = 0;
+
+	collidable = true;
+	moveable = false;
+	solid = true;
+
+	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255, 200}, "[E]");
+	textRect.w = 20;
+	textRect.h = 20;
+
+}
+
+Door::~Door() {
+
+	SDL_DestroyTexture(text);
+
+}
+
+void Door::Update(LevelManager * game) {
+
+	x -= 2;
+	width += 4;
+
+	for (auto go : game->GetObjects()) if (dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
+		collided = true;
+		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) closed = !closed;
+	} else collided = false;
+
+	x += 2;
+	width -= 4;
+
+	solid = closed;
+
+}
+
+void Door::UpdateObject(LevelManager * game) {
+
+	if(closed) {
+		width = 8 * scale;
+	} else {
+		width = 20 * scale;
+	}
+
+	GameObject::UpdateObject(game);
+
+	if(!closed) {
+		srcRect.x = 0;
+		srcRect.w = 20;
+	} else {
+		srcRect.x = 20;
+		srcRect.w = 8;
+		destRect.w = 8 * scale;
+	}
+
+	textRect.x = (int)((x - Game::camera->GetX()) * Game::camera->GetScale());
+	textRect.y = (int)((y - Game::camera->GetY()) * Game::camera->GetScale());
+
+}
+
+void Door::RenderObject() {
+
+	GameObject::RenderObject();
+
+	if(collided) SDL_RenderCopy(Game::renderer, text, NULL, &textRect);
+
+}

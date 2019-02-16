@@ -19,7 +19,7 @@ public:
 
 	~GameObject();
 
-	void UpdateObject(LevelManager * game);
+	virtual void UpdateObject(LevelManager * game);
 	virtual void Update(LevelManager * game) = 0;
 	virtual void RenderObject();
 

@@ -3,12 +3,12 @@
 
 #include "StateManager.h"
 #include <vector>
-#include "GameObject.h"
 #include "ImageTile.h"
 
 class StateManager;
 class GameObject;
 class ImageTile;
+class Room;
 
 class LevelManager {
 	
@@ -37,6 +37,7 @@ private:
 
 	std::vector<GameObject *> objects;
 	std::vector<ImageTile *> tiles;
+	std::vector<Room *> rooms;
 
 	int currentLevel = 0;
 	

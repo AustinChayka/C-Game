@@ -8,6 +8,8 @@
 #include "Block.h"
 #include "Spirit.h"
 #include "Pot.h"
+#include "Door.h"
+#include "Room.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -52,9 +54,10 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 		switch (n) {
 
 			case 0:
-				player->SetX(200);
-				player->SetY(200);
-				AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 20, 1));
+				player->SetX(100);
+				player->SetY(100);
+				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6));
+				/*AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 20, 1));
 				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX,
 					0 + roomOffsetY, 20, 20, 3, 2, 3, 2));
 				AddObject(new Block(0 + roomOffsetX, 60 + roomOffsetY, 1, 8));
@@ -63,8 +66,8 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 				AddObject(new Block(0 + roomOffsetX, 60 * 9 + roomOffsetY, 20, 1));
 				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX, 60 * 9 + roomOffsetY,
 					20, 20, 4, 2, 3, 2));
-				AddObject(new Block(19 * 60 + roomOffsetX, 60 + roomOffsetY, 1, 8));
-				for(int i = 0; i < 10; i++) AddTile(new ImageTile("assets/Block.png", 19 * 60 + 1 + roomOffsetX, i * 60 + roomOffsetY,
+				AddObject(new Block(19 * 60 + roomOffsetX, 60 + roomOffsetY, 1, 6));
+				for(int i = 0; i < 7; i++) AddTile(new ImageTile("assets/Block.png", 19 * 60 + 1 + roomOffsetX, i * 60 + roomOffsetY,
 					20, 20, 2, 2, 3, 2));
 				AddObject(new Platform(12 * 60 + roomOffsetX + 25, 60 * 6 + roomOffsetY + 1, 7));
 				AddObject(new Block(18 * 60 + roomOffsetX, 60 * 6 + roomOffsetY, 1, 1));
@@ -77,8 +80,9 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 				AddObject(new Pot(300 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
 				AddObject(new Pot(440 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
 				AddObject(new Pot(360 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
+				AddObject(new Door(19 * 60 + roomOffsetX, 7 * 60 + roomOffsetY));
 				//AddObject(new Spirit(360 + roomOffsetX, 300 + roomOffsetY));
-				//AddObject(new Spirit(360 + roomOffsetX, 400+ roomOffsetY));
+				//AddObject(new Spirit(360 + roomOffsetX, 400+ roomOffsetY));*/
 				break;
 
 		}
