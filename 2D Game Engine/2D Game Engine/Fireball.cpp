@@ -22,7 +22,7 @@ void Fireball::Update(LevelManager * game) {
 
 void Fireball::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go == spawner) return;
+	if(go == spawner || !go->IsSolid()) return;
 
 	Projectile::OnCollision(go, game);
 

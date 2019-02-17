@@ -17,8 +17,8 @@ Ember::~Ember() {}
 
 void Ember::OnCollision(GameObject * go, LevelManager * game) {
 
-	int wall = GetCollisionWall(go);
-	
+	if(go == spawner || !go->IsSolid()) return;
+		
 	dead = true;
 
 	game->AddObject(new Fire(x, y - 10, (int)(2.5 * width / 5), spawner));

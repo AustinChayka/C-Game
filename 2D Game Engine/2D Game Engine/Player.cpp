@@ -24,6 +24,8 @@ Player::~Player() {
 
 void Player::Update(LevelManager * game) {
 
+	std::cout << grounded << std::endl;
+
 	if(Game::event.type == SDL_KEYDOWN) {
 
 		switch(Game::event.key.keysym.sym) {
@@ -104,7 +106,7 @@ void Player::Update(LevelManager * game) {
 		tileX = attack ? 9 : 0;
 	}
 			
-	vY += .7f;
+	vY += .55f;
 
 	if(tileX > 9) tileX = 1;
 					

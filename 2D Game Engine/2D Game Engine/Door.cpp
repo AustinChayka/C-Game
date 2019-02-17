@@ -1,6 +1,8 @@
 #include "Door.h"
 
-Door::Door(float x, float y) : GameObject("assets/Door.png", x, y, 20, 40, 3) {
+Door::Door(Room * init_room, float x, float y) : GameObject("assets/Door.png", x, y, 20, 40, 3) {
+
+	room = init_room;
 
 	renderLayer = 0;
 
@@ -27,14 +29,15 @@ void Door::Update(LevelManager * game) {
 
 	for (auto go : game->GetObjects()) if (dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;
-		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) closed = !closed;
+		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
+			closed = !closed;
+			if(!room->IsRevealed()) room->SetRevealed(true);
+		}
 	} else collided = false;
 
 	x += 2;
 	width -= 4;
-
-	solid = closed;
-
+	
 }
 
 void Door::UpdateObject(LevelManager * game) {
@@ -46,6 +49,8 @@ void Door::UpdateObject(LevelManager * game) {
 	}
 
 	GameObject::UpdateObject(game);
+
+	solid = closed;
 
 	if(!closed) {
 		srcRect.x = 0;

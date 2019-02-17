@@ -18,7 +18,7 @@ private:
 
 	bool left = false, right = false, attack = false, attackLock = false;
 
-	float maxSpeed = 7, acceleration = .6f, decceleration = 1.15f, jumpPower = 13.5f, manaFatigue = 10;
+	float maxSpeed = 7, acceleration = .6f, decceleration = 1.15f, jumpPower = 11.5f, manaFatigue = 10;
 
 	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0;
 

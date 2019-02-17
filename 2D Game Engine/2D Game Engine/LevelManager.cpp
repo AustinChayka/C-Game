@@ -56,7 +56,9 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 			case 0:
 				player->SetX(100);
 				player->SetY(100);
-				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6));
+				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, -1, 3, 0));
+				roomOffsetX += 20 * 60;
+				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
 				/*AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 20, 1));
 				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX,
 					0 + roomOffsetY, 20, 20, 3, 2, 3, 2));
@@ -93,6 +95,8 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 
 void LevelManager::Update(StateManager * sm) {
 
+	for(auto r : rooms) r->Update(this);
+
 	for(auto it : tiles) it->Update();
 		
 	for(int i = 0; i < objects.size(); i++) {
@@ -116,9 +120,10 @@ void LevelManager::Update(StateManager * sm) {
 }
 
 void LevelManager::Render() {
-
+	
 	for(int layer = 0; layer <= 2; layer++) {
 
+		for(auto r : rooms) r->Render(layer);
 		for(auto it : tiles) if (it->GetLayer() == layer) it->Render();
 		for(auto go : objects) if(go->GetRenderLayer() == layer) go->RenderObject();
 
@@ -142,7 +147,12 @@ void LevelManager::AddTile(ImageTile * it) {
 
 std::vector<GameObject*> LevelManager::GetObjects() {
 
-	return objects;
+	std::vector<GameObject *> allObjects;
+
+	allObjects.insert(allObjects.end(), objects.begin(), objects.end());
+	for(auto r : rooms) allObjects.insert(allObjects.end(), r->GetObjects()->begin(), r->GetObjects()->end());
+
+	return allObjects;
 
 }
 

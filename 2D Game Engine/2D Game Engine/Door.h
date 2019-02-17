@@ -4,12 +4,13 @@
 #include "GameObject.h"
 
 #include "Player.h"
+#include "Room.h"
 
 class Door : public GameObject {
 
 public:
 
-	Door(float x, float y);
+	Door(Room * init_room, float x, float y);
 
 	~Door();
 
@@ -23,6 +24,8 @@ private:
 
 	SDL_Texture * text;
 	SDL_Rect textRect;
+
+	Room * room;
 	
 };
 

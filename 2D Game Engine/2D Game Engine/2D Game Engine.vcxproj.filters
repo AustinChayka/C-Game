@@ -127,7 +127,7 @@
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,7 +216,7 @@
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
