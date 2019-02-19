@@ -16,9 +16,12 @@ Particle::Particle(float init_x, float init_y, float init_width, float init_heig
 
 }
 
-Particle::Particle(const char * filepath, float init_x, float init_y, float init_width, float init_height, float scale) : 
-	GameObject(filepath, init_x, init_y, init_width, init_height, scale) {
-	
+Particle::Particle(const char * filepath, float init_x, float init_y, float init_width, float init_height, 
+	int init_tileX, int init_tileY, float scale) : GameObject(filepath, init_x, init_y, init_width, init_height, scale) {
+
+	tileX = init_tileX;
+	tileY = init_tileY;
+		
 	moveable = false;
 	collidable = false;
 	solid = false;
@@ -40,7 +43,7 @@ void Particle::Update(LevelManager * game) {
 		height -= shrinkSpeed;
 	} else dead = true;
 
-	if(fade) if(alpha > 0) alpha -= fadeSpeed;
+	if(fade) if(alpha > 0) alpha - fadeSpeed > 0 ? alpha -= fadeSpeed : alpha = 0;
 	else dead = true;
 
 	if(img) SDL_SetTextureAlphaMod(texture, alpha);

@@ -5,6 +5,7 @@
 #include "Block.h"
 #include "Door.h"
 #include <vector>
+#include "Pot.h"
 
 class Room {
 

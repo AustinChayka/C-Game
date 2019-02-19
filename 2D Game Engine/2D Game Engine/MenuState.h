@@ -20,7 +20,7 @@ public:
 	virtual void Update(StateManager * sm);
 	virtual void Render();
 
-private:
+protected:
 
 	SDL_Texture * text;
 	SDL_Rect destRect;

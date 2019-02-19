@@ -24,8 +24,6 @@ public:
 	void Update();
 	void Render();
 	void Clean();
-
-	bool IsRunning();
 	
 	static SDL_Renderer * renderer;
 	static SDL_Event event;
@@ -35,10 +33,11 @@ public:
 	static int width, height;
 
 	static GUI * gui;
+
+	static bool running;
 	
 private:
 
-	bool running = false;
 	SDL_Window * window;
 
 	StateManager * stateManager;

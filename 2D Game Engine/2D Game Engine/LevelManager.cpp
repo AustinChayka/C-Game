@@ -59,32 +59,12 @@ void LevelManager::GenerateLevel(int sizeX, int sizeY) {
 				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, -1, 3, 0));
 				roomOffsetX += 20 * 60;
 				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
-				/*AddObject(new Block(0 + roomOffsetX, 0 + roomOffsetY, 20, 1));
-				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX,
-					0 + roomOffsetY, 20, 20, 3, 2, 3, 2));
-				AddObject(new Block(0 + roomOffsetX, 60 + roomOffsetY, 1, 8));
-				for(int i = 0; i < 10; i++) AddTile(new ImageTile("assets/Block.png", 0 + roomOffsetX, i * 60 + roomOffsetY,
-					20, 20, 1, 2, 3, 2));
-				AddObject(new Block(0 + roomOffsetX, 60 * 9 + roomOffsetY, 20, 1));
-				for(int i = 0; i < 20; i++) AddTile(new ImageTile("assets/Block.png", i * 60 + roomOffsetX, 60 * 9 + roomOffsetY,
-					20, 20, 4, 2, 3, 2));
-				AddObject(new Block(19 * 60 + roomOffsetX, 60 + roomOffsetY, 1, 6));
-				for(int i = 0; i < 7; i++) AddTile(new ImageTile("assets/Block.png", 19 * 60 + 1 + roomOffsetX, i * 60 + roomOffsetY,
-					20, 20, 2, 2, 3, 2));
-				AddObject(new Platform(12 * 60 + roomOffsetX + 25, 60 * 6 + roomOffsetY + 1, 7));
-				AddObject(new Block(18 * 60 + roomOffsetX, 60 * 6 + roomOffsetY, 1, 1));
-				AddObject(new Block(11 * 60 + roomOffsetX + 25, 60 * 6 + roomOffsetY, 1, 1));
-				for(int y = 0; y < 9; y++) for(int x = 0; x < 20; x++)  {
-					AddTile(new ImageTile("assets/Block.png", x * 60 + roomOffsetX, y * 60 + roomOffsetY, 20, 20, 0, 0, 3, 0));
-					SDL_SetTextureColorMod(tiles.back()->GetTexture(), 100, 100, 100);
-				}
-				AddObject(new Pot(400 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, true));
-				AddObject(new Pot(300 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
-				AddObject(new Pot(440 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
-				AddObject(new Pot(360 + roomOffsetX, 60 * 9 - 3 * 24 + roomOffsetY, false));
-				AddObject(new Door(19 * 60 + roomOffsetX, 7 * 60 + roomOffsetY));
-				//AddObject(new Spirit(360 + roomOffsetX, 300 + roomOffsetY));
-				//AddObject(new Spirit(360 + roomOffsetX, 400+ roomOffsetY));*/
+				roomOffsetX += 20 * 60;
+				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
+				roomOffsetX += 20 * 60;
+				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
+				roomOffsetX += 20 * 60;
+				rooms.push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, -1, -1));
 				break;
 
 		}

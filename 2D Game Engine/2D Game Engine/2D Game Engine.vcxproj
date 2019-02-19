@@ -144,6 +144,7 @@
     <ClCompile Include="Debris.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Ember.cpp" />
+    <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="Fire.cpp" />
     <ClCompile Include="Fireball.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Debris.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Ember.h" />
+    <ClInclude Include="ExitButton.h" />
     <ClInclude Include="Fire.h" />
     <ClInclude Include="Fireball.h" />
     <ClInclude Include="Game.h" />

@@ -11,7 +11,8 @@ Debris::Debris(const char * filepath, int img_width, int img_height, int init_ti
 
 	for(int i = 0; i < rows * columns; i++) {
 		pieces.push_back(new Particle(filepath, x + (i % rows) * (int)(img_width * scale / rows),
-			y + (i / rows) * (int)(img_height * scale / columns), (int)(img_width * scale / rows), (int)(img_height * scale / columns), 1));
+			y + (i / rows) * (int)(img_height * scale / columns), (int)(img_width * scale / rows), (int)(img_height * scale / columns),
+			0, 0, 1));
 		pieces.back()->SetVX(0.25f * (rand() % 2 - 1 + i % rows - rows / 2));
 		pieces.back()->SetVY(0.25f * (rand() % 2 - 1 + i / rows - columns));
 		pieces.back()->SetFadeSpeed(1.5f);

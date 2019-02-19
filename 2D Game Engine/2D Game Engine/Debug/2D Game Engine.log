@@ -1,14 +1,10 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (2D Game Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Door.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\door.cpp(61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  LevelManager.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(102): warning C4018: '<': signed/unsigned mismatch
-  Room.cpp
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(33): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(76): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+  GameObject.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(154): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(156): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(207): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(210): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(215): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(218): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\Debug\Game.exe

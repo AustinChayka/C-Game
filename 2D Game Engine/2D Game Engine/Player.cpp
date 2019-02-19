@@ -24,8 +24,6 @@ Player::~Player() {
 
 void Player::Update(LevelManager * game) {
 
-	std::cout << grounded << std::endl;
-
 	if(Game::event.type == SDL_KEYDOWN) {
 
 		switch(Game::event.key.keysym.sym) {
@@ -51,6 +49,14 @@ void Player::Update(LevelManager * game) {
 				dir = 1;
 				tileY = 0;
 				break; 
+
+			case SDLK_LSHIFT:
+				if(dash == 0 && manaFatigue >= 8) {
+					dash = 6;
+					damageable = false;
+					manaFatigue -= 8;
+				}
+				break;
 							
 		}
 
@@ -75,7 +81,7 @@ void Player::Update(LevelManager * game) {
 
 	}
 
-	if(attack && shot == 0) {
+	if(dash == 0 && attack && shot == 0) {
 		if(!attackLock && manaFatigue >= 2) {
 			game->AddObject(new Fireball(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this));
 			shot = shotDelay;
@@ -86,27 +92,44 @@ void Player::Update(LevelManager * game) {
 		}
 	}
 
+	if(dash > 0) {
+		vX = 0;
+		dash--;
+		for(auto go : game->GetObjects()) if(go->IsSolid() && !go->IsMoveable() &&
+			x + width + (dir == 1 ? 55 : -55) > go->GetX() && x + (dir == 1 ? 55 : -55) < go->GetX() + go->GetWidth() &&
+			y + height > go->GetY() && y < go->GetY() + go->GetHeight()) {
+				dash = 0;
+				return;
+			}
+		if(dash != 0) {
+			x += (dir == 1 ? 55 : -55);
+			Particle * p = new Particle("assets/Player.png", x, y, 21, 36, (int)((dash / 6.0f) * 9), tileY, 3);
+			p->SetFadeSpeed(8);
+			game->AddObject(p);
+		} else vX = maxSpeed * (dir == 1 ? 1.5f : -1.5f);
+	} else damageable = true;
+
 	if(smokeDelay != 0) smokeDelay--;
 
 	if(shot > 0) shot--;
 
 	if(!attack && manaFatigue < 10) manaFatigue += .08f;
 
-	if(!attack && left) {
+	if(dash == 0 && !attack && left) {
 		if(vX > -maxSpeed) vX -= acceleration;
 		tileX += .17f;
 	}
-	if(!attack && right) {
+	if(dash == 0 && !attack && right) {
 		if(vX < maxSpeed) vX += acceleration;
 		tileX += .17f;
 	}
 
-	if(attack || (!left && !right)) {
+	if(dash == 0 && (attack || (!left && !right))) {
 		vX /= decceleration;
 		tileX = attack ? 9 : 0;
 	}
 			
-	vY += .55f;
+	if(dash == 0) vY += .55f;
 
 	if(tileX > 9) tileX = 1;
 					

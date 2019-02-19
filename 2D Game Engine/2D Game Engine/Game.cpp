@@ -11,6 +11,8 @@ int Game::height;
 
 GUI * Game::gui = nullptr;
 
+bool Game::running;
+
 Game::Game(const char * title, int xPos, int yPos, int init_width, int init_height, bool fullscreen) {
 
 	width = init_width;
@@ -104,11 +106,5 @@ void Game::Clean() {
 	TTF_Quit();
 
 	std::cout << "Game systems cleaned." << std::endl;
-
-}
-
-bool Game::IsRunning() {
-
-	return running;
 
 }

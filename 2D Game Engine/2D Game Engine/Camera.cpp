@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+#include "GameObject.h"
+
 Camera::Camera(float init_x, float init_y, float init_width, float init_height) {
 
 	x = init_x;

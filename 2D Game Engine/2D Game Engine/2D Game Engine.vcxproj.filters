@@ -129,6 +129,9 @@
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="ExitButton.cpp">
+      <Filter>Source Files\Engine\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -217,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitButton.h">
+      <Filter>Header Files\Engine\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

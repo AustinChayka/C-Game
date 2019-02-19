@@ -39,7 +39,7 @@ void Pot::Update(LevelManager * game) {
 }
 
 void Pot::OnCollision(GameObject * go, LevelManager * game) {
-
+	
 	if (!solid) return;
 
 	if(go->IsMoveable() && GetCollisionWall(go) != TOP) go->SetVX(go->GetVX() / 1.2f);

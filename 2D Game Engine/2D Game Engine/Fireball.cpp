@@ -1,5 +1,7 @@
 #include "Fireball.h"
 
+#include "Pot.h"
+
 Fireball::Fireball(float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) :
 	Projectile("assets/Fireball.png", x, y, init_vX, init_vY, init_xDir, init_yDir, init_spawner) {
 
@@ -22,7 +24,7 @@ void Fireball::Update(LevelManager * game) {
 
 void Fireball::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go == spawner || !go->IsSolid()) return;
+	if(go == spawner || (dynamic_cast<Pot *>(go) == nullptr && !go->IsSolid())) return;
 
 	Projectile::OnCollision(go, game);
 

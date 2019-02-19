@@ -1,8 +1,6 @@
 #ifndef Camera_h
 #define Camera_h
 
-#include "GameObject.h"
-
 class GameObject;
 
 class Camera {

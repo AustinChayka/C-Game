@@ -3,6 +3,7 @@
 #include "Game.h"
 
 #include "PlayButton.h"
+#include "ExitButton.h"
 
 MenuState::MenuState() {
 
@@ -13,7 +14,8 @@ MenuState::MenuState() {
 	destRect.w = 600;
 	destRect.h = 100;
 
-	buttons.push_back(new PlayButton(200, 400, 150, 50, 2));
+	buttons.push_back(new PlayButton(50, 400, 150, 50, 2));
+	buttons.push_back(new ExitButton(400, 400, 150, 50, 2));
 
 }
 

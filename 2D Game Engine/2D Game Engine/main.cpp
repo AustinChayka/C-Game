@@ -4,6 +4,8 @@
 
 Game * game = NULL;
 
+int scale = 90;
+
 int main(int argc, char * argv[]) {
 
 	const float frameDelay = 1000.0f / 60.0f;
@@ -11,9 +13,9 @@ int main(int argc, char * argv[]) {
 	Uint32 frameStart;
 	int frameTime;
 
-	game = new Game("OakEngine v0.2a", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+	game = new Game("OakEngine v0.2a", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 16 * scale, 9 * scale, true);
 		
-	while(game->IsRunning()) {
+	while(Game::running) {
 
 		frameStart = SDL_GetTicks();
 

@@ -10,7 +10,8 @@ class Particle : public GameObject {
 public:
 
 	Particle(float init_x, float init_y, float init_width, float init_height, float r, float g, float b, float a);
-	Particle(const char * filepath, float init_x, float init_y, float init_width, float init_height, float scale);
+	Particle(const char * filepath, float init_x, float init_y, float init_width, float init_height, 
+		int init_tileX, int init_tileY, float scale);
 	~Particle();
 
 	virtual void Update(LevelManager * game);
