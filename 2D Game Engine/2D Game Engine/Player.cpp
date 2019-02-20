@@ -95,7 +95,7 @@ void Player::Update(LevelManager * game) {
 	if(dash > 0) {
 		vX = 0;
 		dash--;
-		for(auto go : game->GetObjects()) if(go->IsSolid() && !go->IsMoveable() &&
+		for(auto go : *(game->GetObjects())) if(go->IsSolid() && !go->IsMoveable() &&
 			x + width + (dir == 1 ? 55 : -55) > go->GetX() && x + (dir == 1 ? 55 : -55) < go->GetX() + go->GetWidth() &&
 			y + height > go->GetY() && y < go->GetY() + go->GetHeight()) {
 				dash = 0;

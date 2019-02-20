@@ -24,7 +24,7 @@ void Fireball::Update(LevelManager * game) {
 
 void Fireball::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go == spawner || (dynamic_cast<Pot *>(go) == nullptr && !go->IsSolid())) return;
+	if(go == spawner || (dynamic_cast<Pot *>(go) == nullptr && !go->IsSolid() && !go->IsDamagable())) return;
 
 	Projectile::OnCollision(go, game);
 

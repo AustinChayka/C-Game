@@ -24,7 +24,8 @@ void Spirit::Update(LevelManager * game) {
 
 	lm = game;
 
-	for(auto go : game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && HasLineOfSight(go, game)) {
+	for(auto go : *(game->GetObjects())) 
+		if(dynamic_cast<Player*>(go) != nullptr && HasLineOfSight(go, game)) {
 
 		target = go;
 				

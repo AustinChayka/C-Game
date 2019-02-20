@@ -83,3 +83,9 @@ void StateManager::ChangeState(int n) {
 	activeState = n;
 
 }
+
+LevelManager * StateManager::GetLevelManager() {
+
+	return levelManager;
+
+}

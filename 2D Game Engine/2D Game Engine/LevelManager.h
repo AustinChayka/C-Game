@@ -26,8 +26,9 @@ public:
 	void Render();
 
 	void AddObject(GameObject * go);
-	std::vector<GameObject *> GetObjects();
+	std::vector<GameObject *> * GetObjects();
 	void AddTile(ImageTile * it);
+	std::vector<Room *> * GetRooms();
 
 	void NextLevel();
 
@@ -35,9 +36,11 @@ public:
 
 private:
 
-	std::vector<GameObject *> objects;
-	std::vector<ImageTile *> tiles;
-	std::vector<Room *> rooms;
+	std::vector<GameObject *> * objects;
+	std::vector<ImageTile *> * tiles;
+	std::vector<Room *> * rooms;
+
+	std::vector<GameObject *> * allObjects;
 
 	int currentLevel = 0;
 	

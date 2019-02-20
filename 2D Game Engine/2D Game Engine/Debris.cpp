@@ -32,7 +32,7 @@ void Debris::Update(LevelManager * game) {
 		
 		pieces.at(i)->SetVY(pieces.at(i)->GetVY() + 0.07f);
 	
-		for(auto go : game->GetObjects()) if(pieces.at(i)->CollidesWith(go) && (!go->IsMoveable() && go->IsSolid())) {
+		for(auto go : *(game->GetObjects())) if(pieces.at(i)->CollidesWith(go) && (!go->IsMoveable() && go->IsSolid())) {
 
 			pieces.at(i)->SetVX(0);
 			pieces.at(i)->SetVY(0);

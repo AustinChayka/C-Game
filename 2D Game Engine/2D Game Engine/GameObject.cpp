@@ -70,7 +70,7 @@ void GameObject::UpdateObject(LevelManager * game) {
 	
 	grounded = false;
 
-	if(collidable) for(auto go : game->GetObjects()) if(this->CollidesWith(go)) {
+	if(collidable) for(auto go : *(game->GetObjects())) if(this->CollidesWith(go)) {
 		go->OnCollision(this, game);
 		if(solid && go->IsMoveable()) go->LockCollision(this);
 	}
@@ -147,9 +147,9 @@ bool GameObject::HasLineOfSight(GameObject * go, LevelManager * game) {
 	for(int x=(int)x1; x<maxX; x++) {
 
 		if(steep) {
-			for(auto goAt : game->GetObjects()) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(y, x);
+			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(y, x);
 		} else {
-			for(auto goAt : game->GetObjects()) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(x, y);
+			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(x, y);
 		}
 
 		error -= dy;
@@ -200,7 +200,7 @@ void GameObject::DrawLineOfSight(GameObject * go, LevelManager * game) {
 
 		if(steep)
 		{
-			for(auto goAt : game->GetObjects()) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(y, x);
+			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(y, x);
 			if(clear) {
 				SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
 				SDL_RenderDrawPoint(Game::renderer, y - Game::camera->GetX(), x - Game::camera->GetY());
@@ -208,7 +208,7 @@ void GameObject::DrawLineOfSight(GameObject * go, LevelManager * game) {
 		}
 		else
 		{
-			for(auto goAt : game->GetObjects()) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(x, y);
+			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(x, y);
 			if(clear) {
 				SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
 				SDL_RenderDrawPoint(Game::renderer, x - Game::camera->GetX(), y - Game::camera->GetY());
@@ -374,6 +374,12 @@ void GameObject::SetY(float new_y) {
 int GameObject::GetHealth() {
 
 	return health;
+
+}
+
+bool GameObject::IsDamagable() {
+
+	return damageable;
 
 }
 

@@ -27,7 +27,7 @@ void Door::Update(LevelManager * game) {
 	x -= 2;
 	width += 4;
 
-	for (auto go : game->GetObjects()) if (dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
+	for (auto go : *(game->GetObjects())) if (dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;
 		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
 			closed = !closed;

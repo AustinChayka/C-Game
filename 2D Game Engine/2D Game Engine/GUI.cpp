@@ -1,10 +1,12 @@
 #include "GUI.h"
 
 #include "Player.h"
+#include "Room.h"
 
-GUI::GUI(GameObject * p) {
+GUI::GUI(GameObject * p, StateManager * sm) {
 
 	player = p;
+	manager = sm;
 
 }
 
@@ -20,6 +22,11 @@ void GUI::Update() {
 
 	prevHealth = player->GetHealth();
 	prevManaFatigue = ((Player*)player)->GetManaFatigue();
+
+	mapWidth = 0;
+	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed()) mapWidth += (r->GetWidth() / 60) * 2;
+	mapHeight = 0;
+	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed()) mapHeight += (r->GetHeight() / 60) * 2;
 
 }
 
@@ -40,6 +47,18 @@ void GUI::Render() {
 
 		SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 150);
 		SDL_RenderDrawPoint(Game::renderer, x + 15, Game::height - y - 15);
+
+	}
+	
+	for(auto r : *(manager->GetLevelManager()->GetRooms())) {
+		
+		if(r->IsActive()) SDL_SetRenderDrawColor(Game::renderer, 0, 150, 0, 100);
+		else SDL_SetRenderDrawColor(Game::renderer, 0, 100, 0, 100);
+		mapRect.x = (r->GetX() / 60) * 2 - 20 + Game::width - mapWidth;
+		mapRect.y = (r->GetY() / 60) * 2 + 20;
+		mapRect.w = (r->GetWidth() / 60) * 2;
+		mapRect.h = (r->GetHeight() / 60) * 2;
+		if(r->IsRevealed()) SDL_RenderFillRect(Game::renderer, &mapRect);
 
 	}
 

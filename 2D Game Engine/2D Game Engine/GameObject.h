@@ -47,6 +47,7 @@ public:
 	void SetX(float new_x);
 	void SetY(float new_y);
 	int GetHealth();
+	bool IsDamagable();
 
 	bool IsAt(float xTarget, float yTarget);
 	

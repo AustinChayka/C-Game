@@ -20,6 +20,8 @@ public:
 
 	void ChangeState(int n);
 
+	LevelManager * GetLevelManager();
+
 private:
 
 	LevelManager * levelManager;

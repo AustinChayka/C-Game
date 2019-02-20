@@ -6,6 +6,7 @@
 #include "Door.h"
 #include <vector>
 #include "Pot.h"
+#include "Platform.h"
 
 class Room {
 
@@ -23,12 +24,19 @@ public:
 	void Render(int layer);
 
 	std::vector<GameObject *> * GetObjects();
+
+	float GetY();
+	float GetX();
+	float GetWidth();
+	float GetHeight();
+
+	bool IsActive();
 	
 private:
 
 	float x, y;
 	int width, height;
-	bool revealed = true;
+	bool revealed = true, active;
 
 	GameObject * door;
 

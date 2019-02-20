@@ -52,7 +52,7 @@ Game::Game(const char * title, int xPos, int yPos, int init_width, int init_heig
 
 	stateManager = new StateManager();
 
-	gui = new GUI(LevelManager::player);
+	gui = new GUI(LevelManager::player, stateManager);
 	
 }
 
