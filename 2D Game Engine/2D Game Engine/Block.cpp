@@ -13,6 +13,9 @@ Block::Block(float x, float y, int init_tilesWidth, int init_tilesHeight) :
 	collidable = true;
 	moveable = false;
 
+	destRect.x = -20 * scale;
+	destRect.y = -20 * scale;
+
 }
 
 Block::~Block() {}

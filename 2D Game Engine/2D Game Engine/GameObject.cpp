@@ -2,8 +2,6 @@
 #include <cmath>
 #include "Particle.h"
 
-#include "Debris.h"
-
 GameObject::GameObject(const char * textureSheet, float init_x, float init_y, int init_width, int init_height) {
 
 	if(textureSheet != nullptr) texture = TextureManager::LoadTexture(Game::renderer, textureSheet);
@@ -74,7 +72,7 @@ void GameObject::UpdateObject(LevelManager * game) {
 		go->OnCollision(this, game);
 		if(solid && go->IsMoveable()) go->LockCollision(this);
 	}
-
+	
 	srcRect.x = (int)tileX * spriteWidth;
 	srcRect.y = (int)tileY * spriteHeight;
 	
@@ -86,6 +84,8 @@ void GameObject::UpdateObject(LevelManager * game) {
 }
 
 void GameObject::RenderObject() {
+
+	if(!visible) return;
 
 	SDL_RenderCopy(Game::renderer, texture, &srcRect, &destRect);
 
@@ -111,117 +111,6 @@ float GameObject::DistanceToSquared(GameObject * go) {
 bool GameObject::IsSolid() {
 
 	return solid;
-
-}
-
-bool GameObject::HasLineOfSight(GameObject * go, LevelManager * game) {
-
-	if(!OnScreen()) return false;
-
-	float x1 = GetXCenter(), x2 = go->GetXCenter(), y1 = GetYCenter(), y2 = go->GetYCenter();
-
-	const bool steep = (fabs(y2 - y1) > fabs(x2 - x1));
-	if(steep)
-	{
-		std::swap(x1, y1);
-		std::swap(x2, y2);
-	}
-
-	if(x1 > x2)
-	{
-		std::swap(x1, x2);
-		std::swap(y1, y2);
-	}
-
-	const float dx = x2 - x1;
-	const float dy = fabs(y2 - y1);
-
-	float error = dx / 2.0f;
-	const int ystep = (y1 < y2) ? 1 : -1;
-	int y = (int)y1;
-
-	const int maxX = (int)x2;
-
-	bool clear = true;
-
-	for(int x=(int)x1; x<maxX; x++) {
-
-		if(steep) {
-			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(y, x);
-		} else {
-			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(x, y);
-		}
-
-		error -= dy;
-		if(error < 0)
-		{
-			y += ystep;
-			error += dx;
-		}
-	}
-
-	return clear;
-
-}
-
-void GameObject::DrawLineOfSight(GameObject * go, LevelManager * game) {
-
-	if(!OnScreen()) return;
-	
-	float x1 = GetXCenter(), x2 = go->GetXCenter(), y1 = GetYCenter(), y2 = go->GetYCenter();
-
-	const bool steep = (fabs(y2 - y1) > fabs(x2 - x1));
-
-	if(steep)
-	{
-		std::swap(x1, y1);
-		std::swap(x2, y2);
-	}
-
-	if(x1 > x2)
-	{
-		std::swap(x1, x2);
-		std::swap(y1, y2);
-	}
-
-	const float dx = x2 - x1;
-	const float dy = fabs(y2 - y1);
-
-	float error = dx / 2.0f;
-	const int ystep = (y1 < y2) ? 1 : -1;
-	int y = (int)y1;
-
-	const int maxX = (int)x2;
-	
-	bool clear = true;
-
-	for(int x=(int)x1; x<maxX; x++)
-	{
-
-		if(steep)
-		{
-			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(y, x);
-			if(clear) {
-				SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-				SDL_RenderDrawPoint(Game::renderer, y - Game::camera->GetX(), x - Game::camera->GetY());
-			}
-		}
-		else
-		{
-			for(auto goAt : *(game->GetObjects())) if(goAt != this && goAt != go && dynamic_cast<Particle*>(goAt) == nullptr) clear &= !goAt->IsAt(x, y);
-			if(clear) {
-				SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-				SDL_RenderDrawPoint(Game::renderer, x - Game::camera->GetX(), y - Game::camera->GetY());
-			}
-		}
-
-		error -= dy;
-		if(error < 0)
-		{
-			y += ystep;
-			error += dx;
-		}
-	}
 
 }
 

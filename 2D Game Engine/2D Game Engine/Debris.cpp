@@ -6,7 +6,7 @@ Debris::Debris(const char * filepath, int img_width, int img_height, int init_ti
 	tileX = init_tileX;
 	tileY = init_tileY;
 
-	rows = 2 * (rand() % 4 + 3);
+	rows = 2 * (rand() % 2 + 2);
 	columns = rows + 2 * (rand() % 2 - 1);
 
 	for(int i = 0; i < rows * columns; i++) {

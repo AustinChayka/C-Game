@@ -11,6 +11,7 @@ GameOverScreen::GameOverScreen() : MenuState() {
 	destRect.w = 600;
 	destRect.h = 100;
 
+	buttons.clear();
 	buttons.push_back(new ExitButton(125, 400, 150, 50, 2));
 
 }
@@ -23,11 +24,13 @@ GameOverScreen::~GameOverScreen() {
 
 void GameOverScreen::Update(StateManager * sm) {
 
-
+	MenuState::Update(sm);
 
 }
 
 void GameOverScreen::Render() {
+
+	MenuState::Render();
 
 	SDL_RenderCopy(Game::renderer, text, NULL, &destRect);
 

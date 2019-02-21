@@ -83,12 +83,12 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 					SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
 					tiles.push_back(tile);
 				}
+				objects.push_back(new Spirit(x + 700, y + 100));
 				break;
 
 			case 1:
 				for(int i = 1; i < 4; i++)
 					if(i) objects.push_back(new Pot(x + 100 + i * 16 * 3, y + height - 60 - 24 * 3, rand() % 4 == 0 ? true : false));
-				objects.push_back(new Spirit(x + 200, y + 50));
 				break;
 
 		}
@@ -123,6 +123,11 @@ bool Room::IsRevealed() {
 }
 
 void Room::Update(LevelManager * game) {
+
+	if(!revealed) {
+		door->UpdateObject(game);
+		return;
+	}
 
 	for(auto it : tiles) it->Update();
 

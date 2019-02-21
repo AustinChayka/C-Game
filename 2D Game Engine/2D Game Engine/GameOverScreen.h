@@ -12,12 +12,7 @@ public:
 
 	void Update(StateManager * sm);
 	void Render();
-
-private:
-
-	SDL_Texture * text;
-	SDL_Rect destRect;
-
+	
 };
 
 #endif
