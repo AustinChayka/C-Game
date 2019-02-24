@@ -14,6 +14,8 @@ public:
 
 	void OnCollision(GameObject * go, LevelManager * game);
 
+	bool OverrideCollision(GameObject * go);
+
 private:
 
 	float lifeTime = -1;

@@ -7,8 +7,9 @@
 Projectile::Projectile(const char * path, float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) 
 	: GameObject(path, x, y, 6, 6, 2) {
 
-	collidable = false;
+	collidable = true;
 	moveable = false;
+	solid = false;
 
 	vX = init_vX;
 	vY = init_vY;

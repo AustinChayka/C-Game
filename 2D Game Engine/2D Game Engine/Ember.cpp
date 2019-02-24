@@ -8,6 +8,7 @@ Ember::Ember(float init_x, float init_y, float init_vX, float init_vY, GameObjec
 	vY = init_vY;
 
 	moveable = false;
+	collidable = true;
 
 	spawner = init_spawner;
 

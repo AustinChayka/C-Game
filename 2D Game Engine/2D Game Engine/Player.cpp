@@ -23,7 +23,7 @@ Player::~Player() {
 }
 
 void Player::Update(LevelManager * game) {
-
+	
 	if(Game::event.type == SDL_KEYDOWN) {
 
 		switch(Game::event.key.keysym.sym) {

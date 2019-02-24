@@ -5,6 +5,7 @@
 #include "TextureManager.h"
 #include "LevelManager.h"
 #include "Game.h"
+#include <vector>
 
 class LevelManager;
 class Game;
@@ -19,6 +20,8 @@ public:
 
 	~GameObject();
 
+	void UpdateCollisions(LevelManager * game);
+	void Collide();
 	virtual void UpdateObject(LevelManager * game);
 	virtual void Update(LevelManager * game) = 0;
 	virtual void RenderObject();
@@ -51,10 +54,8 @@ public:
 	
 	virtual void DealDamage(int d);
 	
-	void LockCollision(GameObject * go);
-	int GetCollisionWall(GameObject * go);
-	void LockX(GameObject * go);
-	void LockY(GameObject * go);
+	float GetXOverlap(GameObject * go);
+	float GetYOverlap(GameObject * go);
 
 	void SetCollidable(bool c);
 	void SetMoveable(bool m);
@@ -64,6 +65,13 @@ public:
 
 	SDL_Rect * GetSrcRect();
 
+	bool IsPushedUp();
+	bool IsPushedDown();
+	bool IsPushedLeft();
+	bool IsPushedRight();
+
+	virtual bool OverrideCollision(GameObject * go);
+	
 protected:
 
 	float x, y, width, height, tileX = 0, tileY = 0, vX, vY, scale;
@@ -81,13 +89,17 @@ protected:
 	};
 
 	bool damageable = false;
-	int health = -1, damageDelay = 20;
+	int health = -1, damageDelay = 20, damageFlash = 0;
 
 	virtual void OnDeath(LevelManager * game);
 
 	int renderLayer = 1;
 
 	bool visible = true;
+
+	bool pushedLeft = false, pushedRight = false, pushedUp = false, pushedDown = false;
+
+	std::vector<GameObject *> collisions;
 	
 };
 

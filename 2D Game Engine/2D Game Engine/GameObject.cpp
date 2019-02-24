@@ -52,6 +52,78 @@ GameObject::~GameObject() {
 	
 }
 
+void GameObject::UpdateCollisions(LevelManager * game) {
+
+	if(!collidable) return;
+
+	grounded = pushedUp = pushedDown = pushedLeft = pushedRight = false;
+	collisions.clear();
+
+	for(auto go : *game->GetObjects()) if(this->CollidesWith(go)) {
+
+		OnCollision(go, game);
+
+		if(!moveable || !go->IsSolid()) continue;
+
+		if(!OverrideCollision(go)) collisions.push_back(go);
+		
+		if(GetXOverlap(go) < GetYOverlap(go)) {
+			if(GetXCenter() > go->GetXCenter()) {
+				pushedLeft = true;
+			} else {
+				pushedRight = true;
+			}
+		} else {
+			if(GetYCenter() > go->GetYCenter()) {
+				pushedDown = true;
+			} else {
+				pushedUp = true;
+				grounded = true;
+			}
+		}
+
+	}
+
+}
+
+void GameObject::Collide() {
+
+	for(auto go : collisions) {
+
+		if(GetXOverlap(go) < GetYOverlap(go)) {
+			if(GetXCenter() > go->GetXCenter()) {
+				if(go->IsMoveable() && !go->IsPushedLeft()) go->SetX(go->GetX() + vX);
+				if(GetXOverlap(go) > 0) {
+					x += GetXOverlap(go);
+					vX = vX > 0 ? vX : 0;
+				}
+			} else {
+				if(go->IsMoveable() && !go->IsPushedRight()) go->SetX(go->GetX() + vX);
+				if(GetXOverlap(go) > 0) {
+					x -= GetXOverlap(go);
+					vX = vX < 0 ? vX : 0;
+				}
+			}
+		} else {
+			if(GetYCenter() > go->GetYCenter()) {
+				if(go->IsMoveable() && !go->IsPushedDown()) go->SetY(go->GetY() + vY);
+				if(GetYOverlap(go) > 0) {
+					y += GetYOverlap(go);
+					vY = vY > 0 ? vY : 0;
+				}
+			} else {
+				if(go->IsMoveable() && !go->IsPushedUp()) go->SetY(go->GetY() + vY);
+				if(GetYOverlap(go) > 0) {
+					y -= GetYOverlap(go);
+					vY = vY < 0 ? vY : 0;
+				}
+			}
+		}
+
+	}
+
+}
+
 void GameObject::UpdateObject(LevelManager * game) {
 	
 	Update(game);
@@ -61,17 +133,15 @@ void GameObject::UpdateObject(LevelManager * game) {
 		dead = true;
 	}
 
-	if(damageDelay < 20) damageDelay++;
+	if(damageDelay > 0) damageDelay--;
+	if(damageFlash > 0) damageFlash--;
+	else SDL_SetTextureColorMod(texture, 255, 255, 255);
 	
 	x += vX;
 	y += vY;
-	
-	grounded = false;
 
-	if(collidable) for(auto go : *(game->GetObjects())) if(this->CollidesWith(go)) {
-		go->OnCollision(this, game);
-		if(solid && go->IsMoveable()) go->LockCollision(this);
-	}
+	UpdateCollisions(game);
+	Collide();
 	
 	srcRect.x = (int)tileX * spriteWidth;
 	srcRect.y = (int)tileY * spriteHeight;
@@ -95,10 +165,10 @@ bool GameObject::CollidesWith(GameObject * go) {
 
 	if(this == go) return false;
 
-	return x < go->GetX() + go->GetWidth()
-		&& x + width > go->GetX()
-		&& y < go->GetY() + go->GetHeight()
-		&& y + height > go->GetY();
+	return x <= go->GetX() + go->GetWidth()
+		&& x + width >= go->GetX()
+		&& y <= go->GetY() + go->GetHeight()
+		&& y + height >= go->GetY();
 
 }
 
@@ -159,27 +229,6 @@ int GameObject::GetHeight() {
 
 }
 
-void GameObject::LockX(GameObject * go) {
-
-	if(x > go->GetX()) x = go->GetX() + go->GetWidth();
-	else x = go->GetX() - width;
-
-	vX = 0;
-
-}
-
-void GameObject::LockY(GameObject * go) {
-
-	if(y > go->GetY()) y = go->GetY() + go->GetHeight();
-	else {
-		y = go->GetY() - height;
-		grounded = true;
-	}
-
-	vY = 0;
-
-}
-
 void GameObject::SetCollidable(bool c) {
 
 	collidable = c;
@@ -207,6 +256,36 @@ int GameObject::GetRenderLayer() {
 SDL_Rect * GameObject::GetSrcRect() {
 
 	return &srcRect;
+
+}
+
+bool GameObject::IsPushedUp() {
+
+	return pushedUp;
+
+}
+
+bool GameObject::IsPushedDown() {
+
+	return pushedDown;
+
+}
+
+bool GameObject::IsPushedLeft() {
+
+	return pushedLeft;
+
+}
+
+bool GameObject::IsPushedRight() {
+
+	return pushedRight;
+
+}
+
+bool GameObject::OverrideCollision(GameObject * go) {
+
+	return false;
 
 }
 
@@ -281,50 +360,26 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 
 void GameObject::DealDamage(int d) {
 
-	if(!damageable || damageDelay != 20) return;
+	if(!damageable || damageDelay != 0) return;
 	health -= d;
-	damageDelay = 0;
-
-}
-
-void GameObject::LockCollision(GameObject * go) {
-
-	int collisionWall = GetCollisionWall(go);
-
-	if(collisionWall == Wall::RIGHT || collisionWall == Wall::LEFT) {
-
-		LockX(go);
-
-	} else {
-
-		LockY(go);
-
+	if(health > 0) {
+		damageDelay = 20;
+		damageFlash = 10;
+		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}
 
 }
 
-int GameObject::GetCollisionWall(GameObject * go) {
+float GameObject::GetXOverlap(GameObject * go) {
 
-	if(!CollidesWith(go)) return -1;
+	if(x > go->GetX()) return go->GetX() + go->GetWidth() - x;
+	else return x + width - go->GetX();
 
-	float dX, dY;
+}
 
-	if(x > go->GetX()) dX = go->GetX() + go->GetWidth() - x;
-	else dX = x + width - go->GetX();
+float GameObject::GetYOverlap(GameObject * go) {
 
-	if(y > go->GetY()) dY = go->GetY() + go->GetHeight() - y;
-	else dY = y + height - go->GetY();
-
-	if(dX > dY) {
-
-		if(y > go->GetY()) return Wall::TOP;
-		else return Wall::BOTTOM;
-
-	} else {
-
-		if(x > go->GetX()) return Wall::LEFT;
-		else return Wall::RIGHT;
-
-	}
+	if(y > go->GetY()) return go->GetY() + go->GetHeight() - y;
+	else return y + height - go->GetY();
 
 }

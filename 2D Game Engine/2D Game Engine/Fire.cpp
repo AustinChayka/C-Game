@@ -2,7 +2,8 @@
 
 Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) : GameObject("assets/Fire.png", init_x, init_y, 10, 10, scale) {
 
-	moveable = false;
+	collidable = true;
+	moveable = true;
 	solid = false;
 	
 	tileX = rand() % 4;
@@ -31,12 +32,12 @@ void Fire::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(lifeTime == -1) lifeTime = 145;
 
-	if(go->IsSolid() && GetCollisionWall(go) == BOTTOM) {
-		grounded = true;
-		vY = 0;
-		LockY(go);
-	} else grounded = false;
+	if(go != spawner) go->DealDamage(1);
 
-	if(go != spawner && go->IsSolid()) go->DealDamage(1);
+}
+
+bool Fire::OverrideCollision(GameObject * go) {
+
+	return go->IsDamagable();
 
 }

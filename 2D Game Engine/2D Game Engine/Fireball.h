@@ -20,6 +20,7 @@ public:
 private:
 
 	int particleDelay = 12;
+	bool embers = true;
 
 };
 

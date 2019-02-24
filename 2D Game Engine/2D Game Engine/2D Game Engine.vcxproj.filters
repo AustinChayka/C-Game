@@ -132,6 +132,9 @@
     <ClCompile Include="ExitButton.cpp">
       <Filter>Source Files\Engine\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -223,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="ExitButton.h">
       <Filter>Header Files\Engine\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
