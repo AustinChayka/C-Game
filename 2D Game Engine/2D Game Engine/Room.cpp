@@ -92,7 +92,7 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 			case 1:
 				for(int i = 1; i < 4; i++)
 					if(i) objects.push_back(new Pot(x + 100 + i * 16 * 3, y + height - 60 - 24 * 3, rand() % 4 == 0 ? true : false));
-				objects.push_back(new Slime(x + 500, y + 100, 4));
+				objects.push_back(new Slime(x + 500, y + 100, 3));
 				break;
 
 		}

@@ -113,6 +113,7 @@ void GameObject::Collide() {
 				}
 			} else {
 				if(go->IsMoveable() && !go->IsPushedUp()) go->SetY(go->GetY() + vY);
+				x += go->GetVX();
 				if(GetYOverlap(go) > 0) {
 					y -= GetYOverlap(go);
 					vY = vY < 0 ? vY : 0;
@@ -125,7 +126,7 @@ void GameObject::Collide() {
 }
 
 void GameObject::UpdateObject(LevelManager * game) {
-	
+
 	Update(game);
 
 	if(damageable && health <= 0) {

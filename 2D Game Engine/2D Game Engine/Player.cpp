@@ -10,6 +10,8 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 	vY = 0;
 
 	collidable = true;
+	moveable = true;
+	solid = true;
 
 	health = 10;
 	damageable = true;
@@ -24,7 +26,7 @@ Player::~Player() {
 
 void Player::Update(LevelManager * game) {
 	
-	if(Game::event.type == SDL_KEYDOWN) {
+	if(Game::event.type == SDL_KEYDOWN && dash == 0) {
 
 		switch(Game::event.key.keysym.sym) {
 
@@ -54,7 +56,8 @@ void Player::Update(LevelManager * game) {
 				if(dash == 0 && manaFatigue >= 8) {
 					dash = 6;
 					damageable = false;
-					manaFatigue -= 8;
+					collidable = false;
+					manaFatigue -= 5;
 				}
 				break;
 							
@@ -93,21 +96,24 @@ void Player::Update(LevelManager * game) {
 	}
 
 	if(dash > 0) {
-		vX = 0;
-		dash--;
+		Particle * p = new Particle("assets/Player.png", x, y, 21, 36, (int)((dash / 6.0f) * 9), tileY, 3);
+		p->SetFadeSpeed(8);
+		game->AddObject(p);
 		for(auto go : *(game->GetObjects())) if(go->IsSolid() && !go->IsMoveable() &&
-			x + width + (dir == 1 ? 55 : -55) > go->GetX() && x + (dir == 1 ? 55 : -55) < go->GetX() + go->GetWidth() &&
-			y + height > go->GetY() && y < go->GetY() + go->GetHeight()) {
+			x + width + (dir == 1 ? 50 : 0) > go->GetX() && x + (dir == 1 ? 0 : -50) < go->GetX() + go->GetWidth() &&
+			y + height > go->GetY() && y < go->GetY() + go->GetHeight() && GetXOverlap(go) < GetYOverlap(go)) {
+				x = (dir == 1 ? go->GetX() - width : go->GetX() + go->GetWidth());
 				dash = 0;
 				return;
 			}
 		if(dash != 0) {
-			x += (dir == 1 ? 55 : -55);
-			Particle * p = new Particle("assets/Player.png", x, y, 21, 36, (int)((dash / 6.0f) * 9), tileY, 3);
-			p->SetFadeSpeed(8);
-			game->AddObject(p);
+			x += (dir == 1 ? 50 : -50);
+			dash--;
 		} else vX = maxSpeed * (dir == 1 ? 1.5f : -1.5f);
-	} else damageable = true;
+	} else {
+		damageable = true;
+		collidable = true;
+	}
 
 	if(smokeDelay != 0) smokeDelay--;
 

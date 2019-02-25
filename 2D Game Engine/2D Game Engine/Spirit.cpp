@@ -6,7 +6,7 @@
 #include "Debris.h"
 #include "Room.h"
 
-Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 35, 51) {
+Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 13, 29, 2) {
 
 	collidable = true;
 	moveable = false;
@@ -25,7 +25,7 @@ void Spirit::Update(LevelManager * game) {
 
 	lm = game;
 
-	for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 40000) {
+	for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
 		
 		target = go;
 				
@@ -61,10 +61,13 @@ void Spirit::Update(LevelManager * game) {
 		&& r->GetY() + r->GetHeight() - 60 > y
 		&& r->GetY() + 60 < y + height) visible = true;
 
+	tileX += 0.1f;
+	if(tileX > 6) tileX = 0;
+
 }
 
 void Spirit::OnDeath(LevelManager * game) {
 
-	game->AddObject(new Debris("assets/Spirit.png", 35, 51, tileX, tileY, 1, x, y));
+	//game->AddObject(new Debris("assets/Spirit.png", 35, 51, tileX, tileY, 1, x, y));
 
 }

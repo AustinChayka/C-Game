@@ -11,7 +11,7 @@ public:
 	~Player();
 	
 	void Update(LevelManager * game);
-
+	
 	float GetManaFatigue();
 
 private:
