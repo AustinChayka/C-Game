@@ -151,7 +151,10 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Heart.cpp" />
     <ClCompile Include="ImageTile.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
@@ -185,7 +188,10 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GUI.h" />
+    <ClInclude Include="Heart.h" />
     <ClInclude Include="ImageTile.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemObject.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Particle.h" />

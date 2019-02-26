@@ -2,6 +2,7 @@
 
 #include "Player.h"
 #include "Room.h"
+#include "Item.h"
 
 GUI::GUI(GameObject * p, StateManager * sm) {
 
@@ -10,7 +11,11 @@ GUI::GUI(GameObject * p, StateManager * sm) {
 
 }
 
-GUI::~GUI() {}
+GUI::~GUI() {
+
+
+
+}
 
 void GUI::Update() {
 
@@ -24,9 +29,13 @@ void GUI::Update() {
 	prevManaFatigue = ((Player*)player)->GetManaFatigue();
 
 	mapWidth = 0;
-	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed()) mapWidth += (r->GetWidth() / 60) * 2;
+	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed() && 
+		((r->GetX() +  r->GetWidth() )/ 60) * 2 > mapWidth) 
+		mapWidth = ((r->GetX() +  r->GetWidth() )/ 60) * 2;
 	mapHeight = 0;
-	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed()) mapHeight += (r->GetHeight() / 60) * 2;
+	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed() &&
+		((r->GetY() + r->GetHeight()) / 60) * 2 > mapHeight) 
+		mapHeight = ((r->GetY() + r->GetHeight()) / 60) * 2;
 
 }
 
@@ -55,10 +64,21 @@ void GUI::Render() {
 		if(r->IsActive()) SDL_SetRenderDrawColor(Game::renderer, 0, 150, 0, 100);
 		else SDL_SetRenderDrawColor(Game::renderer, 0, 100, 0, 100);
 		mapRect.x = (r->GetX() / 60) * 2 - 20 + Game::width - mapWidth;
-		mapRect.y = (r->GetY() / 60) * 2 + 20;
+		mapRect.y = (r->GetY() / 60) * 2 + 20 + Game::height - mapHeight;
 		mapRect.w = (r->GetWidth() / 60) * 2;
 		mapRect.h = (r->GetHeight() / 60) * 2;
 		if(r->IsRevealed()) SDL_RenderFillRect(Game::renderer, &mapRect);
+
+	}
+
+	for(int i = 0; i < ((Player *) player)->GetItems()->size(); i++) {
+
+		iconRect.x = Game::width - 24 - 12;
+		iconRect.y = 12 + 36 * i;
+		iconRect.w = iconRect.h = 24;
+		itemTexture = ((Player *) player)->GetItems()->at(i)->GetTexture();
+		SDL_SetTextureAlphaMod(itemTexture, 50);
+		SDL_RenderCopy(Game::renderer, itemTexture, NULL, &iconRect);
 
 	}
 

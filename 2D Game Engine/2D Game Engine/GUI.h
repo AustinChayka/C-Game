@@ -27,8 +27,10 @@ private:
 	int prevHealth = 0, showHealth = 0, showManaFatigue = 0;
 	float prevManaFatigue = 0;
 
-	SDL_Rect mapRect;
+	SDL_Rect mapRect, iconRect;
 	float mapWidth, mapHeight;
+
+	SDL_Texture * itemTexture;
 
 };
 

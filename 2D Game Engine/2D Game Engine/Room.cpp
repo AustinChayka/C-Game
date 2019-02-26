@@ -2,6 +2,7 @@
 
 #include "Spirit.h"
 #include "Slime.h"
+#include "ItemObject.h"
 
 Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int blocksHeight,
 	int leftDoorHeight, int rightDoorHeight, int entrance) {
@@ -103,6 +104,7 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 		objects.push_back(new Block(x + 16 * 5 * 3 + 12, y + (leftDoorHeight + 2) * 60, 1, 1));
 		tiles.push_back(new ImageTile("assets/Block.png", x + 16 * 5 * 3 + 12, y + (leftDoorHeight + 2) * 60,
 			20, 20, 0, 3, 3, 2));
+		objects.push_back(new ItemObject(x + 100, y + (blocksHeight - 1) * 60 - 24, 0));
 
 	}
 

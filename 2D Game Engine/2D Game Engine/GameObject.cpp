@@ -137,6 +137,9 @@ void GameObject::UpdateObject(LevelManager * game) {
 	if(damageDelay > 0) damageDelay--;
 	if(damageFlash > 0) damageFlash--;
 	else SDL_SetTextureColorMod(texture, 255, 255, 255);
+
+	vY += grav;
+	if(grounded) vX /= decceleration;
 	
 	x += vX;
 	y += vY;
@@ -290,6 +293,18 @@ bool GameObject::OverrideCollision(GameObject * go) {
 
 }
 
+void GameObject::SetGrav(float g) {
+
+	grav = g;
+
+}
+
+void GameObject::SetDecceleration(float d) {
+
+	decceleration = d;
+
+}
+
 void GameObject::OnDeath(LevelManager * game) {}
 
 float GameObject::GetXCenter() {
@@ -359,7 +374,7 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 
 }
 
-void GameObject::DealDamage(int d) {
+void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 	if(!damageable || damageDelay != 0) return;
 	health -= d;
@@ -368,6 +383,14 @@ void GameObject::DealDamage(int d) {
 		damageFlash = 10;
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}
+
+}
+
+void GameObject::Heal(int h) {
+
+	if(!damageable) return;
+
+	health += h;
 
 }
 

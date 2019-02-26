@@ -9,6 +9,9 @@ Slime::Slime(float x, float y, int size) : GameObject("assets/Slime.png", x, y, 
 	solid = true;
 	moveable = true;
 
+	decceleration = 1.5f;
+	grav = .8f;
+
 }
 
 Slime::~Slime() {}
@@ -43,15 +46,12 @@ void Slime::Update(LevelManager * game) {
 		game->AddObject(s);
 		dead = true;
 	}
-
-	vY += .8f;
-	if(grounded) vX /= 1.5f;
-
+	
 }
 
 void Slime::OnCollision(GameObject * go, LevelManager * game) {
 	
-	if(dynamic_cast<Slime *>(go) == nullptr) go->DealDamage(1);
+	if(dynamic_cast<Slime *>(go) == nullptr) go->DealDamage(1, game, this);
 
 }
 

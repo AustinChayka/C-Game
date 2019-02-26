@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "Fireball.h"
 #include "Smoke.h"
+#include "Item.h"
 
 Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
 
@@ -15,6 +16,11 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 
 	health = 10;
 	damageable = true;
+
+	decceleration = 1.15f;
+	grav = .55f;
+
+	items = new std::vector<Item *>;
 	
 }
 
@@ -25,6 +31,8 @@ Player::~Player() {
 }
 
 void Player::Update(LevelManager * game) {
+
+	for(auto item : *items) item->Update(game, this);
 	
 	if(Game::event.type == SDL_KEYDOWN && dash == 0) {
 
@@ -53,11 +61,12 @@ void Player::Update(LevelManager * game) {
 				break; 
 
 			case SDLK_LSHIFT:
-				if(dash == 0 && manaFatigue >= 8) {
+				if(dash == 0 && manaFatigue >= 6) {
 					dash = 6;
 					damageable = false;
 					collidable = false;
 					manaFatigue -= 5;
+					grav = 0;
 				}
 				break;
 							
@@ -85,14 +94,22 @@ void Player::Update(LevelManager * game) {
 	}
 
 	if(dash == 0 && attack && shot == 0) {
+
 		if(!attackLock && manaFatigue >= 2) {
+
+			for(auto item : *items) item->OnShotFired(game, this);
+
 			game->AddObject(new Fireball(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this));
 			shot = shotDelay;
 			manaFatigue -= 2;
+
 		} else if(smokeDelay == 0) {
+
 			game->AddObject(new Smoke(dir == -1 ? x - 2 : x + width, y + 14 * scale));
 			smokeDelay = 5;
+
 		}
+
 	}
 
 	if(dash > 0) {
@@ -113,6 +130,7 @@ void Player::Update(LevelManager * game) {
 	} else {
 		damageable = true;
 		collidable = true;
+		grav = .55f;
 	}
 
 	if(smokeDelay != 0) smokeDelay--;
@@ -122,20 +140,20 @@ void Player::Update(LevelManager * game) {
 	if(!attack && manaFatigue < 10) manaFatigue += .08f;
 
 	if(dash == 0 && !attack && left) {
+		decceleration = 1;
 		if(vX > -maxSpeed) vX -= acceleration;
 		tileX += .17f;
 	}
 	if(dash == 0 && !attack && right) {
+		decceleration = 1;
 		if(vX < maxSpeed) vX += acceleration;
 		tileX += .17f;
 	}
 
 	if(dash == 0 && (attack || (!left && !right))) {
-		vX /= decceleration;
+		decceleration = 1.15f;
 		tileX = attack ? 9 : 0;
 	}
-			
-	if(dash == 0) vY += .55f;
 
 	if(tileX > 9) tileX = 1;
 					
@@ -144,5 +162,26 @@ void Player::Update(LevelManager * game) {
 float Player::GetManaFatigue() {
 
 	return manaFatigue;
+
+}
+
+void Player::DealDamage(int d, LevelManager * game, GameObject * go) {
+
+	for(auto item : *items) item->OnDamageTaken(game, go, this);
+
+	GameObject::DealDamage(d, game, go);
+	
+}
+
+void Player::AddItem(Item * item, LevelManager * game) {
+
+	item->OnPickup(game, this);
+	items->push_back(item);
+
+}
+
+std::vector<Item*>* Player::GetItems() {
+
+	return items;
 
 }

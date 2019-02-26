@@ -52,7 +52,8 @@ public:
 
 	bool IsAt(float xTarget, float yTarget);
 	
-	virtual void DealDamage(int d);
+	virtual void DealDamage(int d, LevelManager * game, GameObject * go);
+	virtual void Heal(int h);
 	
 	float GetXOverlap(GameObject * go);
 	float GetYOverlap(GameObject * go);
@@ -71,10 +72,13 @@ public:
 	bool IsPushedRight();
 
 	virtual bool OverrideCollision(GameObject * go);
+
+	void SetGrav(float g);
+	void SetDecceleration(float d);
 	
 protected:
 
-	float x, y, width, height, tileX = 0, tileY = 0, vX, vY, scale;
+	float x, y, width, height, tileX = 0, tileY = 0, vX, vY, grav = 0, decceleration = 1, scale;
 	int spriteWidth, spriteHeight;
 	
 	SDL_Texture * texture;

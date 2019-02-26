@@ -10,6 +10,8 @@ CursedFire::CursedFire(float x, float y, float scale) : GameObject("assets/Curse
 
 	renderLayer = 2;
 
+	grav = .1f;
+
 }
 
 CursedFire::~CursedFire() {
@@ -22,9 +24,7 @@ void CursedFire::Update(LevelManager * game) {
 
 	if (lifeTime == 0) dead = true;
 	else if (lifeTime != -1) lifeTime -= 1;
-
-	if(!grounded) vY += .1f;
-
+	
 	tileX += .1f;
 	if (tileX > 4) tileX = 0;
 
@@ -32,7 +32,9 @@ void CursedFire::Update(LevelManager * game) {
 
 void CursedFire::OnCollision(GameObject * go, LevelManager * game) {
 
-	if (lifeTime == -1) lifeTime = 145;
+	if(lifeTime == -1) lifeTime = 145;
+
+	if(go->IsSolid()) go->DealDamage(2, game, this);
 	
 }
 

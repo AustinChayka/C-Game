@@ -9,6 +9,8 @@ Smoke::Smoke(float init_x, float init_y) : Particle(init_x, init_y + 2, 2, 2, 20
 
 	vX = (rand() % 6 - 3) / 10.0f;
 
+	vY = -2;
+
 }
 
 Smoke::~Smoke() {}
@@ -16,8 +18,6 @@ Smoke::~Smoke() {}
 void Smoke::Update(LevelManager * game) {
 
 	Particle::Update(game);
-
-	vY = -2;
 
 	width += .07f;
 	height += .07f;

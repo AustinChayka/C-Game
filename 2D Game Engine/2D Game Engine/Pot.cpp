@@ -10,11 +10,11 @@ Pot::Pot(float x, float y, bool init_solid) : GameObject("assets/Pot.png", x, y,
 
 	damageable = true;
 	health = 1;
-
+	
 	if (!solid) {
 		tileX = 1;
 		renderLayer = 0;
-	}
+	} else grav = .7f;
 
 }
 
@@ -31,11 +31,7 @@ void Pot::OnDeath(LevelManager * game) {
 }
 
 void Pot::Update(LevelManager * game) {
-
-	if(!solid) return;
-
-	vY += .7f;
-
+	
 }
 
 void Pot::OnCollision(GameObject * go, LevelManager * game) {

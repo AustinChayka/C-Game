@@ -23,8 +23,6 @@ Spirit::~Spirit() {}
 
 void Spirit::Update(LevelManager * game) {
 
-	lm = game;
-
 	for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
 		
 		target = go;
@@ -63,6 +61,14 @@ void Spirit::Update(LevelManager * game) {
 
 	tileX += 0.1f;
 	if(tileX > 6) tileX = 0;
+
+}
+
+void Spirit::DealDamage(int d, LevelManager * game, GameObject * go) {
+
+	if(go->IsDamagable()) target = go;
+
+	GameObject::DealDamage(d, game, go);
 
 }
 

@@ -12,6 +12,8 @@ Ember::Ember(float init_x, float init_y, float init_vX, float init_vY, GameObjec
 
 	spawner = init_spawner;
 
+	grav = .3f;
+
 }
 
 Ember::~Ember() {}
@@ -19,17 +21,9 @@ Ember::~Ember() {}
 void Ember::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(go == spawner || !go->IsSolid()) return;
-		
+
 	dead = true;
 
-	game->AddObject(new Fire(x, y - 10, (int)(2.5 * width / 5), spawner));
-
-}
-
-void Ember::Update(LevelManager * game) {
-
-	Particle::Update(game);
-
-	vY += .3f;
+	game->AddObject(new Fire(x, y - 10, (int) (2.5 * width / 5), spawner));
 
 }

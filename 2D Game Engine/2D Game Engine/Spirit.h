@@ -13,7 +13,7 @@ public:
 
 	void Update(LevelManager * game);
 
-	LevelManager * lm;
+	void DealDamage(int d, LevelManager * game, GameObject * go);
 
 private :
 

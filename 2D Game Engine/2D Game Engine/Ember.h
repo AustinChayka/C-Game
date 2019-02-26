@@ -12,9 +12,7 @@ public:
 	~Ember();
 
 	void OnCollision(GameObject * go, LevelManager * game);
-
-	void Update(LevelManager * game);
-
+	
 private:
 
 	GameObject * spawner;
