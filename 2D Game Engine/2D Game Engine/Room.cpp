@@ -4,6 +4,7 @@
 #include "Slime.h"
 #include "ItemObject.h"
 #include "Spike.h"
+#include "StageDoor.h"
 
 Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int blocksHeight,
 	int leftDoorHeight, int rightDoorHeight, int entrance) {
@@ -123,14 +124,16 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 		objects.push_back(new Spike(x + 120, y + (leftDoorHeight + 2) * 60 - 30));
 		objects.push_back(new Spike(x + 180, y + (leftDoorHeight + 2) * 60 - 30));
 
+	} else if(blocksWidth == 10 && blocksHeight == 6) {
+
+		objects.push_back(new StageDoor(x + 5 * 60 - (entrance == -1 ? -120 : 200), y + 5 * 60 - 48 * 3, entrance == -1));
+
 	}
 
 }
 
 Room::~Room() {
-
-
-
+	
 }
 
 void Room::SetRevealed(bool r) {

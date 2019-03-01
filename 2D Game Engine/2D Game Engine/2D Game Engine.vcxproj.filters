@@ -156,6 +156,9 @@
     <ClCompile Include="Spike.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="StageDoor.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -264,6 +267,9 @@
       <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Spike.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="StageDoor.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
   </ItemGroup>

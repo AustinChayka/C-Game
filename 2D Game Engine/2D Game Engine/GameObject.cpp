@@ -129,7 +129,7 @@ void GameObject::UpdateObject(LevelManager * game) {
 
 	Update(game);
 
-	if(damageable && health <= 0) {
+	if(damageable && health <= 0 && health > -5000000) {
 		OnDeath(game);
 		dead = true;
 	}

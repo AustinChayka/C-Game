@@ -30,50 +30,60 @@ LevelManager::~LevelManager() {}
 void LevelManager::LoadLevel(int n) {
 
 	objects->clear();
+	tiles->clear();
+	rooms->clear();
+	allObjects->clear();
 
 	AddObject(player);
-		
-	switch(n) {
-
-		case 0:
-			GenerateLevel(1, NULL);
-			
-		default:
-			break;
-	}
-
-	currentLevel = 0;
+	
+	GenerateLevel(n * 2 + 3, rand());
 
 }
 
-void LevelManager::GenerateLevel(int sizeX, int sizeY) {
+void LevelManager::GenerateLevel(int size, int seed) {
+
+	srand(seed);
 	
 	float roomOffsetX = 0, roomOffsetY = 0;
 
 	player->SetX(100);
 	player->SetY(100);
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, -1, 3, 0));
-	roomOffsetX += 20 * 60;
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 8, 12, 3, 9, -1));
-	roomOffsetX += 8 * 60;
-	roomOffsetY += 6 * 60;
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 8, 12, 3, 9, -1));
-	roomOffsetX += 8 * 60;
-	roomOffsetY += 6 * 60;
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
-	roomOffsetX += 20 * 60;
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
-	roomOffsetX += 20 * 60;
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 8, 12, 3, 9, -1));
-	roomOffsetX += 8 * 60;
-	roomOffsetY += 6 * 60;
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, -1, -1));
+
+	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 10, 6, -1, 3, 0));
+	roomOffsetX += 10 * 60;
+
+	for(int i = 0; i < size; i++) {
+		
+		switch(rand() % 2) {
+
+			case 0:
+				rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
+				roomOffsetX += 20 * 60;
+				break;
+
+			case 1:
+				rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 8, 12, 3, 9, -1));
+				roomOffsetX += 8 * 60;
+				roomOffsetY += 6 * 60;
+				break;
+
+		}
+		
+	}
+	
+	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 10, 6, 3, -1, -1));
 
 }
 
 void LevelManager::Update(StateManager * sm) {
-
-	for(auto r : *rooms) r->Update(this);
+	
+	for(auto r : *rooms) {
+		r->Update(this);
+		if(reloaded) {
+			reloaded = false;
+			return;
+		}
+	}
 
 	for(auto it : *tiles) it->Update();
 		
@@ -143,5 +153,6 @@ void LevelManager::NextLevel() {
 
 	currentLevel++;
 	LoadLevel(currentLevel);
+	reloaded = true;
 
 }

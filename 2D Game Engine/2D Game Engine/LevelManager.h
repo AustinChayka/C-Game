@@ -20,7 +20,7 @@ public:
 
 	void LoadLevel(int n);
 
-	void GenerateLevel(int sizeX, int sizeY);
+	void GenerateLevel(int size, int seed);
 
 	void Update(StateManager * sm);
 	void Render();
@@ -43,6 +43,8 @@ private:
 	std::vector<GameObject *> * allObjects;
 
 	int currentLevel = 0;
+
+	bool reloaded;
 	
 };
 
