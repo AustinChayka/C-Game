@@ -23,7 +23,7 @@ Spirit::~Spirit() {}
 
 void Spirit::Update(LevelManager * game) {
 
-	for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
+	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
 		
 		target = go;
 				
@@ -34,15 +34,20 @@ void Spirit::Update(LevelManager * game) {
 	if(projectileTimer < 0 && y > target->GetY() && y + height < target->GetY() + target->GetHeight()) {
 
 		float dX = target->GetX() - x, dY = target->GetY() - y;
-		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, this));
+		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, parent == nullptr ? this : parent));
 		projectileTimer = projectileDelay;
 
 	} else projectileTimer--;
 	
-	vX = -sin(deg * M_PI / 180) * radius + (target->GetXCenter() - x) / radius;
-	vY = -cos(deg * M_PI / 180) * radius + (target->GetYCenter() - y) / radius;
+	if(parent == nullptr) {
+		vX = -sin(deg * M_PI / 180) * radius + (target->GetXCenter() - x) / radius;
+		vY = -cos(deg * M_PI / 180) * radius + (target->GetYCenter() - y) / radius;
+	} else {
+		x = parent->GetXCenter() + cos(deg) * radius * 10;
+		y = parent->GetYCenter() + sin(deg) * radius * 10;
+	}
 
-	deg += rotPerSec * 360 / 60;
+	deg += (rotPerSec * 360 / 60) / (parent == nullptr ? 1 : 50);
 
 	if(deg > 360) deg = 0;
 
@@ -69,6 +74,30 @@ void Spirit::DealDamage(int d, LevelManager * game, GameObject * go) {
 	if(go->IsDamagable()) target = go;
 
 	GameObject::DealDamage(d, game, go);
+
+}
+
+void Spirit::SetTarget(GameObject * go) {
+
+	target = go;
+
+}
+
+GameObject * Spirit::GetTarget() {
+
+	return target;
+
+}
+
+void Spirit::SetDeg(float d) {
+
+	deg = d;
+
+}
+
+void Spirit::SetParent(GameObject * go) {
+
+	parent = go;
 
 }
 

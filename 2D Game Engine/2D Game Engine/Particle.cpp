@@ -14,6 +14,8 @@ Particle::Particle(float init_x, float init_y, float init_width, float init_heig
 
 	img = false;
 
+	renderLayer = 2;
+
 }
 
 Particle::Particle(const char * filepath, float init_x, float init_y, float init_width, float init_height, 

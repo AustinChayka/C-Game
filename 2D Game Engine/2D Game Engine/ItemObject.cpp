@@ -1,6 +1,7 @@
 #include "ItemObject.h"
 
 #include "Heart.h"
+#include "CursedCandle.h"
 
 ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 24, 24) {
 
@@ -14,8 +15,13 @@ ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 2
 	switch(type) {
 
 		case 0:
+			item = new Heart();
 			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/Heart.png");
-			item = new Heart(x, y);
+			break;
+		case 1:
+			item = new CursedCandle();
+			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/CursedCandle.png");
+			break;
 
 	}
 
@@ -34,7 +40,7 @@ void ItemObject::Update(LevelManager * game) {
 	} else collided = false;
 
 	textRect.x = (int)((x - Game::camera->GetX()) * Game::camera->GetScale());
-	textRect.y = (int)((y - Game::camera->GetY()) * Game::camera->GetScale());
+	textRect.y = (int)((y - 20 - Game::camera->GetY()) * Game::camera->GetScale());
 
 }
 

@@ -4,6 +4,7 @@
 #include "Fireball.h"
 #include "Smoke.h"
 #include "Item.h"
+#include "CursedCandle.h"
 
 Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
 
@@ -159,6 +160,13 @@ void Player::Update(LevelManager * game) {
 					
 }
 
+void Player::RenderObject() {
+
+	GameObject::RenderObject();
+	for(auto item : *items) item->Render();
+
+}
+
 float Player::GetManaFatigue() {
 
 	return manaFatigue;
@@ -167,7 +175,7 @@ float Player::GetManaFatigue() {
 
 void Player::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	for(auto item : *items) item->OnDamageTaken(game, go, this);
+	if(damageDelay == 0) for(auto item : *items) item->OnDamageTaken(game, go, this);
 
 	GameObject::DealDamage(d, game, go);
 	

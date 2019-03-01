@@ -32,8 +32,15 @@ void Projectile::Update(LevelManager * game) {
 
 void Projectile::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go != spawner) dead = true;
+	if(go != spawner) {
+		dead = true;
+		go->DealDamage(damage, game, this);
+	}
 
-	go->DealDamage(damage, game, this);
+}
+
+bool Projectile::OverrideCollision(GameObject * go) {
+
+	return go == spawner || dynamic_cast<Particle *>(go) != nullptr;
 
 }

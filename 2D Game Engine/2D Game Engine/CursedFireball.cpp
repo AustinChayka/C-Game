@@ -26,12 +26,12 @@ void CursedFireball::Update(LevelManager * game) {
 
 void CursedFireball::OnCollision(GameObject * go, LevelManager * game) {
 
-	if (go == spawner) return;
+	if(go == spawner) return;
 
 	Projectile::OnCollision(go, game);
 
-	game->AddObject(new CursedFire(x, y - 10, 3));
-	game->AddObject(new CursedFire(x - 10, y - 10, 2));
-	game->AddObject(new CursedFire(x + 20, y - 10, 2));
+	game->AddObject(new CursedFire(x, y - 10, 3, spawner));
+	game->AddObject(new CursedFire(x - 10, y - 10, 2, spawner));
+	game->AddObject(new CursedFire(x + 20, y - 10, 2, spawner));
 
 }

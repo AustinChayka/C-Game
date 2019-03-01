@@ -16,6 +16,8 @@ Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) :
 
 	grav = .1f;
 
+	if(dynamic_cast<Player *>(spawner) != nullptr) SDL_SetTextureAlphaMod(texture, 180);
+
 }
 
 Fire::~Fire() {}

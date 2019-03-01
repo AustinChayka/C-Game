@@ -7,9 +7,10 @@ class Heart : public Item {
 
 public:
 
-	Heart(float x, float y);
+	Heart();
 
 	virtual void OnPickup(LevelManager * game, Player * p);
+	virtual void OnDamageTaken(LevelManager * game, GameObject * go, Player * p);
 
 	~Heart();
 

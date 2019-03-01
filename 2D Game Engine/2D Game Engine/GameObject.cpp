@@ -367,6 +367,12 @@ bool GameObject::IsDamagable() {
 
 }
 
+void GameObject::SetDamagable(bool d) {
+
+	damageable = d;
+
+}
+
 bool GameObject::IsAt(float xTarget, float yTarget) {
 
 	return xTarget <= x + width && xTarget >= x &&

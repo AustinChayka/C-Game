@@ -3,6 +3,7 @@
 #include "Spirit.h"
 #include "Slime.h"
 #include "ItemObject.h"
+#include "Spike.h"
 
 Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int blocksHeight,
 	int leftDoorHeight, int rightDoorHeight, int entrance) {
@@ -91,9 +92,22 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 				break;
 
 			case 1:
-				for(int i = 1; i < 4; i++)
-					if(i) objects.push_back(new Pot(x + 100 + i * 16 * 3, y + height - 60 - 24 * 3, rand() % 4 == 0 ? true : false));
-				objects.push_back(new Slime(x + 500, y + 100, 3));
+				objects.push_back(new Slime(x + 500, y + 100, 5));
+				objects.push_back(new Slime(x + 800, y + 100, 3));
+				for(int i = 1; i < (blocksWidth - 1) * (60 / 72.0f); i++) if(rand() % 2 == 1) {
+					int l = rand() % 2 + 1;
+					ImageTile * tile = new ImageTile("assets/StageSlime.png",
+						x + i * 72, y + 60, 24, 24, rand() % 4, 0, 3, l);
+					SDL_SetTextureColorMod(tile->GetTexture(), l == 1 ? 100 : 255, l == 1 ? 100 : 255, l == 1 ? 100 : 255);
+					tiles.push_back(tile);
+				}
+				for(int i = 1; i < (blocksWidth - 1) * (60 / 72.0f); i++) if(rand() % 2 == 1) {
+					int l = rand() % 2 + 1;
+					ImageTile * tile = new ImageTile("assets/StageSlime.png",
+						x + i * 72, y + (blocksHeight - 1) * 60 - 72, 24, 24, rand() % 4 + 4, 0, 3, l);
+					SDL_SetTextureColorMod(tile->GetTexture(), l == 1 ? 100 : 255, l == 1 ? 100 : 255, l == 1 ? 100 : 255);
+					tiles.push_back(tile);
+				}
 				break;
 
 		}
@@ -104,7 +118,10 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 		objects.push_back(new Block(x + 16 * 5 * 3 + 12, y + (leftDoorHeight + 2) * 60, 1, 1));
 		tiles.push_back(new ImageTile("assets/Block.png", x + 16 * 5 * 3 + 12, y + (leftDoorHeight + 2) * 60,
 			20, 20, 0, 3, 3, 2));
-		objects.push_back(new ItemObject(x + 100, y + (blocksHeight - 1) * 60 - 24, 0));
+		objects.push_back(new ItemObject(x + 100, y + (blocksHeight - 1) * 60 - 24, rand() % 2));
+		objects.push_back(new Spike(x + 60, y + (leftDoorHeight + 2) * 60 - 30));
+		objects.push_back(new Spike(x + 120, y + (leftDoorHeight + 2) * 60 - 30));
+		objects.push_back(new Spike(x + 180, y + (leftDoorHeight + 2) * 60 - 30));
 
 	}
 

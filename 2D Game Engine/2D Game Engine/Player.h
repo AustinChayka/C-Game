@@ -13,6 +13,7 @@ public:
 	~Player();
 	
 	void Update(LevelManager * game);
+	void RenderObject();
 	
 	float GetManaFatigue();
 

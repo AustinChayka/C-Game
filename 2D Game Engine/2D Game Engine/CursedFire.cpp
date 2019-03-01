@@ -1,6 +1,8 @@
 #include "CursedFire.h"
 
-CursedFire::CursedFire(float x, float y, float scale) : GameObject("assets/CursedFire.png", x, y, 10, 10, scale) {
+#include "Player.h"
+
+CursedFire::CursedFire(float x, float y, float scale, GameObject * init_spawner) : GameObject("assets/CursedFire.png", x, y, 10, 10, scale) {
 
 	collidable = true;
 	moveable = true;
@@ -11,6 +13,10 @@ CursedFire::CursedFire(float x, float y, float scale) : GameObject("assets/Curse
 	renderLayer = 2;
 
 	grav = .1f;
+
+	spawner = init_spawner;
+
+	if(dynamic_cast<Player *>(spawner) != nullptr) SDL_SetTextureAlphaMod(texture, 180);
 
 }
 
@@ -34,12 +40,12 @@ void CursedFire::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(lifeTime == -1) lifeTime = 145;
 
-	if(go->IsSolid()) go->DealDamage(2, game, this);
+	if(go != spawner && go->IsSolid()) go->DealDamage(2, game, this);
 	
 }
 
 bool CursedFire::OverrideCollision(GameObject * go) {
 
-	return go->IsDamagable();
+	return go->IsDamagable() || dynamic_cast<Player *>(go) != nullptr;
 
 }
