@@ -134,6 +134,11 @@ Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int
 
 Room::~Room() {
 	
+	for(int i = 0; i < objects.size(); i++) delete objects.at(i);
+	objects.clear();
+	for(int i = 0; i < tiles.size(); i++) delete tiles.at(i);
+	tiles.clear();
+
 }
 
 void Room::SetRevealed(bool r) {

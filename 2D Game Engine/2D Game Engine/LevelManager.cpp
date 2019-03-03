@@ -29,8 +29,11 @@ LevelManager::~LevelManager() {}
 
 void LevelManager::LoadLevel(int n) {
 
+	for(int i = 0; i < objects->size(); i++) if(objects->at(i) != player) delete objects->at(i);
 	objects->clear();
+	for(int i = 0; i < tiles->size(); i++) delete tiles->at(i);
 	tiles->clear();
+	for(int i = 0; i < rooms->size(); i++) delete rooms->at(i);
 	rooms->clear();
 	allObjects->clear();
 
@@ -79,10 +82,6 @@ void LevelManager::Update(StateManager * sm) {
 	
 	for(auto r : *rooms) {
 		r->Update(this);
-		if(reloaded) {
-			reloaded = false;
-			return;
-		}
 	}
 
 	for(auto it : *tiles) it->Update();
@@ -104,6 +103,11 @@ void LevelManager::Update(StateManager * sm) {
 	}
 
 	Game::gui->Update();
+
+	if(reloaded) {
+		LoadLevel(currentLevel);
+		reloaded = false;
+	}
 	   
 }
 
@@ -152,7 +156,6 @@ std::vector<GameObject*> * LevelManager::GetObjects() {
 void LevelManager::NextLevel() {
 
 	currentLevel++;
-	LoadLevel(currentLevel);
 	reloaded = true;
 
 }
