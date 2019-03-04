@@ -23,6 +23,8 @@ public:
 
 	std::vector<Item *> * GetItems();
 
+	void DamageDelt(LevelManager * game, GameObject * go);
+
 private:
 
 	bool left = false, right = false, attack = false, attackLock = false;

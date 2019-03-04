@@ -12,8 +12,7 @@ class Room {
 
 public:
 
-	Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int blocksHeight, 
-		int leftDoorHeight, int rightDoorHeight, int entrance);
+	Room(float init_x, float init_y, int type);
 
 	~Room();
 
@@ -33,6 +32,9 @@ public:
 	bool IsActive();
 	
 private:
+
+	void Init(float init_x, float init_y, int blocksWidth, int blocksHeight, 
+		int leftDoorHeight, int rightDoorHeight, int entrance);
 
 	float x, y;
 	int width, height;

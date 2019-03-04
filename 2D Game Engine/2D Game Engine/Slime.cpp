@@ -3,7 +3,7 @@
 Slime::Slime(float x, float y, int size) : GameObject("assets/Slime.png", x, y, 20, 17, size) {
 
 	damageable = true;
-	health = size;
+	maxHealth = health = size;
 
 	collidable = true;
 	solid = true;

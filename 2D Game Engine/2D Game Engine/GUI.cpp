@@ -44,12 +44,17 @@ void GUI::Update() {
 
 void GUI::Render() {
 
-	if(showHealth > 0) for(int i = 0; i < player->GetHealth(); i++) {
+	if(showHealth > 0) for(int i = 0; i < player->GetMaxHealth(); i++) {
 
 		for(int y = 0; y < 25; y++) for(int x = 0; x < 10; x++) {
 
-			SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 150);
-			SDL_RenderDrawPoint(Game::renderer, x + 15 + i * 15, y + 15);
+			if(i <= player->GetHealth()) {
+				SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 150);
+				SDL_RenderDrawPoint(Game::renderer, x + 15 + i * 15, y + 15);
+			} else {
+				SDL_SetRenderDrawColor(Game::renderer, 100, 0, 0, 150);
+				SDL_RenderDrawPoint(Game::renderer, x + 15 + i * 15, y + 15);
+			}
 
 		}
 

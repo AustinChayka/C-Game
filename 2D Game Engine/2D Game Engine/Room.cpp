@@ -6,130 +6,64 @@
 #include "Spike.h"
 #include "StageDoor.h"
 
-Room::Room(LevelManager * game, float init_x, float init_y, int blocksWidth, int blocksHeight,
-	int leftDoorHeight, int rightDoorHeight, int entrance) {
+Room::Room(float offX, float offY, int type) {
 
-	x = init_x;
-	y = init_y;
-	width = 60 * blocksWidth;
-	height = 60 * blocksHeight;
+	switch(type) {
 
-	objects.push_back(new Block(x + 60, y, blocksWidth - 2, 1));
-	objects.push_back(new Block(x + 60, y + 60 * (blocksHeight - 1), blocksWidth - 2, 1));
-	if(leftDoorHeight == -1) objects.push_back(new Block(x, y, 1, blocksHeight));
-	else {
-		objects.push_back(new Block(x, y, 1, leftDoorHeight));
-		objects.push_back(new Block(x, y + 60 * (leftDoorHeight + 2), 1, blocksHeight - leftDoorHeight - 2));
-		for(int i = 0; i < 2; i++) {
-			ImageTile * tile = new ImageTile("assets/Block.png", x, 
-				y + (leftDoorHeight + i) * 60, 20, 20, 0, 0, 3, 0);
-			SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
-			tiles.push_back(tile);
-		}
-		if(entrance == -1) {
-			door = new Door(this, x - 18, y + leftDoorHeight * 60);
-			objects.push_back(door);
-			revealed = false;
-		}
-	}
-	if(rightDoorHeight == -1) objects.push_back(new Block(x + 60 * (blocksWidth - 1), y, 1, blocksHeight));
-	else {
-		objects.push_back(new Block(x + 60 * (blocksWidth - 1), y, 1, rightDoorHeight));
-		objects.push_back(new Block(x + 60 * (blocksWidth - 1), y + 60 * (rightDoorHeight + 2), 1, blocksHeight - rightDoorHeight - 2));
-		for(int i = 0; i < 2; i++) {
-			ImageTile * tile = new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), 
-				y + (rightDoorHeight + i) * 60, 20, 20, 0, 0, 3, 0);
-			SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
-			tiles.push_back(tile);
-		}
-		if(entrance == 1) {
-			door = new Door(this, x + 60 * (blocksWidth - 1) + 18, y + rightDoorHeight * 60);
-			objects.push_back(door);
-			revealed = false;
-		}
-	}
+		case 0:
+			Init(offX, offY, 10, 6, -1, 3, 0);
+			objects.push_back(new StageDoor(x + 120, y + 5 * 60 - 48 * 3, false));
+			break;
 
-	for(int j = 1; j < blocksHeight - 1; j++) for(int i = 1; i < blocksWidth - 1; i++) {
-		ImageTile * tile = new ImageTile("assets/Block.png", x + 60 * i, y + 60 * j, 20, 20, 0, 0, 3, 0);
-		SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
-		tiles.push_back(tile);
-	}
+		case 1:
+			Init(offX, offY, 10, 6, 3, -1, -1);
+			objects.push_back(new StageDoor(x + 9 * 60 - 120, y + 5 * 60 - 48 * 3, true));
+			break;
 
-	for(int i = 0; i < blocksWidth; i++) {
-		tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y, 20, 20, 3, 2, 3, 2));
-		tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 60 * (blocksHeight - 1), 20, 20, 4, 2, 3, 2));
-	}
-	for(int i = 0; i < blocksHeight; i++) {
-		if(leftDoorHeight == -1)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
-		else if(i == leftDoorHeight + 2 && i != blocksHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 4, 1, 3, 2));
-		else if(i != leftDoorHeight - 1 && i != leftDoorHeight && i != leftDoorHeight + 1 &&
-			i != leftDoorHeight + 2)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
-		else if(i == leftDoorHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 2, 1, 3, 2));
-		if(rightDoorHeight == -1)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
-		else if(i != rightDoorHeight - 1 && i != rightDoorHeight && i != rightDoorHeight + 1 &&
-			i != rightDoorHeight + 2)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
-		else if(i == rightDoorHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 1, 1, 3, 2));
-	}
-	
-	if(blocksWidth == 20 && blocksHeight == 6) {
+		case 2:
+			Init(offX, offY, 20, 6, 3, 3, -1);
+			objects.push_back(new Slime(x + 500, y + 100, 5));
+			objects.push_back(new Slime(x + 800, y + 100, 3));
+			for(int i = 1; i < 19 * (60 / 72.0f); i++) if(rand() % 2 == 1) {
+				int l = rand() % 2 == 0 ? 0 : 3;
+				ImageTile * tile = new ImageTile("assets/StageSlime.png",
+					x + i * 72, y + 60, 24, 24, rand() % 4, 0, 3, l);
+				SDL_SetTextureColorMod(tile->GetTexture(), l == 0 ? 100 : 255, l == 0 ? 100 : 255, l == 0 ? 100 : 255);
+				tiles.push_back(tile);
+			}
+			for(int i = 1; i < 19 * (60 / 72.0f); i++) if(rand() % 2 == 1) {
+				int l = rand() % 2 == 0 ? 0 : 3;
+				ImageTile * tile = new ImageTile("assets/StageSlime.png",
+					x + i * 72, y + 5 * 60 - 72, 24, 24, rand() % 4 + 4, 0, 3, l);
+				SDL_SetTextureColorMod(tile->GetTexture(), l == 0 ? 100 : 255, l == 0 ? 100 : 255, l == 0 ? 100 : 255);
+				tiles.push_back(tile);
+			}
+			break;
 
-		switch(rand() % 2) {
+		case 3:
+			Init(offX, offY, 20, 6, 3, 3, -1);
+			for(int i = 1; i < 4; i++) {
+				ImageTile * tile = new ImageTile("assets/Banner.png",
+					x + width / 4 * i, y + height / 2 - 60, 30, 40, 0, 0, 3, 1);
+				SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
+				tiles.push_back(tile);
+			}
+			objects.push_back(new Spirit(x + 700, y + 100));
+			break;
 
-			case 0:
-				for(int i = 1; i < 4; i++) {
-					ImageTile * tile = new ImageTile("assets/Banner.png",
-						x + width / 4 * i, y + height / 2 - 60, 30, 40, 0, 0, 3, 1);
-					SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
-					tiles.push_back(tile);
-				}
-				objects.push_back(new Spirit(x + 700, y + 100));
-				break;
-
-			case 1:
-				objects.push_back(new Slime(x + 500, y + 100, 5));
-				objects.push_back(new Slime(x + 800, y + 100, 3));
-				for(int i = 1; i < (blocksWidth - 1) * (60 / 72.0f); i++) if(rand() % 2 == 1) {
-					int l = rand() % 2 + 1;
-					ImageTile * tile = new ImageTile("assets/StageSlime.png",
-						x + i * 72, y + 60, 24, 24, rand() % 4, 0, 3, l);
-					SDL_SetTextureColorMod(tile->GetTexture(), l == 1 ? 100 : 255, l == 1 ? 100 : 255, l == 1 ? 100 : 255);
-					tiles.push_back(tile);
-				}
-				for(int i = 1; i < (blocksWidth - 1) * (60 / 72.0f); i++) if(rand() % 2 == 1) {
-					int l = rand() % 2 + 1;
-					ImageTile * tile = new ImageTile("assets/StageSlime.png",
-						x + i * 72, y + (blocksHeight - 1) * 60 - 72, 24, 24, rand() % 4 + 4, 0, 3, l);
-					SDL_SetTextureColorMod(tile->GetTexture(), l == 1 ? 100 : 255, l == 1 ? 100 : 255, l == 1 ? 100 : 255);
-					tiles.push_back(tile);
-				}
-				break;
-
-		}
-
-	} else if(blocksWidth == 8 && blocksHeight == 12) {
-
-		objects.push_back(new Platform(x + 60, y + (leftDoorHeight + 2) * 60, 4));
-		objects.push_back(new Block(x + 16 * 5 * 3 + 12, y + (leftDoorHeight + 2) * 60, 1, 1));
-		tiles.push_back(new ImageTile("assets/Block.png", x + 16 * 5 * 3 + 12, y + (leftDoorHeight + 2) * 60,
-			20, 20, 0, 3, 3, 2));
-		objects.push_back(new ItemObject(x + 100, y + (blocksHeight - 1) * 60 - 24, rand() % 2));
-		objects.push_back(new Spike(x + 60, y + (leftDoorHeight + 2) * 60 - 30));
-		objects.push_back(new Spike(x + 120, y + (leftDoorHeight + 2) * 60 - 30));
-		objects.push_back(new Spike(x + 180, y + (leftDoorHeight + 2) * 60 - 30));
-
-	} else if(blocksWidth == 10 && blocksHeight == 6) {
-
-		objects.push_back(new StageDoor(x + 5 * 60 - (entrance == -1 ? -120 : 200), y + 5 * 60 - 48 * 3, entrance == -1));
+		case 4:
+			Init(offX, offY, 8, 12, 3, 9, -1);
+			objects.push_back(new Platform(x + 60, y + 5 * 60, 4));
+			objects.push_back(new Block(x + 16 * 5 * 3 + 12, y + 5 * 60, 1, 1));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 16 * 5 * 3 + 12, y + 5 * 60,
+				20, 20, 0, 3, 3, 2));
+			objects.push_back(new ItemObject(x + 100, y + 11 * 60 - 24, rand() % 3));
+			objects.push_back(new Spike(x + 60, y + 5 * 60 - 30));
+			objects.push_back(new Spike(x + 120, y + 5 * 60 - 30));
+			objects.push_back(new Spike(x + 180, y + 5 * 60 - 30));
+			break;
 
 	}
-
 }
 
 Room::~Room() {
@@ -222,5 +156,78 @@ float Room::GetHeight() {
 bool Room::IsActive() {
 
 	return active;
+
+}
+
+void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, int leftDoorHeight, int rightDoorHeight, int entrance) {
+
+	x = init_x;
+	y = init_y;
+	width = 60 * blocksWidth;
+	height = 60 * blocksHeight;
+
+	objects.push_back(new Block(x + 60, y, blocksWidth - 2, 1));
+	objects.push_back(new Block(x + 60, y + 60 * (blocksHeight - 1), blocksWidth - 2, 1));
+	if(leftDoorHeight == -1) objects.push_back(new Block(x, y, 1, blocksHeight));
+	else {
+		objects.push_back(new Block(x, y, 1, leftDoorHeight));
+		objects.push_back(new Block(x, y + 60 * (leftDoorHeight + 2), 1, blocksHeight - leftDoorHeight - 2));
+		for(int i = 0; i < 2; i++) {
+			ImageTile * tile = new ImageTile("assets/Block.png", x, 
+				y + (leftDoorHeight + i) * 60, 20, 20, 0, 0, 3, 0);
+			SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
+			tiles.push_back(tile);
+		}
+		if(entrance == -1) {
+			door = new Door(this, x - 18, y + leftDoorHeight * 60);
+			objects.push_back(door);
+			revealed = false;
+		}
+	}
+	if(rightDoorHeight == -1) objects.push_back(new Block(x + 60 * (blocksWidth - 1), y, 1, blocksHeight));
+	else {
+		objects.push_back(new Block(x + 60 * (blocksWidth - 1), y, 1, rightDoorHeight));
+		objects.push_back(new Block(x + 60 * (blocksWidth - 1), y + 60 * (rightDoorHeight + 2), 1, blocksHeight - rightDoorHeight - 2));
+		for(int i = 0; i < 2; i++) {
+			ImageTile * tile = new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), 
+				y + (rightDoorHeight + i) * 60, 20, 20, 0, 0, 3, 0);
+			SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
+			tiles.push_back(tile);
+		}
+		if(entrance == 1) {
+			door = new Door(this, x + 60 * (blocksWidth - 1) + 18, y + rightDoorHeight * 60);
+			objects.push_back(door);
+			revealed = false;
+		}
+	}
+
+	for(int j = 1; j < blocksHeight - 1; j++) for(int i = 1; i < blocksWidth - 1; i++) {
+		ImageTile * tile = new ImageTile("assets/Block.png", x + 60 * i, y + 60 * j, 20, 20, 0, 0, 3, 0);
+		SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
+		tiles.push_back(tile);
+	}
+
+	for(int i = 0; i < blocksWidth; i++) {
+		tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y, 20, 20, 3, 2, 3, 2));
+		tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 60 * (blocksHeight - 1), 20, 20, 4, 2, 3, 2));
+	}
+	for(int i = 0; i < blocksHeight; i++) {
+		if(leftDoorHeight == -1)
+			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
+		else if(i == leftDoorHeight + 2 && i != blocksHeight - 1)
+			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 4, 1, 3, 2));
+		else if(i != leftDoorHeight - 1 && i != leftDoorHeight && i != leftDoorHeight + 1 &&
+			i != leftDoorHeight + 2)
+			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
+		else if(i == leftDoorHeight - 1)
+			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 2, 1, 3, 2));
+		if(rightDoorHeight == -1)
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
+		else if(i != rightDoorHeight - 1 && i != rightDoorHeight && i != rightDoorHeight + 1 &&
+			i != rightDoorHeight + 2)
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
+		else if(i == rightDoorHeight - 1)
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 1, 1, 3, 2));
+	}
 
 }

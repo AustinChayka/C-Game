@@ -2,6 +2,7 @@
 
 #include "Heart.h"
 #include "CursedCandle.h"
+#include "MarkOfHunger.h"
 
 ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 24, 24) {
 
@@ -21,6 +22,10 @@ ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 2
 		case 1:
 			item = new CursedCandle();
 			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/CursedCandle.png");
+			break;
+		case 2:
+			item = new MarkOfHunger();
+			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/MarkOfHunger.png");
 			break;
 
 	}

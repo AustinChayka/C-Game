@@ -40,7 +40,7 @@ void CursedFire::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(lifeTime == -1) lifeTime = 145;
 
-	if(go != spawner && go->IsSolid()) go->DealDamage(2, game, this);
+	if(go != spawner && go->IsSolid()) go->DealDamage(2, game, spawner);
 	
 }
 

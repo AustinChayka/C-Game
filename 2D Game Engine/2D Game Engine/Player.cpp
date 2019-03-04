@@ -4,7 +4,6 @@
 #include "Fireball.h"
 #include "Smoke.h"
 #include "Item.h"
-#include "CursedCandle.h"
 
 Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
 
@@ -15,7 +14,7 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 	moveable = true;
 	solid = true;
 
-	health = 10;
+	maxHealth = health = 10;
 	damageable = true;
 
 	decceleration = 1.15f;
@@ -191,5 +190,11 @@ void Player::AddItem(Item * item, LevelManager * game) {
 std::vector<Item*>* Player::GetItems() {
 
 	return items;
+
+}
+
+void Player::DamageDelt(LevelManager * game, GameObject * go) {
+
+	for(auto item : *items) item->OnDamageDelt(game, this, go);
 
 }

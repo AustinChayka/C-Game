@@ -12,7 +12,7 @@ StageDoor::StageDoor(float x, float y, bool init_exit) : GameObject("assets/Stag
 	textRect.h = 20;
 
 	exit = init_exit;
-	if(!exit) tileX = 1;
+	if(exit) tileX = 1;
 
 }
 

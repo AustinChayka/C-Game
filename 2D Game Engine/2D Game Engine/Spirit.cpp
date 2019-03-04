@@ -15,7 +15,7 @@ Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 13, 29,
 	deg = rand() % 360;
 
 	damageable = true;
-	health = 1;
+	maxHealth = health = 2;
 
 }
 

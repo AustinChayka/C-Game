@@ -1,6 +1,8 @@
 #include "GameObject.h"
+
 #include <cmath>
 #include "Particle.h"
+#include "Room.h"
 
 GameObject::GameObject(const char * textureSheet, float init_x, float init_y, int init_width, int init_height) {
 
@@ -146,6 +148,13 @@ void GameObject::UpdateObject(LevelManager * game) {
 
 	UpdateCollisions(game);
 	Collide();
+
+	visible = false;
+	for(auto r : *game->GetRooms())
+		if(x < r->GetX() + r->GetWidth()
+			&& x + width > r->GetX()
+			&& y < r->GetY() + r->GetHeight()
+			&& y + height > r->GetY() && r->IsRevealed()) visible = true;
 	
 	srcRect.x = (int)tileX * spriteWidth;
 	srcRect.y = (int)tileY * spriteHeight;
@@ -361,6 +370,18 @@ int GameObject::GetHealth() {
 
 }
 
+int GameObject::GetMaxHealth() {
+
+	return maxHealth;
+
+}
+
+void GameObject::SetMaxHealth(int h) {
+
+	maxHealth = h;
+
+}
+
 bool GameObject::IsDamagable() {
 
 	return damageable;
@@ -389,6 +410,7 @@ void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 		damageFlash = 10;
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}
+	if(go != nullptr && dynamic_cast<Player *>(go) != nullptr) ((Player *) go)->DamageDelt(game, this);
 
 }
 
@@ -396,7 +418,8 @@ void GameObject::Heal(int h) {
 
 	if(!damageable) return;
 
-	health += h;
+	if(maxHealth > health + h) health += h;
+	else h = maxHealth;
 
 }
 

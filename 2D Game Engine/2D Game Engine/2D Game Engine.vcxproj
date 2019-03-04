@@ -158,6 +158,7 @@
     <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MarkOfHunger.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Platform.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="MarkOfHunger.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Platform.h" />

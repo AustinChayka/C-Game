@@ -48,6 +48,8 @@ public:
 	void SetX(float new_x);
 	void SetY(float new_y);
 	int GetHealth();
+	int GetMaxHealth();
+	void SetMaxHealth(int h);
 	bool IsDamagable();
 	void SetDamagable(bool d);
 
@@ -94,7 +96,7 @@ protected:
 	};
 
 	bool damageable = false;
-	int health = -1, damageDelay = 20, damageFlash = 0;
+	int maxHealth = -1, health = -1, damageDelay = 20, damageFlash = 0;
 
 	virtual void OnDeath(LevelManager * game);
 

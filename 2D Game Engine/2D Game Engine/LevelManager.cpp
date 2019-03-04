@@ -3,7 +3,6 @@
 #include "Player.h"
 #include "Platform.h"
 #include "Box.h"
-#include <fstream>
 #include "Game.h"
 #include "Block.h"
 #include "Spirit.h"
@@ -52,20 +51,25 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	player->SetX(100);
 	player->SetY(100);
 
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 10, 6, -1, 3, 0));
+	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 0));
 	roomOffsetX += 10 * 60;
 
 	for(int i = 0; i < size; i++) {
 		
-		switch(rand() % 2) {
+		switch(rand() % 3) {
 
 			case 0:
-				rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 20, 6, 3, 3, -1));
+				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 2));
 				roomOffsetX += 20 * 60;
 				break;
 
 			case 1:
-				rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 8, 12, 3, 9, -1));
+				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 3));
+				roomOffsetX += 20 * 60;
+				break;
+
+			case 2:
+				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 4));
 				roomOffsetX += 8 * 60;
 				roomOffsetY += 6 * 60;
 				break;
@@ -74,7 +78,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 		
 	}
 	
-	rooms->push_back(new Room(this, roomOffsetX, roomOffsetY, 10, 6, 3, -1, -1));
+	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 1));
 
 }
 
@@ -107,13 +111,15 @@ void LevelManager::Update(StateManager * sm) {
 	if(reloaded) {
 		LoadLevel(currentLevel);
 		reloaded = false;
+		Game::camera->SetPos(player->GetXCenter() - Game::width / 2, player->GetYCenter() - Game::height / 2);
 	}
+
 	   
 }
 
 void LevelManager::Render() {
 	
-	for(int layer = 0; layer <= 2; layer++) {
+	for(int layer = 0; layer <= 3; layer++) {
 
 		for(auto r : *rooms) r->Render(layer);
 		for(auto it : *tiles) if (it->GetLayer() == layer) it->Render();

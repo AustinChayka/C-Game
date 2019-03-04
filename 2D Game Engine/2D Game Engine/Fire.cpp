@@ -36,7 +36,7 @@ void Fire::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(lifeTime == -1) lifeTime = 145;
 
-	if(go != spawner && go->IsSolid()) go->DealDamage(1, game, this);
+	if(go != spawner && go->IsSolid()) go->DealDamage(1, game, spawner);
 
 }
 
