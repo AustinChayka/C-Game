@@ -4,6 +4,7 @@
 #include "GameObject.h"
 
 class Item;
+class Projectile;
 
 class Player : public GameObject {
 
@@ -24,10 +25,13 @@ public:
 	std::vector<Item *> * GetItems();
 
 	void DamageDelt(LevelManager * game, GameObject * go);
+	void UpdateProjectile(LevelManager * game, Projectile * p);
+
+	bool DownPressed();
 
 private:
 
-	bool left = false, right = false, attack = false, attackLock = false;
+	bool left = false, right = false, attack = false, attackLock = false, down = false;
 
 	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, manaFatigue = 10;
 

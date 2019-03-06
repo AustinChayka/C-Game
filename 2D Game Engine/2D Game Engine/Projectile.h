@@ -16,10 +16,21 @@ public:
 	void OnCollision(GameObject * go, LevelManager * game);
 
 	bool OverrideCollision(GameObject * go);
+
+	float DistanceTraveled();
+
+	float GetSpawnX();
+	float GetSpawnY();
+	float GetSpawnVX();
+	float GetSpawnVY();
+
+	int GetLifeTime();
 	
 protected:
 
-	int xDir, yDir;
+	int xDir, yDir, lifeTime = 0;
+
+	float distance = 0, spawnX, spawnY, spawnVX, spawnVY;
 
 	GameObject * spawner;
 

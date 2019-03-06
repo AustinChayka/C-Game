@@ -2,6 +2,7 @@
 
 #include "Ember.h"
 #include <cmath>
+#include "Player.h"
 
 
 Projectile::Projectile(const char * path, float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) 
@@ -11,13 +12,16 @@ Projectile::Projectile(const char * path, float x, float y, float init_vX, float
 	moveable = false;
 	solid = false;
 
-	vX = init_vX;
-	vY = init_vY;
+	vX = spawnVX = init_vX;
+	vY = spawnVY = init_vY;
 
 	xDir = init_xDir;
 	yDir = init_yDir;
 
 	spawner = init_spawner;
+
+	spawnX = x;
+	spawnY = y;
 	
 }
 
@@ -25,8 +29,14 @@ Projectile::Projectile(const char * path, float x, float y, float init_vX, float
 Projectile::~Projectile() {}
 
 void Projectile::Update(LevelManager * game) {
+
+	lifeTime++;
+
+	if(dynamic_cast<Player *>(spawner) != nullptr) ((Player *)spawner)->UpdateProjectile(game, this);
 	
 	if(pow(x - spawner->GetX(), 2.0f) + pow(y - spawner->GetY(), 2.0f) > pow(maxDistance, 2)) dead = true;
+
+	distance += sqrt(pow(vX, 2) + pow(vY, 2));
 
 }
 
@@ -42,5 +52,37 @@ void Projectile::OnCollision(GameObject * go, LevelManager * game) {
 bool Projectile::OverrideCollision(GameObject * go) {
 
 	return go == spawner || dynamic_cast<Particle *>(go) != nullptr;
+
+}
+
+float Projectile::DistanceTraveled() {
+
+	return distance;
+
+}
+
+float Projectile::GetSpawnX() {
+
+	return spawnX;
+
+}
+
+float Projectile::GetSpawnY() {
+
+	return spawnY;
+
+}
+
+float Projectile::GetSpawnVX() {
+	return spawnVX;
+}
+
+float Projectile::GetSpawnVY() {
+	return spawnVY;
+}
+
+int Projectile::GetLifeTime() {
+
+	return lifeTime;
 
 }

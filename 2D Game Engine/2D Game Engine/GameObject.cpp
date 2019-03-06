@@ -67,7 +67,9 @@ void GameObject::UpdateCollisions(LevelManager * game) {
 
 		if(!moveable || !go->IsSolid()) continue;
 
-		if(!OverrideCollision(go)) collisions.push_back(go);
+		if(!go->IsMoveable()) {
+			if(!go->OverrideCollision(this)) collisions.push_back(go);
+		} else if(!OverrideCollision(go)) collisions.push_back(go);
 		
 		if(GetXOverlap(go) < GetYOverlap(go)) {
 			if(GetXCenter() > go->GetXCenter()) {

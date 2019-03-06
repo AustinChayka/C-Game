@@ -20,6 +20,7 @@ Game::Game(const char * title, int xPos, int yPos, int init_width, int init_heig
 
 	int flags = 0;
 	if(fullscreen) flags = SDL_WINDOW_FULLSCREEN;
+	
 
 	if(SDL_Init(SDL_INIT_EVERYTHING) == 0) {
 

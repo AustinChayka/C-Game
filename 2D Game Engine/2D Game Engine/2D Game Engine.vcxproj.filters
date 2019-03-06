@@ -162,6 +162,12 @@
     <ClCompile Include="MarkOfHunger.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
+    <ClCompile Include="SoftPlatform.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SpiralShell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -277,6 +283,12 @@
     </ClInclude>
     <ClInclude Include="MarkOfHunger.h">
       <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftPlatform.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiralShell.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

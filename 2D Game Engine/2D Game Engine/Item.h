@@ -4,6 +4,7 @@
 #include "LevelManager.h"
 #include "Player.h"
 #include "SDL.h"
+#include "Projectile.h"
 
 class Item {
 
@@ -16,6 +17,7 @@ public:
 	virtual void OnDamageTaken(LevelManager * game, GameObject * go, Player * p);
 	virtual void OnShotFired(LevelManager * game, Player * p);
 	virtual void OnDamageDelt(LevelManager * game, Player * p, GameObject * go);
+	virtual void UpdateProjectile(LevelManager * game, Player * p, Projectile * proj);
 	virtual void Render();
 
 	SDL_Texture * GetTexture();

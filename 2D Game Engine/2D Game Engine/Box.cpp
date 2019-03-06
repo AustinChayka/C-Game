@@ -17,5 +17,9 @@ void Box::Update(LevelManager * game) {
 }
 
 void Box::OnCollision(GameObject * go, LevelManager * game) {
+
+	//if(go->IsMoveable() && go->GetXOverlap(this) < go->GetYOverlap(this)) 
+		if(go->IsMoveable()) 
+			go->SetVX(go->GetVX() / 5);
 	
 }

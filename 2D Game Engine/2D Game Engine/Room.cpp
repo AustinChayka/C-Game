@@ -5,6 +5,8 @@
 #include "ItemObject.h"
 #include "Spike.h"
 #include "StageDoor.h"
+#include "SoftPlatform.h"
+#include "Box.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -22,7 +24,7 @@ Room::Room(float offX, float offY, int type) {
 
 		case 2:
 			Init(offX, offY, 20, 6, 3, 3, -1);
-			objects.push_back(new Slime(x + 500, y + 100, 5));
+			objects.push_back(new Slime(x + 500, y + 100, 3));
 			objects.push_back(new Slime(x + 800, y + 100, 3));
 			for(int i = 1; i < 19 * (60 / 72.0f); i++) if(rand() % 2 == 1) {
 				int l = rand() % 2 == 0 ? 0 : 3;
@@ -61,6 +63,37 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Spike(x + 60, y + 5 * 60 - 30));
 			objects.push_back(new Spike(x + 120, y + 5 * 60 - 30));
 			objects.push_back(new Spike(x + 180, y + 5 * 60 - 30));
+			break;
+
+		case 5:
+			Init(offX, offY, 16, 16, 13, 3, -1);
+			objects.push_back(new Block(x + 60, y + 11 * 60, 8, 1));
+			for(int i = 0; i < 8; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 11 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 8, y + 11 * 60, 20, 20, 3, 0, 3, 2));
+			objects.push_back(new SoftPlatform(x + 9 * 60, y + 11 * 60, 3));
+			objects.push_back(new SoftPlatform(x + 9 * 60, y + 13 * 60, 3));
+			objects.push_back(new Block(x + 12 * 60, y + 11 * 60, 3, 1));
+			for(int i = 0; i < 3; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (i + 13), y + 11 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 12, y + 11 * 60, 20, 20, 4, 0, 3, 2));
+			objects.push_back(new Block(x + 60, y + 7 * 60, 3, 1));
+			for(int i = 0; i < 3; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 7 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 3, y + 7 * 60, 20, 20, 3, 0, 3, 2));
+			objects.push_back(new SoftPlatform(x + 4 * 60, y + 7 * 60, 3));
+			objects.push_back(new SoftPlatform(x + 4 * 60, y + 9 * 60, 3));
+			objects.push_back(new Block(x + 7 * 60, y + 7 * 60, 8, 1));
+			for(int i = 0; i < 8; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (i + 8), y + 7 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 7, y + 7 * 60, 20, 20, 4, 0, 3, 2));
+			objects.push_back(new SoftPlatform(x + 14 * 60, y + 5 * 60, 1));
+			objects.push_back(new Spike(x + 8 * 60, y + 15 * 60 - 30));
+			objects.push_back(new Spike(x + 9 * 60, y + 15 * 60 - 30));
+			objects.push_back(new Spike(x + 10 * 60, y + 15 * 60 - 30));
+			objects.push_back(new Spike(x + 11 * 60, y + 15 * 60 - 30));
+			objects.push_back(new Spike(x + 12 * 60, y + 15 * 60 - 30));
+			objects.push_back(new Spike(x + 3 * 60, y + 11 * 60 - 30));
+			objects.push_back(new Spike(x + 4 * 60, y + 11 * 60 - 30));
+			objects.push_back(new Spike(x + 5 * 60, y + 11 * 60 - 30));
+			objects.push_back(new Spike(x + 6 * 60, y + 11 * 60 - 30));
+			objects.push_back(new Spike(x + 7 * 60, y + 11 * 60 - 30));
 			break;
 
 	}
@@ -228,6 +261,8 @@ void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, i
 			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
 		else if(i == rightDoorHeight - 1)
 			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 1, 1, 3, 2));
+		else if(i == rightDoorHeight + 2)
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 3, 1, 3, 2));
 	}
 
 }

@@ -23,6 +23,8 @@ void Item::OnShotFired(LevelManager * game, Player * p) {}
 
 void Item::OnDamageDelt(LevelManager * game, Player * p, GameObject * go) {}
 
+void Item::UpdateProjectile(LevelManager * game, Player * p, Projectile * proj) {}
+
 void Item::Render() {}
 
 SDL_Texture * Item::GetTexture() {

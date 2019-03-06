@@ -4,6 +4,9 @@
 #include "Fireball.h"
 #include "Smoke.h"
 #include "Item.h"
+#include "SoftPlatform.h"
+
+#include "SpiralShell.h"
 
 Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
 
@@ -21,6 +24,8 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 	grav = .55f;
 
 	items = new std::vector<Item *>;
+
+	items->push_back(new SpiralShell());
 	
 }
 
@@ -69,6 +74,10 @@ void Player::Update(LevelManager * game) {
 					grav = 0;
 				}
 				break;
+
+			case SDLK_s:
+				down = true;
+				break;
 							
 		}
 
@@ -87,6 +96,10 @@ void Player::Update(LevelManager * game) {
 
 			case SDLK_d:
 				right = false;
+				break;
+
+			case SDLK_s:
+				down = false;
 				break;
 							   
 		}
@@ -116,7 +129,7 @@ void Player::Update(LevelManager * game) {
 		Particle * p = new Particle("assets/Player.png", x, y, 21, 36, (int)((dash / 6.0f) * 9), tileY, 3);
 		p->SetFadeSpeed(8);
 		game->AddObject(p);
-		for(auto go : *(game->GetObjects())) if(go->IsSolid() && !go->IsMoveable() &&
+		for(auto go : *(game->GetObjects())) if(go->IsSolid() && !go->IsMoveable() && dynamic_cast<SoftPlatform *>(go) == nullptr &&
 			x + width + (dir == 1 ? 50 : 0) > go->GetX() && x + (dir == 1 ? 0 : -50) < go->GetX() + go->GetWidth() &&
 			y + height > go->GetY() && y < go->GetY() + go->GetHeight() && GetXOverlap(go) < GetYOverlap(go)) {
 				x = (dir == 1 ? go->GetX() - width : go->GetX() + go->GetWidth());
@@ -196,5 +209,17 @@ std::vector<Item*>* Player::GetItems() {
 void Player::DamageDelt(LevelManager * game, GameObject * go) {
 
 	for(auto item : *items) item->OnDamageDelt(game, this, go);
+
+}
+
+void Player::UpdateProjectile(LevelManager * game, Projectile * p) {
+
+	for(auto item : *items) item->UpdateProjectile(game, this, p);
+
+}
+
+bool Player::DownPressed() {
+
+	return down;
 
 }
