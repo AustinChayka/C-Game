@@ -20,12 +20,14 @@ public:
 
 	void Render();
 
+	void SetPlayer(GameObject * p);
+
 private:
 
 	GameObject * player;
 	StateManager * manager;
 
-	int prevHealth = 0, showHealth = 0, showManaFatigue = 0, prevItemsSize = 0, showNewItem = 0;
+	int prevHealth = 0, prevMaxHealth = 0, showHealth = 0, showManaFatigue = 0, prevItemsSize = 0, showNewItem = 0;
 	float prevManaFatigue = 0;
 
 	SDL_Rect mapRect, iconRect;

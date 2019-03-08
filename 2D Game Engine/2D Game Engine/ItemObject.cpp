@@ -3,8 +3,9 @@
 #include "Heart.h"
 #include "CursedCandle.h"
 #include "MarkOfHunger.h"
+#include "SpiralShell.h"
 
-ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 24, 24) {
+ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 24, 24) {
 
 	collidable = false;
 	solid = false;
@@ -13,19 +14,38 @@ ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 2
 	textRect.w = 20;
 	textRect.h = 20;
 
-	switch(type) {
+	switch(pool) {
 
 		case 0:
-			item = new Heart();
-			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/Heart.png");
+			switch(rand() % 2) {
+
+				case 0:
+					item = new Heart();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/Heart.png");
+					break;
+
+				case 1:
+					item = new SpiralShell();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/SpiralShell.png");
+					break;
+
+			}
 			break;
+
 		case 1:
-			item = new CursedCandle();
-			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/CursedCandle.png");
-			break;
-		case 2:
-			item = new MarkOfHunger();
-			texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/MarkOfHunger.png");
+			switch(rand() % 2) {
+
+				case 0:
+					item = new CursedCandle();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/CursedCandle.png");
+					break;
+
+				case 1:
+					item = new MarkOfHunger();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/MarkOfHunger.png");
+					break;
+
+			}
 			break;
 
 	}
@@ -35,6 +55,8 @@ ItemObject::ItemObject(float x, float y, int type) : GameObject(nullptr, x, y, 2
 ItemObject::~ItemObject() {}
 
 void ItemObject::Update(LevelManager * game) {
+
+	if(damageDelay > 0) return;
 
 	for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;

@@ -29,14 +29,16 @@ Projectile::Projectile(const char * path, float x, float y, float init_vX, float
 Projectile::~Projectile() {}
 
 void Projectile::Update(LevelManager * game) {
-
+	
 	lifeTime++;
+	distance += sqrt(pow(vX, 2) + pow(vY, 2));
 
-	if(dynamic_cast<Player *>(spawner) != nullptr) ((Player *)spawner)->UpdateProjectile(game, this);
+	if(spawner == nullptr || !spawner) return;
+
+	if(dynamic_cast<Player *>(spawner) != nullptr) ((Player *) spawner)->UpdateProjectile(game, this);
 	
 	if(pow(x - spawner->GetX(), 2.0f) + pow(y - spawner->GetY(), 2.0f) > pow(maxDistance, 2)) dead = true;
 
-	distance += sqrt(pow(vX, 2) + pow(vY, 2));
 
 }
 
@@ -84,5 +86,11 @@ float Projectile::GetSpawnVY() {
 int Projectile::GetLifeTime() {
 
 	return lifeTime;
+
+}
+
+void Projectile::SetSpawner(GameObject * go) {
+
+	spawner = go;
 
 }

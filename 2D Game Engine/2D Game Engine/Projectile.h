@@ -25,6 +25,8 @@ public:
 	float GetSpawnVY();
 
 	int GetLifeTime();
+
+	void SetSpawner(GameObject * go);
 	
 protected:
 

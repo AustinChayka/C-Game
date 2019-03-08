@@ -6,7 +6,7 @@
 #include "Item.h"
 #include "SoftPlatform.h"
 
-#include "SpiralShell.h"
+#include "MarkOfHunger.h"
 
 Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
 
@@ -24,8 +24,6 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 	grav = .55f;
 
 	items = new std::vector<Item *>;
-
-	items->push_back(new SpiralShell());
 	
 }
 

@@ -89,3 +89,9 @@ LevelManager * StateManager::GetLevelManager() {
 	return levelManager;
 
 }
+
+void StateManager::SetLevelManager(LevelManager * l) {
+
+	levelManager = l;
+
+}

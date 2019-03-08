@@ -143,6 +143,7 @@
     <ClCompile Include="CursedFire.cpp" />
     <ClCompile Include="CursedFireball.cpp" />
     <ClCompile Include="Debris.cpp" />
+    <ClCompile Include="DemonAlter.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Ember.cpp" />
     <ClCompile Include="ExitButton.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="PlayButton.cpp" />
     <ClCompile Include="Pot.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Smoke.cpp" />
@@ -186,6 +188,7 @@
     <ClInclude Include="CursedFire.h" />
     <ClInclude Include="CursedFireball.h" />
     <ClInclude Include="Debris.h" />
+    <ClInclude Include="DemonAlter.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Ember.h" />
     <ClInclude Include="ExitButton.h" />
@@ -207,6 +210,7 @@
     <ClInclude Include="PlayButton.h" />
     <ClInclude Include="Pot.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Smoke.h" />

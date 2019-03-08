@@ -9,7 +9,7 @@ class ItemObject : public GameObject {
 
 public:
 
-	ItemObject(float x, float y, int type);
+	ItemObject(float x, float y, int pool);
 
 	~ItemObject();
 

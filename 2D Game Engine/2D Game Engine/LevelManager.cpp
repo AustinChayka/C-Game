@@ -1,5 +1,6 @@
 #include "LevelManager.h"
 
+#include <ctime>
 #include "Player.h"
 #include "Platform.h"
 #include "Box.h"
@@ -9,6 +10,7 @@
 #include "Pot.h"
 #include "Door.h"
 #include "Room.h"
+#include "Projectile.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -38,7 +40,7 @@ void LevelManager::LoadLevel(int n) {
 
 	AddObject(player);
 	
-	GenerateLevel(n * 2 + 3, rand());
+	GenerateLevel(n * 2 + 3, time(0));
 
 }
 
@@ -54,9 +56,18 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 0));
 	roomOffsetX += 10 * 60;
 
+	int treasureRoom = rand() % size;
+
 	for(int i = 0; i < size; i++) {
+
+		if(i == treasureRoom) {
+			roomOffsetY -= 60 * 2;
+			rooms->push_back(new Room(roomOffsetX, roomOffsetY, 6));
+			roomOffsetX += 8 * 60;
+			roomOffsetY += 60 * 2;
+		}
 		
-		switch(3) {
+		switch(rand() % 4) {
 
 			case 0:
 				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 2));
@@ -79,7 +90,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 5));
 				roomOffsetX += 16 * 60;
 				break;
-
+				
 		}
 		
 	}
@@ -99,7 +110,7 @@ void LevelManager::Update(StateManager * sm) {
 	for(int i = 0; i < objects->size(); i++) {
 
 		objects->at(i)->UpdateObject(this);
-		if(objects->at(i)->IsDead()) {
+		if(objects->at(i)->IsDead() && dynamic_cast<Player *>(objects->at(i)) == nullptr) {
 			delete objects->at(i);
 			objects->erase(objects->begin() + i);
 			i--;

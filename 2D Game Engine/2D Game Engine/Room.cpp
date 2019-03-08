@@ -7,6 +7,7 @@
 #include "StageDoor.h"
 #include "SoftPlatform.h"
 #include "Box.h"
+#include "DemonAlter.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -59,7 +60,6 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Block(x + 16 * 5 * 3 + 12, y + 5 * 60, 1, 1));
 			tiles.push_back(new ImageTile("assets/Block.png", x + 16 * 5 * 3 + 12, y + 5 * 60,
 				20, 20, 0, 3, 3, 2));
-			objects.push_back(new ItemObject(x + 100, y + 11 * 60 - 24, rand() % 3));
 			objects.push_back(new Spike(x + 60, y + 5 * 60 - 30));
 			objects.push_back(new Spike(x + 120, y + 5 * 60 - 30));
 			objects.push_back(new Spike(x + 180, y + 5 * 60 - 30));
@@ -94,6 +94,12 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Spike(x + 5 * 60, y + 11 * 60 - 30));
 			objects.push_back(new Spike(x + 6 * 60, y + 11 * 60 - 30));
 			objects.push_back(new Spike(x + 7 * 60, y + 11 * 60 - 30));
+			break;
+
+		case 6:
+			Init(offX, offY, 8, 8, 5, 5, -1);
+			if(rand() % 2 == 0) objects.push_back(new ItemObject(x + 4 * 60 - 12, y + 7 * 60 - 24, 0));
+			else objects.push_back(new DemonAlter(x + 4 * 60 - 60, y + 7 * 60 - 150));
 			break;
 
 	}
@@ -261,7 +267,7 @@ void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, i
 			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
 		else if(i == rightDoorHeight - 1)
 			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 1, 1, 3, 2));
-		else if(i == rightDoorHeight + 2)
+		else if(i == rightDoorHeight + 2 && i != blocksHeight - 1)
 			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 3, 1, 3, 2));
 	}
 

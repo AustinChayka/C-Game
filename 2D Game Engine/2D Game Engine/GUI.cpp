@@ -23,11 +23,12 @@ void GUI::Update() {
 	if(showManaFatigue > 0) showManaFatigue--;
 	if(showNewItem > 0) showNewItem--;
 	
-	if(player->GetHealth() != prevHealth) showHealth = 180;
+	if(player->GetHealth() != prevHealth || player->GetMaxHealth() != prevMaxHealth) showHealth = 180;
 	if(((Player *)player)->GetManaFatigue() != prevManaFatigue) showManaFatigue = 180;
 	if(prevItemsSize < ((Player *)player)->GetItems()->size()) showNewItem = 120;
 
 	prevHealth = player->GetHealth();
+	prevMaxHealth = player->GetMaxHealth();
 	prevManaFatigue = ((Player *)player)->GetManaFatigue();
 	prevItemsSize = ((Player *)player)->GetItems()->size();
 
@@ -110,5 +111,11 @@ void GUI::Render() {
 		SDL_RenderCopy(Game::renderer, itemTexture, NULL, &iconRect);
 
 	}
+
+}
+
+void GUI::SetPlayer(GameObject * p) {
+
+	player = p;
 
 }

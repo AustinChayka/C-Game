@@ -381,6 +381,7 @@ int GameObject::GetMaxHealth() {
 void GameObject::SetMaxHealth(int h) {
 
 	maxHealth = h;
+	if(maxHealth < health) health = maxHealth;
 
 }
 

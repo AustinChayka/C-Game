@@ -166,7 +166,13 @@
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="SpiralShell.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="DemonAlter.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RestartButton.cpp">
+      <Filter>Source Files\Engine\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -288,7 +294,13 @@
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="SpiralShell.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="DemonAlter.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="RestartButton.h">
+      <Filter>Header Files\Engine\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -21,6 +21,7 @@ public:
 	void ChangeState(int n);
 
 	LevelManager * GetLevelManager();
+	void SetLevelManager(LevelManager * l);
 
 private:
 
