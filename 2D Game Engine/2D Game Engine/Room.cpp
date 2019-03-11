@@ -8,6 +8,7 @@
 #include "SoftPlatform.h"
 #include "Box.h"
 #include "DemonAlter.h"
+#include "PotMimic.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -94,6 +95,13 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Spike(x + 5 * 60, y + 11 * 60 - 30));
 			objects.push_back(new Spike(x + 6 * 60, y + 11 * 60 - 30));
 			objects.push_back(new Spike(x + 7 * 60, y + 11 * 60 - 30));
+			objects.push_back(new PotMimic(x + 60 * 8, y + 7 * 60 - 35 * 3));
+			objects.push_back(new Pot(x + 60 * 5, y + 7 * 60 - 24 * 3, false));
+			objects.push_back(new Pot(x + 60 * 7, y + 7 * 60 - 24 * 3, true));
+			objects.push_back(new Pot(x + 60 * 4, y + 7 * 60 - 24 * 3, false));
+			objects.push_back(new Pot(x + 60 * 2, y + 7 * 60 - 24 * 3, true));
+			objects.push_back(new Pot(x + 60 * 10, y + 7 * 60 - 24 * 3, true));
+			objects.push_back(new Pot(x + 60 * 12, y + 7 * 60 - 24 * 3, false));
 			break;
 
 		case 6:

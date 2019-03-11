@@ -165,6 +165,8 @@
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayButton.cpp" />
     <ClCompile Include="Pot.cpp" />
+    <ClCompile Include="PotMimic.cpp" />
+    <ClCompile Include="PotMimicTentacle.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -209,6 +211,8 @@
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayButton.h" />
     <ClInclude Include="Pot.h" />
+    <ClInclude Include="PotMimic.h" />
+    <ClInclude Include="PotMimicTentacle.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Room.h" />

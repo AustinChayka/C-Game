@@ -33,6 +33,7 @@ void DemonAlter::Update(LevelManager * game) {
 				go->SetMaxHealth(go->GetMaxHealth() - 5);
 				active = false;
 				collided = false;
+				tileY = 1;
 				game->AddObject(new ItemObject(GetXCenter() - 12, y + 50 * 3 - 24, 1));
 			}
 		}

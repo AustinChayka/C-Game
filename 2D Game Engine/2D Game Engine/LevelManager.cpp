@@ -26,7 +26,29 @@ LevelManager::LevelManager() {
 
 }
 
-LevelManager::~LevelManager() {}
+LevelManager::~LevelManager() {
+
+	for(int i = 0; i < objects->size(); i++) if(objects->at(i) != player) delete objects->at(i);
+	objects->clear();
+	for(int i = 0; i < tiles->size(); i++) delete tiles->at(i);
+	tiles->clear();
+	for(int i = 0; i < rooms->size(); i++) delete rooms->at(i);
+	rooms->clear();
+	allObjects->clear();
+
+	delete player;
+	player = nullptr;
+
+	delete objects;
+	objects = nullptr;
+	delete tiles;
+	tiles = nullptr;
+	delete rooms;
+	rooms = nullptr;
+	delete allObjects;
+	allObjects = nullptr;
+
+}
 
 void LevelManager::LoadLevel(int n) {
 

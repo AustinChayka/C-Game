@@ -43,6 +43,24 @@
     <Filter Include="Header Files\Items">
       <UniqueIdentifier>{1987922c-38fd-4974-841d-9b712a4e0d71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Entities">
+      <UniqueIdentifier>{c5d19462-19b5-4dcc-adca-e4b145962336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Other">
+      <UniqueIdentifier>{a3c1d503-1127-48c4-a98d-66405def744f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Stage">
+      <UniqueIdentifier>{301418f6-5b9a-4cec-b893-38ad8595ff27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Entities">
+      <UniqueIdentifier>{b02e8ffe-c34d-4e18-af2a-caae7f3c8abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Stage">
+      <UniqueIdentifier>{60285d2d-bfe8-410b-9c47-b39e3b23d5e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Other">
+      <UniqueIdentifier>{20dfb699-35fe-4fda-b6a8-d4b85162979f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -69,49 +87,16 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Box.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Ember.cpp">
       <Filter>Source Files\Particles</Filter>
     </ClCompile>
-    <ClCompile Include="Fire.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Particle.cpp">
       <Filter>Source Files\Particles</Filter>
-    </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Smoke.cpp">
       <Filter>Source Files\Particles</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Fireball.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Block.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Spirit.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="CursedFire.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="CursedFireball.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Pot.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="GameOverScreen.cpp">
@@ -129,17 +114,11 @@
     <ClCompile Include="PlayButton.cpp">
       <Filter>Source Files\Engine\Buttons</Filter>
     </ClCompile>
-    <ClCompile Include="Door.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="ExitButton.cpp">
       <Filter>Source Files\Engine\Buttons</Filter>
-    </ClCompile>
-    <ClCompile Include="Slime.cpp">
-      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Source Files\Items</Filter>
@@ -147,32 +126,77 @@
     <ClCompile Include="Heart.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="ItemObject.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="CursedCandle.cpp">
       <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Spike.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="StageDoor.cpp">
-      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="MarkOfHunger.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="SoftPlatform.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="SpiralShell.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="DemonAlter.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="RestartButton.cpp">
       <Filter>Source Files\Engine\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CursedFire.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="CursedFireball.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="DemonAlter.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Fire.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Fireball.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemObject.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Pot.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="PotMimic.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="PotMimicTentacle.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftPlatform.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Spike.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Spirit.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="StageDoor.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,21 +221,6 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Box.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Fire.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\Objects</Filter>
     </ClInclude>
@@ -224,26 +233,8 @@
     <ClInclude Include="Smoke.h">
       <Filter>Header Files\Particles</Filter>
     </ClInclude>
-    <ClInclude Include="Fireball.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Block.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Spirit.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="CursedFire.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="CursedFireball.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="GameOverScreen.h">
       <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Pot.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Debris.h">
       <Filter>Header Files\Particles</Filter>
@@ -257,23 +248,14 @@
     <ClInclude Include="ImageTile.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Door.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="ExitButton.h">
       <Filter>Header Files\Engine\Buttons</Filter>
     </ClInclude>
-    <ClInclude Include="Slime.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemObject.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Heart.h">
       <Filter>Header Files\Items</Filter>
@@ -281,26 +263,74 @@
     <ClInclude Include="CursedCandle.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Spike.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="StageDoor.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="MarkOfHunger.h">
       <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="SoftPlatform.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="SpiralShell.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
-    <ClInclude Include="DemonAlter.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="RestartButton.h">
       <Filter>Header Files\Engine\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CursedFire.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="CursedFireball.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="DemonAlter.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Fire.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Fireball.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Pot.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="PotMimic.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PotMimicTentacle.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="SoftPlatform.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Spike.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Spirit.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="StageDoor.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemObject.h">
+      <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

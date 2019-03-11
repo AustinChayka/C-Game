@@ -34,7 +34,7 @@ void Spirit::Update(LevelManager * game) {
 	if(projectileTimer < 0 && y > target->GetY() && y + height < target->GetY() + target->GetHeight()) {
 
 		float dX = target->GetX() - x, dY = target->GetY() - y;
-		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, parent == nullptr ? this : parent));
+		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, this));
 		projectileTimer = projectileDelay;
 
 	} else projectileTimer--;

@@ -13,6 +13,7 @@ void RestartButton::OnPress(StateManager * sm, MenuState * m) {}
 
 void RestartButton::OnRelease(StateManager * sm, MenuState * m) {
 
+	delete sm->GetLevelManager();
 	sm->SetLevelManager(new LevelManager());
 	sm->GetLevelManager()->LoadLevel(0);
 	Game::gui->SetPlayer(LevelManager::player);
