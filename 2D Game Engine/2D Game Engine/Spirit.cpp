@@ -6,22 +6,21 @@
 #include "Debris.h"
 #include "Room.h"
 
-Spirit::Spirit(float x, float y) : GameObject("assets/Spirit.png", x, y, 13, 29, 2) {
+Spirit::Spirit(float x, float y) : Enemy("assets/Spirit.png", x, y, 13, 29, 2, 2) {
 
 	collidable = true;
 	moveable = false;
 	solid = false;
 
 	deg = rand() % 360;
-
-	damageable = true;
-	maxHealth = health = 2;
-
+	
 }
 
 Spirit::~Spirit() {}
 
 void Spirit::Update(LevelManager * game) {
+
+	Enemy::Update(game);
 
 	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
 		
@@ -34,7 +33,7 @@ void Spirit::Update(LevelManager * game) {
 	if(projectileTimer < 0 && y > target->GetY() && y + height < target->GetY() + target->GetHeight()) {
 
 		float dX = target->GetX() - x, dY = target->GetY() - y;
-		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, this));
+		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, parent == nullptr ? this : parent));
 		projectileTimer = projectileDelay;
 
 	} else projectileTimer--;
@@ -66,14 +65,6 @@ void Spirit::Update(LevelManager * game) {
 
 	tileX += 0.1f;
 	if(tileX > 6) tileX = 0;
-
-}
-
-void Spirit::DealDamage(int d, LevelManager * game, GameObject * go) {
-
-	if(go->IsDamagable()) target = go;
-
-	GameObject::DealDamage(d, game, go);
 
 }
 

@@ -107,7 +107,7 @@ protected:
 	bool pushedLeft = false, pushedRight = false, pushedUp = false, pushedDown = false;
 
 	std::vector<GameObject *> collisions;
-	
+		
 };
 
 #endif

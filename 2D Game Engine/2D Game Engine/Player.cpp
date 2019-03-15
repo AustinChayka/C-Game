@@ -8,7 +8,7 @@
 
 #include "MarkOfHunger.h"
 
-Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36, 3) {
+Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 10) {
 
 	vX = 0;
 	vY = 0;
@@ -16,10 +16,7 @@ Player::Player(float x, float y) : GameObject("assets/Player.png", x, y, 21, 36,
 	collidable = true;
 	moveable = true;
 	solid = true;
-
-	maxHealth = health = 10;
-	damageable = true;
-
+	
 	decceleration = 1.15f;
 	grav = .55f;
 
@@ -34,6 +31,8 @@ Player::~Player() {
 }
 
 void Player::Update(LevelManager * game) {
+
+	Enemy::Update(game);
 
 	for(auto item : *items) item->Update(game, this);
 	
@@ -172,7 +171,7 @@ void Player::Update(LevelManager * game) {
 
 void Player::RenderObject() {
 
-	GameObject::RenderObject();
+	Enemy::RenderObject();
 	for(auto item : *items) item->Render();
 
 }

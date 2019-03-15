@@ -9,6 +9,7 @@
 #include "Box.h"
 #include "DemonAlter.h"
 #include "PotMimic.h"
+#include "Wraith.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -52,7 +53,7 @@ Room::Room(float offX, float offY, int type) {
 				SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
 				tiles.push_back(tile);
 			}
-			objects.push_back(new Spirit(x + 700, y + 100));
+			objects.push_back(new Wraith(x + 700, y + 100));
 			break;
 
 		case 4:

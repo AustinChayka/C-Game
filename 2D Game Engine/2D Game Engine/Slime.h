@@ -1,11 +1,11 @@
 #ifndef Slime_h
 #define Slime_h
 
-#include "GameObject.h"
+#include "Enemy.h"
 
 #include "Player.h"
 
-class Slime : public GameObject {
+class Slime : public Enemy {
 
 public:
 
@@ -25,8 +25,6 @@ private:
 
 	int jumpDelay = 0;
 	bool split = false;
-
-	GameObject * target;
 
 };
 

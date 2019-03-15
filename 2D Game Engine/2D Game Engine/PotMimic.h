@@ -1,9 +1,9 @@
 #ifndef PotMimic_h
 #define PotMimic_h
 
-#include "GameObject.h"
+#include "Enemy.h"
 
-class PotMimic : public GameObject {
+class PotMimic : public Enemy {
 
 public:
 

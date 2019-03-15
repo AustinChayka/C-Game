@@ -3,20 +3,19 @@
 #include "PotMimicTentacle.h"
 #include "Pot.h"
 
-PotMimic::PotMimic(float x, float y) : GameObject("assets/PotMimic.png", x, y, 24, 35, 3) {
+PotMimic::PotMimic(float x, float y) : Enemy("assets/PotMimic.png", x, y, 24, 35, 3, 8) {
 
 	collidable = true;
 	solid = false;
 	moveable = false;
-
-	damageable = true;
-	health = 8;
-
+	
 }
 
 PotMimic::~PotMimic() {}
 
 void PotMimic::Update(LevelManager * game) {
+
+	Enemy::Update(game);
 
 	if(statusFlag == 0) {
 		if(tileX < 4) tileX += .07f;
@@ -30,9 +29,19 @@ void PotMimic::Update(LevelManager * game) {
 
 		if(delay > 0) delay--;
 		else {
-			int spawnX = (rand() % 2 == 0 ? 1 : -1) * (GetXCenter() + rand() % 300  + 100 - 36);
-			for(auto go : *game->GetObjects()) if(go->IsAt(spawnX, y + 35 * 3 + 1) && go->IsSolid() && !go->IsMoveable()) {
-				game->AddObject(new PotMimicTentacle(spawnX, y));
+			int spawnX = NULL, spawnY = NULL;
+			if(target == nullptr || DistanceToSquared(target) > 500 * 500) {
+				for(auto go : *game->GetObjects()) if(go->IsDamagable() && DistanceToSquared(go) <= 500 * 500 &&
+					dynamic_cast<PotMimicTentacle *>(go) == nullptr && dynamic_cast<PotMimic *>(go) == nullptr) {
+					spawnX = go->GetXCenter();
+					spawnY = go->GetY() + go->GetHeight() - height;
+				}
+			} else {
+				spawnX = target->GetXCenter();
+				spawnY = target->GetY() + target->GetHeight() - height;
+			}
+			for(auto go : *game->GetObjects()) if(go->IsAt(spawnX + 12 * 3, spawnY + 35 * 3 + 1) && go->IsSolid() && !go->IsMoveable()) {
+				if(spawnX != NULL && spawnY != NULL) game->AddObject(new PotMimicTentacle(spawnX - 12 * 3, spawnY));
 				delay = 270;
 				return;
 			}
@@ -54,8 +63,8 @@ void PotMimic::OnCollision(GameObject * go, LevelManager * game) {
 
 void PotMimic::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	GameObject::DealDamage(d, game, go);
+	Enemy::DealDamage(d, game, go);
 
 	if(statusFlag == -1) statusFlag = 0;
-
+	
 }

@@ -18,7 +18,7 @@ public:
 
 private:
 
-	float lifeTime = -1;
+	float lifeTime = -1, burnDelay = 0;
 
 	GameObject * spawner;
 

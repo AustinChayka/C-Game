@@ -1,12 +1,12 @@
 #ifndef Player_h
 #define Player_h
 
-#include "GameObject.h"
+#include "Enemy.h"
 
 class Item;
 class Projectile;
 
-class Player : public GameObject {
+class Player : public Enemy {
 
 public:
 

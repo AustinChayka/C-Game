@@ -29,6 +29,8 @@ Projectile::Projectile(const char * path, float x, float y, float init_vX, float
 Projectile::~Projectile() {}
 
 void Projectile::Update(LevelManager * game) {
+
+	if(spawner->IsDead()) spawner = nullptr;
 	
 	lifeTime++;
 	distance += sqrt(pow(vX, 2) + pow(vY, 2));

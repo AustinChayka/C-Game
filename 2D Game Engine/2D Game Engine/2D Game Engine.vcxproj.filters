@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Objects\Other">
       <UniqueIdentifier>{20dfb699-35fe-4fda-b6a8-d4b85162979f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Statuses">
+      <UniqueIdentifier>{16c67bea-432e-4bab-829a-d459f898b9ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Statuses">
+      <UniqueIdentifier>{8b7713c4-3e42-4d9a-ab28-38cb1a526784}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -198,6 +204,21 @@
     <ClCompile Include="StageDoor.cpp">
       <Filter>Source Files\Objects\Stage</Filter>
     </ClCompile>
+    <ClCompile Include="Wraith.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Snowman.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Status.cpp">
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
+    <ClCompile Include="FireStatus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -331,6 +352,21 @@
     </ClInclude>
     <ClInclude Include="ItemObject.h">
       <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Wraith.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Snowman.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Status.h">
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
+    <ClInclude Include="FireStatus.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

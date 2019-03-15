@@ -1,10 +1,7 @@
 #include "Slime.h"
 
-Slime::Slime(float x, float y, int size) : GameObject("assets/Slime.png", x, y, 20, 17, size) {
-
-	damageable = true;
-	maxHealth = health = size;
-
+Slime::Slime(float x, float y, int size) : Enemy("assets/Slime.png", x, y, 20, 17, size, size) {
+	
 	collidable = true;
 	solid = true;
 	moveable = true;
@@ -18,7 +15,9 @@ Slime::~Slime() {}
 
 void Slime::Update(LevelManager * game) {
 
-	for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 40000) {
+	Enemy::Update(game);
+
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 40000) {
 
 		target = go;
 

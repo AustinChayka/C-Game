@@ -33,7 +33,7 @@ Particle::Particle(const char * filepath, float init_x, float init_y, float init
 	alpha = 255;
 
 	shrink = false;
-
+	
 }
 
 Particle::~Particle() {}
@@ -48,8 +48,14 @@ void Particle::Update(LevelManager * game) {
 	if(fade) if(alpha > 0) alpha - fadeSpeed > 0 ? alpha -= fadeSpeed : alpha = 0;
 	else dead = true;
 
-	if(img) SDL_SetTextureAlphaMod(texture, alpha);
-		
+	if(img) {
+		SDL_SetTextureAlphaMod(texture, alpha);
+		destRect.x = (int)((x - Game::camera->GetX()) * Game::camera->GetScale());
+		destRect.y = (int)((y - Game::camera->GetY()) * Game::camera->GetScale());
+		destRect.w = (int)(width * Game::camera->GetScale());
+		destRect.h = (int)(height * Game::camera->GetScale());
+	}
+			
 }
 
 void Particle::RenderObject() {

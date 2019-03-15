@@ -2,22 +2,21 @@
 
 #include "PotMimic.h"
 
-PotMimicTentacle::PotMimicTentacle(float x, float y) : GameObject("assets/PotMimic.png", x, y, 24, 35, 3) {
+PotMimicTentacle::PotMimicTentacle(float x, float y) : Enemy("assets/PotMimic.png", x, y, 24, 35, 3, 3) {
 
 	tileY = 2;
 
 	collidable = true;
 	solid = false;
 	moveable = false;
-
-	damageable = true;
-	maxHealth = health = 3;
-
+	
 }
 
 PotMimicTentacle::~PotMimicTentacle() {}
 
 void PotMimicTentacle::Update(LevelManager * game) {
+
+	Enemy::Update(game);
 
 	tileX += .15f;
 
