@@ -180,10 +180,10 @@ bool GameObject::CollidesWith(GameObject * go) {
 
 	if(this == go) return false;
 
-	return x <= go->GetX() + go->GetWidth()
-		&& x + width >= go->GetX()
-		&& y <= go->GetY() + go->GetHeight()
-		&& y + height >= go->GetY();
+	return x  + (vX < 0 ? vX : 0) <= go->GetX() + go->GetWidth() + (go->GetVX() > 0 ? go->GetVX() : 0)
+		&& x + width   + (vX > 0 ? vX : 0) >= go->GetX() + (go->GetVX() < 0 ? go->GetVX() : 0)
+		&& y + (vY < 0 ? vY : 0) <= go->GetY() + go->GetHeight() + (go->GetVY() > 0 ? go->GetVY() : 0) 
+		&& y + height + (vY > 0 ? vY : 0) >= go->GetY() + (go->GetVY() < 0 ? go->GetVY() : 0);
 
 }
 
@@ -417,12 +417,23 @@ void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 }
 
+void GameObject::DealDamage(int d, LevelManager * game) {
+
+	health -= d;
+	if(health > 0) {
+		damageDelay = 20;
+		damageFlash = 10;
+		SDL_SetTextureColorMod(texture, 255, 80, 80);
+	}
+
+}
+
 void GameObject::Heal(int h) {
 
 	if(!damageable) return;
 
 	if(maxHealth > health + h) health += h;
-	else h = maxHealth;
+	else health = maxHealth;
 
 }
 

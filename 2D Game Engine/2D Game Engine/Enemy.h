@@ -20,6 +20,7 @@ public:
 	virtual void DealDamage(int d, LevelManager * game, GameObject * go);
 
 	void AddStatus(Status * s);
+	virtual bool OverrideStatus(Status * s);
 
 protected:
 

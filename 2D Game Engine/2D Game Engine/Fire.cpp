@@ -40,7 +40,7 @@ void Fire::OnCollision(GameObject * go, LevelManager * game) {
 	if(lifeTime == -1) lifeTime = 145;
 
 	if(go != spawner && dynamic_cast<Enemy *>(go) != nullptr && burnDelay == 0) {
-		((Enemy *) go)->AddStatus(new FireStatus());
+		((Enemy *) go)->AddStatus(new FireStatus(1));
 		burnDelay = 60;
 	}
 

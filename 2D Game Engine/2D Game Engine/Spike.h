@@ -17,7 +17,7 @@ public:
 private:
 
 	bool activated = false, triggered = false;
-	int activationDelay = 20, retractionDelay = 120, delay;
+	int activationDelay = 20, retractionDelay = 120, delay, bleedDelay = 60;
 
 };
 

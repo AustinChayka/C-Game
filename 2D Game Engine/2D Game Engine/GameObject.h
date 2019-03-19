@@ -56,6 +56,7 @@ public:
 	bool IsAt(float xTarget, float yTarget);
 	
 	virtual void DealDamage(int d, LevelManager * game, GameObject * go);
+	void DealDamage(int d, LevelManager * game);
 	virtual void Heal(int h);
 	
 	float GetXOverlap(GameObject * go);

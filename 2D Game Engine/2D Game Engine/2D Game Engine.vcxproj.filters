@@ -217,7 +217,19 @@
       <Filter>Source Files\Statuses</Filter>
     </ClCompile>
     <ClCompile Include="FireStatus.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
+    <ClCompile Include="CursedFireStatus.cpp">
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
+    <ClCompile Include="BleedStatus.cpp">
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
+    <ClCompile Include="UseableItem.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPotion.cpp">
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -366,7 +378,19 @@
       <Filter>Header Files\Statuses</Filter>
     </ClInclude>
     <ClInclude Include="FireStatus.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
+    <ClInclude Include="CursedFireStatus.h">
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
+    <ClInclude Include="BleedStatus.h">
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
+    <ClInclude Include="UseableItem.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPotion.h">
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

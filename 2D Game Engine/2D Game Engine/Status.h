@@ -13,10 +13,11 @@ public:
 	~Status();
 
 	void Update(GameObject * go, LevelManager * game);
-	void Render();
+	void Render(int y);
 
 	virtual void OnIncrement(GameObject * go, LevelManager * game) = 0;
 	virtual void OnEnd(GameObject * go, LevelManager * game) = 0;
+	virtual void OnUpdate(GameObject * go, LevelManager * game) = 0;
 	
 	int GetIncrement();
 	void SetIncrement(int i);

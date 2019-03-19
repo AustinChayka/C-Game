@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BleedStatus.cpp" />
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="CursedCandle.cpp" />
     <ClCompile Include="CursedFire.cpp" />
     <ClCompile Include="CursedFireball.cpp" />
+    <ClCompile Include="CursedFireStatus.cpp" />
     <ClCompile Include="Debris.cpp" />
     <ClCompile Include="DemonAlter.cpp" />
     <ClCompile Include="Door.cpp" />
@@ -155,6 +157,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="ImageTile.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -184,9 +187,11 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="UseableItem.cpp" />
     <ClCompile Include="Wraith.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BleedStatus.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
@@ -194,6 +199,7 @@
     <ClInclude Include="CursedCandle.h" />
     <ClInclude Include="CursedFire.h" />
     <ClInclude Include="CursedFireball.h" />
+    <ClInclude Include="CursedFireStatus.h" />
     <ClInclude Include="Debris.h" />
     <ClInclude Include="DemonAlter.h" />
     <ClInclude Include="Door.h" />
@@ -207,6 +213,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GUI.h" />
+    <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="ImageTile.h" />
     <ClInclude Include="Item.h" />
@@ -235,6 +242,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="UseableItem.h" />
     <ClInclude Include="Wraith.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

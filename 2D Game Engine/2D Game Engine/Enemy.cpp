@@ -37,7 +37,7 @@ void Enemy::RenderObject() {
 
 	GameObject::RenderObject();
 
-	for(auto s : statuses) s->Render();
+	for(int i = 0; i < statuses.size(); i++) statuses.at(i)->Render(i);
 
 }
 
@@ -45,11 +45,13 @@ void Enemy::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 	GameObject::DealDamage(d, game, go);
 
-	if(go != nullptr) target = go;
+	if(go != nullptr && dynamic_cast<Enemy *>(go) != nullptr) target = go;
 
 }
 
 void Enemy::AddStatus(Status * s) {
+
+	if(OverrideStatus(s)) return;
 
 	for(auto stat : statuses) if(typeid(stat).name() == typeid(s).name()) {
 
@@ -62,5 +64,11 @@ void Enemy::AddStatus(Status * s) {
 	}
 
 	statuses.push_back(s);
+
+}
+
+bool Enemy::OverrideStatus(Status * s) {
+
+	return false;
 
 }

@@ -38,9 +38,10 @@ void Status::Update(GameObject * go, LevelManager * game) {
 
 }
 
-void Status::Render() {
+void Status::Render(int y) {
 
-	destRect.x -= increment / 2.0f * 15;
+	destRect.y -= y * 30;
+	destRect.x -= (increment / 2.0f) * 15;
 	for(int i = 0; i < increment; i++) {
 		destRect.x += 15;
 		SDL_RenderCopy(Game::renderer, icon, &srcRect, &destRect);

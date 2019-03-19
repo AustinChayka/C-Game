@@ -5,6 +5,7 @@
 
 class Item;
 class Projectile;
+class UseableItem;
 
 class Player : public Enemy {
 
@@ -29,6 +30,8 @@ public:
 
 	bool DownPressed();
 
+	UseableItem * GetUseItem();
+
 private:
 
 	bool left = false, right = false, attack = false, attackLock = false, down = false;
@@ -38,6 +41,7 @@ private:
 	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0;
 
 	std::vector<Item *> * items;
+	UseableItem * useItem;
 
 };
 

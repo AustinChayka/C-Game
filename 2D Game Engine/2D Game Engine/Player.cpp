@@ -5,8 +5,9 @@
 #include "Smoke.h"
 #include "Item.h"
 #include "SoftPlatform.h"
+#include "UseableItem.h"
 
-#include "MarkOfHunger.h"
+#include "HealthPotion.h"
 
 Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 10) {
 
@@ -21,6 +22,8 @@ Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 1
 	grav = .55f;
 
 	items = new std::vector<Item *>;
+
+	AddItem(new HealthPotion(), nullptr);
 	
 }
 
@@ -192,6 +195,14 @@ void Player::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 void Player::AddItem(Item * item, LevelManager * game) {
 
+	if(dynamic_cast<UseableItem *>(item) != nullptr) {
+		useItem = (UseableItem *) (item);
+		for(int i = 0; i < items->size(); i++) if(dynamic_cast<UseableItem *>(items->at(i)) != nullptr) {
+			delete items->at(i);
+			items->erase(items->begin() + i);
+		}
+	}
+
 	item->OnPickup(game, this);
 	items->push_back(item);
 
@@ -218,5 +229,11 @@ void Player::UpdateProjectile(LevelManager * game, Projectile * p) {
 bool Player::DownPressed() {
 
 	return down;
+
+}
+
+UseableItem * Player::GetUseItem() {
+
+	return useItem;
 
 }

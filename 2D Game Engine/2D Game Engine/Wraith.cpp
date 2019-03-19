@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "Particle.h"
 
-Wraith::Wraith(float x, float y) : Enemy("assets/Wraith.png", x, y, 11, 38, 2, 3) {
+Wraith::Wraith(float x, float y) : Enemy("assets/Wraith.png", x, y, 19, 22, 2, 2) {
 	
 	collidable = true;
 	solid = false;
@@ -33,14 +33,16 @@ void Wraith::Update(LevelManager * game) {
 	if(vY < -maxSpeed) vY = -maxSpeed;
 
 	if(delay == 0) {
-		Particle * p = new Particle("assets/Wraith.png", x, y, 11, 38, 0, 0, 2);
+		Particle * p = new Particle("assets/Wraith.png", x, y, 19, 22, tileX, tileY, 2);
 		p->SetFadeSpeed(7);
 		game->AddObject(p);
 		delay = 4;
 	} else delay--;
 
-	/*tileX += 0.1f;
-	if(tileX > 6) tileX = 0;*/
+	tileX += 0.1f;
+	if(tileX > 4) tileX = 0;
+	if(vX < 0) tileY = 0;
+	else tileY = 1;
 
 }
 

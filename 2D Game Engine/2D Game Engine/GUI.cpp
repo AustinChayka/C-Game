@@ -3,11 +3,14 @@
 #include "Player.h"
 #include "Room.h"
 #include "Item.h"
+#include "UseableItem.h"
 
 GUI::GUI(GameObject * p, StateManager * sm) {
 
 	player = p;
 	manager = sm;
+
+	useItemReadyText = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[Q]");
 
 }
 
@@ -19,22 +22,15 @@ GUI::~GUI() {
 
 void GUI::Update() {
 
-	if(showHealth > 0) showHealth--;
-	if(showManaFatigue > 0) showManaFatigue--;
 	if(showNewItem > 0) showNewItem--;
 	
-	if(player->GetHealth() != prevHealth || player->GetMaxHealth() != prevMaxHealth) showHealth = 180;
-	if(((Player *)player)->GetManaFatigue() != prevManaFatigue) showManaFatigue = 180;
 	if(prevItemsSize < ((Player *)player)->GetItems()->size()) showNewItem = 120;
 
-	prevHealth = player->GetHealth();
-	prevMaxHealth = player->GetMaxHealth();
-	prevManaFatigue = ((Player *)player)->GetManaFatigue();
 	prevItemsSize = ((Player *)player)->GetItems()->size();
 
 	mapWidth = 0;
 	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed() && 
-		((r->GetX() +  r->GetWidth() )/ 60) * 2 > mapWidth) 
+		((r->GetX() +  r->GetWidth()) / 60) * 2 > mapWidth) 
 		mapWidth = ((r->GetX() +  r->GetWidth() )/ 60) * 2;
 	mapHeight = 0;
 	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed() &&
@@ -45,11 +41,11 @@ void GUI::Update() {
 
 void GUI::Render() {
 
-	if(showHealth > 0) for(int i = 0; i < player->GetMaxHealth(); i++) {
+	for(int i = 0; i < player->GetMaxHealth(); i++) {
 
 		for(int y = 0; y < 25; y++) for(int x = 0; x < 10; x++) {
 
-			if(i <= player->GetHealth()) {
+			if(i < player->GetHealth()) {
 				SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 150);
 				SDL_RenderDrawPoint(Game::renderer, x + 15 + i * 15, y + 15);
 			} else {
@@ -61,7 +57,7 @@ void GUI::Render() {
 
 	}
 
-	if(showManaFatigue > 0) for(int y = 0; y < ((Player *)player)->GetManaFatigue() * 20; y++) for(int x = 0; x < 15; x++) {
+	for(int y = 0; y < ((Player *)player)->GetManaFatigue() * 20; y++) for(int x = 0; x < 15; x++) {
 
 		SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 150);
 		SDL_RenderDrawPoint(Game::renderer, x + 15, Game::height - y - 15);
@@ -91,18 +87,20 @@ void GUI::Render() {
 	
 	for(auto r : *(manager->GetLevelManager()->GetRooms())) {
 		
+		if(!r->IsRevealed()) continue;
+
 		if(r->IsActive()) SDL_SetRenderDrawColor(Game::renderer, 0, 150, 0, 100);
 		else SDL_SetRenderDrawColor(Game::renderer, 0, 100, 0, 100);
-		mapRect.x = (r->GetX() / 60) * 2 - 20 + Game::width - mapWidth;
-		mapRect.y = (r->GetY() / 60) * 2 + 20 + Game::height - mapHeight;
+		mapRect.x = (r->GetX() / 60) * 2 - 15 + Game::width - mapWidth;
+		mapRect.y = (r->GetY() / 60) * 2 - 15 + Game::height - mapHeight;
 		mapRect.w = (r->GetWidth() / 60) * 2;
 		mapRect.h = (r->GetHeight() / 60) * 2;
-		if(r->IsRevealed()) SDL_RenderFillRect(Game::renderer, &mapRect);
+		SDL_RenderFillRect(Game::renderer, &mapRect);
 
 	}
 
 	for(int i = 0; i < ((Player *) player)->GetItems()->size(); i++) {
-
+		
 		iconRect.x = Game::width - 24 - 12;
 		iconRect.y = 12 + 36 * i;
 		iconRect.w = iconRect.h = 24;
@@ -110,6 +108,23 @@ void GUI::Render() {
 		SDL_SetTextureAlphaMod(itemTexture, 50);
 		SDL_RenderCopy(Game::renderer, itemTexture, NULL, &iconRect);
 
+	}
+
+	if(((Player *) player)->GetUseItem() != nullptr) {
+		iconRect.x = 45;
+		iconRect.y = Game::height - 48 - 15;
+		iconRect.w = iconRect.h = 48;
+		itemTexture = ((Player *) player)->GetUseItem()->GetTexture();
+		SDL_SetTextureAlphaMod(itemTexture, (((Player *) player)->GetUseItem()->GetChargeTime() -
+			((Player *) player)->GetUseItem()->GetRecharge()) * 255.0 / ((Player *) player)->GetUseItem()->GetChargeTime());
+		SDL_RenderCopy(Game::renderer, itemTexture, NULL, &iconRect);
+		if(((Player *)player)->GetUseItem()->GetRecharge() == 0) {
+			iconRect.x = 45 + 48;
+			iconRect.y = Game::height - 15 - 24;
+			iconRect.w = 36;
+			iconRect.h = 24;
+			SDL_RenderCopy(Game::renderer, useItemReadyText, NULL, &iconRect);
+		}
 	}
 
 }
