@@ -6,9 +6,9 @@ MarkOfHunger::MarkOfHunger()  : Item("assets/Items/MarkOfHunger.png", "Mark of H
 
 MarkOfHunger::~MarkOfHunger() {}
 
-void MarkOfHunger::OnDamageDelt(LevelManager * game, Player * p, GameObject * go) {
+void MarkOfHunger::OnKill(LevelManager * game, Player * p, GameObject * go) {
 
-	if(rand() % 5 == 0) {
+	if(rand() % 3 == 0) {
 		p->Heal(1);
 		Particle * particle;
 		for(int i = 0; i < rand() % 5 + 7; i++) {

@@ -5,6 +5,8 @@
 #include "CursedFireball.h"
 #include "Debris.h"
 #include "Room.h"
+#include "Firestatus.h"
+#include "CursedFireStatus.h"
 
 Spirit::Spirit(float x, float y) : Enemy("assets/Spirit.png", x, y, 13, 29, 2, 2) {
 
@@ -22,7 +24,10 @@ void Spirit::Update(LevelManager * game) {
 
 	Enemy::Update(game);
 
-	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
+	tileX += 0.1f;
+	if(tileX > 6) tileX = 0;
+
+	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) <= 500 * 500) {
 		
 		target = go;
 				
@@ -62,10 +67,7 @@ void Spirit::Update(LevelManager * game) {
 		&& r->GetX() + 60 < x + width
 		&& r->GetY() + r->GetHeight() - 60 > y
 		&& r->GetY() + 60 < y + height) visible = true;
-
-	tileX += 0.1f;
-	if(tileX > 6) tileX = 0;
-
+	
 }
 
 void Spirit::SetTarget(GameObject * go) {
@@ -89,6 +91,12 @@ void Spirit::SetDeg(float d) {
 void Spirit::SetParent(GameObject * go) {
 
 	parent = go;
+
+}
+
+bool Spirit::OverrideStatus(Status * s) {
+
+	return dynamic_cast<FireStatus *>(s) != nullptr || dynamic_cast<CursedFireStatus *>(s) != nullptr;
 
 }
 

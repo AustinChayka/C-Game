@@ -17,7 +17,7 @@ public:
 
 	void OnCollision(GameObject * go, LevelManager * game);
 
-	void OnDeath(LevelManager * game);
+	void OnDeath(LevelManager * game, GameObject * go);
 
 	bool OverrideCollision(GameObject * go);
 

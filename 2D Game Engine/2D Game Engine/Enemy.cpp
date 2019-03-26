@@ -53,7 +53,7 @@ void Enemy::AddStatus(Status * s) {
 
 	if(OverrideStatus(s)) return;
 
-	for(auto stat : statuses) if(typeid(stat).name() == typeid(s).name()) {
+	for(auto stat : statuses) if(typeid(*stat).name() == typeid(*s).name()) {
 
 		stat->SetIncrement(stat->GetIncrement() + s->GetIncrement());
 
@@ -63,6 +63,7 @@ void Enemy::AddStatus(Status * s) {
 
 	}
 
+	s->OnApply(this);
 	statuses.push_back(s);
 
 }

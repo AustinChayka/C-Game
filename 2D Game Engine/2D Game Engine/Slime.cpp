@@ -36,7 +36,7 @@ void Slime::Update(LevelManager * game) {
 		split = true;
 	}
 
-	if(split && vY >= 0 && (int)(scale / 2) >= 1) {
+	if(split && vY >= 0 && (int)(scale / 2) >= 2) {
 		Slime * s = new Slime(GetXCenter() - 20 * ((int)(scale / 2) - 1), y, (int)(scale / 2) + 1);
 		s->SetVX(-12);
 		game->AddObject(s);
@@ -54,7 +54,9 @@ void Slime::OnCollision(GameObject * go, LevelManager * game) {
 
 }
 
-void Slime::OnDeath(LevelManager * game) {
+void Slime::OnDeath(LevelManager * game, GameObject * go) {
+
+	GameObject::OnDeath(game, go);
 
 	if((int) (scale / 2) >= 1) {
 

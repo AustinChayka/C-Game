@@ -7,7 +7,7 @@
 #include "SoftPlatform.h"
 #include "UseableItem.h"
 
-#include "HealthPotion.h"
+#include "PossesedNail.h"
 
 Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 10) {
 
@@ -23,7 +23,7 @@ Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 1
 
 	items = new std::vector<Item *>;
 
-	AddItem(new HealthPotion(), nullptr);
+	AddItem(new PossesedNail(), nullptr);
 	
 }
 
@@ -110,9 +110,11 @@ void Player::Update(LevelManager * game) {
 
 		if(!attackLock && manaFatigue >= 2) {
 
-			for(auto item : *items) item->OnShotFired(game, this);
+			Projectile * p = new Fireball(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this);
 
-			game->AddObject(new Fireball(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this));
+			for(auto item : *items) item->OnShotFired(game, this, p);
+
+			game->AddObject(p);
 			shot = shotDelay;
 			manaFatigue -= 2;
 
@@ -223,6 +225,18 @@ void Player::DamageDelt(LevelManager * game, GameObject * go) {
 void Player::UpdateProjectile(LevelManager * game, Projectile * p) {
 
 	for(auto item : *items) item->UpdateProjectile(game, this, p);
+
+}
+
+void Player::OnKill(LevelManager * game, GameObject * go) {
+
+	for(auto item : *items) item->OnKill(game, this, go);
+
+}
+
+int Player::GetDir() {
+
+	return dir;
 
 }
 

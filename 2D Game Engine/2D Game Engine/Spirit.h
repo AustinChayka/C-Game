@@ -18,6 +18,8 @@ public:
 	void SetDeg(float d);
 	void SetParent(GameObject * go);
 
+	bool OverrideStatus(Status * s);
+
 private :
 
 	float deg, radius = 15, rotPerSec = 0.5f;

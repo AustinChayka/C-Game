@@ -15,9 +15,10 @@ public:
 	virtual void Update(LevelManager * game, Player * p);
 	virtual void OnPickup(LevelManager * game, Player * p);
 	virtual void OnDamageTaken(LevelManager * game, GameObject * go, Player * p);
-	virtual void OnShotFired(LevelManager * game, Player * p);
+	virtual void OnShotFired(LevelManager * game, Player * p, Projectile *& proj);
 	virtual void OnDamageDelt(LevelManager * game, Player * p, GameObject * go);
 	virtual void UpdateProjectile(LevelManager * game, Player * p, Projectile * proj);
+	virtual void OnKill(LevelManager * game, Player * p, GameObject * go);
 	virtual void Render();
 
 	SDL_Texture * GetTexture();

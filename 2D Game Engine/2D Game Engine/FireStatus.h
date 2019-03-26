@@ -11,6 +11,7 @@ public:
 
 	~FireStatus();
 
+	void OnApply(GameObject * go);
 	void OnIncrement(GameObject * go, LevelManager * game);
 	void OnEnd(GameObject * go, LevelManager * game);
 	void OnUpdate(GameObject * go, LevelManager * game);

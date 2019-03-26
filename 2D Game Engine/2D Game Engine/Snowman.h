@@ -12,6 +12,12 @@ public:
 	~Snowman();
 
 	void Update(LevelManager * game);
+
+	bool OverrideCollision(GameObject * go);
+
+private:
+
+	int delay = 0;
 	
 };
 

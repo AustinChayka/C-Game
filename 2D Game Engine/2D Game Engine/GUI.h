@@ -36,6 +36,9 @@ private:
 
 	SDL_Texture * useItemReadyText;
 
+	SDL_Texture * heartIcon;
+	SDL_Rect heartRect;
+
 };
 
 #endif

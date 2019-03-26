@@ -21,6 +21,30 @@ ImageTile::ImageTile(const char * filepath, float init_x, float init_y, int img_
 
 }
 
+ImageTile::ImageTile(const char * filepath, float init_x, float init_y, int img_width, int img_height,
+	float init_tileX, float init_tileY, float scale, int init_layer, int init_tiles, float init_tileSpeed) {
+
+	texture = TextureManager::LoadTexture(Game::renderer, filepath);
+
+	x = init_x;
+	y = init_y;
+	width = img_width * scale;
+	height = img_height * scale;
+	tileX = init_tileX;
+	tileY = init_tileY;
+
+	srcRect.x = tileX * (int)img_width;
+	srcRect.y = tileY * (int)img_height;
+	srcRect.w = (int)img_width;
+	srcRect.h = (int)img_height;
+
+	layer = init_layer;
+
+	tiles = init_tiles;
+	tileSpeed = init_tileSpeed;
+
+}
+
 ImageTile::~ImageTile() {
 
 	SDL_DestroyTexture(texture);
@@ -28,6 +52,12 @@ ImageTile::~ImageTile() {
 }
 
 void ImageTile::Update() {
+
+	if(tiles != -1) {
+		tileX += tileSpeed;
+		if(tileX > tiles) tileX = 0;
+		srcRect.x = (int)tileX * width;
+	}
 
 	destRect.x = (int)((x - Game::camera->GetX()) * Game::camera->GetScale());
 	destRect.y = (int)((y - Game::camera->GetY()) * Game::camera->GetScale());

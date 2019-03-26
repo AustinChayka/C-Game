@@ -4,6 +4,8 @@ CursedFireStatus::CursedFireStatus(int i) : Status("assets/Icons/CursedFireIcon.
 
 CursedFireStatus::~CursedFireStatus() {}
 
+void CursedFireStatus::OnApply(GameObject * go) {}
+
 void CursedFireStatus::OnIncrement(GameObject * go, LevelManager * game) {
 
 	go->DealDamage(2, game);

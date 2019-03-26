@@ -2,6 +2,8 @@
 
 #include "Player.h"
 #include "Particle.h"
+#include "FireStatus.h"
+#include "CursedFireStatus.h"
 
 Wraith::Wraith(float x, float y) : Enemy("assets/Wraith.png", x, y, 19, 22, 2, 2) {
 	
@@ -18,8 +20,11 @@ Wraith::~Wraith() {}
 void Wraith::Update(LevelManager * game) {
 
 	Enemy::Update(game);
+	
+	tileX += 0.1f;
+	if(tileX > 4) tileX = 0;
 
-	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) && DistanceToSquared(go) > 400 * 400)
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) && DistanceToSquared(go) <= 500 * 500)
 		target = go;
 
 	if(target == nullptr) return;
@@ -39,8 +44,6 @@ void Wraith::Update(LevelManager * game) {
 		delay = 4;
 	} else delay--;
 
-	tileX += 0.1f;
-	if(tileX > 4) tileX = 0;
 	if(vX < 0) tileY = 0;
 	else tileY = 1;
 
@@ -52,4 +55,8 @@ void Wraith::OnCollision(GameObject * go, LevelManager * game) {
 
 	go->DealDamage(1, game, this);
 	
+}
+
+bool Wraith::OverrideStatus(Status * s) {
+	return dynamic_cast<FireStatus *>(s) != nullptr || dynamic_cast<CursedFireStatus *>(s) != nullptr;
 }

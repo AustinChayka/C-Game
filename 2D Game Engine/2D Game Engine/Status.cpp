@@ -21,15 +21,16 @@ Status::~Status() {
 
 void Status::Update(GameObject * go, LevelManager * game) {
 
+	OnUpdate(go, game);
+
 	if(time > 0) time--;
 	else {
 		if(increment > 0) increment--;
-		else {
-			OnEnd(go, game);
-		}
 		time = lifeTime;
 		OnIncrement(go, game);
 	}
+
+	if(increment == 0) OnEnd(go, game);
 
 	destRect.x = (int)((go->GetXCenter() - 15 - Game::camera->GetX()) * Game::camera->GetScale());
 	destRect.y = (int)((go->GetY() - 40 - Game::camera->GetY()) * Game::camera->GetScale());

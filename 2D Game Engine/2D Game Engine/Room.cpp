@@ -10,6 +10,7 @@
 #include "DemonAlter.h"
 #include "PotMimic.h"
 #include "Wraith.h"
+#include "Snowman.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -18,6 +19,9 @@ Room::Room(float offX, float offY, int type) {
 		case 0:
 			Init(offX, offY, 10, 6, -1, 3, 0);
 			objects.push_back(new StageDoor(x + 120, y + 5 * 60 - 48 * 3, false));
+			objects.push_back(new Snowman(x + 7 * 60, 5 * 60 - 39 * 3));
+			tiles.push_back(new ImageTile("assets/Table.png", x + 60 * 5, y + 5 * 60 - 20 * 3, 50, 20, 0, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/Candle.png", x + 60 * 5 + 70, y + 5 * 60 - 20 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .04f));
 			break;
 
 		case 1:
@@ -109,6 +113,44 @@ Room::Room(float offX, float offY, int type) {
 			Init(offX, offY, 8, 8, 5, 5, -1);
 			if(rand() % 2 == 0) objects.push_back(new ItemObject(x + 4 * 60 - 12, y + 7 * 60 - 24, 0));
 			else objects.push_back(new DemonAlter(x + 4 * 60 - 60, y + 7 * 60 - 150));
+			break;
+
+		case 7:
+			Init(offX, offY, 10, 20, 17, 3, -1);
+			objects.push_back(new SoftPlatform(x + 180, y + 17 * 60, 4));
+			objects.push_back(new SoftPlatform(x + 120, y + 15 * 60, 2));
+			objects.push_back(new SoftPlatform(x + 6 * 60, y + 15 * 60, 2));
+			objects.push_back(new Block(x + 60, y + 15 * 60, 1, 1));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60, y + 15 * 60, 20, 20, 3, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x, y + 15 * 60, 20, 20, 0, 2, 3, 2));
+			objects.push_back(new Block(x + 8 * 60, y + 15 * 60, 1, 1));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 8 * 60, y + 15 * 60, 20, 20, 4, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 9 * 60, y + 15 * 60, 20, 20, 0, 2, 3, 2));
+			objects.push_back(new Spike(x + 60, y + 15 * 60 - 30));
+			objects.push_back(new Spike(x + 8 * 60, y + 15 * 60 - 30));
+			objects.push_back(new SoftPlatform(x + 180, y + 13 * 60, 4));
+			objects.push_back(new Block(x + 60, y + 9 * 60, 2, 1));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 120, y + 9 * 60, 20, 20, 3, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			objects.push_back(new Block(x + 60 * 7, y + 9 * 60, 2, 1));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 7, y + 9 * 60, 20, 20, 4, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 8, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 9, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			objects.push_back(new Spike(x + 60, y + 9 * 60 - 30));
+			objects.push_back(new Spike(x + 120, y + 9 * 60 - 30));
+			objects.push_back(new Spike(x + 60 * 7, y + 9 * 60 - 30));
+			objects.push_back(new Spike(x + 60 * 8, y + 9 * 60 - 30));
+			objects.push_back(new SoftPlatform(x + 240, y + 11 * 60, 2));
+			objects.push_back(new SoftPlatform(x + 60 * 6, y + 9 * 60, 1));
+			objects.push_back(new SoftPlatform(x + 60, y + 7 * 60, 1));
+			objects.push_back(new SoftPlatform(x + 60 * 7, y + 5 * 60, 2));
+			break;
+
+		case 8:
+			Init(offX, offY, 16, 6, 3, 3, -1);
+			objects.push_back(new Spirit(x + 6 * 60, y + 3 * 60));
+			objects.push_back(new Spirit(x + 10 * 60, y + 3 * 60));
 			break;
 
 	}

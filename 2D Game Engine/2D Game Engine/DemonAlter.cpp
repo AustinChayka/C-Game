@@ -24,13 +24,17 @@ DemonAlter::~DemonAlter() {
 
 void DemonAlter::Update(LevelManager * game) {
 
-	if(!active) return;
+	if(!active) {
+		tileX += .08f;
+		if(tileX > 4) tileX = 0;
+		return;
+	}
 
 	for (auto go : *(game->GetObjects())) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
-		if(go->GetMaxHealth() > 5) {
+		if(go->GetMaxHealth() > 4) {
 			collided = true;
 			if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
-				go->SetMaxHealth(go->GetMaxHealth() - 5);
+				go->SetMaxHealth(go->GetMaxHealth() - 4);
 				active = false;
 				collided = false;
 				tileY = 1;
@@ -41,7 +45,7 @@ void DemonAlter::Update(LevelManager * game) {
 
 	destRect.x = (int)((GetXCenter() - Game::camera->GetX() - 150) * Game::camera->GetScale());
 	destRect.y = (int)((y - Game::camera->GetY() - 40) * Game::camera->GetScale());
-
+	
 }
 
 void DemonAlter::RenderObject() {

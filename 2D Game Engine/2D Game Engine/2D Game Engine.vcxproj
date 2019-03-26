@@ -110,14 +110,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\austi\OneDrive\Documents\GitHub\OakEngine\SDL2\SDL2_image-2.0.4\include;C:\Users\austi\OneDrive\Documents\GitHub\OakEngine\SDL2\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\2D Game Engine\SDL2\SDL2_image-2.0.4\include;C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\2D Game Engine\SDL2\SDL2_ttf-2.0.15\include;C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\2D Game Engine\SDL2\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\austi\OneDrive\Documents\GitHub\OakEngine\SDL2\SDL2_image-2.0.4\lib\x86;C:\Users\austi\OneDrive\Documents\GitHub\OakEngine\SDL2\SDL2-2.0.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\2D Game Engine\SDL2\SDL2_image-2.0.4\lib\x86;C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\2D Game Engine\SDL2\SDL2_ttf-2.0.15\lib\x86;C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\2D Game Engine\SDL2\SDL2-2.0.9\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,6 +140,8 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CharredSkull.cpp" />
+    <ClCompile Include="ChilledStatus.cpp" />
     <ClCompile Include="CursedCandle.cpp" />
     <ClCompile Include="CursedFire.cpp" />
     <ClCompile Include="CursedFireball.cpp" />
@@ -157,6 +159,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Hammer.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="ImageTile.cpp" />
@@ -166,17 +169,21 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarkOfHunger.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="NailObject.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayButton.cpp" />
+    <ClCompile Include="PossesedNail.cpp" />
     <ClCompile Include="Pot.cpp" />
     <ClCompile Include="PotMimic.cpp" />
     <ClCompile Include="PotMimicTentacle.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="RegenStatus.cpp" />
     <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Smoke.cpp" />
+    <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="Snowman.cpp" />
     <ClCompile Include="SoftPlatform.cpp" />
     <ClCompile Include="Spike.cpp" />
@@ -189,6 +196,7 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="UseableItem.cpp" />
     <ClCompile Include="Wraith.cpp" />
+    <ClCompile Include="WraithProjectile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BleedStatus.h" />
@@ -196,6 +204,8 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CharredSkull.h" />
+    <ClInclude Include="ChilledStatus.h" />
     <ClInclude Include="CursedCandle.h" />
     <ClInclude Include="CursedFire.h" />
     <ClInclude Include="CursedFireball.h" />
@@ -213,6 +223,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GUI.h" />
+    <ClInclude Include="Hammer.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="ImageTile.h" />
@@ -221,17 +232,21 @@
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MarkOfHunger.h" />
     <ClInclude Include="MenuState.h" />
+    <ClInclude Include="NailObject.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayButton.h" />
+    <ClInclude Include="PossesedNail.h" />
     <ClInclude Include="Pot.h" />
     <ClInclude Include="PotMimic.h" />
     <ClInclude Include="PotMimicTentacle.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="RegenStatus.h" />
     <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Smoke.h" />
+    <ClInclude Include="Snowball.h" />
     <ClInclude Include="Snowman.h" />
     <ClInclude Include="SoftPlatform.h" />
     <ClInclude Include="Spike.h" />
@@ -244,6 +259,7 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="UseableItem.h" />
     <ClInclude Include="Wraith.h" />
+    <ClInclude Include="WraithProjectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

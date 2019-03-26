@@ -8,6 +8,8 @@ FireStatus::FireStatus(int i) : Status("assets/Icons/FireIcon.png", i) {
 
 FireStatus::~FireStatus() {}
 
+void FireStatus::OnApply(GameObject * go) {}
+
 void FireStatus::OnIncrement(GameObject * go, LevelManager * game) {
 
 	go->DealDamage(1, game);

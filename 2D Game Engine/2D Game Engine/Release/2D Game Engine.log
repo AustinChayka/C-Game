@@ -1,10 +1,10 @@
-﻿  Game.cpp
-c:\users\austi\onedrive\documents\github\oakengine\2d game engine\2d game engine\game.cpp(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  TestObject.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (2D Game Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\main.cpp(37): warning C4101: 'e': unreferenced local variable
   Generating code
-  0 of 138 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 812 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\GitHub\OakEngine\2D Game Engine\Release\2D Game Engine.exe
+  2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\Release\Game.exe

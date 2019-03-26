@@ -27,6 +27,8 @@ public:
 
 	void DamageDelt(LevelManager * game, GameObject * go);
 	void UpdateProjectile(LevelManager * game, Projectile * p);
+	void OnKill(LevelManager * game, GameObject * go);
+	int GetDir();
 
 	bool DownPressed();
 

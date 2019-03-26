@@ -35,6 +35,8 @@ public:
 	static GUI * gui;
 
 	static bool running;
+
+	SDL_Window * GetWindow();
 	
 private:
 

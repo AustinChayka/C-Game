@@ -11,7 +11,7 @@ public:
 
 	~MarkOfHunger();
 
-	virtual void OnDamageDelt(LevelManager * game, Player * p, GameObject * go);
+	virtual void OnKill(LevelManager * game, Player * p, GameObject * go);
 
 };
 

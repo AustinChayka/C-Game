@@ -30,7 +30,7 @@ Projectile::~Projectile() {}
 
 void Projectile::Update(LevelManager * game) {
 
-	if(spawner->IsDead()) spawner = nullptr;
+	if(!spawner || spawner->IsDead()) spawner = nullptr;
 	
 	lifeTime++;
 	distance += sqrt(pow(vX, 2) + pow(vY, 2));
@@ -46,10 +46,10 @@ void Projectile::Update(LevelManager * game) {
 
 void Projectile::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go != spawner) {
-		dead = true;
-		go->DealDamage(damage, game, spawner);
-	}
+	if(go == spawner || (!go->IsSolid() && !go->IsDamagable())) return;
+
+	dead = true;
+	go->DealDamage(damage, game, spawner);
 
 }
 

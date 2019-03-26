@@ -133,14 +133,12 @@ void GameObject::UpdateObject(LevelManager * game) {
 
 	Update(game);
 
-	if(damageable && health <= 0 && health > -5000000) {
-		OnDeath(game);
-		dead = true;
-	}
-
 	if(damageDelay > 0) damageDelay--;
 	if(damageFlash > 0) damageFlash--;
-	else SDL_SetTextureColorMod(texture, 255, 255, 255);
+	else if(damageFlash == 0) {
+		SDL_SetTextureColorMod(texture, 255, 255, 255);
+		damageFlash--;
+	}
 
 	vY += grav;
 	if(grounded) vX /= decceleration;
@@ -316,7 +314,17 @@ void GameObject::SetDecceleration(float d) {
 
 }
 
-void GameObject::OnDeath(LevelManager * game) {}
+SDL_Texture * GameObject::GetTexture() {
+
+	return texture;
+
+}
+
+void GameObject::OnDeath(LevelManager * game, GameObject * go) {
+
+	if(dynamic_cast<Player *>(go) != nullptr && dynamic_cast<Enemy *>(this) != nullptr) ((Player *) go)->OnKill(game, this);
+
+}
 
 float GameObject::GetXCenter() {
 
@@ -406,7 +414,7 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 
 void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	if(!damageable || damageDelay != 0) return;
+	if(!damageable || damageDelay != 0 || d == 0) return;
 	health -= d;
 	if(health > 0) {
 		damageDelay = 20;
@@ -414,6 +422,11 @@ void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}
 	if(go != nullptr && dynamic_cast<Player *>(go) != nullptr) ((Player *) go)->DamageDelt(game, this);
+
+	if(health <= 0) {
+		OnDeath(game, go);
+		dead = true;
+	}
 
 }
 
@@ -424,6 +437,11 @@ void GameObject::DealDamage(int d, LevelManager * game) {
 		damageDelay = 20;
 		damageFlash = 10;
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
+	}
+
+	if(health <= 0) {
+		OnDeath(game, nullptr);
+		dead = true;
 	}
 
 }

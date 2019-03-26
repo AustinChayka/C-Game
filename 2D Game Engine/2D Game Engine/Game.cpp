@@ -109,3 +109,9 @@ void Game::Clean() {
 	std::cout << "Game systems cleaned." << std::endl;
 
 }
+
+SDL_Window * Game::GetWindow() {
+
+	return window;
+
+}

@@ -5,6 +5,7 @@
 #include "MarkOfHunger.h"
 #include "SpiralShell.h"
 #include "HealthPotion.h"
+#include "CharredSkull.h"
 
 ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 24, 24) {
 
@@ -39,7 +40,7 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 			break;
 
 		case 1:
-			switch(rand() % 2) {
+			switch(rand() % 3) {
 
 				case 0:
 					item = new CursedCandle();
@@ -49,6 +50,11 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 				case 1:
 					item = new MarkOfHunger();
 					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/MarkOfHunger.png");
+					break;
+
+				case 2:
+					item = new CharredSkull();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/CharredSkull.png");
 					break;
 
 			}

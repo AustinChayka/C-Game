@@ -15,6 +15,8 @@ public:
 
 	void OnCollision(GameObject * go, LevelManager * game);
 
+	bool OverrideStatus(Status * s);
+
 private:
 
 	float speed = .01f, maxSpeed = 7.5f;

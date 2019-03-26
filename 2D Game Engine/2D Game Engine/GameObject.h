@@ -79,6 +79,8 @@ public:
 
 	void SetGrav(float g);
 	void SetDecceleration(float d);
+
+	SDL_Texture * GetTexture();
 	
 protected:
 
@@ -99,7 +101,7 @@ protected:
 	bool damageable = false;
 	int maxHealth = -1, health = -1, damageDelay = 20, damageFlash = 0;
 
-	virtual void OnDeath(LevelManager * game);
+	virtual void OnDeath(LevelManager * game, GameObject * go);
 
 	int renderLayer = 1;
 

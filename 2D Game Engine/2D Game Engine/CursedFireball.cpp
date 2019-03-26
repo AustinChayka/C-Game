@@ -26,7 +26,7 @@ void CursedFireball::Update(LevelManager * game) {
 
 void CursedFireball::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go == spawner || dynamic_cast<CursedFireball *>(go) != nullptr) return;
+	if(go == spawner || (!go->IsSolid() && !go->IsDamagable())) return;
 
 	Projectile::OnCollision(go, game);
 

@@ -19,11 +19,13 @@ void Item::OnPickup(LevelManager * game, Player * p) {}
 
 void Item::OnDamageTaken(LevelManager * game, GameObject * go, Player * p) {}
 
-void Item::OnShotFired(LevelManager * game, Player * p) {}
+void Item::OnShotFired(LevelManager * game, Player * p, Projectile *& proj) {}
 
 void Item::OnDamageDelt(LevelManager * game, Player * p, GameObject * go) {}
 
 void Item::UpdateProjectile(LevelManager * game, Player * p, Projectile * proj) {}
+
+void Item::OnKill(LevelManager * game, Player * p, GameObject * go) {}
 
 void Item::Render() {}
 

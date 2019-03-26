@@ -12,6 +12,10 @@ GUI::GUI(GameObject * p, StateManager * sm) {
 
 	useItemReadyText = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[Q]");
 
+	heartIcon = TextureManager::LoadTexture(Game::renderer, "assets/Icons/HeartIcon.png");
+	heartRect.w = 5;
+	heartRect.h = 10;
+
 }
 
 GUI::~GUI() {
@@ -40,20 +44,27 @@ void GUI::Update() {
 }
 
 void GUI::Render() {
-
+	
+	int offX = 15;
 	for(int i = 0; i < player->GetMaxHealth(); i++) {
 
-		for(int y = 0; y < 25; y++) for(int x = 0; x < 10; x++) {
-
-			if(i < player->GetHealth()) {
-				SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 150);
-				SDL_RenderDrawPoint(Game::renderer, x + 15 + i * 15, y + 15);
-			} else {
-				SDL_SetRenderDrawColor(Game::renderer, 100, 0, 0, 150);
-				SDL_RenderDrawPoint(Game::renderer, x + 15 + i * 15, y + 15);
-			}
-
+		iconRect.w = 15;
+		iconRect.h = 30;
+		iconRect.x = offX + 15 * i;
+		iconRect.y = 15;
+		
+		if(i < player->GetHealth()) {
+			heartRect.x = 0;
+		} else {
+			heartRect.x = 10;
 		}
+		
+		if(i % 2 == 1) {
+			heartRect.x += 5;
+			offX += 5;
+		}
+
+		SDL_RenderCopy(Game::renderer, heartIcon, &heartRect, &iconRect);
 
 	}
 
@@ -105,7 +116,7 @@ void GUI::Render() {
 		iconRect.y = 12 + 36 * i;
 		iconRect.w = iconRect.h = 24;
 		itemTexture = ((Player *) player)->GetItems()->at(i)->GetTexture();
-		SDL_SetTextureAlphaMod(itemTexture, 50);
+		SDL_SetTextureAlphaMod(itemTexture, 100);
 		SDL_RenderCopy(Game::renderer, itemTexture, NULL, &iconRect);
 
 	}

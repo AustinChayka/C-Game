@@ -89,7 +89,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 			roomOffsetY += 60 * 2;
 		}
 		
-		switch(rand() % 4) {
+		switch(rand() % 6) {
 
 			case 0:
 				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 2));
@@ -110,6 +110,17 @@ void LevelManager::GenerateLevel(int size, int seed) {
 			case 3:
 				roomOffsetY -= 10 * 60;
 				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 5));
+				roomOffsetX += 16 * 60;
+				break;
+
+			case 4:
+				roomOffsetY -= 14 * 60;
+				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 7));
+				roomOffsetX += 10 * 60;
+				break;
+
+			case 5:
+				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 8));
 				roomOffsetX += 16 * 60;
 				break;
 				
