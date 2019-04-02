@@ -4,7 +4,7 @@
 #include "ChilledStatus.h"
 
 Snowball::Snowball(float x, float y, float vX, float vY, int xDir, int yDir, GameObject * spawner) : 
-	Projectile("assets/Snowball.png", x, y, vX, vY, xDir, yDir, spawner) {
+	Projectile("assets/Other/Snowball.png", x, y, vX, vY, xDir, yDir, spawner) {
 
 	damage = 0;
 	grav = 0.8f;

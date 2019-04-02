@@ -2,7 +2,7 @@
 
 #include "SDL.h"
 
-Platform::Platform(float x, float y, int segments_width) : GameObject("assets/Platform.png", x, y, 16, 8, 3) {
+Platform::Platform(float x, float y, int segments_width) : GameObject("assets/StageObjects/Platform.png", x, y, 16, 8, 3) {
 
 	width = 16 * segments_width * scale;
 	segments = segments_width;

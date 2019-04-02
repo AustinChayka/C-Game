@@ -11,6 +11,8 @@
 #include "PotMimic.h"
 #include "Wraith.h"
 #include "Snowman.h"
+#include "Lantern.h"
+#include "Urn.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -19,9 +21,6 @@ Room::Room(float offX, float offY, int type) {
 		case 0:
 			Init(offX, offY, 10, 6, -1, 3, 0);
 			objects.push_back(new StageDoor(x + 120, y + 5 * 60 - 48 * 3, false));
-			objects.push_back(new Snowman(x + 7 * 60, 5 * 60 - 39 * 3));
-			tiles.push_back(new ImageTile("assets/Table.png", x + 60 * 5, y + 5 * 60 - 20 * 3, 50, 20, 0, 0, 3, 1));
-			tiles.push_back(new ImageTile("assets/Candle.png", x + 60 * 5 + 70, y + 5 * 60 - 20 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .04f));
 			break;
 
 		case 1:
@@ -35,14 +34,14 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Slime(x + 800, y + 100, 3));
 			for(int i = 1; i < 19 * (60 / 72.0f); i++) if(rand() % 2 == 1) {
 				int l = rand() % 2 == 0 ? 0 : 3;
-				ImageTile * tile = new ImageTile("assets/StageSlime.png",
+				ImageTile * tile = new ImageTile("assets/StageObjects/StageSlime.png",
 					x + i * 72, y + 60, 24, 24, rand() % 4, 0, 3, l);
 				SDL_SetTextureColorMod(tile->GetTexture(), l == 0 ? 100 : 255, l == 0 ? 100 : 255, l == 0 ? 100 : 255);
 				tiles.push_back(tile);
 			}
 			for(int i = 1; i < 19 * (60 / 72.0f); i++) if(rand() % 2 == 1) {
 				int l = rand() % 2 == 0 ? 0 : 3;
-				ImageTile * tile = new ImageTile("assets/StageSlime.png",
+				ImageTile * tile = new ImageTile("assets/StageObjects/StageSlime.png",
 					x + i * 72, y + 5 * 60 - 72, 24, 24, rand() % 4 + 4, 0, 3, l);
 				SDL_SetTextureColorMod(tile->GetTexture(), l == 0 ? 100 : 255, l == 0 ? 100 : 255, l == 0 ? 100 : 255);
 				tiles.push_back(tile);
@@ -52,19 +51,19 @@ Room::Room(float offX, float offY, int type) {
 		case 3:
 			Init(offX, offY, 20, 6, 3, 3, -1);
 			for(int i = 1; i < 4; i++) {
-				ImageTile * tile = new ImageTile("assets/Banner.png",
+				ImageTile * tile = new ImageTile("assets/StageObjects/Banner.png",
 					x + width / 4 * i, y + height / 2 - 60, 30, 40, 0, 0, 3, 1);
 				SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
 				tiles.push_back(tile);
 			}
-			objects.push_back(new Wraith(x + 700, y + 100));
+			objects.push_back(new Urn(x + 700, y + 5 * 60 - 60));
 			break;
 
 		case 4:
 			Init(offX, offY, 8, 12, 3, 9, -1);
 			objects.push_back(new Platform(x + 60, y + 5 * 60, 4));
 			objects.push_back(new Block(x + 16 * 5 * 3 + 12, y + 5 * 60, 1, 1));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 16 * 5 * 3 + 12, y + 5 * 60,
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 16 * 5 * 3 + 12, y + 5 * 60,
 				20, 20, 0, 3, 3, 2));
 			objects.push_back(new Spike(x + 60, y + 5 * 60 - 30));
 			objects.push_back(new Spike(x + 120, y + 5 * 60 - 30));
@@ -74,21 +73,21 @@ Room::Room(float offX, float offY, int type) {
 		case 5:
 			Init(offX, offY, 16, 16, 13, 3, -1);
 			objects.push_back(new Block(x + 60, y + 11 * 60, 8, 1));
-			for(int i = 0; i < 8; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 11 * 60, 20, 20, 0, 2, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 8, y + 11 * 60, 20, 20, 3, 0, 3, 2));
+			for(int i = 0; i < 8; i++) tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * i, y + 11 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 8, y + 11 * 60, 20, 20, 3, 0, 3, 2));
 			objects.push_back(new SoftPlatform(x + 9 * 60, y + 11 * 60, 3));
 			objects.push_back(new SoftPlatform(x + 9 * 60, y + 13 * 60, 3));
 			objects.push_back(new Block(x + 12 * 60, y + 11 * 60, 3, 1));
-			for(int i = 0; i < 3; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (i + 13), y + 11 * 60, 20, 20, 0, 2, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 12, y + 11 * 60, 20, 20, 4, 0, 3, 2));
+			for(int i = 0; i < 3; i++) tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (i + 13), y + 11 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 12, y + 11 * 60, 20, 20, 4, 0, 3, 2));
 			objects.push_back(new Block(x + 60, y + 7 * 60, 3, 1));
-			for(int i = 0; i < 3; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 7 * 60, 20, 20, 0, 2, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 3, y + 7 * 60, 20, 20, 3, 0, 3, 2));
+			for(int i = 0; i < 3; i++) tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * i, y + 7 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 3, y + 7 * 60, 20, 20, 3, 0, 3, 2));
 			objects.push_back(new SoftPlatform(x + 4 * 60, y + 7 * 60, 3));
 			objects.push_back(new SoftPlatform(x + 4 * 60, y + 9 * 60, 3));
 			objects.push_back(new Block(x + 7 * 60, y + 7 * 60, 8, 1));
-			for(int i = 0; i < 8; i++) tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (i + 8), y + 7 * 60, 20, 20, 0, 2, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 7, y + 7 * 60, 20, 20, 4, 0, 3, 2));
+			for(int i = 0; i < 8; i++) tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (i + 8), y + 7 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 7, y + 7 * 60, 20, 20, 4, 0, 3, 2));
 			objects.push_back(new SoftPlatform(x + 14 * 60, y + 5 * 60, 1));
 			objects.push_back(new Spike(x + 8 * 60, y + 15 * 60 - 30));
 			objects.push_back(new Spike(x + 9 * 60, y + 15 * 60 - 30));
@@ -121,22 +120,22 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new SoftPlatform(x + 120, y + 15 * 60, 2));
 			objects.push_back(new SoftPlatform(x + 6 * 60, y + 15 * 60, 2));
 			objects.push_back(new Block(x + 60, y + 15 * 60, 1, 1));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60, y + 15 * 60, 20, 20, 3, 0, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 15 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60, y + 15 * 60, 20, 20, 3, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 15 * 60, 20, 20, 0, 2, 3, 2));
 			objects.push_back(new Block(x + 8 * 60, y + 15 * 60, 1, 1));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 8 * 60, y + 15 * 60, 20, 20, 4, 0, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 9 * 60, y + 15 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 8 * 60, y + 15 * 60, 20, 20, 4, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 9 * 60, y + 15 * 60, 20, 20, 0, 2, 3, 2));
 			objects.push_back(new Spike(x + 60, y + 15 * 60 - 30));
 			objects.push_back(new Spike(x + 8 * 60, y + 15 * 60 - 30));
 			objects.push_back(new SoftPlatform(x + 180, y + 13 * 60, 4));
 			objects.push_back(new Block(x + 60, y + 9 * 60, 2, 1));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 120, y + 9 * 60, 20, 20, 3, 0, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60, y + 9 * 60, 20, 20, 0, 2, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 120, y + 9 * 60, 20, 20, 3, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 9 * 60, 20, 20, 0, 2, 3, 2));
 			objects.push_back(new Block(x + 60 * 7, y + 9 * 60, 2, 1));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 7, y + 9 * 60, 20, 20, 4, 0, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 8, y + 9 * 60, 20, 20, 0, 2, 3, 2));
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * 9, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 7, y + 9 * 60, 20, 20, 4, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 8, y + 9 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 9, y + 9 * 60, 20, 20, 0, 2, 3, 2));
 			objects.push_back(new Spike(x + 60, y + 9 * 60 - 30));
 			objects.push_back(new Spike(x + 120, y + 9 * 60 - 30));
 			objects.push_back(new Spike(x + 60 * 7, y + 9 * 60 - 30));
@@ -149,8 +148,9 @@ Room::Room(float offX, float offY, int type) {
 
 		case 8:
 			Init(offX, offY, 16, 6, 3, 3, -1);
-			objects.push_back(new Spirit(x + 6 * 60, y + 3 * 60));
-			objects.push_back(new Spirit(x + 10 * 60, y + 3 * 60));
+			objects.push_back(new Lantern(x + 6 * 60 + 70, y + 5 * 60 - 20 * 3 - 45));
+			tiles.push_back(new ImageTile("assets/StageObjects/Table.png", x + 60 * 6, y + 5 * 60 - 20 * 3, 50, 20, 0, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 6 + 5, y + 5 * 60 - 20 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .04f));
 			break;
 
 	}
@@ -263,7 +263,7 @@ void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, i
 		objects.push_back(new Block(x, y, 1, leftDoorHeight));
 		objects.push_back(new Block(x, y + 60 * (leftDoorHeight + 2), 1, blocksHeight - leftDoorHeight - 2));
 		for(int i = 0; i < 2; i++) {
-			ImageTile * tile = new ImageTile("assets/Block.png", x, 
+			ImageTile * tile = new ImageTile("assets/StageObjects/Block.png", x, 
 				y + (leftDoorHeight + i) * 60, 20, 20, 0, 0, 3, 0);
 			SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
 			tiles.push_back(tile);
@@ -279,7 +279,7 @@ void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, i
 		objects.push_back(new Block(x + 60 * (blocksWidth - 1), y, 1, rightDoorHeight));
 		objects.push_back(new Block(x + 60 * (blocksWidth - 1), y + 60 * (rightDoorHeight + 2), 1, blocksHeight - rightDoorHeight - 2));
 		for(int i = 0; i < 2; i++) {
-			ImageTile * tile = new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), 
+			ImageTile * tile = new ImageTile("assets/StageObjects/Block.png", x + 60 * (blocksWidth - 1), 
 				y + (rightDoorHeight + i) * 60, 20, 20, 0, 0, 3, 0);
 			SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
 			tiles.push_back(tile);
@@ -292,34 +292,34 @@ void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, i
 	}
 
 	for(int j = 1; j < blocksHeight - 1; j++) for(int i = 1; i < blocksWidth - 1; i++) {
-		ImageTile * tile = new ImageTile("assets/Block.png", x + 60 * i, y + 60 * j, 20, 20, 0, 0, 3, 0);
+		ImageTile * tile = new ImageTile("assets/StageObjects/Block.png", x + 60 * i, y + 60 * j, 20, 20, 0, 0, 3, 0);
 		SDL_SetTextureColorMod(tile->GetTexture(), 100, 100, 100);
 		tiles.push_back(tile);
 	}
 
 	for(int i = 0; i < blocksWidth; i++) {
-		tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y, 20, 20, 3, 2, 3, 2));
-		tiles.push_back(new ImageTile("assets/Block.png", x + 60 * i, y + 60 * (blocksHeight - 1), 20, 20, 4, 2, 3, 2));
+		tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * i, y, 20, 20, 3, 2, 3, 2));
+		tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * i, y + 60 * (blocksHeight - 1), 20, 20, 4, 2, 3, 2));
 	}
 	for(int i = 0; i < blocksHeight; i++) {
 		if(leftDoorHeight == -1)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
 		else if(i == leftDoorHeight + 2 && i != blocksHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 4, 1, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 60 * i, 20, 20, 4, 1, 3, 2));
 		else if(i != leftDoorHeight - 1 && i != leftDoorHeight && i != leftDoorHeight + 1 &&
 			i != leftDoorHeight + 2)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 60 * i, 20, 20, 1, 2, 3, 2));
 		else if(i == leftDoorHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x, y + 60 * i, 20, 20, 2, 1, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 60 * i, 20, 20, 2, 1, 3, 2));
 		if(rightDoorHeight == -1)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
 		else if(i != rightDoorHeight - 1 && i != rightDoorHeight && i != rightDoorHeight + 1 &&
 			i != rightDoorHeight + 2)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 2, 2, 3, 2));
 		else if(i == rightDoorHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 1, 1, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 1, 1, 3, 2));
 		else if(i == rightDoorHeight + 2 && i != blocksHeight - 1)
-			tiles.push_back(new ImageTile("assets/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 3, 1, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 3, 1, 3, 2));
 	}
 
 }

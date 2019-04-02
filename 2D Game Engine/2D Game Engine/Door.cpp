@@ -1,6 +1,6 @@
 #include "Door.h"
 
-Door::Door(Room * init_room, float x, float y) : GameObject("assets/Door.png", x, y, 20, 40, 3) {
+Door::Door(Room * init_room, float x, float y) : GameObject("assets/StageObjects/Door.png", x, y, 20, 40, 3) {
 
 	room = init_room;
 

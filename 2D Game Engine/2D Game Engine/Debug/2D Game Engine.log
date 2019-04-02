@@ -1,4 +1,7 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (2D Game Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  NailObject.cpp
+  Lantern.cpp
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Urn.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Generating Code...
   2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\Debug\Game.exe

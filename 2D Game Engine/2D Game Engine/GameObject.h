@@ -79,6 +79,8 @@ public:
 
 	void SetGrav(float g);
 	void SetDecceleration(float d);
+	float GetGrav();
+	float GetDecceleration();
 
 	SDL_Texture * GetTexture();
 	

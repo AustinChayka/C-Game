@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "CursedFireStatus.h"
 
-CursedFire::CursedFire(float x, float y, float scale, GameObject * init_spawner) : GameObject("assets/CursedFire.png", x, y, 10, 10, scale) {
+CursedFire::CursedFire(float x, float y, float scale, GameObject * init_spawner) : GameObject("assets/Other/CursedFire.png", x, y, 10, 10, scale) {
 
 	collidable = true;
 	moveable = true;

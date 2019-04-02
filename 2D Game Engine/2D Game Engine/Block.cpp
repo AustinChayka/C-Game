@@ -2,7 +2,7 @@
 
 
 Block::Block(float x, float y, int init_tilesWidth, int init_tilesHeight) : 
-	GameObject("assets/Block.png", x, y, 20 * tilesWidth, 20 * tilesHeight, 3) {
+	GameObject("assets/StageObjects/Block.png", x, y, 20 * tilesWidth, 20 * tilesHeight, 3) {
 
 	tilesWidth = init_tilesWidth;
 	tilesHeight = init_tilesHeight;

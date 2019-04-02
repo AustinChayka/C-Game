@@ -59,4 +59,8 @@ int Item::GetFlavorTextLength() {
 
 }
 
-Item::~Item() {}
+Item::~Item() {
+
+	SDL_DestroyTexture(icon);
+
+}

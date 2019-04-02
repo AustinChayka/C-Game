@@ -4,7 +4,7 @@
 
 CursedCandle::CursedCandle() : Item("assets/Items/CursedCandle.png", "Cursed Candle", "now you see...") {
 
-	spiritTexture = TextureManager::LoadTexture(Game::renderer, "assets/Spirit.png");
+	spiritTexture = TextureManager::LoadTexture(Game::renderer, "assets/Enemies/Spirit.png");
 	destRect0.w = destRect1.w = 13 * 2;
 	destRect0.h = destRect1.h = 29 * 2;
 	srcRect.w = 13;
@@ -52,4 +52,8 @@ void CursedCandle::Render() {
 }
 
 
-CursedCandle::~CursedCandle() {}
+CursedCandle::~CursedCandle() {
+
+	SDL_DestroyTexture(spiritTexture);
+
+}

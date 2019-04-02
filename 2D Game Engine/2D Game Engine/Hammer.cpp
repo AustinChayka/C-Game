@@ -2,7 +2,7 @@
 
 #include "NailObject.h"
 
-Hammer::Hammer(float x, float y) : GameObject("assets/Hammer.png", x, y, 30, 50, 4) {
+Hammer::Hammer(float x, float y) : GameObject("assets/Other/Hammer.png", x, y, 30, 50, 4) {
 
 	collidable = true;
 	solid = true;

@@ -2,7 +2,7 @@
 
 #include "PotMimic.h"
 
-PotMimicTentacle::PotMimicTentacle(float x, float y) : Enemy("assets/PotMimic.png", x, y, 24, 35, 3, 3) {
+PotMimicTentacle::PotMimicTentacle(float x, float y) : Enemy("assets/Enemies/PotMimic.png", x, y, 24, 35, 3, 3) {
 
 	tileY = 2;
 

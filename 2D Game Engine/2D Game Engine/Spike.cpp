@@ -3,7 +3,7 @@
 #include "Enemy.h"
 #include "BleedStatus.h"
 
-Spike::Spike(float x, float y) : GameObject("assets/Spikes.png", x, y, 20, 10, 3) {
+Spike::Spike(float x, float y) : GameObject("assets/StageObjects/Spikes.png", x, y, 20, 10, 3) {
 
 	collidable = true;
 	solid = false;

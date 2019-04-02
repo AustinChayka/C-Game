@@ -246,14 +246,29 @@
     <ClCompile Include="CharredSkull.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="PossesedNail.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Hammer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
     <ClCompile Include="NailObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="PossesedNail.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Lantern.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Urn.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="JarOfAir.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="RubberCement.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Soul.cpp">
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -431,14 +446,29 @@
     <ClInclude Include="CharredSkull.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
-    <ClInclude Include="PossesedNail.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Hammer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
     <ClInclude Include="NailObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="PossesedNail.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Lantern.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Urn.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="JarOfAir.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="RubberCement.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Soul.h">
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

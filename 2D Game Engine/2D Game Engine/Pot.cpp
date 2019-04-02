@@ -2,7 +2,7 @@
 
 #include "Debris.h"
 
-Pot::Pot(float x, float y, bool init_solid) : GameObject("assets/Pot.png", x, y, 16, 24, 3) {
+Pot::Pot(float x, float y, bool init_solid) : GameObject("assets/StageObjects/Pot.png", x, y, 16, 24, 3) {
 
 	collidable = true;
 	solid = init_solid;
@@ -26,7 +26,7 @@ Pot::~Pot() {
 
 void Pot::OnDeath(LevelManager * game) {
 
-	game->AddObject(new Debris("assets/Pot.png", 16, 24, tileX, 0, 3, x, y));
+	game->AddObject(new Debris("assets/StageObjects/Pot.png", 16, 24, tileX, 0, 3, x, y));
 
 }
 

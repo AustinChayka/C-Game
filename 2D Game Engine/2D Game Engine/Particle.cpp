@@ -36,7 +36,9 @@ Particle::Particle(const char * filepath, float init_x, float init_y, float init
 	
 }
 
-Particle::~Particle() {}
+Particle::~Particle() {
+	
+}
 
 void Particle::Update(LevelManager * game) {
 

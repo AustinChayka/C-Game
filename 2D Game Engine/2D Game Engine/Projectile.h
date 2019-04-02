@@ -27,10 +27,13 @@ public:
 	int GetLifeTime();
 
 	void SetSpawner(GameObject * go);
+
+	void SetBounces(int b);
+	int GetBounces();
 	
 protected:
 
-	int xDir, yDir, lifeTime = 0;
+	int xDir, yDir, lifeTime = 0, maxBounces = 0, bounces = 0;
 
 	float distance = 0, spawnX, spawnY, spawnVX, spawnVY;
 

@@ -165,6 +165,8 @@
     <ClCompile Include="ImageTile.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemObject.cpp" />
+    <ClCompile Include="JarOfAir.cpp" />
+    <ClCompile Include="Lantern.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarkOfHunger.cpp" />
@@ -181,11 +183,13 @@
     <ClCompile Include="RegenStatus.cpp" />
     <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="RubberCement.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Smoke.cpp" />
     <ClCompile Include="Snowball.cpp" />
     <ClCompile Include="Snowman.cpp" />
     <ClCompile Include="SoftPlatform.cpp" />
+    <ClCompile Include="Soul.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="SpiralShell.cpp" />
     <ClCompile Include="Spirit.cpp" />
@@ -194,6 +198,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Status.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Urn.cpp" />
     <ClCompile Include="UseableItem.cpp" />
     <ClCompile Include="Wraith.cpp" />
     <ClCompile Include="WraithProjectile.cpp" />
@@ -229,6 +234,8 @@
     <ClInclude Include="ImageTile.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemObject.h" />
+    <ClInclude Include="JarOfAir.h" />
+    <ClInclude Include="Lantern.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MarkOfHunger.h" />
     <ClInclude Include="MenuState.h" />
@@ -244,11 +251,13 @@
     <ClInclude Include="RegenStatus.h" />
     <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Room.h" />
+    <ClInclude Include="RubberCement.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Smoke.h" />
     <ClInclude Include="Snowball.h" />
     <ClInclude Include="Snowman.h" />
     <ClInclude Include="SoftPlatform.h" />
+    <ClInclude Include="Soul.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="SpiralShell.h" />
     <ClInclude Include="Spirit.h" />
@@ -257,6 +266,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Status.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Urn.h" />
     <ClInclude Include="UseableItem.h" />
     <ClInclude Include="Wraith.h" />
     <ClInclude Include="WraithProjectile.h" />

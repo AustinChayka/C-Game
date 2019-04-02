@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "ItemObject.h"
 
-DemonAlter::DemonAlter(float x, float y) : GameObject("assets/DemonAlter.png", x, y, 40, 50, 3) {
+DemonAlter::DemonAlter(float x, float y) : GameObject("assets/StageObjects/DemonAlter.png", x, y, 40, 50, 3) {
 
 	collidable = true;
 	moveable = false;

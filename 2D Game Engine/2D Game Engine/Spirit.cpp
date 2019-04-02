@@ -3,12 +3,12 @@
 #include "Player.h"
 #include "Particle.h"
 #include "CursedFireball.h"
-#include "Debris.h"
 #include "Room.h"
 #include "Firestatus.h"
 #include "CursedFireStatus.h"
+#include "Lantern.h"
 
-Spirit::Spirit(float x, float y) : Enemy("assets/Spirit.png", x, y, 13, 29, 2, 2) {
+Spirit::Spirit(float x, float y) : Enemy("assets/Enemies/Spirit.png", x, y, 13, 29, 2, 2) {
 
 	collidable = true;
 	moveable = false;
@@ -27,7 +27,7 @@ void Spirit::Update(LevelManager * game) {
 	tileX += 0.1f;
 	if(tileX > 6) tileX = 0;
 
-	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) <= 500 * 500) {
+	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr) {
 		
 		target = go;
 				
@@ -100,8 +100,8 @@ bool Spirit::OverrideStatus(Status * s) {
 
 }
 
-void Spirit::OnDeath(LevelManager * game) {
+bool Spirit::OverrideCollision(GameObject * go) {
 
-	//game->AddObject(new Debris("assets/Spirit.png", 35, 51, tileX, tileY, 1, x, y));
+	return dynamic_cast<Spirit *>(go) != nullptr || dynamic_cast<Lantern *>(go) != nullptr;
 
 }

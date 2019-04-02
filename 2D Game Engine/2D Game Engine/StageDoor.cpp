@@ -2,7 +2,7 @@
 
 #include "Player.h"
 
-StageDoor::StageDoor(float x, float y, bool init_exit) : GameObject("assets/StageDoor.png", x, y, 28, 48, 3) {
+StageDoor::StageDoor(float x, float y, bool init_exit) : GameObject("assets/StageObjects/StageDoor.png", x, y, 28, 48, 3) {
 
 	solid = false;
 	moveable = false;

@@ -4,8 +4,9 @@
 #include "Particle.h"
 #include "FireStatus.h"
 #include "CursedFireStatus.h"
+#include "Urn.h"
 
-Wraith::Wraith(float x, float y) : Enemy("assets/Wraith.png", x, y, 19, 22, 2, 2) {
+Wraith::Wraith(float x, float y) : Enemy("assets/Enemies/Wraith.png", x, y, 19, 22, 2, 2) {
 	
 	collidable = true;
 	solid = false;
@@ -24,7 +25,7 @@ void Wraith::Update(LevelManager * game) {
 	tileX += 0.1f;
 	if(tileX > 4) tileX = 0;
 
-	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) && DistanceToSquared(go) <= 500 * 500)
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go))
 		target = go;
 
 	if(target == nullptr) return;
@@ -38,7 +39,7 @@ void Wraith::Update(LevelManager * game) {
 	if(vY < -maxSpeed) vY = -maxSpeed;
 
 	if(delay == 0) {
-		Particle * p = new Particle("assets/Wraith.png", x, y, 19, 22, tileX, tileY, 2);
+		Particle * p = new Particle("assets/Enemies/Wraith.png", x, y, 19, 22, tileX, tileY, 2);
 		p->SetFadeSpeed(7);
 		game->AddObject(p);
 		delay = 4;
@@ -51,12 +52,20 @@ void Wraith::Update(LevelManager * game) {
 
 void Wraith::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(!go->IsDamagable()) return;
+	if(!go->IsDamagable() || dynamic_cast<Urn *>(go) != nullptr || dynamic_cast<Wraith *>(go) != nullptr) return;
 
 	go->DealDamage(1, game, this);
 	
 }
 
 bool Wraith::OverrideStatus(Status * s) {
+
 	return dynamic_cast<FireStatus *>(s) != nullptr || dynamic_cast<CursedFireStatus *>(s) != nullptr;
+
+}
+
+bool Wraith::OverrideCollision(GameObject * go) {
+
+	return dynamic_cast<Wraith *>(go) != nullptr;
+
 }

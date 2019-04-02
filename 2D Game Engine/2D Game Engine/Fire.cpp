@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "FireStatus.h"
 
-Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) : GameObject("assets/Fire.png", init_x, init_y, 10, 10, scale) {
+Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) : GameObject("assets/Other/Fire.png", init_x, init_y, 10, 10, scale) {
 
 	collidable = true;
 	moveable = true;

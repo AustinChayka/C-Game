@@ -1,6 +1,6 @@
 #include "Slime.h"
 
-Slime::Slime(float x, float y, int size) : Enemy("assets/Slime.png", x, y, 20, 17, size, size) {
+Slime::Slime(float x, float y, int size) : Enemy("assets/Enemies/Slime.png", x, y, 20, 17, size, size) {
 	
 	collidable = true;
 	solid = true;

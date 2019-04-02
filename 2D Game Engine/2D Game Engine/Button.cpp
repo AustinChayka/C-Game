@@ -2,7 +2,7 @@
 
 Button::Button(float init_x, float init_y, int img_width, int img_height, const char * buttonText, float init_scale) {
 
-	texture = TextureManager::LoadTexture(Game::renderer, "assets/Button.png");
+	texture = TextureManager::LoadTexture(Game::renderer, "assets/Other/Button.png");
 	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, buttonText);
 
 	scale = init_scale;

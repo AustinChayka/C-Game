@@ -4,7 +4,7 @@
 #include "CursedFire.h"
 
 CursedFireball::CursedFireball(float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) :
-	Projectile("assets/CursedFireball.png", x, y, init_vX, init_vY, init_xDir, init_yDir, init_spawner) {
+	Projectile("assets/Other/CursedFireball.png", x, y, init_vX, init_vY, init_xDir, init_yDir, init_spawner) {
 	
 	damage = 2;
 

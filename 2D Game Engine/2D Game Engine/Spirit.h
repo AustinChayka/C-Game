@@ -20,13 +20,13 @@ public:
 
 	bool OverrideStatus(Status * s);
 
+	bool OverrideCollision(GameObject * go);
+
 private :
 
 	float deg, radius = 15, rotPerSec = 0.5f;
 	int particleDelay = 4, particleTimer = particleDelay, projectileDelay = 180, projectileTimer = projectileDelay;
 	GameObject * parent = nullptr;
-
-	void OnDeath(LevelManager * game);
 
 };
 

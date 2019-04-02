@@ -7,9 +7,7 @@
 #include "SoftPlatform.h"
 #include "UseableItem.h"
 
-#include "PossesedNail.h"
-
-Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 10) {
+Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 36, 3, 10) {
 
 	vX = 0;
 	vY = 0;
@@ -22,8 +20,6 @@ Player::Player(float x, float y) : Enemy("assets/Player.png", x, y, 21, 36, 3, 1
 	grav = .55f;
 
 	items = new std::vector<Item *>;
-
-	AddItem(new PossesedNail(), nullptr);
 	
 }
 
@@ -38,6 +34,8 @@ void Player::Update(LevelManager * game) {
 	Enemy::Update(game);
 
 	for(auto item : *items) item->Update(game, this);
+
+	if(grounded) jumps = 0;
 	
 	if(Game::event.type == SDL_KEYDOWN && dash == 0) {
 
@@ -48,7 +46,10 @@ void Player::Update(LevelManager * game) {
 				break;
 
 			case SDLK_w:
-				if(grounded) vY = -jumpPower;
+				if(jumps < maxJumps) {
+					vY = -jumpPower;
+					jumps++;
+				}
 				break;
 
 			case SDLK_a:
@@ -128,7 +129,7 @@ void Player::Update(LevelManager * game) {
 	}
 
 	if(dash > 0) {
-		Particle * p = new Particle("assets/Player.png", x, y, 21, 36, (int)((dash / 6.0f) * 9), tileY, 3);
+		Particle * p = new Particle("assets/Enemies/Player.png", x, y, 21, 36, (int)((dash / 6.0f) * 9), tileY, 3);
 		p->SetFadeSpeed(8);
 		game->AddObject(p);
 		for(auto go : *(game->GetObjects())) if(go->IsSolid() && !go->IsMoveable() && dynamic_cast<SoftPlatform *>(go) == nullptr &&
@@ -152,7 +153,7 @@ void Player::Update(LevelManager * game) {
 
 	if(shot > 0) shot--;
 
-	if(!attack && manaFatigue < 10) manaFatigue += .08f;
+	if(!attack && manaFatigue < maxFatigue) manaFatigue += manaRegen;
 
 	if(dash == 0 && !attack && left) {
 		decceleration = 1;
@@ -181,9 +182,33 @@ void Player::RenderObject() {
 
 }
 
+void Player::SetManaFatigue(float m) {
+
+	maxFatigue = m;
+
+}
+
 float Player::GetManaFatigue() {
 
 	return manaFatigue;
+
+}
+
+float Player::GetMaxManaFatigue() {
+
+	return maxFatigue;
+
+}
+
+void Player::SetManaRegen(float r) {
+
+	manaRegen = r;
+
+}
+
+float Player::GetManaRegen() {
+
+	return manaRegen;
 
 }
 
@@ -249,5 +274,47 @@ bool Player::DownPressed() {
 UseableItem * Player::GetUseItem() {
 
 	return useItem;
+
+}
+
+void Player::SetMaxJumps(int j) {
+
+	maxJumps = j;
+
+}
+
+int Player::GetMaxJumps() {
+
+	return maxJumps;
+
+}
+
+void Player::SetMaxSpeed(float s) {
+
+	maxSpeed = s;
+
+}
+
+float Player::GetMaxSpeed() {
+
+	return maxSpeed;
+
+}
+
+void Player::SetAcceleration(float a) {
+
+	acceleration = a;
+
+}
+
+float Player::GetAcceleration() {
+
+	return acceleration;
+
+}
+
+bool Player::OverrideStatus(Status * s) {
+
+	return !damageable;
 
 }

@@ -2,7 +2,7 @@
 
 #include "Player.h"
 
-SoftPlatform::SoftPlatform(float x, float y, int init_tilesWidth) : GameObject("assets/SoftPlatform.png", x, y, 20, 3, 3) {
+SoftPlatform::SoftPlatform(float x, float y, int init_tilesWidth) : GameObject("assets/StageObjects/SoftPlatform.png", x, y, 20, 3, 3) {
 
 	width = init_tilesWidth * 60;
 

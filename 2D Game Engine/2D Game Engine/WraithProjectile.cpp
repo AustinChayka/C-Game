@@ -3,7 +3,7 @@
 #include "Particle.h"
 
 WraithProjectile::WraithProjectile(float x, float y, float vX, float vY, int xDir, int yDir, GameObject * spawner) : 
-	Projectile("assets/Wraith.png", x, y, vX, vY, xDir, yDir, spawner) {
+	Projectile("assets/Enemies/Wraith.png", x, y, vX, vY, xDir, yDir, spawner) {
 
 	width = 19;
 	height = 22;
@@ -34,7 +34,7 @@ void WraithProjectile::Update(LevelManager * game) {
 	vY += -cos(distance * M_PI / 180) * amplitude;
 
 	if(delay == 0) {
-		Particle * p = new Particle("assets/Wraith.png", x, y, 19, 22, tileX, tileY, 1);
+		Particle * p = new Particle("assets/Enemies/Wraith.png", x, y, 19, 22, tileX, tileY, 1);
 		p->SetFadeSpeed(7);
 		game->AddObject(p);
 		delay = 4;

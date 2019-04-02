@@ -49,8 +49,10 @@ GameObject::GameObject(const char * textureSheet, float init_x, float init_y, in
 
 GameObject::~GameObject() {
 
-	SDL_DestroyTexture(texture);
-	texture = nullptr;
+	if(texture != nullptr) {
+		SDL_DestroyTexture(texture);
+		texture = nullptr;
+	}
 	
 }
 
@@ -314,6 +316,18 @@ void GameObject::SetDecceleration(float d) {
 
 }
 
+float GameObject::GetGrav() {
+
+	return grav;
+
+}
+
+float GameObject::GetDecceleration() {
+
+	return decceleration;
+
+}
+
 SDL_Texture * GameObject::GetTexture() {
 
 	return texture;
@@ -414,7 +428,7 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 
 void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	if(!damageable || damageDelay != 0 || d == 0) return;
+	if(!damageable || damageDelay != 0 || d == 0 || health <= 0) return;
 	health -= d;
 	if(health > 0) {
 		damageDelay = 20;

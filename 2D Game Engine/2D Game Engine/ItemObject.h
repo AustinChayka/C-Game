@@ -4,6 +4,7 @@
 #include "GameObject.h"
 
 #include "Item.h"
+#include <vector>
 
 class ItemObject : public GameObject {
 
@@ -17,6 +18,10 @@ public:
 
 	void RenderObject();
 
+	void GenerateItem(int pool);
+	
+	static std::vector<std::vector<int>* > * items;
+
 private:
 
 	Item * item;
@@ -24,7 +29,7 @@ private:
 	SDL_Rect textRect;
 
 	bool collided = false;
-
+	
 };
 
 #endif

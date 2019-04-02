@@ -48,7 +48,14 @@ void Projectile::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(go == spawner || (!go->IsSolid() && !go->IsDamagable())) return;
 
-	dead = true;
+	if(bounces < maxBounces) {
+		if(GetXOverlap(go) < GetYOverlap(go)) vX *= -1;
+		else vY *= -1;
+		bounces++;
+	} else {
+		dead = true;
+	}
+
 	go->DealDamage(damage, game, spawner);
 
 }
@@ -94,5 +101,17 @@ int Projectile::GetLifeTime() {
 void Projectile::SetSpawner(GameObject * go) {
 
 	spawner = go;
+
+}
+
+void Projectile::SetBounces(int b) {
+
+	maxBounces = b;
+
+}
+
+int Projectile::GetBounces() {
+
+	return maxBounces;
 
 }

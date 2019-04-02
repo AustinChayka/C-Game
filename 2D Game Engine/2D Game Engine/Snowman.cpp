@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "Snowball.h"
 
-Snowman::Snowman(float x, float y) : Enemy("assets/Snowman.png", x, y, 20, 39, 3, 4) {
+Snowman::Snowman(float x, float y) : Enemy("assets/Enemies/Snowman.png", x, y, 20, 39, 3, 4) {
 	
 	collidable = true;
 	solid = false;
