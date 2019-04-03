@@ -11,7 +11,7 @@ public:
 
 	~Pot();
 
-	void OnDeath(LevelManager * game);
+	void OnDeath(LevelManager * game, GameObject * go);
 
 	void Update(LevelManager * game);
 

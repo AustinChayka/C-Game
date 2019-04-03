@@ -16,6 +16,10 @@ public:
 	void OnEnd(GameObject * go, LevelManager * game);
 	void OnUpdate(GameObject * go, LevelManager * game);
 
+private:
+
+	int smokeDelay = 0, burnoutDelay = 0;
+
 };
 
 #endif

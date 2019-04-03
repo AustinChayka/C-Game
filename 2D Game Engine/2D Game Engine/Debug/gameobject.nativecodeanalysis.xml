@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::grounded' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHH@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::destRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHH@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::vX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHH@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::texture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHH@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::vY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHH@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::grounded' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHHM@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::destRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHHM@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::vX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHHM@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::texture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHHM@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::vY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHHM@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

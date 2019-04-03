@@ -1,76 +1,81 @@
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\vc141.pdb
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\vc141.idb
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\texturemanager.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\player.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\testblocker.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\statemanager.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\menustate.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\main.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\levelmanager.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\gameobject.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\game.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\camera.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\box.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\platform.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\projectile.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\particle.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\ember.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\fire.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\2d game engine\debug\gui.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\vc141.pdb
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\vc141.idb
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\texturemanager.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\player.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\statemanager.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\projectile.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\platform.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\particle.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\menustate.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\main.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\levelmanager.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\imagetile.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\gui.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\gameoverscreen.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\gameobject.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\game.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\fireball.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\fire.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\ember.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\camera.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\box.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\smoke.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\fireball.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\block.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\spirit.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\door.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\debris.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\cursedfireball.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\cursedfire.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\gameoverscreen.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\pot.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\debris.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\imagetile.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\playbutton.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\camera.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\button.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\debug\game.exe
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\debug\game.ilk
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\test game\2d game engine\debug\game.pdb
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\debug\game.ilk
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\debug\game.exe
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\debug\game.pdb
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\box.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\block.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\texturemanager.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\player.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\statemanager.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\spirit.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\smoke.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\room.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\projectile.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\pot.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\playbutton.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\platform.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\exitbutton.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\slime.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\item.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\itemobject.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\heart.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\cursedcandle.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\spike.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\stagedoor.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\markofhunger.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\softplatform.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\spiralshell.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\demonalter.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\restartbutton.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\potmimictentacle.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\potmimic.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\wraith.obj
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\snowman.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\testblocker.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\testobject.obj
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\debris.obj.enc
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\enemy.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\status.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\firestatus.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\cursedfirestatus.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\bleedstatus.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\healthpotion.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\useableitem.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\chilledstatus.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\snowball.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\regenstatus.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\charredskull.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\wraithprojectile.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\possesednail.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\nailobject.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\hammer.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\lantern.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\urn.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\jarofair.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\rubbercement.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\soul.obj
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\debug\game.exe
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\debug\game.ilk
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\debug\game.pdb
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\fire.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\game.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\gameobject.obj.enc
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\levelmanager.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\main.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\menustate.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\particle.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\player.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\smoke.obj.enc
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\projectile.obj.enc
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\room.obj.enc
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\spirit.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\statemanager.new.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\testblocker.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\testobject.obj.enc
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\texturemanager.obj.enc
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\stagedoor.obj.enc
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\game.tlog\cl.command.1.tlog
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\game.tlog\cl.read.1.tlog
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debug\game.tlog\cl.write.1.tlog

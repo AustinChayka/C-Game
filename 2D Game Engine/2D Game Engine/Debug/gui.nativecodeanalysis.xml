@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUI::itemTexture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUI::{ctor}</FUNCTION>
+    <DECORATED>??0GUI@@QAE@PAVGameObject@@PAVStateManager@@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUI::mapHeight' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUI::{ctor}</FUNCTION>
+    <DECORATED>??0GUI@@QAE@PAVGameObject@@PAVStateManager@@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUI::mapWidth' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUI::{ctor}</FUNCTION>
+    <DECORATED>??0GUI@@QAE@PAVGameObject@@PAVStateManager@@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUI::iconRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUI::{ctor}</FUNCTION>
+    <DECORATED>??0GUI@@QAE@PAVGameObject@@PAVStateManager@@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUI::mapRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUI::{ctor}</FUNCTION>
+    <DECORATED>??0GUI@@QAE@PAVGameObject@@PAVStateManager@@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>129</LINE>
+      <COLUMN>90</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>GUI::Render</FUNCTION>
+    <DECORATED>?Render@GUI@@QAEXXZ</DECORATED>
+    <FUNCLINE>46</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

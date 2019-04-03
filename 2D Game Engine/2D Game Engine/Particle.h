@@ -20,6 +20,8 @@ public:
 	void SetFadeSpeed(float s);
 	void SetShrinkSpeed(float s);
 
+	void SetColor(int r, int g, int b);
+
 private:
 
 	bool img;

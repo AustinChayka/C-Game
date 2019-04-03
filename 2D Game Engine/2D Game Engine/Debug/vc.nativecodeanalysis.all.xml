@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>button.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Button::pressed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Button::{ctor}</FUNCTION>
+    <DECORATED>??0Button@@QAE@MMHHPBDM@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>camera.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Camera::target' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Camera::{ctor}</FUNCTION>
+    <DECORATED>??0Camera@@QAE@MMMM@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>cursedcandle.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'CursedCandle::target' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>CursedCandle::{ctor}</FUNCTION>
+    <DECORATED>??0CursedCandle@@QAE@XZ</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>enemy.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Enemy::target' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Enemy::{ctor}</FUNCTION>
+    <DECORATED>??0Enemy@@QAE@PBDMMHHMH@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>game.cpp</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Game::window' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Game::{ctor}</FUNCTION>
+    <DECORATED>??0Game@@QAE@PBDHHHH_N@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::grounded' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHH@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gameobject.cpp</FILENAME>
+      <LINE>28</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GameObject::grounded' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GameObject::{ctor}</FUNCTION>
+    <DECORATED>??0GameObject@@QAE@PBDMMHHM@Z</DECORATED>
+    <FUNCLINE>28</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>8</LINE>
+      <COLUMN>5</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'GUI::itemTexture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>GUI::{ctor}</FUNCTION>
+    <DECORATED>??0GUI@@QAE@PAVGameObject@@PAVStateManager@@@Z</DECORATED>
+    <FUNCLINE>8</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>gui.cpp</FILENAME>
+      <LINE>129</LINE>
+      <COLUMN>90</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>GUI::Render</FUNCTION>
+    <DECORATED>?Render@GUI@@QAEXXZ</DECORATED>
+    <FUNCLINE>46</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>imagetile.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImageTile::tileSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImageTile::{ctor}</FUNCTION>
+    <DECORATED>??0ImageTile@@QAE@PBDMMHHMMMH@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>imagetile.cpp</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImageTile::destRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImageTile::{ctor}</FUNCTION>
+    <DECORATED>??0ImageTile@@QAE@PBDMMHHMMMHHM@Z</DECORATED>
+    <FUNCLINE>24</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>itemobject.cpp</FILENAME>
+      <LINE>16</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ItemObject::item' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ItemObject::{ctor}</FUNCTION>
+    <DECORATED>??0ItemObject@@QAE@MMH@Z</DECORATED>
+    <FUNCLINE>16</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>levelmanager.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'LevelManager::reloaded' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>LevelManager::{ctor}</FUNCTION>
+    <DECORATED>??0LevelManager@@QAE@XZ</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>particle.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Particle::rect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Particle::{ctor}</FUNCTION>
+    <DECORATED>??0Particle@@QAE@MMMMMMMM@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>particle.cpp</FILENAME>
+      <LINE>21</LINE>
+      <COLUMN>10</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Particle::green' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Particle::{ctor}</FUNCTION>
+    <DECORATED>??0Particle@@QAE@PBDMMMMHHM@Z</DECORATED>
+    <FUNCLINE>21</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>projectile.cpp</FILENAME>
+      <LINE>42</LINE>
+      <COLUMN>35</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>Projectile::Update</FUNCTION>
+    <DECORATED>?Update@Projectile@@UAEXPAVLevelManager@@@Z</DECORATED>
+    <FUNCLINE>31</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>room.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>6</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Room::active' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Room::{ctor}</FUNCTION>
+    <DECORATED>??0Room@@QAE@MMH@Z</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>spike.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Spike::delay' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Spike::{ctor}</FUNCTION>
+    <DECORATED>??0Spike@@QAE@MM@Z</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>stagedoor.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'StageDoor::collided' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>StageDoor::{ctor}</FUNCTION>
+    <DECORATED>??0StageDoor@@QAE@MM_N@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>player.cpp</FILENAME>
+      <LINE>10</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Player::useItem' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Player::{ctor}</FUNCTION>
+    <DECORATED>??0Player@@QAE@MM@Z</DECORATED>
+    <FUNCLINE>10</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT><DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>status.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Status::destRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Status::{ctor}</FUNCTION>
+    <DECORATED>??0Status@@QAE@PBDH@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT></DEFECTS>

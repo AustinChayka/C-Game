@@ -85,3 +85,11 @@ void Particle::SetShrinkSpeed(float s) {
 	shrinkSpeed = s;
 
 }
+
+void Particle::SetColor(int r, int g, int b) {
+
+	red = r;
+	green = g;
+	blue = b;
+
+}

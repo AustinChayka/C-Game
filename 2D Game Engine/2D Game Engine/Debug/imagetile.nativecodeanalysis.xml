@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>imagetile.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImageTile::tileSpeed' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImageTile::{ctor}</FUNCTION>
+    <DECORATED>??0ImageTile@@QAE@PBDMMHHMMMH@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>imagetile.cpp</FILENAME>
+      <LINE>3</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImageTile::destRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImageTile::{ctor}</FUNCTION>
+    <DECORATED>??0ImageTile@@QAE@PBDMMHHMMMH@Z</DECORATED>
+    <FUNCLINE>3</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>imagetile.cpp</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'ImageTile::destRect' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>ImageTile::{ctor}</FUNCTION>
+    <DECORATED>??0ImageTile@@QAE@PBDMMHHMMMHHM@Z</DECORATED>
+    <FUNCLINE>24</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

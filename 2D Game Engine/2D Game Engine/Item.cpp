@@ -19,6 +19,12 @@ void Item::OnPickup(LevelManager * game, Player * p) {}
 
 void Item::OnDamageTaken(LevelManager * game, GameObject * go, Player * p) {}
 
+int Item::OverrideDamageTotal(int damage, GameObject * go, Player * p) {
+
+	return 0;
+
+}
+
 void Item::OnShotFired(LevelManager * game, Player * p, Projectile *& proj) {}
 
 void Item::OnDamageDelt(LevelManager * game, Player * p, GameObject * go) {}
@@ -56,6 +62,12 @@ int Item::GetNameLength() {
 int Item::GetFlavorTextLength() {
 
 	return flavorTextLength;
+
+}
+
+int Item::GetLayer() {
+
+	return renderLayer;
 
 }
 

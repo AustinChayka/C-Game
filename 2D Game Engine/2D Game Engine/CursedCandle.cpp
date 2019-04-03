@@ -9,6 +9,8 @@ CursedCandle::CursedCandle() : Item("assets/Items/CursedCandle.png", "Cursed Can
 	destRect0.h = destRect1.h = 29 * 2;
 	srcRect.w = 13;
 	srcRect.h = 29;
+
+	renderLayer = 3;
 		
 }
 

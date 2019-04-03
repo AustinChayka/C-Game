@@ -32,7 +32,7 @@ bool Hammer::OverrideCollision(GameObject * go) {
 void Hammer::OnCollision(GameObject * go, LevelManager * game) {
 
 	if(collided) return;
-
+	
 	if(dynamic_cast<NailObject *>(go) != nullptr) {
 		collided = true;
 		vX = vY = 0;

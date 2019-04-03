@@ -428,7 +428,7 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 
 void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	if(!damageable || damageDelay != 0 || d == 0 || health <= 0) return;
+	if(!damageable || damageDelay > 0 || d == 0 || health <= 0) return;
 	health -= d;
 	if(health > 0) {
 		damageDelay = 20;

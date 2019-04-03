@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\</FILEPATH>
+      <FILENAME>enemy.cpp</FILENAME>
+      <LINE>5</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Enemy::target' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Enemy::{ctor}</FUNCTION>
+    <DECORATED>??0Enemy@@QAE@PBDMMHHMH@Z</DECORATED>
+    <FUNCLINE>5</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

@@ -174,6 +174,7 @@ void LevelManager::Render() {
 		for(auto r : *rooms) r->Render(layer);
 		for(auto it : *tiles) if (it->GetLayer() == layer) it->Render();
 		for(auto go : *objects) if(go->GetRenderLayer() == layer) go->RenderObject();
+		((Player *)player)->RenderItems(layer);
 
 	}
 

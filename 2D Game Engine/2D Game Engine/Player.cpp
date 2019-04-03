@@ -149,7 +149,7 @@ void Player::Update(LevelManager * game) {
 		grav = .55f;
 	}
 
-	if(smokeDelay != 0) smokeDelay--;
+	if(smokeDelay > 0) smokeDelay--;
 
 	if(shot > 0) shot--;
 
@@ -178,7 +178,12 @@ void Player::Update(LevelManager * game) {
 void Player::RenderObject() {
 
 	Enemy::RenderObject();
-	for(auto item : *items) item->Render();
+
+}
+
+void Player::RenderItems(int layer) {
+
+	for(auto item : *items) if(item->GetLayer() == layer) item->Render();
 
 }
 
@@ -214,9 +219,20 @@ float Player::GetManaRegen() {
 
 void Player::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	if(damageDelay == 0) for(auto item : *items) item->OnDamageTaken(game, go, this);
+	if(damageDelay > 0) return;
+	
+	int newDamage = d;
+	for(auto item : *items) {
+		item->OnDamageTaken(game, go, this);
+		newDamage -= item->OverrideDamageTotal(newDamage, go, this);
+	}
 
-	GameObject::DealDamage(d, game, go);
+	if(newDamage <= 0) {
+		damageDelay = 20;
+		return;
+	}
+
+	GameObject::DealDamage(newDamage, game, go);
 	
 }
 

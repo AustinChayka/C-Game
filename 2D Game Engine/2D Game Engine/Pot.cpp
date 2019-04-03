@@ -24,7 +24,7 @@ Pot::~Pot() {
 
 }
 
-void Pot::OnDeath(LevelManager * game) {
+void Pot::OnDeath(LevelManager * game, GameObject * go) {
 
 	game->AddObject(new Debris("assets/StageObjects/Pot.png", 16, 24, tileX, 0, 3, x, y));
 

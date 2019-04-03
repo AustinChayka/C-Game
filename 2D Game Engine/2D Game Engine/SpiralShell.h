@@ -10,12 +10,16 @@ public:
 	SpiralShell();
 
 	~SpiralShell();
-
-	void UpdateProjectile(LevelManager * game, Player * p, Projectile * proj);
+	
+	int OverrideDamageTotal(int damage, GameObject * go, Player * p);
+	void Update(LevelManager * game, Player * p);
+	void Render();
 
 private:
 
-	float radius = 25;
+	int health = 8, delay = 0;
+
+	SDL_Rect srcRrect, destRect;
 	
 };
 
