@@ -11,6 +11,9 @@
 #include "Door.h"
 #include "Room.h"
 #include "Projectile.h"
+#include "ItemObject.h"
+
+#include "Maw.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -68,12 +71,16 @@ void LevelManager::LoadLevel(int n) {
 
 void LevelManager::GenerateLevel(int size, int seed) {
 
+	if(leftOverEnemies > 0) Game::gui->ShowMessage("something stirs ahead...", 255, 100, 100, 200, 120);
+
 	srand(seed);
 	
 	float roomOffsetX = 0, roomOffsetY = 0;
 
 	player->SetX(100);
 	player->SetY(100);
+
+	//AddObject(new Maw(400, 100));
 
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 0));
 	roomOffsetX += 10 * 60;
@@ -129,6 +136,8 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	}
 	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 1));
+
+	if(size == 3) AddObject(new ItemObject(400, 5 * 60 - 24, 2));
 
 }
 
@@ -211,6 +220,8 @@ std::vector<GameObject*> * LevelManager::GetObjects() {
 }
 
 void LevelManager::NextLevel() {
+
+	for(auto go : *GetObjects()) if(dynamic_cast<Enemy *>(go) != nullptr && dynamic_cast<Player *>(go) == nullptr) leftOverEnemies++;
 
 	currentLevel++;
 	reloaded = true;

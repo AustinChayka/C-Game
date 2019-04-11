@@ -42,7 +42,7 @@ private:
 
 	std::vector<GameObject *> * allObjects;
 
-	int currentLevel = 0;
+	int currentLevel = 0, leftOverEnemies = 0;
 
 	bool reloaded;
 	

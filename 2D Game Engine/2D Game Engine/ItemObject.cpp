@@ -10,6 +10,8 @@
 #include "JarOfAir.h"
 #include "RubberCement.h"
 #include "Soul.h"
+#include "FireTome_1.h"
+#include "IceTome_1.h"
 
 std::vector<std::vector<int> *> * ItemObject::items = nullptr;
 
@@ -24,9 +26,10 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 
 	if(items == nullptr) {
 		items = new std::vector<std::vector<int> *>;
-		for(int i = 0; i < 2; i++) items->push_back(new std::vector<int>);
+		for(int i = 0; i < 3; i++) items->push_back(new std::vector<int>);
 		for(int i = 0; i < 6; i++) items->at(0)->push_back(i);
 		for(int i = 0; i < 4; i++) items->at(1)->push_back(i);
+		for(int i = 0; i < 2; i++) items->at(2)->push_back(i);
 	}
 	
 	GenerateItem(pool);
@@ -124,6 +127,22 @@ void ItemObject::GenerateItem(int pool) {
 				case 3:
 					item = new CharredSkull();
 					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/CharredSkull.png");
+					break;
+
+			}
+			break;
+
+		case 2:
+			switch(i) {
+
+				case 0:
+					item = new FireTome_1();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/FireTome_1.png");
+					break;
+
+				case 1:
+					item = new IceTome_1();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/IceTome_1.png");
 					break;
 
 			}

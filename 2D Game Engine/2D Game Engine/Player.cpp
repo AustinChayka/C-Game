@@ -20,7 +20,7 @@ Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 
 	grav = .55f;
 
 	items = new std::vector<Item *>;
-	
+
 }
 
 Player::~Player() {
@@ -111,8 +111,9 @@ void Player::Update(LevelManager * game) {
 
 		if(!attackLock && manaFatigue >= 2) {
 
-			Projectile * p = new Fireball(dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this);
+			Projectile * p = new Projectile("assets/Other/DefaultProjectile.png", dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this);
 
+			for(auto item : *items) if(item->OverrideDefaultProjectile(this, p)) break;
 			for(auto item : *items) item->OnShotFired(game, this, p);
 
 			game->AddObject(p);

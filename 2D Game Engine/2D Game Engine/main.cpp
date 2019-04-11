@@ -15,28 +15,20 @@ int main(int argc, char * argv[]) {
 
 	game = new Game("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 16 * scale, 9 * scale, true);
 		
-	try {
+	while(Game::running) {
 
-		while(Game::running) {
+		frameStart = SDL_GetTicks();
 
-			frameStart = SDL_GetTicks();
-
-			game->HandleEvents();
-			game->Update();
-			game->Render();
+		game->HandleEvents();
+		game->Update();
+		game->Render();
 
 
-			frameTime = SDL_GetTicks() - frameStart;
+		frameTime = SDL_GetTicks() - frameStart;
 
-			//std::cout << frameTime << std::endl;
+		//std::cout << frameTime << std::endl;
 
-			if(frameDelay > frameTime) SDL_Delay((int)(frameDelay - frameTime));
-
-		}
-	
-	} catch(const std::exception &e) {
-
-		SDL_SetWindowFullscreen(game->GetWindow(), 0);
+		if(frameDelay > frameTime) SDL_Delay((int)(frameDelay - frameTime));
 
 	}
 

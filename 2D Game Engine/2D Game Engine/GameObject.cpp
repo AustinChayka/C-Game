@@ -180,10 +180,10 @@ bool GameObject::CollidesWith(GameObject * go) {
 
 	if(this == go) return false;
 
-	return x  + (vX < 0 ? vX : 0) <= go->GetX() + go->GetWidth() + (go->GetVX() > 0 ? go->GetVX() : 0)
-		&& x + width   + (vX > 0 ? vX : 0) >= go->GetX() + (go->GetVX() < 0 ? go->GetVX() : 0)
-		&& y + (vY < 0 ? vY : 0) <= go->GetY() + go->GetHeight() + (go->GetVY() > 0 ? go->GetVY() : 0) 
-		&& y + height + (vY > 0 ? vY : 0) >= go->GetY() + (go->GetVY() < 0 ? go->GetVY() : 0);
+	return x + (vX > 0 ? -vX : 0) <= go->GetX() + go->GetWidth() + (go->GetVX() < 0 ? -go->GetVX() : 0)
+		&& x + width + (vX < 0 ? -vX : 0) >= go->GetX() + (go->GetVX() > 0 ? -go->GetVX() : 0)
+		&& y + (vY > 0 ? -vY : 0) <= go->GetY() + go->GetHeight() + (go->GetVY() < 0 ? -go->GetVY() : 0) 
+		&& y + height + (vY < 0 ? -vY : 0) >= go->GetY() + (go->GetVY() > 0 ? -go->GetVY() : 0);
 
 }
 

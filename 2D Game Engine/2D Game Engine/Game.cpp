@@ -18,6 +18,8 @@ Game::Game(const char * title, int xPos, int yPos, int init_width, int init_heig
 	width = init_width;
 	height = init_height;
 
+	//std::cout << width << ", " << height << std::endl;
+
 	int flags = 0;
 	if(fullscreen) flags = SDL_WINDOW_FULLSCREEN;
 	

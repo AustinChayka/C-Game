@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="BleedStatus.cpp" />
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="Fire.cpp" />
     <ClCompile Include="Fireball.cpp" />
     <ClCompile Include="FireStatus.cpp" />
+    <ClCompile Include="FireTome_1.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
@@ -162,6 +164,8 @@
     <ClCompile Include="Hammer.cpp" />
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="Heart.cpp" />
+    <ClCompile Include="IceShard.cpp" />
+    <ClCompile Include="IceTome_1.cpp" />
     <ClCompile Include="ImageTile.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemObject.cpp" />
@@ -170,6 +174,7 @@
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarkOfHunger.cpp" />
+    <ClCompile Include="Maw.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="NailObject.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -206,6 +211,7 @@
   <ItemGroup>
     <ClInclude Include="BleedStatus.h" />
     <ClInclude Include="Block.h" />
+    <ClInclude Include="Boss.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
@@ -224,6 +230,7 @@
     <ClInclude Include="Fire.h" />
     <ClInclude Include="Fireball.h" />
     <ClInclude Include="FireStatus.h" />
+    <ClInclude Include="FireTome_1.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScreen.h" />
@@ -231,6 +238,8 @@
     <ClInclude Include="Hammer.h" />
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Heart.h" />
+    <ClInclude Include="IceShard.h" />
+    <ClInclude Include="IceTome_1.h" />
     <ClInclude Include="ImageTile.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemObject.h" />
@@ -238,6 +247,7 @@
     <ClInclude Include="Lantern.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MarkOfHunger.h" />
+    <ClInclude Include="Maw.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="NailObject.h" />
     <ClInclude Include="Particle.h" />

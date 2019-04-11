@@ -25,6 +25,12 @@ int Item::OverrideDamageTotal(int damage, GameObject * go, Player * p) {
 
 }
 
+bool Item::OverrideDefaultProjectile(Player * p, Projectile *& proj) {
+
+	return false;
+
+}
+
 void Item::OnShotFired(LevelManager * game, Player * p, Projectile *& proj) {}
 
 void Item::OnDamageDelt(LevelManager * game, Player * p, GameObject * go) {}

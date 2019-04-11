@@ -27,6 +27,7 @@ GUI::~GUI() {
 void GUI::Update() {
 
 	if(showNewItem > 0) showNewItem--;
+	if(showText > 0) showText--;
 	
 	if(prevItemsSize < ((Player *)player)->GetItems()->size()) showNewItem = 120;
 
@@ -138,10 +139,29 @@ void GUI::Render() {
 		}
 	}
 
+	if(showText > 0) {
+
+		iconRect.x = Game::width / 2 - textLen * 12;
+		iconRect.y = 15;
+		iconRect.w = 24 * textLen;
+		iconRect.h = 50;
+		SDL_RenderCopy(Game::renderer, messageText, NULL, &iconRect);
+
+	}
+
 }
 
 void GUI::SetPlayer(GameObject * p) {
 
 	player = p;
+
+}
+
+void GUI::ShowMessage(const char * message, Uint8 red, Uint8 green, Uint8 blue, Uint8 alpha, int time) {
+
+	if(messageText != nullptr) SDL_DestroyTexture(messageText);
+	messageText = TextureManager::LoadText(Game::renderer, 24, {red, green, blue, alpha}, message);
+	showText = time;
+	textLen = strlen(message);
 
 }
