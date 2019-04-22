@@ -29,7 +29,9 @@ private:
 	GameObject * player;
 	StateManager * manager;
 
-	int prevItemsSize = 0, showNewItem = 0, showText, textLen;
+	int showNewItem = 0, showText, textLen;
+
+	const char * lastItemName;
 
 	SDL_Rect mapRect, iconRect;
 	float mapWidth, mapHeight;

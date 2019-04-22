@@ -2,6 +2,7 @@
 
 #include "PotMimicTentacle.h"
 #include "Pot.h"
+#include "ImageTile.h"
 
 PotMimic::PotMimic(float x, float y) : Enemy("assets/Enemies/PotMimic.png", x, y, 24, 35, 3, 8) {
 
@@ -67,4 +68,14 @@ void PotMimic::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 	if(statusFlag == -1) statusFlag = 0;
 	
+}
+
+void PotMimic::OnDeath(LevelManager * game, GameObject * go) {
+
+	Enemy::OnDeath(game, go);
+
+	ImageTile * tile = new ImageTile("assets/Enemies/PotMimic.png", x, y, 24, 35, 4, 0, 3, renderLayer);
+	SDL_SetTextureColorMod(tile->GetTexture(), 200, 200, 200);
+	game->AddTile(tile);
+
 }

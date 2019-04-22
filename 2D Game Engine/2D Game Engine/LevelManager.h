@@ -42,9 +42,13 @@ private:
 
 	std::vector<GameObject *> * allObjects;
 
-	int currentLevel = 0, leftOverEnemies = 0;
+	std::vector<int> specialRoomsBlacklist;
+
+	int currentLevel = 0, leftOverEnemies = 0, specialRoomSkips = 0;
 
 	bool reloaded;
+
+	bool IsBlacklisted(int r);
 	
 };
 

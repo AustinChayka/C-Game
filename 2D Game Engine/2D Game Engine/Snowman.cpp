@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "Snowball.h"
 
-Snowman::Snowman(float x, float y) : Enemy("assets/Enemies/Snowman.png", x, y, 20, 39, 3, 4) {
+Snowman::Snowman(float x, float y) : Enemy("assets/Enemies/Snowman.png", x, y, 30, 39, 3, 4) {
 	
 	collidable = true;
 	solid = false;
@@ -27,10 +27,16 @@ void Snowman::Update(LevelManager * game) {
 
 	if(target == nullptr) return;
 
-	if(delay == 0 && DistanceToSquared(target) < 500 * 500) {
+	tileX = delay < 40 && delay > 0 ? (40 - delay) / 40.0f * 5 : 0;
 
-		game->AddObject(new Snowball(GetXCenter(), GetYCenter(), (target->GetXCenter() - GetXCenter()) / 30,
-			.5f * .8f * -30, x > target->GetX() ? -1 : 1, 0, this));
+	if(delay == 0 && OnScreen()) {
+
+		if(target->GetY() <= y)
+			game->AddObject(new Snowball(x + 3, y + 1, (target->GetXCenter() - GetXCenter()) / 30,
+				.5f * .8f * -30, x > target->GetX() ? -1 : 1, 0, this));
+		else 
+			game->AddObject(new Snowball(x + 3, y + 1, (target->GetXCenter() - GetXCenter()) / 20,
+				(target->GetYCenter() - GetYCenter()) / 180, x > target->GetX() ? -1 : 1, 0, this));
 		delay = 90;
 
 	}

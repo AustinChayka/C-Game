@@ -32,16 +32,16 @@ void NailObject::Update(LevelManager * game) {
 
 bool NailObject::OverrideCollision(GameObject * go) {
 
-	return dynamic_cast<Player *>(go) != nullptr || (go->IsDamagable() && grounded);
+	return dynamic_cast<Player *>(go) != nullptr || (grounded && go->IsDamagable());
 
 }
 
 void NailObject::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(!go->IsSolid() && !go->IsDamagable()) return;
+	if((!go->IsSolid() && !go->IsDamagable()) || dynamic_cast<Player *>(go) != nullptr) return;
 	
 	if(dynamic_cast<Hammer *>(go) != nullptr) dead = true;
-
-	vX = vY = 0;
+	
+	vX = 0;
 
 }

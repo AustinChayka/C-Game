@@ -14,6 +14,8 @@ public:
 	void Update(LevelManager * game);
 
 	void OnCollision(GameObject * go, LevelManager * game);
+
+	void OnDeath(LevelManager * game, GameObject * go);
 	
 private:
 

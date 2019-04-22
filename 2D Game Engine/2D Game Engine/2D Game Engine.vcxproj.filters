@@ -270,9 +270,6 @@
     <ClCompile Include="Soul.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="IceShard.cpp">
-      <Filter>Source Files\Objects\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="FireTome_1.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
@@ -284,6 +281,30 @@
     </ClCompile>
     <ClCompile Include="Maw.cpp">
       <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="IceShard.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="PoisonStatus.cpp">
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
+    <ClCompile Include="MawProjectile.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Campfire.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Corpse.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="SacraficialAltar.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="SacraficialDagger.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="SpiritProjectile.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -500,5 +521,39 @@
     <ClInclude Include="Maw.h">
       <Filter>Header Files\Objects\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoisonStatus.h">
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
+    <ClInclude Include="MawProjectile.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Campfire.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Corpse.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="SacraficialAltar.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="SacraficialDagger.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiritProjectile.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\Icons\gameicon_bG0_icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

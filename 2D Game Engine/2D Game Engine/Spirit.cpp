@@ -7,6 +7,7 @@
 #include "Firestatus.h"
 #include "CursedFireStatus.h"
 #include "Lantern.h"
+#include "Corpse.h"
 
 Spirit::Spirit(float x, float y) : Enemy("assets/Enemies/Spirit.png", x, y, 13, 29, 2, 2) {
 
@@ -103,5 +104,13 @@ bool Spirit::OverrideStatus(Status * s) {
 bool Spirit::OverrideCollision(GameObject * go) {
 
 	return dynamic_cast<Spirit *>(go) != nullptr || dynamic_cast<Lantern *>(go) != nullptr;
+
+}
+
+void Spirit::OnDeath(LevelManager * game, GameObject * go) {
+
+	Enemy::OnDeath(game, go);
+
+	game->AddObject(new Corpse("assets/Enemies/Spirit.png", x, y, 13, 29, 0, 1, 2));
 
 }

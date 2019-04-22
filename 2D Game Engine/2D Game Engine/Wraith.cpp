@@ -5,6 +5,7 @@
 #include "FireStatus.h"
 #include "CursedFireStatus.h"
 #include "Urn.h"
+#include "Corpse.h"
 
 Wraith::Wraith(float x, float y) : Enemy("assets/Enemies/Wraith.png", x, y, 19, 22, 2, 2) {
 	
@@ -67,5 +68,13 @@ bool Wraith::OverrideStatus(Status * s) {
 bool Wraith::OverrideCollision(GameObject * go) {
 
 	return dynamic_cast<Wraith *>(go) != nullptr;
+
+}
+
+void Wraith::OnDeath(LevelManager * game, GameObject * go) {
+
+	Enemy::OnDeath(game, go);
+
+	game->AddObject(new Corpse("assets/Enemies/Wraith.png", x, y, 19, 22, 4, tileY, scale));
 
 }

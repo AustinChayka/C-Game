@@ -13,6 +13,8 @@
 #include "Snowman.h"
 #include "Lantern.h"
 #include "Urn.h"
+#include "SacraficialAltar.h"
+#include "Campfire.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -110,8 +112,21 @@ Room::Room(float offX, float offY, int type) {
 
 		case 6:
 			Init(offX, offY, 8, 8, 5, 5, -1);
-			if(rand() % 2 == 0) objects.push_back(new ItemObject(x + 4 * 60 - 12, y + 7 * 60 - 24, 0));
-			else objects.push_back(new DemonAlter(x + 4 * 60 - 60, y + 7 * 60 - 150));
+			if(rand() % 2 == 0) {
+				objects.push_back(new ItemObject(x + 4 * 60 - 12, y + 7 * 60 - 24 - 45, 0));
+				tiles.push_back(new ImageTile("assets/StageObjects/Pedestal.png", x + 4 * 60 - 30, y + 7 * 60 - 45, 20, 15, 0, 0, 3, 2));
+				tiles.push_back(new ImageTile("assets/StageObjects/Banner.png", x + 4 * 60 - 45, y + 180, 30, 40, 0, 0, 3, 1));
+			} else {
+				objects.push_back(new DemonAlter(x + 4 * 60 - 60, y + 7 * 60 - 150));
+				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 40, y + 7 * 60 - 32, 25, 32,
+					rand() % 5, 0, 1, 1, 5, .06f));
+				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 80, y + 7 * 60 - 32, 25, 32,
+					rand() % 5, 0, 1, 1, 5, .06f));
+				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 20, y + 7 * 60 - 32, 25, 32,
+					rand() % 5, 0, 1, 1, 5, .06f));
+				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 60, y + 7 * 60 - 32, 25, 32,
+					rand() % 5, 0, 1, 1, 5, .06f));
+			}
 			break;
 
 		case 7:
@@ -150,7 +165,57 @@ Room::Room(float offX, float offY, int type) {
 			Init(offX, offY, 16, 6, 3, 3, -1);
 			objects.push_back(new Lantern(x + 6 * 60 + 70, y + 5 * 60 - 20 * 3 - 45));
 			tiles.push_back(new ImageTile("assets/StageObjects/Table.png", x + 60 * 6, y + 5 * 60 - 20 * 3, 50, 20, 0, 0, 3, 1));
-			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 6 + 5, y + 5 * 60 - 20 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .04f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 6 + 5, y + 5 * 60 - 20 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 150, y + 60 * 5 - 50 * 3, 35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 550, y + 60 * 5 - 50 * 3, 35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 700, y + 60 * 5 - 50 * 3, 35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 720, y + 5 * 60 - 50 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 220, y + 5 * 60 - 50 * 3 - 32, 25, 32, rand() % 5, 0, 1, 1, 5, .06f));
+			break;
+
+		case 9:
+			Init(offX, offY, 25, 15, 8, 8, -1);
+			for(int i = 0; i < 23; i++) objects.push_back(new Spike(x + 60 + i * 60, y + 14 * 60 - 30));
+			objects.push_back(new SoftPlatform(x + 60, y + 10 * 60, 2));
+			objects.push_back(new SoftPlatform(x + 60, y + 12 * 60, 1));
+			objects.push_back(new Block(x + 180, y + 10 * 60, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 180, y + 10 * 60, 20, 20, 4, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 240, y + 10 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 300, y + 10 * 60, 20, 20, 3, 0, 3, 2));
+			objects.push_back(new Block(x + 60, y + 5 * 60, 2, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x, y + 5 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60, y + 5 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 120, y + 5 * 60, 20, 20, 3, 0, 3, 2));
+			objects.push_back(new Snowman(x + 60 + 15, y + 5 * 60 - 39 * 3));
+			objects.push_back(new Block(x + 8 * 60, y + 9 * 60, 1, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 8 * 60, y + 9 * 60, 20, 20, 0, 3, 3, 2));
+			objects.push_back(new Platform(x + 9 * 60, y + 9 * 60, 5));
+			objects.push_back(new Block(x + 9 * 60 + 16 * 15, y + 9 * 60, 1, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 9 * 60 + 16 * 15, y + 9 * 60, 20, 20, 0, 3, 3, 2));
+			objects.push_back(new SoftPlatform(x + 23 * 60, y + 10 * 60, 1));
+			objects.push_back(new Block(x + 60 * 22, y + 5 * 60, 2, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 22, y + 5 * 60, 20, 20, 4, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 23, y + 5 * 60, 20, 20, 0, 2, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * 24, y + 5 * 60, 20, 20, 0, 2, 3, 2));
+			objects.push_back(new Snowman(x + 60 * 23 - 15, y + 5 * 60 - 39 * 3));
+			break;
+
+		case 10:
+			Init(offX, offY, 8, 8, 5, 5, -1);
+			objects.push_back(new SacraficialAltar(x + 4 * 60 - 60, y + 7 * 60 - 28 * 3));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 40, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 80, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 20, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 60, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			break;
+
+		case 11:
+			Init(offX, offY, 8, 8, 5, 5, -1);
+			objects.push_back(new Campfire(x + 4 * 60 - 61, y + 7 * 60 - 37 * 3));
 			break;
 
 	}
@@ -246,6 +311,12 @@ float Room::GetHeight() {
 bool Room::IsActive() {
 
 	return active;
+
+}
+
+void Room::AddObject(GameObject * go) {
+
+	objects.push_back(go);
 
 }
 

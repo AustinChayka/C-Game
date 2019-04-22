@@ -51,6 +51,8 @@ void Projectile::OnCollision(GameObject * go, LevelManager * game) {
 	if(bounces < maxBounces) {
 		if(GetXOverlap(go) < GetYOverlap(go)) vX *= -1;
 		else vY *= -1;
+		x += vX;
+		y += vY;
 		bounces++;
 	} else {
 		dead = true;

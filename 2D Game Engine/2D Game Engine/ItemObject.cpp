@@ -24,6 +24,8 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 	textRect.w = 20;
 	textRect.h = 20;
 
+	renderLayer = 2;
+
 	if(items == nullptr) {
 		items = new std::vector<std::vector<int> *>;
 		for(int i = 0; i < 3; i++) items->push_back(new std::vector<int>);

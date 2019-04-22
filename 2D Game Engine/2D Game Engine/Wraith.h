@@ -19,6 +19,8 @@ public:
 
 	bool OverrideCollision(GameObject * go);
 
+	void OnDeath(LevelManager * game, GameObject * go);
+
 private:
 
 	float speed = .01f, maxSpeed = 7.5f;

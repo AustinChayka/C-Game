@@ -17,6 +17,8 @@ public:
 
 	void DealDamage(int d, LevelManager * game, GameObject * go);
 
+	void OnDeath(LevelManager * game, GameObject * go);
+
 private:
 
 	int statusFlag = -1;

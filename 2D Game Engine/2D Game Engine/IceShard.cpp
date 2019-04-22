@@ -17,8 +17,12 @@ void IceShard::Update(LevelManager * game) {
 
 		for(auto go : *game->GetObjects()) if(CollidesWith(go)) return;
 
-		game->AddObject(new IceShard(x, y, vX, vY + rand() % 5, xDir, yDir, spawner, scale * .75));
-		game->AddObject(new IceShard(x, GetYCenter(), vX, vY - rand() % 5, xDir, yDir, spawner, scale * .75));
+		Projectile * shard = new IceShard(x, y, vX, vY + rand() % 5, xDir, yDir, spawner, scale * .75);
+		shard->SetBounces(maxBounces);
+		game->AddObject(shard);
+		shard = new IceShard(x, GetYCenter(), vX, vY - rand() % 5, xDir, yDir, spawner, scale * .75);
+		shard->SetBounces(maxBounces);
+		game->AddObject(shard);
 
 		dead = true;
 	}

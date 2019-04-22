@@ -30,6 +30,8 @@ public:
 	float GetHeight();
 
 	bool IsActive();
+
+	void AddObject(GameObject * go);
 	
 private:
 

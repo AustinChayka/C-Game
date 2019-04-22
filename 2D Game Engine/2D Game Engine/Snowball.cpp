@@ -2,6 +2,7 @@
 
 #include "Enemy.h"
 #include "ChilledStatus.h"
+#include "Snowman.h"
 
 Snowball::Snowball(float x, float y, float vX, float vY, int xDir, int yDir, GameObject * spawner) : 
 	Projectile("assets/Other/Snowball.png", x, y, vX, vY, xDir, yDir, spawner) {

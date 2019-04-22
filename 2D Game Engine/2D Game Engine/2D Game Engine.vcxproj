@@ -141,8 +141,10 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Campfire.cpp" />
     <ClCompile Include="CharredSkull.cpp" />
     <ClCompile Include="ChilledStatus.cpp" />
+    <ClCompile Include="Corpse.cpp" />
     <ClCompile Include="CursedCandle.cpp" />
     <ClCompile Include="CursedFire.cpp" />
     <ClCompile Include="CursedFireball.cpp" />
@@ -175,11 +177,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarkOfHunger.cpp" />
     <ClCompile Include="Maw.cpp" />
+    <ClCompile Include="MawProjectile.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="NailObject.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayButton.cpp" />
+    <ClCompile Include="PoisonStatus.cpp" />
     <ClCompile Include="PossesedNail.cpp" />
     <ClCompile Include="Pot.cpp" />
     <ClCompile Include="PotMimic.cpp" />
@@ -189,6 +193,8 @@
     <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="RubberCement.cpp" />
+    <ClCompile Include="SacraficialAltar.cpp" />
+    <ClCompile Include="SacraficialDagger.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="Smoke.cpp" />
     <ClCompile Include="Snowball.cpp" />
@@ -198,6 +204,7 @@
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="SpiralShell.cpp" />
     <ClCompile Include="Spirit.cpp" />
+    <ClCompile Include="SpiritProjectile.cpp" />
     <ClCompile Include="StageDoor.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -215,8 +222,10 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Campfire.h" />
     <ClInclude Include="CharredSkull.h" />
     <ClInclude Include="ChilledStatus.h" />
+    <ClInclude Include="Corpse.h" />
     <ClInclude Include="CursedCandle.h" />
     <ClInclude Include="CursedFire.h" />
     <ClInclude Include="CursedFireball.h" />
@@ -248,20 +257,25 @@
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MarkOfHunger.h" />
     <ClInclude Include="Maw.h" />
+    <ClInclude Include="MawProjectile.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="NailObject.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayButton.h" />
+    <ClInclude Include="PoisonStatus.h" />
     <ClInclude Include="PossesedNail.h" />
     <ClInclude Include="Pot.h" />
     <ClInclude Include="PotMimic.h" />
     <ClInclude Include="PotMimicTentacle.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="RegenStatus.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="RestartButton.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="RubberCement.h" />
+    <ClInclude Include="SacraficialAltar.h" />
+    <ClInclude Include="SacraficialDagger.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="Smoke.h" />
     <ClInclude Include="Snowball.h" />
@@ -271,6 +285,7 @@
     <ClInclude Include="Spike.h" />
     <ClInclude Include="SpiralShell.h" />
     <ClInclude Include="Spirit.h" />
+    <ClInclude Include="SpiritProjectile.h" />
     <ClInclude Include="StageDoor.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Player.h" />
@@ -280,6 +295,12 @@
     <ClInclude Include="UseableItem.h" />
     <ClInclude Include="Wraith.h" />
     <ClInclude Include="WraithProjectile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\Icons\gameicon_bG0_icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

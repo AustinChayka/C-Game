@@ -1,5 +1,7 @@
 #include "Slime.h"
 
+#include "Corpse.h"
+
 Slime::Slime(float x, float y, int size) : Enemy("assets/Enemies/Slime.png", x, y, 20, 17, size, size) {
 	
 	collidable = true;
@@ -31,7 +33,7 @@ void Slime::Update(LevelManager * game) {
 		}
 	} else jumpDelay--;
 
-	if(health < scale / 2 && grounded) {
+	if(health < maxHealth / 2 && grounded) {
 		vY = -15;
 		split = true;
 	}
@@ -56,7 +58,9 @@ void Slime::OnCollision(GameObject * go, LevelManager * game) {
 
 void Slime::OnDeath(LevelManager * game, GameObject * go) {
 
-	GameObject::OnDeath(game, go);
+	Enemy::OnDeath(game, go);
+
+	game->AddObject(new Corpse("assets/Enemies/Slime.png", x, y, 20, 17, 0, 1, scale));
 
 	if((int) (scale / 2) >= 1) {
 
@@ -64,6 +68,7 @@ void Slime::OnDeath(LevelManager * game, GameObject * go) {
 		game->AddObject(new Slime(x + width - width * (int)(scale / 2), y, (int)(scale / 2)));
 
 	}
+
 
 }
 

@@ -12,8 +12,8 @@
 #include "Room.h"
 #include "Projectile.h"
 #include "ItemObject.h"
-
 #include "Maw.h"
+#include "CursedCandle.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -71,7 +71,7 @@ void LevelManager::LoadLevel(int n) {
 
 void LevelManager::GenerateLevel(int size, int seed) {
 
-	if(leftOverEnemies > 0) Game::gui->ShowMessage("something stirs ahead...", 255, 100, 100, 200, 120);
+	if(leftOverEnemies > 5) Game::gui->ShowMessage("something stirs ahead.", 255, 100, 100, 200, 180);
 
 	srand(seed);
 	
@@ -79,14 +79,17 @@ void LevelManager::GenerateLevel(int size, int seed) {
 
 	player->SetX(100);
 	player->SetY(100);
-
-	//AddObject(new Maw(400, 100));
-
+	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 0));
 	roomOffsetX += 10 * 60;
 
-	int treasureRoom = rand() % size;
-
+	int treasureRoom = rand() % size, specialRoom = -1;
+	
+	if(rand() % 10 > 8 - 8 * specialRoomSkips / 4.0f) {
+		specialRoom = rand() % size;
+		specialRoomSkips = 0;
+	} else specialRoomSkips++;
+	
 	for(int i = 0; i < size; i++) {
 
 		if(i == treasureRoom) {
@@ -95,8 +98,48 @@ void LevelManager::GenerateLevel(int size, int seed) {
 			roomOffsetX += 8 * 60;
 			roomOffsetY += 60 * 2;
 		}
+
+		if(i == specialRoom) {
+
+			int n = 0;
+						
+			for(auto item : *((Player *) player)->GetItems()) {
+				if(dynamic_cast<CursedCandle *>(item) != nullptr) n = 1;
+			}
+
+			if(player->GetHealth() <= player->GetMaxHealth() * .3f) n = 2;
+
+			if(IsBlacklisted(n)) continue;
+
+			switch(n) {
+
+				case 0:
+					roomOffsetY -= 60 * 2;
+					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 6));
+					roomOffsetX += 8 * 60;
+					roomOffsetY += 60 * 2;
+					break;
+
+				case 1:
+					roomOffsetY -= 60 * 2;
+					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 10));
+					roomOffsetX += 8 * 60;
+					roomOffsetY += 60 * 2;
+					specialRoomsBlacklist.push_back(1);
+					break;
+
+				case 2:
+					roomOffsetY -= 60 * 2;
+					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 11));
+					roomOffsetX += 8 * 60;
+					roomOffsetY += 60 * 2;
+					break;
+
+			}
+
+		}
 		
-		switch(rand() % 6) {
+		switch(rand() % 7) {
 
 			case 0:
 				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 2));
@@ -130,14 +173,28 @@ void LevelManager::GenerateLevel(int size, int seed) {
 				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 8));
 				roomOffsetX += 16 * 60;
 				break;
-				
+
+			case 6:
+				roomOffsetY -= 5 * 60;
+				rooms->push_back(new Room(roomOffsetX, roomOffsetY, 9));
+				roomOffsetX += 25 * 60;
+				roomOffsetY += 5 * 60;
+				break;
+								
 		}
 		
 	}
 	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 1));
+	if(leftOverEnemies > 5) {
+		rooms->at(rooms->size() - 1)->AddObject(new Maw(roomOffsetX + 260, roomOffsetY + 100));
+		leftOverEnemies = 0;
+	}
 
-	if(size == 3) AddObject(new ItemObject(400, 5 * 60 - 24, 2));
+	if(size == 3) {
+		AddObject(new ItemObject(400, 5 * 60 - 24 - 45, 2));
+		AddTile(new ImageTile("assets/StageObjects/Pedestal.png", 400 - 18, 5 * 60 - 45, 20, 15, 0, 0, 3, 2));
+	}
 
 }
 
@@ -225,5 +282,13 @@ void LevelManager::NextLevel() {
 
 	currentLevel++;
 	reloaded = true;
+
+}
+
+bool LevelManager::IsBlacklisted(int r) {
+
+	for(auto n : specialRoomsBlacklist) if(n == r) return true;
+
+	return false;
 
 }

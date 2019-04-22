@@ -15,7 +15,7 @@ public:
 
 	virtual void OnCollision(GameObject * go, LevelManager * game);
 
-	bool OverrideCollision(GameObject * go);
+	virtual bool OverrideCollision(GameObject * go);
 
 	float DistanceTraveled();
 

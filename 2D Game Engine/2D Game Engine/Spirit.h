@@ -22,6 +22,8 @@ public:
 
 	bool OverrideCollision(GameObject * go);
 
+	void OnDeath(LevelManager * game, GameObject * go);
+
 private :
 
 	float deg, radius = 15, rotPerSec = 0.5f;

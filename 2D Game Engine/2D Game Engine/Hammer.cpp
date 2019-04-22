@@ -10,6 +10,8 @@ Hammer::Hammer(float x, float y) : GameObject("assets/Other/Hammer.png", x, y, 3
 
 	grav = 0.5f;
 
+	renderLayer = 3;
+
 }
 
 Hammer::~Hammer() {}

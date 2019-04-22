@@ -13,6 +13,14 @@ public:
 
 	void Update(LevelManager * game);
 
+	void OnCollision(GameObject * go, LevelManager * game);
+
+	bool OverrideCollision(GameObject * go);
+
+private:
+
+	int delay = 120, subdelay = 20, shots = 3;
+
 };
 
 #endif

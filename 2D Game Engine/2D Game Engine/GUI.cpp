@@ -4,6 +4,7 @@
 #include "Room.h"
 #include "Item.h"
 #include "UseableItem.h"
+#include <typeinfo>
 
 GUI::GUI(GameObject * p, StateManager * sm) {
 
@@ -15,6 +16,8 @@ GUI::GUI(GameObject * p, StateManager * sm) {
 	heartIcon = TextureManager::LoadTexture(Game::renderer, "assets/Icons/HeartIcon.png");
 	heartRect.w = 5;
 	heartRect.h = 10;
+
+	lastItemName = "";
 
 }
 
@@ -29,9 +32,11 @@ void GUI::Update() {
 	if(showNewItem > 0) showNewItem--;
 	if(showText > 0) showText--;
 	
-	if(prevItemsSize < ((Player *)player)->GetItems()->size()) showNewItem = 120;
-
-	prevItemsSize = ((Player *)player)->GetItems()->size();
+	if(((Player *) player)->GetItems()->size() > 0 && 
+		lastItemName != typeid(*((Player *) player)->GetItems()->at(((Player *) player)->GetItems()->size() - 1)).name()) {
+		showNewItem = 120;
+		lastItemName = typeid(*((Player *) player)->GetItems()->at(((Player *) player)->GetItems()->size() - 1)).name();
+	}
 
 	mapWidth = 0;
 	for(auto r : *(manager->GetLevelManager()->GetRooms())) if(r->IsRevealed() && 
@@ -81,19 +86,19 @@ void GUI::Render() {
 		iconRect.y = Game::height / 3;
 		iconRect.w = 24 * 4;
 		iconRect.h = 24 * 4;
-		SDL_SetTextureAlphaMod(((Player *)player)->GetItems()->back()->GetTexture(), 100);
+		SDL_SetTextureAlphaMod(((Player *)player)->GetItems()->back()->GetTexture(), 150);
 		SDL_RenderCopy(Game::renderer, ((Player *)player)->GetItems()->back()->GetTexture(), NULL, &iconRect);
 		iconRect.x = Game::width / 2 -  ((Player *)player)->GetItems()->back()->GetNameLength() * 24;
 		iconRect.y = Game::height / 3 - 100;
 		iconRect.w = ((Player *)player)->GetItems()->back()->GetNameLength() * 48;
 		iconRect.h = 100;
-		SDL_SetTextureAlphaMod(((Player *)player)->GetItems()->back()->GetNameText(), 100);
+		SDL_SetTextureAlphaMod(((Player *)player)->GetItems()->back()->GetNameText(), 150);
 		SDL_RenderCopy(Game::renderer, ((Player *) player)->GetItems()->back()->GetNameText(), NULL, &iconRect);
 		iconRect.x = Game::width / 2 -  ((Player *)player)->GetItems()->back()->GetFlavorTextLength() * 12;
 		iconRect.y = Game::height / 3 + 24 * 4;
 		iconRect.w = ((Player *)player)->GetItems()->back()->GetFlavorTextLength() * 24;
 		iconRect.h = 50;
-		SDL_SetTextureAlphaMod(((Player *)player)->GetItems()->back()->GetFlavorText(), 100);
+		SDL_SetTextureAlphaMod(((Player *)player)->GetItems()->back()->GetFlavorText(), 150);
 		SDL_RenderCopy(Game::renderer, ((Player *) player)->GetItems()->back()->GetFlavorText(), NULL, &iconRect);
 	}
 	
@@ -142,7 +147,7 @@ void GUI::Render() {
 	if(showText > 0) {
 
 		iconRect.x = Game::width / 2 - textLen * 12;
-		iconRect.y = 15;
+		iconRect.y = 55;
 		iconRect.w = 24 * textLen;
 		iconRect.h = 50;
 		SDL_RenderCopy(Game::renderer, messageText, NULL, &iconRect);
