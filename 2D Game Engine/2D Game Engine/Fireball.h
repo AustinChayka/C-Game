@@ -15,7 +15,7 @@ public:
 
 	void Update(LevelManager * game);
 
-	void OnCollision(GameObject * go, LevelManager * game);
+	virtual void OnCollision(GameObject * go, LevelManager * game);
 
 private:
 

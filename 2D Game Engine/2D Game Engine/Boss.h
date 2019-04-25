@@ -15,10 +15,12 @@ public:
 
 	virtual void OnDeath(LevelManager * game, GameObject * go);
 
-private:
+protected:
 
 	SDL_Texture * nameText;
 	SDL_Rect barRect, textRect;
+
+	const char * itemName;
 
 };
 

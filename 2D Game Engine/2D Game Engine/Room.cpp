@@ -218,6 +218,17 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Campfire(x + 4 * 60 - 61, y + 7 * 60 - 37 * 3));
 			break;
 
+		case 12:
+			Init(offX, offY, 12, 8, 5, 5, -1);
+			objects.push_back(new ItemObject(x + 6 * 60 - 12, y + 7 * 60 - 24 - 45, "FireTome_2"));
+			tiles.push_back(new ImageTile("assets/StageObjects/Pedestal.png", x + 6 * 60 - 30, y + 7 * 60 - 45, 20, 15, 0, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 6 * 60 - (100 + 35 * 3), y + 7 * 60 - 150, 
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 6 * 60 + 100, y + 60 * 7 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+
+			break;
+
 	}
 }
 

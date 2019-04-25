@@ -14,6 +14,7 @@ public:
 		int init_tileX, int init_tileY, float scale);
 	~Particle();
 
+	virtual void UpdateObject(LevelManager * game);
 	virtual void Update(LevelManager * game);
 	virtual void RenderObject();
 

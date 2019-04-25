@@ -28,11 +28,10 @@ void Spirit::Update(LevelManager * game) {
 	tileX += 0.1f;
 	if(tileX > 6) tileX = 0;
 
-	for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr) {
-		
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr) {
 		target = go;
-				
-	}
+		break;
+	} else if(!target) target = nullptr;
 
 	if(target == nullptr) return;
 

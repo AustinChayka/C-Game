@@ -2,10 +2,12 @@
 
 #include <cmath>
 
-Smoke::Smoke(float init_x, float init_y) : Particle(init_x, init_y + 2, 2, 2, 20, 20, 20, 80) {
+Smoke::Smoke(float init_x, float init_y) : Particle(init_x, init_y + 2, 5, 5, 50, 50, 50, 80) {
 	
    	shrink = false;
 	collidable = false;
+	solid = false;
+	moveable = false;
 
 	vX = (rand() % 6 - 3) / 10.0f;
 
@@ -21,6 +23,8 @@ void Smoke::Update(LevelManager * game) {
 
 	width += .07f;
 	height += .07f;
+
+	if(width > 30) dead = true;
 
 	if(red < 255) {
 		red += 7;

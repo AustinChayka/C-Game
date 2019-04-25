@@ -30,6 +30,7 @@ void SpiritProjectile::Update(LevelManager * game) {
 
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(go != spawner && DistanceToSquared(go) <= 600 * 600 &&
 		dynamic_cast<Enemy *>(go) != nullptr) target = go;
+	else if(!target) target = nullptr;
 	
 	if(target == nullptr) return;
 

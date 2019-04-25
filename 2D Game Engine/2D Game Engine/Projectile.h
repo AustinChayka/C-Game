@@ -30,6 +30,10 @@ public:
 
 	void SetBounces(int b);
 	int GetBounces();
+
+	void SetDamage(int d);
+	void SetMaxdDistance(int d);
+	int GetMaxDistance();
 	
 protected:
 

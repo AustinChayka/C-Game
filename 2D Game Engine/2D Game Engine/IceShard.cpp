@@ -13,6 +13,8 @@ IceShard::~IceShard() {}
 
 void IceShard::Update(LevelManager * game) {
 
+	Projectile::Update(game);
+
 	if(collided) {
 
 		for(auto go : *game->GetObjects()) if(CollidesWith(go)) return;

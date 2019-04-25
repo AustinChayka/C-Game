@@ -135,8 +135,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BabyMaw.cpp" />
     <ClCompile Include="BleedStatus.cpp" />
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Book.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -155,10 +157,13 @@
     <ClCompile Include="Ember.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="ExitButton.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Fire.cpp" />
     <ClCompile Include="Fireball.cpp" />
+    <ClCompile Include="Fireball2.cpp" />
     <ClCompile Include="FireStatus.cpp" />
     <ClCompile Include="FireTome_1.cpp" />
+    <ClCompile Include="FireTome_2.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
@@ -180,6 +185,7 @@
     <ClCompile Include="MawProjectile.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="NailObject.cpp" />
+    <ClCompile Include="PaperAirplane.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayButton.cpp" />
@@ -216,8 +222,10 @@
     <ClCompile Include="WraithProjectile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BabyMaw.h" />
     <ClInclude Include="BleedStatus.h" />
     <ClInclude Include="Block.h" />
+    <ClInclude Include="Book.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
@@ -236,10 +244,13 @@
     <ClInclude Include="Ember.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="ExitButton.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="Fire.h" />
     <ClInclude Include="Fireball.h" />
+    <ClInclude Include="Fireball2.h" />
     <ClInclude Include="FireStatus.h" />
     <ClInclude Include="FireTome_1.h" />
+    <ClInclude Include="FireTome_2.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScreen.h" />
@@ -260,6 +271,7 @@
     <ClInclude Include="MawProjectile.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="NailObject.h" />
+    <ClInclude Include="PaperAirplane.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayButton.h" />

@@ -12,6 +12,8 @@ public:
 	~Ember();
 
 	void OnCollision(GameObject * go, LevelManager * game);
+
+	void UpdateObject(LevelManager * game);
 	
 private:
 

@@ -11,6 +11,7 @@ class ItemObject : public GameObject {
 public:
 
 	ItemObject(float x, float y, int pool);
+	ItemObject(float x, float y, const char * name);
 
 	~ItemObject();
 

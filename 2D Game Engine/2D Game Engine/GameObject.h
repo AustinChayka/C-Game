@@ -83,6 +83,9 @@ public:
 	float GetDecceleration();
 
 	SDL_Texture * GetTexture();
+
+	void SetScale(float s);
+	float GetScale();
 	
 protected:
 

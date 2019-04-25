@@ -1,7 +1,14 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (2D Game Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  BabyMaw.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Player.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(135): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(174): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(246): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  0 of 1083 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  26 of 1184 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
+    8 functions were new in current compilation
+    93 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\Release\Game.exe

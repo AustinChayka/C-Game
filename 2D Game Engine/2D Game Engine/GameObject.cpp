@@ -334,6 +334,20 @@ SDL_Texture * GameObject::GetTexture() {
 
 }
 
+void GameObject::SetScale(float s) {
+
+	scale = s;
+	width = (int)(spriteWidth * scale);
+	height = (int)(spriteHeight * scale);
+
+}
+
+float GameObject::GetScale() {
+
+	return scale;
+
+}
+
 void GameObject::OnDeath(LevelManager * game, GameObject * go) {
 
 	if(dynamic_cast<Player *>(go) != nullptr && dynamic_cast<Enemy *>(this) != nullptr) ((Player *) go)->OnKill(game, this);

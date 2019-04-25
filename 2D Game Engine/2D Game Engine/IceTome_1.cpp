@@ -2,7 +2,7 @@
 
 #include "IceShard.h"
 
-IceTome_1::IceTome_1() : Item("assets/Items/IceTome_1.png", "Ice Tome I", "where's my super suit?") {}
+IceTome_1::IceTome_1() : Book("assets/Items/IceTome_1.png", "Ice Tome I", "where's my super suit?") {}
 
 IceTome_1::~IceTome_1() {}
 

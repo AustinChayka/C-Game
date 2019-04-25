@@ -26,8 +26,10 @@ void Wraith::Update(LevelManager * game) {
 	tileX += 0.1f;
 	if(tileX > 4) tileX = 0;
 
-	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go))
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go)) {
 		target = go;
+		break;
+	} else if(!target) target = nullptr;
 
 	if(target == nullptr) return;
 

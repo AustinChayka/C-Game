@@ -109,6 +109,8 @@ void LevelManager::GenerateLevel(int size, int seed) {
 
 			if(player->GetHealth() <= player->GetMaxHealth() * .3f) n = 2;
 
+			if(!IsBlacklisted(3)) n = 3;
+
 			if(IsBlacklisted(n)) continue;
 
 			switch(n) {
@@ -133,6 +135,14 @@ void LevelManager::GenerateLevel(int size, int seed) {
 					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 11));
 					roomOffsetX += 8 * 60;
 					roomOffsetY += 60 * 2;
+					break;
+
+				case 3:
+					roomOffsetY -= 60 * 2;
+					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 12));
+					roomOffsetX += 12 * 60;
+					roomOffsetY += 60 * 2;
+					specialRoomsBlacklist.push_back(3);
 					break;
 
 			}
@@ -199,9 +209,12 @@ void LevelManager::GenerateLevel(int size, int seed) {
 }
 
 void LevelManager::Update(StateManager * sm) {
+
+	bool escaped = true;
 	
 	for(auto r : *rooms) {
 		r->Update(this);
+		if(r->IsActive()) escaped = false;
 	}
 
 	for(auto it : *tiles) it->Update();
@@ -217,7 +230,7 @@ void LevelManager::Update(StateManager * sm) {
 
 	}
 
-	if(player->IsDead()) {
+	if(player->IsDead() || escaped) {
 		sm->ChangeState(3);
 		return;
 	}

@@ -16,8 +16,11 @@ CursedCandle::CursedCandle() : Item("assets/Items/CursedCandle.png", "Cursed Can
 
 void CursedCandle::Update(LevelManager * game, Player * p) {
 
-	for(auto go : *game->GetObjects()) if(go != p && go->IsDamagable() && p->DistanceToSquared(go) < 500 * 500)
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(go != p && go->IsDamagable() && p->DistanceToSquared(go) < 700 * 700 &&
+		dynamic_cast<Enemy *>(go) != nullptr) {
 		target = go;
+		break;
+	} else if(!target) target = nullptr;
 
 	if(fireDelay <= 0 && target != nullptr) {
 		if(active == 0) {

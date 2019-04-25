@@ -7,6 +7,8 @@
 #include "SoftPlatform.h"
 #include "UseableItem.h"
 
+#include "BabyMaw.h"
+
 Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 36, 3, 10) {
 
 	vX = 0;
@@ -21,6 +23,8 @@ Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 
 
 	items = new std::vector<Item *>;
 
+	AddItem(new BabyMaw(), nullptr);
+	
 }
 
 Player::~Player() {
@@ -34,9 +38,9 @@ void Player::Update(LevelManager * game) {
 	Enemy::Update(game);
 
 	for(auto item : *items) item->Update(game, this);
-
-	if(grounded) jumps = 0;
 	
+	lastJump = jump;
+
 	if(Game::event.type == SDL_KEYDOWN && dash == 0) {
 
 		switch(Game::event.key.keysym.sym) {
@@ -46,10 +50,7 @@ void Player::Update(LevelManager * game) {
 				break;
 
 			case SDLK_w:
-				if(jumps < maxJumps) {
-					vY = -jumpPower;
-					jumps++;
-				}
+				jump = true;
 				break;
 
 			case SDLK_a:
@@ -67,7 +68,7 @@ void Player::Update(LevelManager * game) {
 				break; 
 
 			case SDLK_LSHIFT:
-				if(dash == 0 && manaFatigue >= 6) {
+				if(dash == 0 && manaFatigue >= 5) {
 					dash = 6;
 					damageable = false;
 					collidable = false;
@@ -90,6 +91,10 @@ void Player::Update(LevelManager * game) {
 			case SDLK_SPACE:
 				attack = false;
 				break;
+
+			case SDLK_w:
+				jump = false;
+				break;
 			
 			case SDLK_a:
 				left = false;
@@ -109,7 +114,7 @@ void Player::Update(LevelManager * game) {
 
 	if(dash == 0 && attack && shot == 0) {
 
-		if(!attackLock && manaFatigue >= 2) {
+		if(!attackLock && manaFatigue >= shotCost) {
 
 			Projectile * p = new Projectile("assets/Other/DefaultProjectile.png", dir == -1 ? x : x + width, y + 14 * scale, vX + 10 * dir, vY, dir, 0, this);
 
@@ -118,7 +123,7 @@ void Player::Update(LevelManager * game) {
 
 			game->AddObject(p);
 			shot = shotDelay;
-			manaFatigue -= 2;
+			manaFatigue -= shotCost;
 
 		} else if(smokeDelay == 0) {
 
@@ -155,6 +160,14 @@ void Player::Update(LevelManager * game) {
 	if(shot > 0) shot--;
 
 	if(!attack && manaFatigue < maxFatigue) manaFatigue += manaRegen;
+	
+	if(grounded) jumps = 0;
+
+	if(jump && !lastJump && jumps < maxJumps) {
+		vY = -jumpPower;
+		y += -jumpPower;
+		jumps++;
+	}
 
 	if(dash == 0 && !attack && left) {
 		decceleration = 1;
@@ -173,6 +186,8 @@ void Player::Update(LevelManager * game) {
 	}
 
 	if(tileX > 9) tileX = 1;
+
+	std::cout << jumps << std::endl;
 					
 }
 

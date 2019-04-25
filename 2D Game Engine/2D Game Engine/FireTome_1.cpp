@@ -2,7 +2,7 @@
 
 #include "Fireball.h"
 
-FireTome_1::FireTome_1() : Item("assets/Items/FireTome_1.png", "Fire Tome I", "pyromancy 101") {}
+FireTome_1::FireTome_1() : Book("assets/Items/FireTome_1.png", "Fire Tome I", "pyromancy 101") {}
 
 FireTome_1::~FireTome_1() {}
 

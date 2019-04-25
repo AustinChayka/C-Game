@@ -306,6 +306,24 @@
     <ClCompile Include="SpiritProjectile.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
+    <ClCompile Include="PaperAirplane.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Fireball2.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="FireTome_2.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Book.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="BabyMaw.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -544,6 +562,24 @@
     </ClInclude>
     <ClInclude Include="SpiritProjectile.h">
       <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="PaperAirplane.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="FireTome_2.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Fireball2.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Book.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="BabyMaw.h">
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

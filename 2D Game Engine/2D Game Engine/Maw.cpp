@@ -10,6 +10,8 @@ Maw::Maw(float x, float y) : Boss("assets/Enemies/FormlessMaw.png", x, y, 100, 1
 
 	renderLayer = 3;
 
+	itemName = "BabyMaw";
+
 }
 
 Maw::~Maw() {}
@@ -18,7 +20,10 @@ void Maw::Update(LevelManager * game) {
 
 	Enemy::Update(game);
 
-	for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) target = go;
+	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) {
+		target = go;
+		break;
+	} else if(!target) target == nullptr;
 
 	if(target == nullptr) return;
 

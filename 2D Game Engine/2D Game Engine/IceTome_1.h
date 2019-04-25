@@ -1,9 +1,9 @@
 #ifndef IceTome_1_h
 #define IceTome_1_h
 
-#include "Item.h"
+#include "Book.h"
 
-class IceTome_1 : public Item {
+class IceTome_1 : public Book {
 
 public:
 

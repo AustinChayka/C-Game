@@ -50,11 +50,11 @@ public:
 
 private:
 
-	bool left = false, right = false, attack = false, attackLock = false, down = false;
+	bool left = false, right = false, attack = false, attackLock = false, down = false, jump = false, lastJump = false;
 
 	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, maxFatigue = 10, manaFatigue = 10, manaRegen = .08f;
 
-	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0;
+	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0, shotCost = 2;
 
 	std::vector<Item *> * items;
 	UseableItem * useItem;

@@ -4,6 +4,7 @@
 #include <cmath>
 #include "Player.h"
 
+#include "Explosion.h"
 
 Projectile::Projectile(const char * path, float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) 
 	: GameObject(path, x, y, 6, 6, 2) {
@@ -39,15 +40,15 @@ void Projectile::Update(LevelManager * game) {
 
 	if(dynamic_cast<Player *>(spawner) != nullptr) ((Player *) spawner)->UpdateProjectile(game, this);
 	
-	if(pow(x - spawner->GetX(), 2.0f) + pow(y - spawner->GetY(), 2.0f) > pow(maxDistance, 2)) dead = true;
+	if(DistanceTraveled() * DistanceTraveled() > maxDistance * maxDistance) dead = true;
 
 
 }
 
 void Projectile::OnCollision(GameObject * go, LevelManager * game) {
-
+	
 	if(go == spawner || (!go->IsSolid() && !go->IsDamagable())) return;
-
+	
 	if(bounces < maxBounces) {
 		if(GetXOverlap(go) < GetYOverlap(go)) vX *= -1;
 		else vY *= -1;
@@ -115,5 +116,23 @@ void Projectile::SetBounces(int b) {
 int Projectile::GetBounces() {
 
 	return maxBounces;
+
+}
+
+void Projectile::SetDamage(int d) {
+
+	damage = d;
+
+}
+
+void Projectile::SetMaxdDistance(int d) {
+
+	maxDistance = d;
+
+}
+
+int Projectile::GetMaxDistance() {
+
+	return maxDistance;
 
 }

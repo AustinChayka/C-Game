@@ -44,6 +44,6 @@ void Boss::OnDeath(LevelManager * game, GameObject * go) {
 
 	GameObject::OnDeath(game, go);
 
-	game->AddObject(new ItemObject(GetXCenter() - 12, GetYCenter() - 12, 0));
+	if(itemName != nullptr) game->AddObject(new ItemObject(GetXCenter() - 12, GetYCenter() - 12, itemName));
 
 }

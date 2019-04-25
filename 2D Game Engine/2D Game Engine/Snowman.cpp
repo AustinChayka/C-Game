@@ -20,10 +20,9 @@ void Snowman::Update(LevelManager * game) {
 	if(delay > 0) delay--;
 	
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
-
 		target = go;
-
-	}	
+		break;
+	}  else if(!target) target = nullptr;
 
 	if(target == nullptr) return;
 

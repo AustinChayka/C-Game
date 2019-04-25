@@ -20,10 +20,9 @@ void Slime::Update(LevelManager * game) {
 	Enemy::Update(game);
 
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 40000) {
-
 		target = go;
-
-	}
+		break;
+	} else if(!target) target = nullptr;
 
 	if(jumpDelay == 0) {
 		if(grounded) {

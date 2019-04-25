@@ -12,6 +12,9 @@
 #include "Soul.h"
 #include "FireTome_1.h"
 #include "IceTome_1.h"
+#include "PaperAirplane.h"
+#include "FireTome_2.h"
+#include "BabyMaw.h"
 
 std::vector<std::vector<int> *> * ItemObject::items = nullptr;
 
@@ -29,12 +32,41 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 	if(items == nullptr) {
 		items = new std::vector<std::vector<int> *>;
 		for(int i = 0; i < 3; i++) items->push_back(new std::vector<int>);
-		for(int i = 0; i < 6; i++) items->at(0)->push_back(i);
+		for(int i = 0; i < 7; i++) items->at(0)->push_back(i);
 		for(int i = 0; i < 4; i++) items->at(1)->push_back(i);
 		for(int i = 0; i < 2; i++) items->at(2)->push_back(i);
 	}
 	
 	GenerateItem(pool);
+
+}
+
+ItemObject::ItemObject(float x, float y, const char * name) : GameObject(nullptr, x, y, 24, 24) {
+
+	collidable = false;
+	solid = false;
+
+	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[E]");
+	textRect.w = 20;
+	textRect.h = 20;
+
+	renderLayer = 2;
+
+	if(items == nullptr) {
+		items = new std::vector<std::vector<int> *>;
+		for(int i = 0; i < 3; i++) items->push_back(new std::vector<int>);
+		for(int i = 0; i < 7; i++) items->at(0)->push_back(i);
+		for(int i = 0; i < 4; i++) items->at(1)->push_back(i);
+		for(int i = 0; i < 2; i++) items->at(2)->push_back(i);
+	}
+
+	if(name == "FireTome_2") {
+		item = new FireTome_2();
+		texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/FireTome_2.png");
+	} else if(name == "BabyMaw") {
+		item = new BabyMaw();
+		texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/Bait.png");
+	}
 
 }
 
@@ -103,6 +135,11 @@ void ItemObject::GenerateItem(int pool) {
 				case 5:
 					item = new RubberCement();
 					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/RubberCement.png");
+					break;
+
+				case 6:
+					item = new PaperAirplane();
+					texture = TextureManager::LoadTexture(Game::renderer, "assets/Items/PaperAirplane.png");
 					break;
 
 			}

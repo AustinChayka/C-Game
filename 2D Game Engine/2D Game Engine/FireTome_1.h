@@ -1,9 +1,9 @@
 #ifndef FireTome_1_h
 #define FireTome_1_h
 
-#include "Item.h"
+#include "Book.h"
 
-class FireTome_1 : public Item {
+class FireTome_1 : public Book {
 
 public:
 
