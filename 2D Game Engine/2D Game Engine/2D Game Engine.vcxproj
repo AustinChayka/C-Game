@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="BabyMaw.cpp" />
     <ClCompile Include="BleedStatus.cpp" />
+    <ClCompile Include="BloatedDoll.cpp" />
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Boss.cpp" />
@@ -154,8 +155,10 @@
     <ClCompile Include="Debris.cpp" />
     <ClCompile Include="DemonAlter.cpp" />
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="DoubleVision.cpp" />
     <ClCompile Include="Ember.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Error.cpp" />
     <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Fire.cpp" />
@@ -172,13 +175,16 @@
     <ClCompile Include="HealthPotion.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="IceShard.cpp" />
+    <ClCompile Include="IceShard2.cpp" />
     <ClCompile Include="IceTome_1.cpp" />
+    <ClCompile Include="IceTome_2.cpp" />
     <ClCompile Include="ImageTile.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="JarOfAir.cpp" />
     <ClCompile Include="Lantern.cpp" />
     <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="Librarian.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MarkOfHunger.cpp" />
     <ClCompile Include="Maw.cpp" />
@@ -195,6 +201,7 @@
     <ClCompile Include="PotMimic.cpp" />
     <ClCompile Include="PotMimicTentacle.cpp" />
     <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="RapidFire.cpp" />
     <ClCompile Include="RegenStatus.cpp" />
     <ClCompile Include="RestartButton.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -224,6 +231,7 @@
   <ItemGroup>
     <ClInclude Include="BabyMaw.h" />
     <ClInclude Include="BleedStatus.h" />
+    <ClInclude Include="BloatedDoll.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Boss.h" />
@@ -241,8 +249,10 @@
     <ClInclude Include="Debris.h" />
     <ClInclude Include="DemonAlter.h" />
     <ClInclude Include="Door.h" />
+    <ClInclude Include="DoubleVision.h" />
     <ClInclude Include="Ember.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Error.h" />
     <ClInclude Include="ExitButton.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="Fire.h" />
@@ -259,13 +269,16 @@
     <ClInclude Include="HealthPotion.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="IceShard.h" />
+    <ClInclude Include="IceShard2.h" />
     <ClInclude Include="IceTome_1.h" />
+    <ClInclude Include="IceTome_2.h" />
     <ClInclude Include="ImageTile.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="JarOfAir.h" />
     <ClInclude Include="Lantern.h" />
     <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="Librarian.h" />
     <ClInclude Include="MarkOfHunger.h" />
     <ClInclude Include="Maw.h" />
     <ClInclude Include="MawProjectile.h" />
@@ -281,6 +294,7 @@
     <ClInclude Include="PotMimic.h" />
     <ClInclude Include="PotMimicTentacle.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="RapidFire.h" />
     <ClInclude Include="RegenStatus.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RestartButton.h" />

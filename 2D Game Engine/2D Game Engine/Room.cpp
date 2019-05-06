@@ -15,6 +15,12 @@
 #include "Urn.h"
 #include "SacraficialAltar.h"
 #include "Campfire.h"
+#include "FireTome_2.h"
+#include "Error.h"
+#include "Librarian.h"
+#include "FireTome_1.h"
+#include "IceTome_1.h"
+#include "IceTome_2.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -101,13 +107,11 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Spike(x + 5 * 60, y + 11 * 60 - 30));
 			objects.push_back(new Spike(x + 6 * 60, y + 11 * 60 - 30));
 			objects.push_back(new Spike(x + 7 * 60, y + 11 * 60 - 30));
-			objects.push_back(new PotMimic(x + 60 * 8, y + 7 * 60 - 35 * 3));
-			objects.push_back(new Pot(x + 60 * 5, y + 7 * 60 - 24 * 3, false));
-			objects.push_back(new Pot(x + 60 * 7, y + 7 * 60 - 24 * 3, true));
-			objects.push_back(new Pot(x + 60 * 4, y + 7 * 60 - 24 * 3, false));
-			objects.push_back(new Pot(x + 60 * 2, y + 7 * 60 - 24 * 3, true));
-			objects.push_back(new Pot(x + 60 * 10, y + 7 * 60 - 24 * 3, true));
-			objects.push_back(new Pot(x + 60 * 12, y + 7 * 60 - 24 * 3, false));
+			objects.push_back(RandPot(x + 60 * 8, y + 7 * 60 - 24 * 3));
+			objects.push_back(RandPot(x + 60 * 7, y + 7 * 60 - 24 * 3));
+			objects.push_back(RandPot(x + 60 * 2, y + 7 * 60 - 24 * 3));
+			objects.push_back(RandPot(x + 60 * 10, y + 7 * 60 - 24 * 3));
+			objects.push_back(RandPot(x + 60 * 12, y + 7 * 60 - 24 * 3));
 			break;
 
 		case 6:
@@ -175,7 +179,7 @@ Room::Room(float offX, float offY, int type) {
 
 		case 9:
 			Init(offX, offY, 25, 15, 8, 8, -1);
-			for(int i = 0; i < 23; i++) objects.push_back(new Spike(x + 60 + i * 60, y + 14 * 60 - 30));
+			for(int i = 2; i < 23; i++) objects.push_back(new Spike(x + 60 + i * 60, y + 14 * 60 - 30));
 			objects.push_back(new SoftPlatform(x + 60, y + 10 * 60, 2));
 			objects.push_back(new SoftPlatform(x + 60, y + 12 * 60, 1));
 			objects.push_back(new Block(x + 180, y + 10 * 60, 3, 1));
@@ -218,15 +222,41 @@ Room::Room(float offX, float offY, int type) {
 			objects.push_back(new Campfire(x + 4 * 60 - 61, y + 7 * 60 - 37 * 3));
 			break;
 
-		case 12:
+		case 12: {
 			Init(offX, offY, 12, 8, 5, 5, -1);
-			objects.push_back(new ItemObject(x + 6 * 60 - 12, y + 7 * 60 - 24 - 45, "FireTome_2"));
+			Item * i = nullptr;
+			if(rand() % 20 == 0) i = new Error();
+			else {
+				for(auto item : *((Player *)LevelManager::player)->GetItems()) {
+					if(dynamic_cast<FireTome_1 *>(item) != nullptr) {
+						i = new FireTome_2();
+						break;
+					} else if(dynamic_cast<IceTome_1 *>(item) != nullptr) {
+						i = new IceTome_2();
+						break;
+					}
+				}
+				if(i == nullptr) switch(rand() % 2) {
+					case 1:
+						i = new IceTome_1();
+						break;
+					default:
+						i = new FireTome_1();
+						break;
+				}
+			}
+			objects.push_back(new ItemObject(x + 6 * 60 - 12, y + 7 * 60 - 24 - 45, i));
 			tiles.push_back(new ImageTile("assets/StageObjects/Pedestal.png", x + 6 * 60 - 30, y + 7 * 60 - 45, 20, 15, 0, 0, 3, 2));
-			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 6 * 60 - (100 + 35 * 3), y + 7 * 60 - 150, 
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 6 * 60 - (100 + 35 * 3), y + 7 * 60 - 150,
 				35, 50, rand() % 2, 0, 3, 1));
 			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 6 * 60 + 100, y + 60 * 7 - 50 * 3,
 				35, 50, rand() % 2, 0, 3, 1));
+		}
+			break;
 
+		case 13:
+			Init(offX, offY, 20, 15, 12, 12, -1);
+			objects.push_back(new Librarian(offX + 10 * 60, offY + 14 * 60 - 45 * 3));
 			break;
 
 	}
@@ -403,5 +433,13 @@ void Room::Init(float init_x, float init_y, int blocksWidth, int blocksHeight, i
 		else if(i == rightDoorHeight + 2 && i != blocksHeight - 1)
 			tiles.push_back(new ImageTile("assets/StageObjects/Block.png", x + 60 * (blocksWidth - 1), y + 60 * i, 20, 20, 3, 1, 3, 2));
 	}
+
+}
+
+GameObject * Room::RandPot(float x, float y) {
+
+	if(rand() % 10 == 0) return new PotMimic(x, y - 33);
+
+	return new Pot(x, y, rand() % 2 == 0 ? true : false);
 
 }

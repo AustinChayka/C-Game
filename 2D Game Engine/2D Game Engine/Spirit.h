@@ -17,6 +17,7 @@ public:
 	GameObject * GetTarget();
 	void SetDeg(float d);
 	void SetParent(GameObject * go);
+	void SetProjectileDelay(int d);
 
 	bool OverrideStatus(Status * s);
 

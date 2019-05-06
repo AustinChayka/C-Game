@@ -14,6 +14,7 @@
 #include "ItemObject.h"
 #include "Maw.h"
 #include "CursedCandle.h"
+#include "Error.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -83,6 +84,11 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 0));
 	roomOffsetX += 10 * 60;
 
+	roomOffsetY -= 9 * 60;
+	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 13));
+	roomOffsetY += 9 * 60;
+	roomOffsetX += 20 * 60;
+
 	int treasureRoom = rand() % size, specialRoom = -1;
 	
 	if(rand() % 10 > 8 - 8 * specialRoomSkips / 4.0f) {
@@ -102,15 +108,15 @@ void LevelManager::GenerateLevel(int size, int seed) {
 		if(i == specialRoom) {
 
 			int n = 0;
-						
-			for(auto item : *((Player *) player)->GetItems()) {
-				if(dynamic_cast<CursedCandle *>(item) != nullptr) n = 1;
-			}
-
-			if(player->GetHealth() <= player->GetMaxHealth() * .3f) n = 2;
 
 			if(!IsBlacklisted(3)) n = 3;
 
+			if(player->GetHealth() <= player->GetMaxHealth() / 2) n = 2;
+
+			for(auto item : *((Player *) player)->GetItems()) {
+				if(dynamic_cast<CursedCandle *>(item) != nullptr) n = 1;
+			}
+						
 			if(IsBlacklisted(n)) continue;
 
 			switch(n) {
@@ -194,6 +200,13 @@ void LevelManager::GenerateLevel(int size, int seed) {
 		}
 		
 	}
+	   
+	if(currentLevel != 0 && currentLevel % 3 == 0) {
+		roomOffsetY -= 9 * 60;
+		rooms->push_back(new Room(roomOffsetX, roomOffsetY, 13));
+		roomOffsetY += 9 * 60;
+		roomOffsetX += 20 * 60;
+	}
 	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 1));
 	if(leftOverEnemies > 5) {
@@ -202,7 +215,8 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	}
 
 	if(size == 3) {
-		AddObject(new ItemObject(400, 5 * 60 - 24 - 45, 2));
+		if(rand() % 20 == 0) AddObject(new ItemObject(400, 5 * 60 - 24 - 45, new Error()));
+		else AddObject(new ItemObject(400, 5 * 60 - 24 - 45, 2));
 		AddTile(new ImageTile("assets/StageObjects/Pedestal.png", 400 - 18, 5 * 60 - 45, 20, 15, 0, 0, 3, 2));
 	}
 

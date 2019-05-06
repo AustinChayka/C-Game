@@ -11,7 +11,7 @@ class ItemObject : public GameObject {
 public:
 
 	ItemObject(float x, float y, int pool);
-	ItemObject(float x, float y, const char * name);
+	ItemObject(float x, float y, Item * i);
 
 	~ItemObject();
 
@@ -30,6 +30,8 @@ private:
 	SDL_Rect textRect;
 
 	bool collided = false;
+
+	int delay = 30;
 	
 };
 

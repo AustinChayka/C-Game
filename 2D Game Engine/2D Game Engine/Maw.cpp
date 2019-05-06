@@ -2,15 +2,16 @@
 
 #include "Player.h"
 #include "MawProjectile.h"
+#include "BabyMaw.h"
 
-Maw::Maw(float x, float y) : Boss("assets/Enemies/FormlessMaw.png", x, y, 100, 100, 3, 50, "Formless Maw") {
+Maw::Maw(float x, float y) : Boss("assets/Enemies/FormlessMaw.png", x, y, 100, 100, 3, 100, "Formless Maw") {
 
 	solid = true;
 	moveable = false;
 
 	renderLayer = 3;
 
-	itemName = "BabyMaw";
+	item = new BabyMaw();
 
 }
 
@@ -23,7 +24,7 @@ void Maw::Update(LevelManager * game) {
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) {
 		target = go;
 		break;
-	} else if(!target) target == nullptr;
+	} else if(!target || target->IsDead()) target == nullptr;
 
 	if(target == nullptr) return;
 

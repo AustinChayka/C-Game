@@ -31,6 +31,8 @@ public:
 	int GetFlavorTextLength();
 	int GetLayer();
 
+	const char * GetTexturePath();
+
 	~Item();
 
 protected:
@@ -40,6 +42,7 @@ protected:
 	SDL_Texture * flavorText;
 
 	int nameLength, flavorTextLength, renderLayer = 1;
+	const char * texturePath;
 
 };
 

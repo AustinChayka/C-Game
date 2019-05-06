@@ -1,6 +1,7 @@
 #include "CursedFireStatus.h"
 
 #include "Smoke.h"
+#include "Player.h"
 
 CursedFireStatus::CursedFireStatus(int i) : Status("assets/Icons/CursedFireIcon.png", i) {}
 
@@ -18,7 +19,7 @@ void CursedFireStatus::OnEnd(GameObject * go, LevelManager * game) {}
 
 void CursedFireStatus::OnUpdate(GameObject * go, LevelManager * game) {
 
-	if(abs(go->GetVX()) + abs(go->GetVY()) < .01f && increment > 0) {
+	if(dynamic_cast<Player *>(go) != nullptr && abs(go->GetVX()) + abs(go->GetVY()) < .01f && increment > 0) {
 		if(burnoutDelay > 0) burnoutDelay--;
 		else increment--;
 	} else burnoutDelay = 10;

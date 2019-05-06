@@ -10,6 +10,8 @@ public:
 
 	~PoisonStatus();
 
+	void Render(int y);
+
 	void OnApply(GameObject * go);
 	void OnIncrement(GameObject * go, LevelManager * game);
 	void OnEnd(GameObject * go, LevelManager * game);
@@ -18,6 +20,7 @@ public:
 private:
 
 	int delay = 0;
+	bool active = false;
 
 };
 

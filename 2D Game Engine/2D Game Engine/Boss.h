@@ -3,6 +3,8 @@
 
 #include "Enemy.h"
 
+#include "Item.h"
+
 class Boss : public Enemy {
 
 public:
@@ -20,7 +22,7 @@ protected:
 	SDL_Texture * nameText;
 	SDL_Rect barRect, textRect;
 
-	const char * itemName;
+	Item * item;
 
 };
 

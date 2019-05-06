@@ -18,7 +18,7 @@ public:
 	GameObject(const char * textureSheet, float init_x, float init_y, int init_width, int init_height, 
 		float scale);
 
-	~GameObject();
+	virtual ~GameObject();
 
 	void UpdateCollisions(LevelManager * game);
 	void Collide();
@@ -104,7 +104,7 @@ protected:
 	};
 
 	bool damageable = false;
-	int maxHealth = -1, health = -1, damageDelay = 20, damageFlash = 0;
+	int maxHealth = -1, health = -1, damageFlash = 0;
 
 	virtual void OnDeath(LevelManager * game, GameObject * go);
 
@@ -115,6 +115,10 @@ protected:
 	bool pushedLeft = false, pushedRight = false, pushedUp = false, pushedDown = false;
 
 	std::vector<GameObject *> collisions;
+	std::vector<GameObject *> dmgSrcs;
+	std::vector<int> dmgSrcTime;
+
+	bool ImmuneTo(GameObject * go);
 		
 };
 

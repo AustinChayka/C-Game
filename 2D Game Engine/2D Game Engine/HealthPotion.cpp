@@ -10,10 +10,10 @@ bool HealthPotion::OnUse(LevelManager * game, Player * p) {
 
 	if(p->GetMaxHealth() == p->GetHealth()) return false;
 
-	int r = rand() % 6;
+	int power = rand() % (int)(p->GetMaxHealth() * .25f) + (int)(p->GetMaxHealth() * .5f), r = rand() % power;
 
 	p->Heal(r);
-	if(r < 5) p->AddStatus(new RegenStatus(5 - r));
+	p->AddStatus(new RegenStatus(power - r));
 
 	return true;
 

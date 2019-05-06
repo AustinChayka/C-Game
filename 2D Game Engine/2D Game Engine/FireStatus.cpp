@@ -1,6 +1,7 @@
 #include "FireStatus.h"
 
 #include "Smoke.h"
+#include "Player.h"
 
 FireStatus::FireStatus(int i) : Status("assets/Icons/FireIcon.png", i) {
 
@@ -22,7 +23,7 @@ void FireStatus::OnEnd(GameObject * go, LevelManager * game) {}
 
 void FireStatus::OnUpdate(GameObject * go, LevelManager * game) {
 
-	if(abs(go->GetVX()) + abs(go->GetVY()) < .01f && increment > 0) {
+	if(dynamic_cast<Player *>(go) != nullptr && abs(go->GetVX()) + abs(go->GetVY()) < .01f && increment > 0) {
 		if(burnoutDelay > 0) burnoutDelay--;
 		else increment--;
 	} else burnoutDelay = 10;

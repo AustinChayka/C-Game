@@ -23,6 +23,8 @@ public:
 	float GetSpawnY();
 	float GetSpawnVX();
 	float GetSpawnVY();
+	int GetXDir();
+	int GetYDir();
 
 	int GetLifeTime();
 

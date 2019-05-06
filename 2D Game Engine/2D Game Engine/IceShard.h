@@ -11,11 +11,11 @@ public:
 
 	~IceShard();
 
-	void Update(LevelManager * game);
+	virtual void Update(LevelManager * game);
 
-	void OnCollision(GameObject * go, LevelManager * game);
+	virtual void OnCollision(GameObject * go, LevelManager * game);
 
-private:
+protected:
 
 	bool collided = false;
 

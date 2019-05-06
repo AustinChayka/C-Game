@@ -3,14 +3,16 @@
 #include "MawProjectile.h"
 #include "Enemy.h"
 
-BabyMaw::BabyMaw() : Item("assets/Items/Bait.png", "Maw Bait", "baby abomination") {
+BabyMaw::BabyMaw() : Item("assets/Items/Bait.png", "Master Bait", "highly effective") {
 
 	texture = TextureManager::LoadTexture(Game::renderer, "assets/Enemies/BabyMaw.png");
-	srcRect.w = NULL;
-	srcRect.h = NULL;
+	srcRect.w = 39;
+	srcRect.h = 39;
 
 	width = 39;
 	height = 39;
+
+	renderLayer = 3;
 
 }
 
@@ -26,24 +28,29 @@ void BabyMaw::OnPickup(LevelManager * game, Player * p) {
 void BabyMaw::UpdateMaw(LevelManager * game, Player * p) {
 
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(go != p && dynamic_cast<Enemy *>(go) != nullptr &&
-		p->DistanceToSquared(go) <= 500 * 500) {
+		p->DistanceToSquared(go) <= 700 * 700) {
 		target = go;
 		break;
-	} else if(!target) target = nullptr;
+	}
 
-	if(DistanceToSquared(p) > 850 * 850 || !target) target = nullptr;
+	if(DistanceToSquared(p) > 1000 * 1000 || !target) target = nullptr;
 
 	if(target == nullptr) {
-		if(DistanceToSquared(p) > 100 * 100) vX = (p->GetXCenter() - GetXCenter()) / 75;
+		if(DistanceToSquared(p) > 100 * 100) vX = (p->GetXCenter() - GetXCenter()) / 50;
 		else vX = 0;
-		if(abs(GetYCenter() - p->GetY()) > 10) vY = (p->GetYCenter() - GetYCenter()) / 75;
+		if(abs(GetYCenter() - p->GetY()) > 10) vY = (p->GetYCenter() - GetYCenter()) / 50;
 		else vY = 0;
 		return;
 	}
 
-	if(DistanceToSquared(target) > 300 * 300) vX = (target->GetXCenter() - GetXCenter()) / 100;
+	if(!target || target->IsDead()) {
+		target = nullptr;
+		return;
+	}
+
+	if(DistanceToSquared(target) > 150 * 150) vX = (target->GetXCenter() - GetXCenter()) / 100;
 	else vX = 0;
-	if(abs(GetYCenter() - target->GetYCenter()) > 100) vY = (target->GetYCenter() - GetYCenter()) / 100;
+	if(abs(GetYCenter() - target->GetY()) > 10) vY = (target->GetYCenter() - GetYCenter()) / 100;
 	else vY = 0;
 
 	if(chargeDelay > 0) chargeDelay--;
@@ -80,9 +87,7 @@ void BabyMaw::Update(LevelManager * game, Player * p) {
 
 void BabyMaw::Render() {
 
-	//SDL_RenderCopy(Game::renderer, texture, &srcRect, &destRect);
-	SDL_SetRenderDrawColor(Game::renderer, 80, 150, 150, 255);
-	SDL_RenderFillRect(Game::renderer, &destRect);
+	SDL_RenderCopy(Game::renderer, texture, &srcRect, &destRect);
 
 }
 

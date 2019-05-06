@@ -1,15 +1,15 @@
 #include "Player.h"
 
 #include "Game.h"
-#include "Fireball.h"
 #include "Smoke.h"
 #include "Item.h"
 #include "SoftPlatform.h"
 #include "UseableItem.h"
+#include "ItemObject.h"
 
 #include "BabyMaw.h"
 
-Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 36, 3, 10) {
+Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 36, 3, 20) {
 
 	vX = 0;
 	vY = 0;
@@ -186,8 +186,6 @@ void Player::Update(LevelManager * game) {
 	}
 
 	if(tileX > 9) tileX = 1;
-
-	std::cout << jumps << std::endl;
 					
 }
 
@@ -235,17 +233,12 @@ float Player::GetManaRegen() {
 
 void Player::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	if(damageDelay > 0) return;
+	if(ImmuneTo(go)) return;
 	
 	int newDamage = d;
 	for(auto item : *items) {
 		item->OnDamageTaken(game, go, this);
 		newDamage -= item->OverrideDamageTotal(newDamage, go, this);
-	}
-
-	if(newDamage <= 0) {
-		damageDelay = 20;
-		return;
 	}
 
 	GameObject::DealDamage(newDamage, game, go);
@@ -257,7 +250,7 @@ void Player::AddItem(Item * item, LevelManager * game) {
 	if(dynamic_cast<UseableItem *>(item) != nullptr) {
 		useItem = (UseableItem *) (item);
 		for(int i = 0; i < items->size(); i++) if(dynamic_cast<UseableItem *>(items->at(i)) != nullptr) {
-			delete items->at(i);
+			game->AddObject(new ItemObject(GetXCenter() - 12, y + height - 24, items->at(i)));
 			items->erase(items->begin() + i);
 		}
 	}
@@ -342,6 +335,30 @@ void Player::SetAcceleration(float a) {
 float Player::GetAcceleration() {
 
 	return acceleration;
+
+}
+
+void Player::SetShotDelay(int d) {
+
+	shotDelay = d;
+
+}
+
+int Player::GetShotDelay() {
+
+	return shotDelay;
+
+}
+
+void Player::SetShotCost(float c) {
+
+	shotCost = c;
+
+}
+
+float Player::GetShotCost() {
+
+	return shotCost;
 
 }
 

@@ -47,6 +47,8 @@ private:
 	std::vector<GameObject *> objects;
 	std::vector<ImageTile *> tiles;
 
+	GameObject * RandPot(float x, float y);
+
 };
 
 #endif

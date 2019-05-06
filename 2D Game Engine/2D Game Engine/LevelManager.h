@@ -49,7 +49,7 @@ private:
 	bool reloaded;
 
 	bool IsBlacklisted(int r);
-	
+		
 };
 
 #endif

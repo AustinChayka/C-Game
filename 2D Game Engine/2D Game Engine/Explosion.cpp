@@ -1,6 +1,8 @@
 #include "Explosion.h"
 
 #include "Smoke.h"
+#include "Enemy.h"
+#include "FireStatus.h"
 
 Explosion::Explosion(float xCenter, float yCenter, float init_radius, int init_damage, GameObject * init_spawner, LevelManager * game) :
 	GameObject(nullptr, xCenter, yCenter, NULL, NULL) {
@@ -15,21 +17,12 @@ Explosion::Explosion(float xCenter, float yCenter, float init_radius, int init_d
 	spawner = init_spawner;
 	radius = init_radius;
 
-	int tempRad = (int)radius;
-
-	for(int k = 0; k < 2; k++) {
-
-		for(int i = -tempRad; i < tempRad; i++) for(int j = -tempRad; j < tempRad; j++)
-			if(abs(tempRad * tempRad - (j * j + i * i)) <= .15 * (tempRad / 20)) {
-				Smoke * s = new Smoke(x + j, y + i);
-				s->SetVX(s->GetVX() + j / 30);
-				s->SetVY(s->GetVY() + i / 30);
-				game->AddObject(s);
-			}
-
-		tempRad -= (radius / 2);
-
-	}
+	for(int i = -radius; i < radius; i++) for(int j = -radius; j < radius; j++)
+		if(radius * radius - (j * j + i * i) > 0 && rand() % (int)(radius * 3) == 0) {
+			Smoke * s = new Smoke(x + j, y + i);
+			s->SetFadeSpeed(1);
+			game->AddObject(s);
+		}
 	
 }
 
@@ -37,7 +30,10 @@ Explosion::~Explosion() {}
 
 void Explosion::UpdateObject(LevelManager * game) {
 
-	for(auto go : *game->GetObjects()) if(go != spawner && IsInRadius(go)) go->DealDamage(damage, game, spawner);
+	for(auto go : *game->GetObjects()) if(go != spawner && IsInRadius(go)) {
+		go->DealDamage(damage, game, spawner);
+		if(dynamic_cast<Enemy *>(go) != nullptr) ((Enemy *)go)->AddStatus(new FireStatus(3));
+	}
 	
 	dead = true;
 

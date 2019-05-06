@@ -22,7 +22,7 @@ void Slime::Update(LevelManager * game) {
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && DistanceToSquared(go) < 40000) {
 		target = go;
 		break;
-	} else if(!target) target = nullptr;
+	} else if(!target || target->IsDead()) target = nullptr;
 
 	if(jumpDelay == 0) {
 		if(grounded) {

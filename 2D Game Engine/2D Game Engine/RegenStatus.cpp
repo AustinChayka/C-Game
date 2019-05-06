@@ -1,6 +1,11 @@
 #include "RegenStatus.h"
 
-RegenStatus::RegenStatus(int i) : Status("assets/Icons/RegenIcon.png", i) {}
+RegenStatus::RegenStatus(int i) : Status("assets/Icons/RegenIcon.png", i) {
+
+	lifeTime = 20;
+	maxStacks = 10;
+
+}
 
 RegenStatus::~RegenStatus() {}
 

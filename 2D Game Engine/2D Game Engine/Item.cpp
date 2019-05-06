@@ -10,6 +10,7 @@ Item::Item(const char * iconPath, const char * name, const char * itemFlavor) {
 
 	nameLength = strlen(name);
 	flavorTextLength = strlen(itemFlavor);
+	texturePath = iconPath;
 	
 }
 
@@ -74,6 +75,12 @@ int Item::GetFlavorTextLength() {
 int Item::GetLayer() {
 
 	return renderLayer;
+
+}
+
+const char * Item::GetTexturePath() {
+
+	return texturePath;
 
 }
 

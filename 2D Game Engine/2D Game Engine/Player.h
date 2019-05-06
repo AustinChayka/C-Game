@@ -45,6 +45,10 @@ public:
 	float GetMaxSpeed();
 	void SetAcceleration(float a);
 	float GetAcceleration();
+	void SetShotDelay(int d);
+	int GetShotDelay();
+	void SetShotCost(float c);
+	float GetShotCost();
 
 	bool OverrideStatus(Status * s);
 
@@ -52,9 +56,9 @@ private:
 
 	bool left = false, right = false, attack = false, attackLock = false, down = false, jump = false, lastJump = false;
 
-	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, maxFatigue = 10, manaFatigue = 10, manaRegen = .08f;
+	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, maxFatigue = 10, manaFatigue = 10, manaRegen = .08f, shotCost = 1;
 
-	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0, shotCost = 2;
+	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0;
 
 	std::vector<Item *> * items;
 	UseableItem * useItem;

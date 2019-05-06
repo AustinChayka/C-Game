@@ -22,7 +22,7 @@ void Snowman::Update(LevelManager * game) {
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr && OnScreen()) {
 		target = go;
 		break;
-	}  else if(!target) target = nullptr;
+	}  else if(!target || target->IsDead()) target = nullptr;
 
 	if(target == nullptr) return;
 

@@ -54,11 +54,13 @@ void GUI::Render() {
 	int offX = 15;
 	for(int i = 0; i < player->GetMaxHealth(); i++) {
 
+		if(i % 20 == 0) offX = 15;
+
 		iconRect.w = 15;
 		iconRect.h = 30;
-		iconRect.x = offX + 15 * i;
-		iconRect.y = 15;
-		
+		iconRect.x = offX + 15 * (i % 20);
+		iconRect.y = 15 + 30 * (int)(i / 20);
+				
 		if(i < player->GetHealth()) {
 			heartRect.x = 0;
 		} else {

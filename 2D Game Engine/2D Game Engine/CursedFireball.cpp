@@ -2,6 +2,7 @@
 
 #include "Particle.h"
 #include "CursedFire.h"
+#include "Spirit.h"
 
 CursedFireball::CursedFireball(float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) :
 	Projectile("assets/Other/CursedFireball.png", x, y, init_vX, init_vY, init_xDir, init_yDir, init_spawner) {
@@ -26,7 +27,7 @@ void CursedFireball::Update(LevelManager * game) {
 
 void CursedFireball::OnCollision(GameObject * go, LevelManager * game) {
 
-	if(go == spawner || (!go->IsSolid() && !go->IsDamagable())) return;
+	if(go == spawner || (!go->IsSolid() && !go->IsDamagable()) || dynamic_cast<Spirit *>(go) != nullptr) return;
 
 	Projectile::OnCollision(go, game);
 

@@ -16,6 +16,9 @@ public:
 
 	bool OverrideCollision(GameObject * go);
 
+	static int max, current;
+
+
 private:
 
 	float lifeTime = -1, burnDelay = 0;

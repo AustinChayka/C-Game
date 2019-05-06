@@ -3,7 +3,12 @@
 #include "Player.h"
 #include "FireStatus.h"
 
+int Fire::max = 50;
+int Fire::current = 0;
+
 Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) : GameObject("assets/Other/Fire.png", init_x, init_y, 10, 10, scale) {
+	
+	current++;
 
 	collidable = true;
 	moveable = true;
@@ -21,9 +26,18 @@ Fire::Fire(float init_x, float init_y, float scale, GameObject * init_spawner) :
 
 }
 
-Fire::~Fire() {}
+Fire::~Fire() {
+	
+	current--;
+
+}
 
 void Fire::Update(LevelManager * game) {
+
+	if(current >= max) {
+		dead = true;
+		return;
+	}
 
 	if(burnDelay > 0) burnDelay--;
 

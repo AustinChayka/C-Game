@@ -95,6 +95,18 @@ float Projectile::GetSpawnVY() {
 	return spawnVY;
 }
 
+int Projectile::GetXDir() {
+
+	return xDir;
+
+}
+
+int Projectile::GetYDir() {
+
+	return yDir;
+
+}
+
 int Projectile::GetLifeTime() {
 
 	return lifeTime;

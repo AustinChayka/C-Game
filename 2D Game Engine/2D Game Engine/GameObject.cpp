@@ -135,7 +135,13 @@ void GameObject::UpdateObject(LevelManager * game) {
 
 	Update(game);
 
-	if(damageDelay > 0) damageDelay--;
+	for(int i = 0; i < dmgSrcTime.size(); i++) {
+		if(dmgSrcTime.at(i) > 0) dmgSrcTime.at(i) -= 1;
+		else {
+			dmgSrcTime.erase(dmgSrcTime.begin() + i);
+			dmgSrcs.erase(dmgSrcs.begin() + i);
+		}
+	}
 	if(damageFlash > 0) damageFlash--;
 	else if(damageFlash == 0) {
 		SDL_SetTextureColorMod(texture, 255, 255, 255);
@@ -354,6 +360,14 @@ void GameObject::OnDeath(LevelManager * game, GameObject * go) {
 
 }
 
+bool GameObject::ImmuneTo(GameObject * go) {
+
+	for(auto dS : dmgSrcs) if(go == dS) return true;
+
+	return false;
+
+}
+
 float GameObject::GetXCenter() {
 
 	return x + width / 2;
@@ -442,10 +456,11 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 
 void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
-	if(!damageable || damageDelay > 0 || d == 0 || health <= 0) return;
+	if(!damageable || ImmuneTo(go) || d == 0 || health <= 0) return;
 	health -= d;
 	if(health > 0) {
-		damageDelay = 20;
+		dmgSrcs.push_back(go);
+		dmgSrcTime.push_back(20);
 		damageFlash = 10;
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}
@@ -462,7 +477,6 @@ void GameObject::DealDamage(int d, LevelManager * game) {
 
 	health -= d;
 	if(health > 0) {
-		damageDelay = 20;
 		damageFlash = 10;
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}

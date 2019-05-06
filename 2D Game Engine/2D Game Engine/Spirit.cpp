@@ -16,6 +16,8 @@ Spirit::Spirit(float x, float y) : Enemy("assets/Enemies/Spirit.png", x, y, 13, 
 	solid = false;
 
 	deg = rand() % 360;
+
+	renderLayer = 3;
 	
 }
 
@@ -31,14 +33,15 @@ void Spirit::Update(LevelManager * game) {
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(go != parent && dynamic_cast<Player*>(go) != nullptr) {
 		target = go;
 		break;
-	} else if(!target) target = nullptr;
+	} else if(!target || target->IsDead()) target = nullptr;
 
 	if(target == nullptr) return;
 
 	if(projectileTimer < 0 && y > target->GetY() && y + height < target->GetY() + target->GetHeight()) {
 
 		float dX = target->GetX() - x, dY = target->GetY() - y;
-		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), dX / 20, dY / 20, 0, 0, parent == nullptr ? this : parent));
+		game->AddObject(new CursedFireball(GetXCenter(), GetYCenter(), 10 * dX / abs(dX + dY), 10 * dY / abs(dX + dY), 
+			0, 0, parent == nullptr ? this : parent));
 		projectileTimer = projectileDelay;
 
 	} else projectileTimer--;
@@ -47,11 +50,17 @@ void Spirit::Update(LevelManager * game) {
 		vX = -sin(deg * M_PI / 180) * radius + (target->GetXCenter() - x) / radius;
 		vY = -cos(deg * M_PI / 180) * radius + (target->GetYCenter() - y) / radius;
 	} else {
-		x = parent->GetXCenter() + cos(deg) * radius * 10;
-		y = parent->GetYCenter() + sin(deg) * radius * 10;
+		if(!parent || parent->IsDead()) {
+			parent == nullptr;
+			return;
+		}
+		//x = parent->GetXCenter() + cos(deg) * radius * 10;
+		//y = parent->GetYCenter() + sin(deg) * radius * 10;
+		vX = -sin(deg * M_PI / 180) * radius + (parent->GetXCenter() - x) / radius;
+		vY = -cos(deg * M_PI / 180) * radius + (parent->GetYCenter() - y) / radius;
 	}
 
-	deg += (rotPerSec * 360 / 60) / (parent == nullptr ? 1 : 50);
+	deg += (rotPerSec * 360 / 60);/// (parent == nullptr ? 1 : 50);
 
 	if(deg > 360) deg = 0;
 
@@ -61,12 +70,6 @@ void Spirit::Update(LevelManager * game) {
 		particleTimer = particleDelay;
 
 	} else particleTimer--;
-
-	visible = false;
-	for(auto r : *game->GetRooms()) if(r->GetX() + r->GetWidth() - 60 > x
-		&& r->GetX() + 60 < x + width
-		&& r->GetY() + r->GetHeight() - 60 > y
-		&& r->GetY() + 60 < y + height) visible = true;
 	
 }
 
@@ -91,6 +94,12 @@ void Spirit::SetDeg(float d) {
 void Spirit::SetParent(GameObject * go) {
 
 	parent = go;
+
+}
+
+void Spirit::SetProjectileDelay(int d) {
+
+	projectileDelay = d;
 
 }
 
