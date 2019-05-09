@@ -7,11 +7,13 @@
 #include "StateManager.h"
 #include "Camera.h"
 #include "GUI.h"
+#include "InputManager.h"
 
 class GameObject;
 class StateManager;
 class Camera;
 class GUI;
+class InputManager;
 
 class Game {
 
@@ -26,6 +28,8 @@ public:
 	void Clean();
 	
 	static SDL_Renderer * renderer;
+
+	static InputManager * inputManager;
 	static SDL_Event event;
 
 	static Camera * camera;
@@ -39,11 +43,11 @@ public:
 	SDL_Window * GetWindow();
 	
 private:
-
+	
 	SDL_Window * window;
 
 	StateManager * stateManager;
-			
+				
 };
 
 #endif

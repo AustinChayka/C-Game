@@ -30,12 +30,10 @@ public:
 
 	std::vector<Item *> * GetItems();
 
-	void DamageDelt(LevelManager * game, GameObject * go);
+	void DamageDelt(LevelManager * game, GameObject * go, bool crit);
 	void UpdateProjectile(LevelManager * game, Projectile * p);
 	void OnKill(LevelManager * game, GameObject * go);
 	int GetDir();
-
-	bool DownPressed();
 
 	UseableItem * GetUseItem();
 
@@ -52,13 +50,17 @@ public:
 
 	bool OverrideStatus(Status * s);
 
+	int GetCritChance();
+	float GetCritValue();
+
 private:
 
-	bool left = false, right = false, attack = false, attackLock = false, down = false, jump = false, lastJump = false;
+	bool attackLock = false;
 
-	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, maxFatigue = 10, manaFatigue = 10, manaRegen = .08f, shotCost = 1;
+	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, maxFatigue = 10, manaFatigue = 10, manaRegen = .08f, 
+		shotCost = 1, critMultiplier = 2.0f;
 
-	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0;
+	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0, critChance = 10;
 
 	std::vector<Item *> * items;
 	UseableItem * useItem;

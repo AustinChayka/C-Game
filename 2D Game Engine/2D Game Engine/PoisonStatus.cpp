@@ -1,8 +1,7 @@
 #include "PoisonStatus.h"
 
-PoisonStatus::PoisonStatus(int i) : Status("assets/Icons/PoisonIcon.png", i) {
+PoisonStatus::PoisonStatus(int i) : Status("assets/Icons/PoisonIcon.png", i, 15) {
 
-	maxStacks = 15;
 	lifeTime = 60 * 5;
 
 }

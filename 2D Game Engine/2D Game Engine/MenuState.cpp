@@ -4,18 +4,20 @@
 
 #include "PlayButton.h"
 #include "ExitButton.h"
+#include "ControllsButton.h"
 
 MenuState::MenuState() {
 
 	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[Insert Title]");
 
-	destRect.x = Game::width / 2 - 350;
-	destRect.y = 100;
+	destRect.x = Game::width / 2 - 300;
+	destRect.y = 50;
 	destRect.w = 600;
 	destRect.h = 100;
 
 	buttons.push_back(new PlayButton(Game::width / 2 - 400, 400, 150, 50, 2));
 	buttons.push_back(new ExitButton(Game::width / 2, 400, 150, 50, 2));
+	buttons.push_back(new ControllsButton(Game::width / 2 - 200, 520, 150, 50, 2));
 
 }
 

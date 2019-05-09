@@ -34,7 +34,7 @@ bool Item::OverrideDefaultProjectile(Player * p, Projectile *& proj) {
 
 void Item::OnShotFired(LevelManager * game, Player * p, Projectile *& proj) {}
 
-void Item::OnDamageDelt(LevelManager * game, Player * p, GameObject * go) {}
+void Item::OnDamageDelt(LevelManager * game, Player * p, GameObject * go, bool crit) {}
 
 void Item::UpdateProjectile(LevelManager * game, Player * p, Projectile * proj) {}
 

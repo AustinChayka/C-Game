@@ -1,12 +1,12 @@
 #include "Status.h"
 
-Status::Status(const char * iconPath, int init_increment) {
+Status::Status(const char * iconPath, int init_increment, int init_lifeTime) {
 
 	icon = TextureManager::LoadTexture(Game::renderer, iconPath);
 
 	increment = init_increment;
 
-	time = lifeTime;
+	time = lifeTime = init_lifeTime;
 
 	srcRect.w = 10;
 	srcRect.h = 10;

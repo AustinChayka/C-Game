@@ -65,13 +65,11 @@ void GameObject::UpdateCollisions(LevelManager * game) {
 
 	for(auto go : *game->GetObjects()) if(this->CollidesWith(go)) {
 
-		OnCollision(go, game);
+		if(!go->OverrideCollision(this)) OnCollision(go, game);
 
 		if(!moveable || !go->IsSolid()) continue;
 
-		if(!go->IsMoveable()) {
-			if(!go->OverrideCollision(this)) collisions.push_back(go);
-		} else if(!OverrideCollision(go)) collisions.push_back(go);
+		if(!go->OverrideCollision(this) && !OverrideCollision(go)) collisions.push_back(go);
 		
 		if(GetXOverlap(go) < GetYOverlap(go)) {
 			if(GetXCenter() > go->GetXCenter()) {
@@ -457,14 +455,31 @@ bool GameObject::IsAt(float xTarget, float yTarget) {
 void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 	if(!damageable || ImmuneTo(go) || d == 0 || health <= 0) return;
-	health -= d;
+
+	int damage = d;
+
+	if(go != nullptr && dynamic_cast<Player *>(go) != nullptr) {
+		bool crit = rand() % 100 <= ((Player *)go)->GetCritChance();
+		((Player *)go)->DamageDelt(game, this, crit);
+		if(crit) {
+			damage = (int)(damage * ((Player *)go)->GetCritValue());
+			for(int i = 0; i < (int)(5 * ((Player *)go)->GetCritValue()); i++) {
+				Particle * p = new Particle(GetXCenter(), GetYCenter(), 20, 20, 242, 202, 2, 100);
+				p->SetVX(rand() % 10 - 5);
+				p->SetVY(rand() % 10 - 5);
+				p->SetShrinkSpeed(.75f);
+				game->AddObject(p);
+			}
+		}
+	}
+
+	health -= damage;
 	if(health > 0) {
 		dmgSrcs.push_back(go);
 		dmgSrcTime.push_back(20);
 		damageFlash = 10;
 		SDL_SetTextureColorMod(texture, 255, 80, 80);
 	}
-	if(go != nullptr && dynamic_cast<Player *>(go) != nullptr) ((Player *) go)->DamageDelt(game, this);
 
 	if(health <= 0) {
 		OnDeath(game, go);

@@ -2,11 +2,7 @@
 
 #include "Particle.h"
 
-BleedStatus::BleedStatus(int i) : Status("assets/Icons/BleedIcon.png", i) {
-
-	lifeTime = 20;
-
-}
+BleedStatus::BleedStatus(int i) : Status("assets/Icons/BleedIcon.png", i, 20) {}
 
 BleedStatus::~BleedStatus() {}
 

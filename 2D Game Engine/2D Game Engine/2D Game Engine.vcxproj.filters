@@ -67,6 +67,12 @@
     <Filter Include="Source Files\Statuses">
       <UniqueIdentifier>{8b7713c4-3e42-4d9a-ab28-38cb1a526784}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\MenuStates">
+      <UniqueIdentifier>{391ba66b-f2a7-4b41-91c5-7453afb9af56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\MenuStates">
+      <UniqueIdentifier>{1f797dda-b6f1-434e-b40f-cb14516d9619}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,9 +88,6 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="GUI.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuState.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="StateManager.cpp">
@@ -104,9 +107,6 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="GameOverScreen.cpp">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Debris.cpp">
       <Filter>Source Files\Particles</Filter>
@@ -340,10 +340,31 @@
       <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="IceShard2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
     <ClCompile Include="IceTome_2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfusedStatus.cpp">
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScreen.cpp">
+      <Filter>Source Files\Engine\MenuStates</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files\Engine\MenuStates</Filter>
+    </ClCompile>
+    <ClCompile Include="KeybindMenu.cpp">
+      <Filter>Source Files\Engine\MenuStates</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllsButton.cpp">
+      <Filter>Source Files\Engine\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="KeybindButton.cpp">
+      <Filter>Source Files\Engine\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -357,9 +378,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="LevelManager.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuState.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="StateManager.h">
@@ -379,9 +397,6 @@
     </ClInclude>
     <ClInclude Include="Smoke.h">
       <Filter>Header Files\Particles</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOverScreen.h">
-      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Debris.h">
       <Filter>Header Files\Particles</Filter>
@@ -617,11 +632,32 @@
     <ClInclude Include="BloatedDoll.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
-    <ClInclude Include="IceShard2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IceTome_2.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="IceShard2.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfusedStatus.h">
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.h">
+      <Filter>Header Files\Engine\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScreen.h">
+      <Filter>Header Files\Engine\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="KeybindMenu.h">
+      <Filter>Header Files\Engine\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllsButton.h">
+      <Filter>Header Files\Engine\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="KeybindButton.h">
+      <Filter>Header Files\Engine\Buttons</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -147,6 +147,8 @@
     <ClCompile Include="Campfire.cpp" />
     <ClCompile Include="CharredSkull.cpp" />
     <ClCompile Include="ChilledStatus.cpp" />
+    <ClCompile Include="ConfusedStatus.cpp" />
+    <ClCompile Include="ControllsButton.cpp" />
     <ClCompile Include="Corpse.cpp" />
     <ClCompile Include="CursedCandle.cpp" />
     <ClCompile Include="CursedFire.cpp" />
@@ -179,9 +181,12 @@
     <ClCompile Include="IceTome_1.cpp" />
     <ClCompile Include="IceTome_2.cpp" />
     <ClCompile Include="ImageTile.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="JarOfAir.cpp" />
+    <ClCompile Include="KeybindButton.cpp" />
+    <ClCompile Include="KeybindMenu.cpp" />
     <ClCompile Include="Lantern.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="Librarian.cpp" />
@@ -241,6 +246,8 @@
     <ClInclude Include="Campfire.h" />
     <ClInclude Include="CharredSkull.h" />
     <ClInclude Include="ChilledStatus.h" />
+    <ClInclude Include="ConfusedStatus.h" />
+    <ClInclude Include="ControllsButton.h" />
     <ClInclude Include="Corpse.h" />
     <ClInclude Include="CursedCandle.h" />
     <ClInclude Include="CursedFire.h" />
@@ -273,9 +280,12 @@
     <ClInclude Include="IceTome_1.h" />
     <ClInclude Include="IceTome_2.h" />
     <ClInclude Include="ImageTile.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="JarOfAir.h" />
+    <ClInclude Include="KeybindButton.h" />
+    <ClInclude Include="KeybindMenu.h" />
     <ClInclude Include="Lantern.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Librarian.h" />

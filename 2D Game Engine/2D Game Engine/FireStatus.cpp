@@ -3,11 +3,7 @@
 #include "Smoke.h"
 #include "Player.h"
 
-FireStatus::FireStatus(int i) : Status("assets/Icons/FireIcon.png", i) {
-
-	lifeTime = 60;
-
-}
+FireStatus::FireStatus(int i) : Status("assets/Icons/FireIcon.png", i, 60) {}
 
 FireStatus::~FireStatus() {}
 

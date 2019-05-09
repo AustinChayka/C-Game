@@ -14,7 +14,7 @@ public:
 
 	~Button();
 
-	void Update(StateManager * sm, MenuState * m);
+	virtual void Update(StateManager * sm, MenuState * m);
 
 	void Render();
 
@@ -26,7 +26,7 @@ public:
 	virtual void OnPress(StateManager * sm, MenuState * m) = 0;
 	virtual void OnRelease(StateManager * sm, MenuState * m) = 0;
 
-private:
+protected:
 
 	SDL_Texture * texture;
 	SDL_Texture * text;

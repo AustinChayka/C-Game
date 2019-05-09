@@ -8,7 +8,7 @@ class Status {
 
 public:
 
-	Status(const char * iconPath, int init_increment);
+	Status(const char * iconPath, int init_increment, int init_lifeTime);
 
 	~Status();
 
@@ -31,7 +31,7 @@ protected:
 	SDL_Texture * icon;
 	SDL_Rect destRect, srcRect;
 
-	int lifeTime = 60;
+	int lifeTime;
 	int time;
 
 };

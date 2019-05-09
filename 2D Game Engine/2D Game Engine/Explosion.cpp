@@ -31,7 +31,7 @@ Explosion::~Explosion() {}
 void Explosion::UpdateObject(LevelManager * game) {
 
 	for(auto go : *game->GetObjects()) if(go != spawner && IsInRadius(go)) {
-		go->DealDamage(damage, game, spawner);
+		go->DealDamage(damage, game, this);
 		if(dynamic_cast<Enemy *>(go) != nullptr) ((Enemy *)go)->AddStatus(new FireStatus(3));
 	}
 	

@@ -256,7 +256,30 @@ Room::Room(float offX, float offY, int type) {
 
 		case 13:
 			Init(offX, offY, 20, 15, 12, 12, -1);
-			objects.push_back(new Librarian(offX + 10 * 60, offY + 14 * 60 - 45 * 3));
+			objects.push_back(new Librarian(x + 10 * 60, y + 14 * 60 - 45 * 3));
+			objects.push_back(new SoftPlatform(x + 60, y + 9 * 60, 18));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 120, y + 60 * 14 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 120 + 35 * 3, y + 60 * 14 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 70, y + 60 * 9 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 70 + 35 * 3, y + 60 * 9 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			objects.push_back(new SoftPlatform(x + 350, y + 12 * 60, 2));
+			objects.push_back(new SoftPlatform(x + 350, y + 11 * 60, 2));
+			objects.push_back(new SoftPlatform(x + 350, y + 10 * 60, 2));
+			objects.push_back(new SoftPlatform(x + width - 60 - 350, y + 12 * 60, 2));
+			objects.push_back(new SoftPlatform(x + width - 60 - 350, y + 11 * 60, 2));
+			objects.push_back(new SoftPlatform(x + width - 60 - 350, y + 10 * 60, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 540, y + 60 * 14 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 980, y + 60 * 14 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 900, y + 60 * 9 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
+			tiles.push_back(new ImageTile("assets/StageObjects/Bookshelf.png", x + 900 + 35 * 3, y + 60 * 9 - 50 * 3,
+				35, 50, rand() % 2, 0, 3, 1));
 			break;
 
 	}
@@ -315,7 +338,10 @@ void Room::Update(LevelManager * game) {
 void Room::Render(int layer) {
 
 	for(auto it : tiles) if(revealed && it->GetLayer() == layer) it->Render();
-	for(auto go : objects) if((revealed || go == door) && go->GetRenderLayer() == layer) go->RenderObject();
+	for(auto go : objects) if((revealed || go == door)) {
+		if(dynamic_cast<Boss *>(go) != nullptr) ((Boss *)go)->RenderObject(layer);
+		else if(go->GetRenderLayer() == layer) go->RenderObject();
+	}
 	
 }
 

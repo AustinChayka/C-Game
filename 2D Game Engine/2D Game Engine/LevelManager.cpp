@@ -83,12 +83,12 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 0));
 	roomOffsetX += 10 * 60;
-
+	/*
 	roomOffsetY -= 9 * 60;
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 13));
 	roomOffsetY += 9 * 60;
 	roomOffsetX += 20 * 60;
-
+	*/
 	int treasureRoom = rand() % size, specialRoom = -1;
 	
 	if(rand() % 10 > 8 - 8 * specialRoomSkips / 4.0f) {
@@ -262,7 +262,7 @@ void LevelManager::Update(StateManager * sm) {
 
 void LevelManager::Render() {
 	
-	for(int layer = 0; layer <= 3; layer++) {
+	for(int layer = 0; layer <= 4; layer++) {
 
 		for(auto r : *rooms) r->Render(layer);
 		for(auto it : *tiles) if (it->GetLayer() == layer) it->Render();

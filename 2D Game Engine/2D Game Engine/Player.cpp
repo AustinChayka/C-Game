@@ -23,8 +23,8 @@ Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 
 
 	items = new std::vector<Item *>;
 
-	AddItem(new BabyMaw(), nullptr);
-	
+	//AddItem(new BabyMaw(), nullptr);
+		
 }
 
 Player::~Player() {
@@ -38,81 +38,40 @@ void Player::Update(LevelManager * game) {
 	Enemy::Update(game);
 
 	for(auto item : *items) item->Update(game, this);
-	
-	lastJump = jump;
 
-	if(Game::event.type == SDL_KEYDOWN && dash == 0) {
-
-		switch(Game::event.key.keysym.sym) {
-
-			case SDLK_SPACE:
-				attack = true;
-				break;
-
-			case SDLK_w:
-				jump = true;
-				break;
-
-			case SDLK_a:
-				left = true;
-				right = false;
-				dir = -1;
-				tileY = 1;
-				break;
-
-			case SDLK_d:
-				right = true;
-				left = false;
-				dir = 1;
-				tileY = 0;
-				break; 
-
-			case SDLK_LSHIFT:
-				if(dash == 0 && manaFatigue >= 5) {
-					dash = 6;
-					damageable = false;
-					collidable = false;
-					manaFatigue -= 5;
-					grav = 0;
-				}
-				break;
-
-			case SDLK_s:
-				down = true;
-				break;
-							
-		}
-
-	}
-	if(Game::event.type == SDL_KEYUP) {
-
-		switch(Game::event.key.keysym.sym) {
-
-			case SDLK_SPACE:
-				attack = false;
-				break;
-
-			case SDLK_w:
-				jump = false;
-				break;
-			
-			case SDLK_a:
-				left = false;
-				break;
-
-			case SDLK_d:
-				right = false;
-				break;
-
-			case SDLK_s:
-				down = false;
-				break;
-							   
-		}
-
+	if(Game::inputManager->IsPressed(InputManager::dash) && manaFatigue >= 5) {
+		dash = 6;
+		damageable = false;
+		collidable = false;
+		manaFatigue -= 5;
+		grav = 0;
 	}
 
-	if(dash == 0 && attack && shot == 0) {
+	if(Game::inputManager->IsDown(InputManager::left)) {
+		dir = -1;
+		tileY = 1;
+	} else if(Game::inputManager->IsDown(InputManager::right)) {
+		dir = 1;
+		tileY = 0;
+	}
+
+	if(Game::inputManager->IsDown(InputManager::croutch) && 
+		manaFatigue > .15f) {
+		if(Game::inputManager->IsPressed(InputManager::croutch)) {
+			y += 24 * 3;
+		}
+		height = 12 * 3;
+		width = 7 * 3;
+		manaFatigue -= .15f;
+	} else {
+		if(height != 36 * 3 && Game::inputManager->IsReleased(InputManager::croutch)) {
+			y -= 24 * 3;
+		}
+		height = 36 * 3;
+		width = 21 * 3;
+	}
+
+	if(dash == 0 && Game::inputManager->IsDown(InputManager::shoot) && shot == 0) {
 
 		if(!attackLock && manaFatigue >= shotCost) {
 
@@ -159,30 +118,32 @@ void Player::Update(LevelManager * game) {
 
 	if(shot > 0) shot--;
 
-	if(!attack && manaFatigue < maxFatigue) manaFatigue += manaRegen;
+	if(!Game::inputManager->IsDown(InputManager::shoot)  && !Game::inputManager->IsDown(InputManager::croutch)
+		&& manaFatigue < maxFatigue) manaFatigue += manaRegen;
 	
 	if(grounded) jumps = 0;
 
-	if(jump && !lastJump && jumps < maxJumps) {
+	if(Game::inputManager->IsPressed(InputManager::jump) && jumps < maxJumps) {
 		vY = -jumpPower;
 		y += -jumpPower;
 		jumps++;
 	}
 
-	if(dash == 0 && !attack && left) {
+	if(dash == 0 && !Game::inputManager->IsDown(InputManager::shoot) && Game::inputManager->IsDown(InputManager::left)) {
 		decceleration = 1;
 		if(vX > -maxSpeed) vX -= acceleration;
 		tileX += .17f;
 	}
-	if(dash == 0 && !attack && right) {
+	else if(dash == 0 && !Game::inputManager->IsDown(InputManager::shoot) && Game::inputManager->IsDown(InputManager::right)) {
 		decceleration = 1;
 		if(vX < maxSpeed) vX += acceleration;
 		tileX += .17f;
 	}
 
-	if(dash == 0 && (attack || (!left && !right))) {
+	if(dash == 0 && (Game::inputManager->IsDown(InputManager::shoot) || 
+		(!Game::inputManager->IsDown(InputManager::left) && !Game::inputManager->IsDown(InputManager::right)))) {
 		decceleration = 1.15f;
-		tileX = attack ? 9 : 0;
+		tileX = Game::inputManager->IsDown(InputManager::shoot) ? 9 : 0;
 	}
 
 	if(tileX > 9) tileX = 1;
@@ -266,9 +227,9 @@ std::vector<Item*>* Player::GetItems() {
 
 }
 
-void Player::DamageDelt(LevelManager * game, GameObject * go) {
+void Player::DamageDelt(LevelManager * game, GameObject * go, bool crit) {
 
-	for(auto item : *items) item->OnDamageDelt(game, this, go);
+	for(auto item : *items) item->OnDamageDelt(game, this, go, crit);
 
 }
 
@@ -287,12 +248,6 @@ void Player::OnKill(LevelManager * game, GameObject * go) {
 int Player::GetDir() {
 
 	return dir;
-
-}
-
-bool Player::DownPressed() {
-
-	return down;
 
 }
 
@@ -365,5 +320,17 @@ float Player::GetShotCost() {
 bool Player::OverrideStatus(Status * s) {
 
 	return !damageable;
+
+}
+
+int Player::GetCritChance() {
+	
+	return critChance;
+
+}
+
+float Player::GetCritValue() {
+
+	return critMultiplier;
 
 }

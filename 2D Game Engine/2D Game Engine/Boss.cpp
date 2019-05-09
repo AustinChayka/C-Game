@@ -5,7 +5,30 @@
 Boss::Boss(const char * filepath, float x, float y, int width, int height, float scale, int h, const char * name) :
 	Enemy(filepath, x, y, width, height, scale, h) {
 
-	nameText = TextureManager::LoadText(Game::renderer, 24, {239, 197, 28}, name);
+	red = 239;
+	green = 197;
+	blue = 28;
+
+	nameText = TextureManager::LoadText(Game::renderer, 24, {red, green, blue}, name);
+	textRect.x = Game::width / 2 - strlen(name) * 12;
+	textRect.y = Game::height - 90;
+	textRect.w = strlen(name) * 24;
+	textRect.h = 50;
+
+	barRect.y = Game::height - 35;
+	barRect.h = 20;
+
+}
+
+Boss::Boss(const char * filepath, float x, float y, int width, int height, float scale, int h, const char * name,
+	int init_red, int init_green, int init_blue) :
+	Enemy(filepath, x, y, width, height, scale, h) {
+
+	red = init_red;
+	green = init_green;
+	blue = init_blue;
+
+	nameText = TextureManager::LoadText(Game::renderer, 24, {red, green, blue}, name);
 	textRect.x = Game::width / 2 - strlen(name) * 12;
 	textRect.y = Game::height - 90;
 	textRect.w = strlen(name) * 24;
@@ -22,21 +45,26 @@ Boss::~Boss() {
 
 }
 
-void Boss::RenderObject() {
+void Boss::RenderObject(int l) {
 
-	Enemy::RenderObject();
+	if(l == renderLayer) Enemy::RenderObject();
+	else if(l == 4) {
 
-	SDL_RenderCopy(Game::renderer, nameText, NULL, &textRect);
+		if(target == nullptr || DistanceToSquared(target) > 2000 * 2000) return;
 
-	barRect.x = Game::width / 2 - 300;
-	barRect.w = 600;
-	SDL_SetRenderDrawColor(Game::renderer, 100, 100, 100, 255);
-	SDL_RenderFillRect(Game::renderer, &barRect);
-	
-	barRect.x = Game::width / 2 - 300;
-	barRect.w = 600 * health / (float)maxHealth;
-	SDL_SetRenderDrawColor(Game::renderer, 239, 197, 28, 255);
-	SDL_RenderFillRect(Game::renderer, &barRect);
+		SDL_RenderCopy(Game::renderer, nameText, NULL, &textRect);
+
+		barRect.x = Game::width / 2 - 300;
+		barRect.w = 600;
+		SDL_SetRenderDrawColor(Game::renderer, 100, 100, 100, 255);
+		SDL_RenderFillRect(Game::renderer, &barRect);
+
+		barRect.x = Game::width / 2 - 300;
+		barRect.w = 600 * health / (float)maxHealth;
+		SDL_SetRenderDrawColor(Game::renderer, red, green, blue, 255);
+		SDL_RenderFillRect(Game::renderer, &barRect);
+
+	}
 
 }
 

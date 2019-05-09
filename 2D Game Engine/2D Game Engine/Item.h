@@ -18,7 +18,7 @@ public:
 	virtual int OverrideDamageTotal(int damage, GameObject * go, Player * p);
 	virtual bool OverrideDefaultProjectile(Player * p, Projectile *& proj);
 	virtual void OnShotFired(LevelManager * game, Player * p, Projectile *& proj);
-	virtual void OnDamageDelt(LevelManager * game, Player * p, GameObject * go);
+	virtual void OnDamageDelt(LevelManager * game, Player * p, GameObject * go, bool crit);
 	virtual void UpdateProjectile(LevelManager * game, Player * p, Projectile * proj);
 	virtual void OnKill(LevelManager * game, Player * p, GameObject * go);
 	virtual void Render();

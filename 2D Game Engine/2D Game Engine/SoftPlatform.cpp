@@ -33,7 +33,7 @@ void SoftPlatform::RenderObject() {
 
 bool SoftPlatform::OverrideCollision(GameObject * go) {
 
-	if(dynamic_cast<Player *>(go) != nullptr && ((Player *)go)->DownPressed()) return true;
+	if(dynamic_cast<Player *>(go) != nullptr && Game::inputManager->IsDown(InputManager::down)) return true;
 	return y + height < go->GetY() + go->GetHeight() || go->GetVY() < 0;
 
 }

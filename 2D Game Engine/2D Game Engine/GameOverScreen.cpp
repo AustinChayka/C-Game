@@ -12,6 +12,7 @@ GameOverScreen::GameOverScreen() : MenuState() {
 	destRect.w = 600;
 	destRect.h = 100;
 
+	for(auto b : buttons) delete b;
 	buttons.clear();
 	buttons.push_back(new ExitButton(Game::width / 2, 400, 150, 50, 2));
 	buttons.push_back(new RestartButton(Game::width / 2 - 400, 400, 150, 50, 2));

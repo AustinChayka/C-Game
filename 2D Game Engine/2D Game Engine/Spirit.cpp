@@ -54,13 +54,11 @@ void Spirit::Update(LevelManager * game) {
 			parent == nullptr;
 			return;
 		}
-		//x = parent->GetXCenter() + cos(deg) * radius * 10;
-		//y = parent->GetYCenter() + sin(deg) * radius * 10;
 		vX = -sin(deg * M_PI / 180) * radius + (parent->GetXCenter() - x) / radius;
 		vY = -cos(deg * M_PI / 180) * radius + (parent->GetYCenter() - y) / radius;
 	}
 
-	deg += (rotPerSec * 360 / 60);/// (parent == nullptr ? 1 : 50);
+	deg += (rotPerSec * 360 / 60);
 
 	if(deg > 360) deg = 0;
 
@@ -110,8 +108,12 @@ bool Spirit::OverrideStatus(Status * s) {
 }
 
 bool Spirit::OverrideCollision(GameObject * go) {
-
-	return dynamic_cast<Spirit *>(go) != nullptr || dynamic_cast<Lantern *>(go) != nullptr;
+ 
+	if(dynamic_cast<Projectile *>(go) != nullptr && 
+		((Projectile *)go)->GetSpawner() == parent) return true;
+	
+	return dynamic_cast<Spirit *>(go) != nullptr || dynamic_cast<Lantern *>(go) != nullptr
+		|| go == parent;
 
 }
 

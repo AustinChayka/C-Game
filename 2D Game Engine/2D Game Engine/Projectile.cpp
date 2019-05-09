@@ -119,6 +119,12 @@ void Projectile::SetSpawner(GameObject * go) {
 
 }
 
+GameObject * Projectile::GetSpawner() {
+
+	return spawner;
+
+}
+
 void Projectile::SetBounces(int b) {
 
 	maxBounces = b;

@@ -1,8 +1,9 @@
 #include "Game.h"
 
 SDL_Renderer * Game::renderer = nullptr;
-SDL_Event Game::event;
+InputManager * Game::inputManager = nullptr;
 StateManager * stateManager = nullptr;
+SDL_Event Game::event;
 
 Camera * Game::camera = nullptr;
 
@@ -56,6 +57,8 @@ Game::Game(const char * title, int xPos, int yPos, int init_width, int init_heig
 	stateManager = new StateManager();
 
 	gui = new GUI(LevelManager::player, stateManager);
+
+	inputManager = new InputManager();
 	
 }
 
@@ -68,6 +71,8 @@ Game::~Game() {
 void Game::HandleEvents() {
 
 	SDL_PollEvent(&event);
+
+	inputManager->Update(&event);
 
 	switch(event.type) {
 

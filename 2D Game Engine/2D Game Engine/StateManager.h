@@ -29,6 +29,7 @@ private:
 	MenuState * mainMenu;
 	MenuState * pauseMenu;
 	MenuState * gameOver;
+	MenuState * controlsMenu;
 
 	int activeState = 1;
 	bool stateChanged = false;

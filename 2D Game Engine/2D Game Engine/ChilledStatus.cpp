@@ -2,11 +2,9 @@
 
 #include "SDL.h"
 
-ChilledStatus::ChilledStatus(int i) : Status("assets/Icons/ChilledIcon.png", i) {
+ChilledStatus::ChilledStatus(int i) : Status("assets/Icons/ChilledIcon.png", i, 120) {
 
 	maxStacks = 10;
-
-	lifeTime = 120;
 
 }
 

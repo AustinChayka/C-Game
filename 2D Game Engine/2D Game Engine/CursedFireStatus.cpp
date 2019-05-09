@@ -3,7 +3,7 @@
 #include "Smoke.h"
 #include "Player.h"
 
-CursedFireStatus::CursedFireStatus(int i) : Status("assets/Icons/CursedFireIcon.png", i) {}
+CursedFireStatus::CursedFireStatus(int i) : Status("assets/Icons/CursedFireIcon.png", i, 60) {}
 
 CursedFireStatus::~CursedFireStatus() {}
 

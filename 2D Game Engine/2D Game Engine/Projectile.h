@@ -29,6 +29,7 @@ public:
 	int GetLifeTime();
 
 	void SetSpawner(GameObject * go);
+	GameObject * GetSpawner();
 
 	void SetBounces(int b);
 	int GetBounces();
