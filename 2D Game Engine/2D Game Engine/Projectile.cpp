@@ -143,6 +143,12 @@ void Projectile::SetDamage(int d) {
 
 }
 
+int Projectile::GetDamage() {
+
+	return damage;
+
+}
+
 void Projectile::SetMaxdDistance(int d) {
 
 	maxDistance = d;

@@ -91,7 +91,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	*/
 	int treasureRoom = rand() % size, specialRoom = -1;
 	
-	if(rand() % 10 > 8 - 8 * specialRoomSkips / 4.0f) {
+	if(rand() % 10 > 8 - 8 * specialRoomSkips / 3.0f) {
 		specialRoom = rand() % size;
 		specialRoomSkips = 0;
 	} else specialRoomSkips++;
@@ -111,12 +111,14 @@ void LevelManager::GenerateLevel(int size, int seed) {
 
 			if(!IsBlacklisted(3)) n = 3;
 
+			if(((Player *)player)->GetGold() >= 150) n = 4;
+
 			if(player->GetHealth() <= player->GetMaxHealth() / 2) n = 2;
 
 			for(auto item : *((Player *) player)->GetItems()) {
 				if(dynamic_cast<CursedCandle *>(item) != nullptr) n = 1;
 			}
-						
+									
 			if(IsBlacklisted(n)) continue;
 
 			switch(n) {
@@ -149,6 +151,13 @@ void LevelManager::GenerateLevel(int size, int seed) {
 					roomOffsetX += 12 * 60;
 					roomOffsetY += 60 * 2;
 					specialRoomsBlacklist.push_back(3);
+					break;
+
+				case 4:
+					roomOffsetY -= 60 * 2;
+					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 14));
+					roomOffsetX += 10 * 60;
+					roomOffsetY += 60 * 2;
 					break;
 
 			}

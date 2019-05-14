@@ -6,6 +6,8 @@ JarOfAir::~JarOfAir() {}
 
 void JarOfAir::OnPickup(LevelManager * game, Player * p) {
 
+	Item::OnPickup(game, p);
+
 	p->SetMaxJumps(p->GetMaxJumps() + 1);
 	p->SetMaxSpeed(p->GetMaxSpeed() * 1.3f);
 	p->SetAcceleration(p->GetAcceleration() * 1.3f);

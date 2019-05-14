@@ -7,8 +7,6 @@
 #include "UseableItem.h"
 #include "ItemObject.h"
 
-#include "BabyMaw.h"
-
 Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 36, 3, 20) {
 
 	vX = 0;
@@ -23,8 +21,6 @@ Player::Player(float x, float y) : Enemy("assets/Enemies/Player.png", x, y, 21, 
 
 	items = new std::vector<Item *>;
 
-	//AddItem(new BabyMaw(), nullptr);
-		
 }
 
 Player::~Player() {
@@ -64,7 +60,7 @@ void Player::Update(LevelManager * game) {
 		width = 7 * 3;
 		manaFatigue -= .15f;
 	} else {
-		if(height != 36 * 3 && Game::inputManager->IsReleased(InputManager::croutch)) {
+		if(height != 36 * 3) {
 			y -= 24 * 3;
 		}
 		height = 36 * 3;
@@ -332,5 +328,47 @@ int Player::GetCritChance() {
 float Player::GetCritValue() {
 
 	return critMultiplier;
+
+}
+
+void Player::SetCritChance(int c) {
+
+	critChance = c;
+
+}
+
+void Player::SetCritValue(float v) {
+
+	critMultiplier = v;
+
+}
+
+int Player::GetLuck() {
+
+	return luck;
+
+}
+
+void Player::SetLuck(int l) {
+
+	luck = l;
+
+}
+
+int Player::GetGold() {
+
+	return gold;
+
+}
+
+void Player::AddGold(int g) {
+
+	gold += g;
+
+}
+
+void Player::SetGold(int g) {
+
+	gold = g;
 
 }

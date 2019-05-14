@@ -33,6 +33,8 @@ public:
 
 	const char * GetTexturePath();
 
+	bool IsSynergyActive();
+
 	~Item();
 
 protected:
@@ -43,6 +45,9 @@ protected:
 
 	int nameLength, flavorTextLength, renderLayer = 1;
 	const char * texturePath;
+
+	const char * synergy;
+	bool synergyActive = false;
 
 };
 

@@ -35,6 +35,7 @@ public:
 	int GetBounces();
 
 	void SetDamage(int d);
+	int GetDamage();
 	void SetMaxdDistance(int d);
 	int GetMaxDistance();
 	

@@ -29,7 +29,7 @@ private:
 	GameObject * player;
 	StateManager * manager;
 
-	int showNewItem = 0, showText, textLen;
+	int showNewItem = 0, showText, textLen, goldCountNum = 0;
 
 	const char * lastItemName;
 
@@ -40,8 +40,10 @@ private:
 
 	SDL_Texture * useItemReadyText, * messageText;
 
-	SDL_Texture * heartIcon;
+	SDL_Texture * heartIcon, * synergyIcon;
 	SDL_Rect heartRect;
+
+	SDL_Texture * goldCount;
 
 };
 

@@ -44,7 +44,8 @@ void Button::Update(StateManager * sm, MenuState * m) {
 
 	if(MouseOver()) {
 		SDL_SetTextureColorMod(text, 255, 255, 150);
-		if(Game::event.button.button == 1 && Game::event.type == SDL_MOUSEBUTTONDOWN) {
+		if(Game::inputManager->GetLastEvent()->button.button == 1 &&
+			Game::inputManager->GetLastEvent()->type == SDL_MOUSEBUTTONDOWN) {
 			SDL_SetTextureColorMod(text, 150, 255, 150);
 			pressed = true;
 		} else {
@@ -101,7 +102,8 @@ bool Button::IsReleased() {
 
 bool Button::MouseOver() {
 
-	int mouse_x = Game::event.motion.x, mouse_y = Game::event.motion.y;
+	int mouse_x = Game::inputManager->GetLastEvent()->motion.x, 
+		mouse_y = Game::inputManager->GetLastEvent()->motion.y;
 
 	return mouse_x > x && mouse_x < x + width
 		&& mouse_y > y && mouse_y < y + height;

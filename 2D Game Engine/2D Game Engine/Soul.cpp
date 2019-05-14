@@ -6,6 +6,8 @@ Soul::~Soul() {}
 
 void Soul::OnPickup(LevelManager * game, Player * p) {
 
+	Item::OnPickup(game, p);
+
 	p->SetManaFatigue(p->GetMaxManaFatigue() + 5);
 	p->SetManaRegen(p->GetManaRegen() + .04f);
 

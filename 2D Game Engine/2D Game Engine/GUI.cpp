@@ -5,6 +5,7 @@
 #include "Item.h"
 #include "UseableItem.h"
 #include <typeinfo>
+#include <string>
 
 GUI::GUI(GameObject * p, StateManager * sm) {
 
@@ -18,6 +19,11 @@ GUI::GUI(GameObject * p, StateManager * sm) {
 	heartRect.h = 10;
 
 	lastItemName = "";
+
+	goldCount = TextureManager::LoadText(Game::renderer, 24, {255, 208, 0}, "0");
+
+	synergyIcon = TextureManager::LoadTexture(Game::renderer, "assets/Icons/UpgradeIcon.png");
+	SDL_SetTextureAlphaMod(synergyIcon, 100);
 
 }
 
@@ -47,6 +53,13 @@ void GUI::Update() {
 		((r->GetY() + r->GetHeight()) / 60) * 2 > mapHeight) 
 		mapHeight = ((r->GetY() + r->GetHeight()) / 60) * 2;
 
+	if(goldCountNum != ((Player*)player)->GetGold()) {
+		goldCountNum = ((Player*)player)->GetGold();
+		SDL_DestroyTexture(goldCount);
+		goldCount = TextureManager::LoadText(Game::renderer, 24, {255, 208, 0}, 
+			(const char *)(std::to_string(((Player*)player)->GetGold()).c_str()));
+	}
+
 }
 
 void GUI::Render() {
@@ -75,6 +88,18 @@ void GUI::Render() {
 		SDL_RenderCopy(Game::renderer, heartIcon, &heartRect, &iconRect);
 
 	}
+
+	int gSize = 1, tempGCount = goldCountNum;
+	while(tempGCount / 10 > 0) {
+		tempGCount /= 10;
+		gSize++;
+	}
+	iconRect.x = 375;
+	iconRect.y = 15;
+	iconRect.w = 12 * gSize;
+	iconRect.h = 30;
+	SDL_RenderCopy(Game::renderer, goldCount, NULL, &iconRect);
+
 
 	for(int y = 0; y < ((Player *)player)->GetManaFatigue() * 20; y++) for(int x = 0; x < 15; x++) {
 
@@ -119,9 +144,13 @@ void GUI::Render() {
 	}
 
 	for(int i = 0; i < ((Player *) player)->GetItems()->size(); i++) {
-		
+				
 		iconRect.x = Game::width - 24 - 12;
 		iconRect.y = 12 + 36 * i;
+		if(((Player*)player)->GetItems()->at(i)->IsSynergyActive()) {
+			iconRect.w = iconRect.h = 12;
+			SDL_RenderCopy(Game::renderer, synergyIcon, NULL, &iconRect);
+		}
 		iconRect.w = iconRect.h = 24;
 		itemTexture = ((Player *) player)->GetItems()->at(i)->GetTexture();
 		SDL_SetTextureAlphaMod(itemTexture, 100);

@@ -13,6 +13,10 @@ public:
 
 	void OnKill(LevelManager * game, Player * p, GameObject * go);
 
+private:
+
+	int kills;
+
 };
 
 #endif

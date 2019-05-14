@@ -28,7 +28,7 @@ void StageDoor::Update(LevelManager * game) {
 
 	for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;
-		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
+		if(Game::inputManager->IsPressed(InputManager::interact)) {
 			game->NextLevel();
 			return;
 		}

@@ -32,7 +32,7 @@ void SacraficialAltar::Update(LevelManager * game) {
 		for(int i = 0; i < ((Player *)go)->GetItems()->size(); i++) 
 			if(dynamic_cast<CursedCandle *>(((Player *)go)->GetItems()->at(i)) != nullptr) {
 		collided = true;
-			if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
+			if(Game::inputManager->IsPressed(InputManager::interact)) {
 				active = false;
 				collided = false;
 				tileY = 1;

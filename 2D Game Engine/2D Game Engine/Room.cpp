@@ -21,6 +21,8 @@
 #include "FireTome_1.h"
 #include "IceTome_1.h"
 #include "IceTome_2.h"
+#include "SlotMachine.h"
+#include "BloodBank.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -282,7 +284,14 @@ Room::Room(float offX, float offY, int type) {
 				35, 50, rand() % 2, 0, 3, 1));
 			break;
 
+		case 14:
+			Init(offX, offY, 10, 8, 5, 5, -1);
+			objects.push_back(new BloodBank(x + 2 * 60, y + 5 * 60 - 44 * 3));
+			objects.push_back(new SlotMachine(x + 6 * 60, y + 5 * 60 - 44 * 3));
+			break;
+
 	}
+	
 }
 
 Room::~Room() {

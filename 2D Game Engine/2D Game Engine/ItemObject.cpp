@@ -16,6 +16,10 @@
 #include "DoubleVision.h"
 #include "RapidFire.h"
 #include "BloatedDoll.h"
+#include "WeightedDice.h"
+#include "D4.h"
+#include "GamblingChip.h"
+#include "VolatileHeart.h"
 
 std::vector<std::vector<int> *> * ItemObject::items = nullptr;
 
@@ -24,18 +28,19 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 	collidable = false;
 	solid = false;
 
-	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[E]");
-	textRect.w = 20;
+	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[grab]");
+	textRect.w = 50;
 	textRect.h = 20;
 
 	renderLayer = 2;
 
 	if(items == nullptr) {
 		items = new std::vector<std::vector<int> *>;
-		for(int i = 0; i < 3; i++) items->push_back(new std::vector<int>);
-		for(int i = 0; i < 9; i++) items->at(0)->push_back(i);
+		for(int i = 0; i < 4; i++) items->push_back(new std::vector<int>);
+		for(int i = 0; i < 10; i++) items->at(0)->push_back(i);
 		for(int i = 0; i < 5; i++) items->at(1)->push_back(i);
 		for(int i = 0; i < 2; i++) items->at(2)->push_back(i);
+		for(int i = 0; i < 3; i++) items->at(3)->push_back(i);
 	}
 	
 	GenerateItem(pool);
@@ -47,8 +52,8 @@ ItemObject::ItemObject(float x, float y, Item * i) : GameObject(nullptr, x, y, 2
 	collidable = false;
 	solid = false;
 
-	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[E]");
-	textRect.w = 20;
+	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255}, "[grab]");
+	textRect.w = 50;
 	textRect.h = 20;
 
 	renderLayer = 2;
@@ -74,7 +79,7 @@ void ItemObject::Update(LevelManager * game) {
 
 	for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;
-		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
+		if(Game::inputManager->IsPressed(InputManager::interact)) {
 			dead = true;
 			((Player *)go)->AddItem(item, game);
 			item = nullptr;
@@ -140,6 +145,10 @@ void ItemObject::GenerateItem(int pool) {
 					item = new RapidFire();
 					break;
 
+				case 9:
+					item = new VolatileHeart();
+					break;
+
 			}
 			break;
 
@@ -178,6 +187,24 @@ void ItemObject::GenerateItem(int pool) {
 
 				case 1:
 					item = new IceTome_1();
+					break;
+
+			}
+			break;
+
+		case 3:
+			switch(i) {
+
+				case 0:
+					item = new WeightedDice();
+					break;
+
+				case 1:
+					item = new D4();
+					break;
+
+				case 2:
+					item = new GamblingChip();
 					break;
 
 			}

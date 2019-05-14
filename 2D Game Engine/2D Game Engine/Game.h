@@ -30,7 +30,6 @@ public:
 	static SDL_Renderer * renderer;
 
 	static InputManager * inputManager;
-	static SDL_Event event;
 
 	static Camera * camera;
 
@@ -47,6 +46,8 @@ private:
 	SDL_Window * window;
 
 	StateManager * stateManager;
+
+	SDL_Event event;
 				
 };
 

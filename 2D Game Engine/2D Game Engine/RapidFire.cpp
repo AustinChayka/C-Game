@@ -6,6 +6,8 @@ RapidFire::~RapidFire() {}
 
 void RapidFire::OnPickup(LevelManager * game, Player * p) {
 
+	Item::OnPickup(game, p);
+
 	p->SetShotCost(p->GetShotCost() / 1.2f);
 	p->SetShotDelay((int)(p->GetShotDelay() / 3));
 

@@ -9,9 +9,9 @@ DemonAlter::DemonAlter(float x, float y) : GameObject("assets/StageObjects/Demon
 	moveable = false;
 	solid = false;
 
-	text = TextureManager::LoadText(Game::renderer, 24, {255, 0, 0}, "[E] Strike a deal.");
+	text = TextureManager::LoadText(Game::renderer, 24, {255, 0, 0}, "[strike a deal]");
 
-	destRect.w = 30 * 10;
+	destRect.w = 30 * 8;
 	destRect.h = 30;
 
 }
@@ -33,7 +33,7 @@ void DemonAlter::Update(LevelManager * game) {
 	for (auto go : *(game->GetObjects())) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		if(go->GetMaxHealth() > 4) {
 			collided = true;
-			if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
+			if(Game::inputManager->IsPressed(InputManager::interact)) {
 				go->SetMaxHealth(go->GetMaxHealth() - 4);
 				active = false;
 				collided = false;

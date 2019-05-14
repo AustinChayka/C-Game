@@ -19,6 +19,8 @@ BabyMaw::BabyMaw() : Item("assets/Items/Bait.png", "Master Bait", "highly effect
 BabyMaw::~BabyMaw() {}
 
 void BabyMaw::OnPickup(LevelManager * game, Player * p) {
+
+	Item::OnPickup(game, p);
 	
 	x = p->GetX();
 	y = p->GetY();
@@ -70,6 +72,8 @@ void BabyMaw::UpdateMaw(LevelManager * game, Player * p) {
 }
 
 void BabyMaw::Update(LevelManager * game, Player * p) {
+
+	Item::Update(game, p);
 
 	UpdateMaw(game, p);
 

@@ -1,6 +1,8 @@
 #include "Enemy.h"
 
 #include <typeinfo>
+#include "GoldDrop.h"
+#include "Player.h"
 
 Enemy::Enemy(const char * filepath, float x, float y, int width, int height, float scale, int h) : 
 	GameObject(filepath, x, y, width, height, scale) {
@@ -46,6 +48,18 @@ void Enemy::DealDamage(int d, LevelManager * game, GameObject * go) {
 	GameObject::DealDamage(d, game, go);
 
 	if(go != nullptr && dynamic_cast<Enemy *>(go) != nullptr) target = go;
+
+}
+
+void Enemy::OnDeath(LevelManager * game, GameObject * go) {
+
+	GameObject::OnDeath(game, go);
+	for(int i = 0; i < rand() % 3 + 1; i++) {
+		GameObject * gd = new GoldDrop(GetXCenter(), GetYCenter(), rand() % 3 + 1);
+		gd->SetVX(rand() % 6 - 3);
+		gd->SetVY(rand() % 6);
+		game->AddObject(gd);
+	}
 
 }
 

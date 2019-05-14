@@ -33,17 +33,17 @@ void WraithProjectile::Update(LevelManager * game) {
 
 	vY += -cos(distance * M_PI / 180) * amplitude;
 
+	tileY = (xDir == -1 ? 0 : 1);
+	tileX += 0.1f;
+	if(tileX > 4) tileX = 0;
+
 	if(delay == 0) {
 		Particle * p = new Particle("assets/Enemies/Wraith.png", x, y, 19, 22, tileX, tileY, 1);
 		p->SetFadeSpeed(7);
 		game->AddObject(p);
 		delay = 4;
 	} else delay--;
-
-	tileY = (xDir == -1 ? 0 : 1);
-	tileX += 0.1f;
-	if(tileX > 4) tileX = 0;
-
+	
 }
 
 WraithProjectile::~WraithProjectile() {}

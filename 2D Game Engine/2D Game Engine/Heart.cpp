@@ -7,6 +7,8 @@ Heart::Heart() : Item("assets/Items/Heart.png", "Heart Crystal", "you feel healt
 
 void Heart::OnPickup(LevelManager * game, Player * p) {
 
+	Item::OnPickup(game, p);
+
 	p->SetMaxHealth(p->GetMaxHealth() + 6);
 	p->Heal(6);
 

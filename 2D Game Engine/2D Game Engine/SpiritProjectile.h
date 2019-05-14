@@ -12,7 +12,7 @@ public:
 
 	~SpiritProjectile();
 
-	void Update(LevelManager * game);
+	virtual void Update(LevelManager * game);
 
 	bool OverrideCollision(GameObject * go);
 

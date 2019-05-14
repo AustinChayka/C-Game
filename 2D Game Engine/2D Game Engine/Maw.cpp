@@ -57,6 +57,6 @@ void Maw::OnCollision(GameObject * go, LevelManager * game) {
 
 bool Maw::OverrideCollision(GameObject * go) {
 
-	return dynamic_cast<Player *>(go) == nullptr;
+	return dynamic_cast<Player *>(go) != nullptr;
 
 }

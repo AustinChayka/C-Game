@@ -24,7 +24,7 @@ Error::~Error() {}
 bool Error::OverrideDefaultProjectile(Player * p, Projectile *& proj) {
 
 	Projectile * oldProj = proj;
-	
+
 	switch(rand() % 8) {
 
 		case 0:
@@ -58,7 +58,7 @@ bool Error::OverrideDefaultProjectile(Player * p, Projectile *& proj) {
 			proj = new WraithProjectile(proj->GetX(), proj->GetY(), proj->GetVX(), proj->GetVY(), proj->GetXDir(), proj->GetYDir(), p);
 			break;
 
-		case 8:
+		case 7:
 			proj = new IceShard2(proj->GetX(), proj->GetY(), proj->GetVX(), proj->GetVY(), proj->GetXDir(), proj->GetYDir(), 
 				p, proj->GetScale());
 			break;

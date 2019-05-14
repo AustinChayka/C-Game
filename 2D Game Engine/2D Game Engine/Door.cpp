@@ -10,8 +10,8 @@ Door::Door(Room * init_room, float x, float y) : GameObject("assets/StageObjects
 	moveable = false;
 	solid = true;
 
-	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255, 200}, "[E]");
-	textRect.w = 20;
+	text = TextureManager::LoadText(Game::renderer, 24, {255, 255, 255, 200}, "[use]");
+	textRect.w = 50;
 	textRect.h = 20;
 
 }
@@ -29,7 +29,7 @@ void Door::Update(LevelManager * game) {
 
 	for (auto go : *(game->GetObjects())) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;
-		if(Game::event.key.keysym.sym == SDLK_e && Game::event.type == SDL_KEYDOWN) {
+		if(Game::inputManager->IsPressed(InputManager::interact)) {
 			closed = !closed;
 			if(!room->IsRevealed()) room->SetRevealed(true);
 		}

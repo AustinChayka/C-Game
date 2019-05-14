@@ -52,6 +52,14 @@ public:
 
 	int GetCritChance();
 	float GetCritValue();
+	void SetCritChance(int c);
+	void SetCritValue(float v);
+	int GetLuck();
+	void SetLuck(int l);
+
+	int GetGold();
+	void AddGold(int g);
+	void SetGold(int g);
 
 private:
 
@@ -60,7 +68,8 @@ private:
 	float maxSpeed = 7, acceleration = .6f, jumpPower = 11.5f, maxFatigue = 10, manaFatigue = 10, manaRegen = .08f, 
 		shotCost = 1, critMultiplier = 2.0f;
 
-	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0, critChance = 10;
+	int dir = 1, shotDelay = 30, shot = 0, smokeDelay = 0, dash = 0, maxJumps = 1, jumps = 0, critChance = 10, luck = 50,
+		gold = 0;
 
 	std::vector<Item *> * items;
 	UseableItem * useItem;

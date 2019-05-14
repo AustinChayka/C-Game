@@ -1,14 +1,401 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (2D Game Engine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   BabyMaw.cpp
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  BleedStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\bleedstatus.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\bleedstatus.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\bleedstatus.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\bleedstatus.cpp(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  BloatedDoll.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\bloateddoll.cpp(11): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Block.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(39): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\block.cpp(43): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  BloodBank.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Book.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\book.cpp(13): warning C4018: '<': signed/unsigned mismatch
+  Boss.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\boss.cpp(63): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Box.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Button.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(17): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(68): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\button.cpp(69): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Camera.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(94): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(95): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(100): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.cpp(101): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Campfire.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  CharredSkull.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  ChilledStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  ConfusedStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  ControllsButton.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Corpse.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\corpse.cpp(9): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\corpse.cpp(10): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  CursedCandle.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\cursedcandle.cpp(31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\cursedcandle.cpp(33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\cursedcandle.cpp(36): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\cursedcandle.cpp(38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CursedFire.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\cursedfire.cpp(12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  CursedFireball.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  CursedFireStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Compiling...
+  D4.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Debris.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(4): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(6): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(7): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(14): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(29): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\debris.cpp(45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  DemonAlter.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Door.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\door.cpp(61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  DoubleVision.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Ember.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\ember.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Enemy.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\enemy.cpp(17): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\enemy.cpp(24): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\enemy.cpp(42): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\enemy.cpp(59): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\enemy.cpp(60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Error.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  ExitButton.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Explosion.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\explosion.cpp(20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Fire.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\fire.cpp(17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Fireball.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\fireball.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\fireball.cpp(40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Fireball2.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  FireStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  FireTome_1.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  FireTome_2.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  GamblingChip.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Game.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\game.cpp(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameObject.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(344): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(345): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(468): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameobject.cpp(469): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameOverScreen.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameoverscreen.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gameoverscreen.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Compiling...
+  GoldDrop.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  GUI.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.cpp(138): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.cpp(139): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.cpp(140): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.cpp(141): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.cpp(146): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\gui.cpp(167): warning C4244: 'argument': conversion from 'double' to 'Uint8', possible loss of data
+  Hammer.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  HealthPotion.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Heart.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\heart.cpp(24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\heart.cpp(25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  IceShard.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\iceshard.cpp(22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\iceshard.cpp(25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  IceShard2.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\iceshard2.cpp(19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\iceshard2.cpp(22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\iceshard2.cpp(25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  IceTome_1.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  IceTome_2.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  ImageTile.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(11): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(15): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\imagetile.cpp(37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  InputManager.cpp
+  Item.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  ItemObject.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  JarOfAir.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  KeybindButton.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  KeybindMenu.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\keybindmenu.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Lantern.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  LevelManager.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(61): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(63): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(69): warning C4244: 'argument': conversion from 'time_t' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\levelmanager.cpp(245): warning C4018: '<': signed/unsigned mismatch
+  Librarian.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\librarian.cpp(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\librarian.cpp(58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\librarian.cpp(108): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Compiling...
+  MarkOfHunger.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\markofhunger.cpp(16): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\markofhunger.cpp(17): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Maw.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\maw.cpp(27): warning C4553: '==': result of expression not used; did you intend '='?
+  MawProjectile.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  MenuState.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\menustate.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\menustate.cpp(19): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\menustate.cpp(20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  NailObject.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  PaperAirplane.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Particle.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(4): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(81): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(111): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(112): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\particle.cpp(113): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Platform.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(30): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(32): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\platform.cpp(33): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  PlayButton.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  PoisonStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\poisonstatus.cpp(14): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  PossesedNail.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Pot.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\pot.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\pot.cpp(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\pot.cpp(37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  PotMimic.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\potmimic.cpp(37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\potmimic.cpp(38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\potmimic.cpp(41): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\potmimic.cpp(42): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\potmimic.cpp(44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\potmimic.cpp(45): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  PotMimicTentacle.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Projectile.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  RapidFire.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  RegenStatus.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  RestartButton.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Room.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(55): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(130): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(132): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(134): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(174): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(175): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(176): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(177): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(178): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(179): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(213): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(215): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(217): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(219): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(253): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(255): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(264): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(266): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(268): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(270): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(278): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(280): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(282): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(284): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(299): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(301): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(327): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(377): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\room.cpp(383): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  RubberCement.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Compiling...
+  SacraficialAltar.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\sacraficialaltar.cpp(32): warning C4018: '<': signed/unsigned mismatch
+  SacraficialDagger.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\sacraficialdagger.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\sacraficialdagger.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\sacraficialdagger.cpp(24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Slime.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\slime.cpp(5): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\slime.cpp(29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SlotMachine.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Smoke.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Snowball.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Snowman.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  SoftPlatform.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\softplatform.cpp(7): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Soul.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Spike.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  SpiralShell.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Spirit.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spirit.cpp(18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spirit.cpp(50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spirit.cpp(51): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spirit.cpp(54): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spirit.cpp(57): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spirit.cpp(58): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  SpiritProjectile.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  SpiritProjectile2.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spiritprojectile2.cpp(12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spiritprojectile2.cpp(13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\spiritprojectile2.cpp(38): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  StageDoor.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  StateManager.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
   Player.cpp
 c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(135): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(174): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(246): warning C4018: '<': signed/unsigned mismatch
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(93): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(142): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\player.cpp(209): warning C4018: '<': signed/unsigned mismatch
+  Status.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\status.cpp(45): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  Urn.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  UseableItem.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Compiling...
+  VolatileHeart.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  WeightedDice.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+  Wraith.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraith.cpp(45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraith.cpp(80): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  WraithProjectile.cpp
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\camera.h(31): warning C4091: 'static ': ignored on left of 'Camera::Mode' when no variable is declared
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraithprojectile.cpp(11): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraithprojectile.cpp(12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraithprojectile.cpp(34): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraithprojectile.cpp(36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\austi\onedrive\documents\sdl projects\2d game engine\game\c-game\2d game engine\2d game engine\wraithprojectile.cpp(41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  26 of 1184 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
-    8 functions were new in current compilation
-    93 functions had inline decision re-evaluated but remain unchanged
+  822 of 1440 functions (57.1%) were compiled, the rest were copied from previous compilation.
+    273 functions were new in current compilation
+    65 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   2D Game Engine.vcxproj -> C:\Users\austi\OneDrive\Documents\SDL Projects\2D Game Engine\Game\C-Game\2D Game Engine\Release\Game.exe

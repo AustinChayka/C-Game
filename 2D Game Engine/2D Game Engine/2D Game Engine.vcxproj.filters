@@ -73,6 +73,36 @@
     <Filter Include="Source Files\Engine\MenuStates">
       <UniqueIdentifier>{1f797dda-b6f1-434e-b40f-cb14516d9619}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Items\Books">
+      <UniqueIdentifier>{f4f4a0e0-3788-457d-ba69-3dc99d51e1c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Demon Altar Pool">
+      <UniqueIdentifier>{8b17739b-c152-4c50-a5c3-31c23bc9d5cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\General Pool">
+      <UniqueIdentifier>{77bca42a-5516-46bc-bf78-6a4351d6b7cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Specialty">
+      <UniqueIdentifier>{1a688daf-f74d-4730-b7ff-18f9452bcec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Books">
+      <UniqueIdentifier>{55331ad8-9467-4e90-a612-58d70b04aad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Specialty">
+      <UniqueIdentifier>{ccdbe38c-e11e-4799-bd9d-662254afe3c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Demon Altar Pool">
+      <UniqueIdentifier>{5fe62de3-7cca-4ef4-86fb-f975a2ec44bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\General Pool">
+      <UniqueIdentifier>{c47bb70f-3847-469e-995f-1450e8f67bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Games Pool">
+      <UniqueIdentifier>{8509f460-cc97-45c3-aeac-b35b60c3cf07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Items\Games Pool">
+      <UniqueIdentifier>{db4b9d6b-4df2-4daa-9bcf-6bb0721b54d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -127,18 +157,6 @@
       <Filter>Source Files\Engine\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Heart.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="CursedCandle.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="MarkOfHunger.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="SpiralShell.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="RestartButton.cpp">
@@ -228,9 +246,6 @@
     <ClCompile Include="UseableItem.cpp">
       <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="HealthPotion.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="ChilledStatus.cpp">
       <Filter>Source Files\Statuses</Filter>
     </ClCompile>
@@ -243,38 +258,17 @@
     <ClCompile Include="WraithProjectile.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
-    <ClCompile Include="CharredSkull.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Hammer.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
     <ClCompile Include="NailObject.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
-    <ClCompile Include="PossesedNail.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Lantern.cpp">
       <Filter>Source Files\Objects\Stage</Filter>
     </ClCompile>
     <ClCompile Include="Urn.cpp">
       <Filter>Source Files\Objects\Stage</Filter>
-    </ClCompile>
-    <ClCompile Include="JarOfAir.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="RubberCement.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Soul.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="FireTome_1.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="IceTome_1.cpp">
-      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Boss.cpp">
       <Filter>Source Files\Objects\Entities</Filter>
@@ -300,14 +294,8 @@
     <ClCompile Include="SacraficialAltar.cpp">
       <Filter>Source Files\Objects\Stage</Filter>
     </ClCompile>
-    <ClCompile Include="SacraficialDagger.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="SpiritProjectile.cpp">
       <Filter>Source Files\Objects\Other</Filter>
-    </ClCompile>
-    <ClCompile Include="PaperAirplane.cpp">
-      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Explosion.cpp">
       <Filter>Source Files\Objects\Other</Filter>
@@ -315,35 +303,11 @@
     <ClCompile Include="Fireball2.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
-    <ClCompile Include="FireTome_2.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Book.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="BabyMaw.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="DoubleVision.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Error.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="RapidFire.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Librarian.cpp">
       <Filter>Source Files\Objects\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="BloatedDoll.cpp">
-      <Filter>Source Files\Items</Filter>
-    </ClCompile>
     <ClCompile Include="IceShard2.cpp">
       <Filter>Source Files\Objects\Other</Filter>
-    </ClCompile>
-    <ClCompile Include="IceTome_2.cpp">
-      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="ConfusedStatus.cpp">
       <Filter>Source Files\Statuses</Filter>
@@ -365,6 +329,96 @@
     </ClCompile>
     <ClCompile Include="KeybindButton.cpp">
       <Filter>Source Files\Engine\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="BabyMaw.cpp">
+      <Filter>Source Files\Items\Specialty</Filter>
+    </ClCompile>
+    <ClCompile Include="BloatedDoll.cpp">
+      <Filter>Source Files\Items\Demon Altar Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="Book.cpp">
+      <Filter>Source Files\Items\Books</Filter>
+    </ClCompile>
+    <ClCompile Include="CharredSkull.cpp">
+      <Filter>Source Files\Items\Demon Altar Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="CursedCandle.cpp">
+      <Filter>Source Files\Items\Demon Altar Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleVision.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="Error.cpp">
+      <Filter>Source Files\Items\Books</Filter>
+    </ClCompile>
+    <ClCompile Include="FireTome_1.cpp">
+      <Filter>Source Files\Items\Books</Filter>
+    </ClCompile>
+    <ClCompile Include="FireTome_2.cpp">
+      <Filter>Source Files\Items\Books</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthPotion.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="Heart.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="IceTome_1.cpp">
+      <Filter>Source Files\Items\Books</Filter>
+    </ClCompile>
+    <ClCompile Include="IceTome_2.cpp">
+      <Filter>Source Files\Items\Books</Filter>
+    </ClCompile>
+    <ClCompile Include="JarOfAir.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="MarkOfHunger.cpp">
+      <Filter>Source Files\Items\Demon Altar Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="PaperAirplane.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="PossesedNail.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="RapidFire.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="RubberCement.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="SacraficialDagger.cpp">
+      <Filter>Source Files\Items\Specialty</Filter>
+    </ClCompile>
+    <ClCompile Include="Soul.cpp">
+      <Filter>Source Files\Items\Demon Altar Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="SpiralShell.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="WeightedDice.cpp">
+      <Filter>Source Files\Items\Games Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="D4.cpp">
+      <Filter>Source Files\Items\Games Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="GamblingChip.cpp">
+      <Filter>Source Files\Items\Games Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldDrop.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="SlotMachine.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="BloodBank.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="VolatileHeart.cpp">
+      <Filter>Source Files\Items\General Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="SpiritProjectile2.cpp">
+      <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -417,18 +471,6 @@
       <Filter>Header Files\Engine\Buttons</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Heart.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="CursedCandle.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="MarkOfHunger.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="SpiralShell.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="RestartButton.h">
@@ -518,9 +560,6 @@
     <ClInclude Include="UseableItem.h">
       <Filter>Header Files\Items</Filter>
     </ClInclude>
-    <ClInclude Include="HealthPotion.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="ChilledStatus.h">
       <Filter>Header Files\Statuses</Filter>
     </ClInclude>
@@ -533,17 +572,11 @@
     <ClInclude Include="WraithProjectile.h">
       <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
-    <ClInclude Include="CharredSkull.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="Hammer.h">
       <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
     <ClInclude Include="NailObject.h">
       <Filter>Header Files\Objects\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="PossesedNail.h">
-      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Lantern.h">
       <Filter>Header Files\Objects\Stage</Filter>
@@ -551,23 +584,8 @@
     <ClInclude Include="Urn.h">
       <Filter>Header Files\Objects\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="JarOfAir.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="RubberCement.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Soul.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="FireTome_1.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="IceShard.h">
       <Filter>Header Files\Objects\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="IceTome_1.h">
-      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>Header Files\Objects\Entities</Filter>
@@ -593,47 +611,17 @@
     <ClInclude Include="SacraficialAltar.h">
       <Filter>Header Files\Objects\Stage</Filter>
     </ClInclude>
-    <ClInclude Include="SacraficialDagger.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="SpiritProjectile.h">
       <Filter>Header Files\Objects\Other</Filter>
-    </ClInclude>
-    <ClInclude Include="PaperAirplane.h">
-      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Explosion.h">
       <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
-    <ClInclude Include="FireTome_2.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="Fireball2.h">
       <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
-    <ClInclude Include="Book.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="BabyMaw.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleVision.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Error.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="RapidFire.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
     <ClInclude Include="Librarian.h">
       <Filter>Header Files\Objects\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="BloatedDoll.h">
-      <Filter>Header Files\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="IceTome_2.h">
-      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="IceShard2.h">
       <Filter>Header Files\Objects\Other</Filter>
@@ -658,6 +646,96 @@
     </ClInclude>
     <ClInclude Include="KeybindButton.h">
       <Filter>Header Files\Engine\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="BabyMaw.h">
+      <Filter>Header Files\Items\Specialty</Filter>
+    </ClInclude>
+    <ClInclude Include="BloatedDoll.h">
+      <Filter>Header Files\Items\Demon Altar Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="Book.h">
+      <Filter>Header Files\Items\Books</Filter>
+    </ClInclude>
+    <ClInclude Include="CharredSkull.h">
+      <Filter>Header Files\Items\Demon Altar Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="CursedCandle.h">
+      <Filter>Header Files\Items\Demon Altar Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleVision.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>Header Files\Items\Books</Filter>
+    </ClInclude>
+    <ClInclude Include="FireTome_1.h">
+      <Filter>Header Files\Items\Books</Filter>
+    </ClInclude>
+    <ClInclude Include="FireTome_2.h">
+      <Filter>Header Files\Items\Books</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthPotion.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="Heart.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="IceTome_1.h">
+      <Filter>Header Files\Items\Books</Filter>
+    </ClInclude>
+    <ClInclude Include="IceTome_2.h">
+      <Filter>Header Files\Items\Books</Filter>
+    </ClInclude>
+    <ClInclude Include="JarOfAir.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="MarkOfHunger.h">
+      <Filter>Header Files\Items\Demon Altar Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="PaperAirplane.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="PossesedNail.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidFire.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="RubberCement.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="SacraficialDagger.h">
+      <Filter>Header Files\Items\Specialty</Filter>
+    </ClInclude>
+    <ClInclude Include="Soul.h">
+      <Filter>Header Files\Items\Demon Altar Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiralShell.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="WeightedDice.h">
+      <Filter>Header Files\Items\Games Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="D4.h">
+      <Filter>Header Files\Items\Games Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="GamblingChip.h">
+      <Filter>Header Files\Items\Games Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="SlotMachine.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldDrop.h">
+      <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="BloodBank.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="VolatileHeart.h">
+      <Filter>Header Files\Items\General Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiritProjectile2.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

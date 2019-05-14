@@ -3,7 +3,6 @@
 SDL_Renderer * Game::renderer = nullptr;
 InputManager * Game::inputManager = nullptr;
 StateManager * stateManager = nullptr;
-SDL_Event Game::event;
 
 Camera * Game::camera = nullptr;
 

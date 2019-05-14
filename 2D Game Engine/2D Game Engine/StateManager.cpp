@@ -25,11 +25,13 @@ StateManager::~StateManager() {}
 
 void StateManager::Update() {
 
-	if(!stateChanged && Game::event.type == SDL_KEYDOWN && Game::event.key.keysym.sym == SDLK_ESCAPE) {
+	if(!stateChanged && Game::inputManager->GetLastEvent()->type == SDL_KEYDOWN && 
+		Game::inputManager->GetLastEvent()->key.keysym.sym == SDLK_ESCAPE) {
 		if(activeState == 1) ChangeState(2);
 		else if(activeState == 2) ChangeState(1);
 		stateChanged = true;
-	} else if(Game::event.type == SDL_KEYUP && Game::event.key.keysym.sym == SDLK_ESCAPE) stateChanged = false;
+	} else if(Game::inputManager->GetLastEvent()->type == SDL_KEYUP && 
+		Game::inputManager->GetLastEvent()->key.keysym.sym == SDLK_ESCAPE) stateChanged = false;
 	
 	switch(activeState) {
 

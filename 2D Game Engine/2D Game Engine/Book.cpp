@@ -8,6 +8,8 @@ Book::~Book() {}
 
 void Book::OnPickup(LevelManager * game, Player * p) {
 
+	Item::OnPickup(game, p);
+
 	for(int i = 0; i < p->GetItems()->size(); i++) 
 		if(p->GetItems()->at(i) != this && dynamic_cast<Book *>(p->GetItems()->at(i)) != nullptr) {
 			game->AddObject(new ItemObject(p->GetXCenter() - 12, p->GetY() + p->GetHeight() - 24, p->GetItems()->at(i)));

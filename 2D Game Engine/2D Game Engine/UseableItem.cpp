@@ -8,7 +8,7 @@ void UseableItem::Update(LevelManager * game, Player * p) {
 
 	if(recharge > 0) recharge--;
 	else {
-		if(Game::event.key.keysym.sym == SDLK_q && Game::event.type == SDL_KEYDOWN) {
+		if(Game::inputManager->IsPressed(InputManager::useItem)) {
 			if(OnUse(game, p)) recharge = rechargeTime;
 		}
 	}

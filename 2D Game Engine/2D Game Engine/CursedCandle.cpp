@@ -16,22 +16,26 @@ CursedCandle::CursedCandle() : Item("assets/Items/CursedCandle.png", "Cursed Can
 
 void CursedCandle::Update(LevelManager * game, Player * p) {
 
+	Item::Update(game, p);
+
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(go != p && go->IsDamagable() && p->DistanceToSquared(go) < 700 * 700 &&
 		dynamic_cast<Enemy *>(go) != nullptr) {
 		target = go;
 		break;
-	} else if(!target) target = nullptr;
+	}
+	
+	if(!target || target->IsDead()) target = nullptr;
 
 	if(fireDelay <= 0 && target != nullptr) {
 		if(active == 0) {
+			int dX = target->GetXCenter() - (p->GetX() - 13), dY = target->GetYCenter() - (p->GetY() - 29);
 			game->AddObject(new CursedFireball(p->GetX() - 13, p->GetY() - 29,
-				(target->GetXCenter() - (p->GetX() - 13)) / 20,
-				(target->GetYCenter() - (p->GetY() - 29)) / 20, 0, 0, p));
+				20 * dX / abs(dX + dY), 20 * dY / abs(dX + dY), 0, 0, p));
 			active = 1;
 		} else {
+			int dX = target->GetXCenter() - (p->GetX() + 13), dY = target->GetYCenter() - (p->GetY() - 29);
 			game->AddObject(new CursedFireball(p->GetX() + p->GetWidth() + 13, p->GetY() - 29, 
-				(target->GetXCenter() - (p->GetX() + p->GetWidth() + 13)) / 20,
-				(target->GetYCenter() - (p->GetY() - 29)) / 20, 0, 0, p));
+				20 * dX / abs(dX + dY), 20 * dY / abs(dX + dY), 0, 0, p));
 			active = 0;
 		}
 		fireDelay = 180;

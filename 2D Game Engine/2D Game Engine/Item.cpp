@@ -14,9 +14,24 @@ Item::Item(const char * iconPath, const char * name, const char * itemFlavor) {
 	
 }
 
-void Item::Update(LevelManager * game, Player * p) {}
+void Item::Update(LevelManager * game, Player * p) {
 
-void Item::OnPickup(LevelManager * game, Player * p) {}
+	if(synergy == nullptr) return;
+	synergyActive = false;
+	for(auto i : *p->GetItems()) if(typeid(*i).name() == synergy) {
+		synergyActive = true;
+	}
+
+}
+
+void Item::OnPickup(LevelManager * game, Player * p) {
+
+	if(synergy == nullptr) return;
+	for(auto i : *p->GetItems()) if(typeid(*i).name() == synergy) {
+		synergyActive = true;
+	}
+	
+}
 
 void Item::OnDamageTaken(LevelManager * game, GameObject * go, Player * p) {}
 
@@ -81,6 +96,12 @@ int Item::GetLayer() {
 const char * Item::GetTexturePath() {
 
 	return texturePath;
+
+}
+
+bool Item::IsSynergyActive() {
+
+	return synergyActive;
 
 }
 
