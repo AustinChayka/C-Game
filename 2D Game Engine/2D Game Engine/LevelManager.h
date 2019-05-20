@@ -44,7 +44,7 @@ private:
 
 	std::vector<int> specialRoomsBlacklist;
 
-	int currentLevel = 0, leftOverEnemies = 0, specialRoomSkips = 0;
+	int currentLevel = 0, leftOverEnemies = 0, specialRoomSkips = 0, activeRoom = 0;
 
 	bool reloaded;
 

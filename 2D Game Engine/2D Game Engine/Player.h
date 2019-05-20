@@ -15,7 +15,7 @@ public:
 	~Player();
 	
 	void Update(LevelManager * game);
-	void RenderObject();
+	void RenderObject(int l);
 	void RenderItems(int layer);
 	
 	void SetManaFatigue(float m);

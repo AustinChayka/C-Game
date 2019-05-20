@@ -21,19 +21,21 @@ public:
 	void SetSize(float newScale);
 	void ChangeSize(float deltaScale);
 	void SetTarget(GameObject * go);
+	void SetTarget(float newX, float newY);
 	void SetSpeed(float newSpeed);
 
 	void Update();
 
 	static enum Mode {
 		LOCKED = 0,
-		POST_FRAMED = 1
+		POST_FRAMED = 1,
+		STATIC = 2
 	};
 
 
 private:
 
-	float x, y, width, height, scale, minScale = .1f, maxScale = 5, speed = .08f;
+	float x, y, width, height, scale, minScale = .1f, maxScale = 5, speed = .08f, targetX, targetY;
 	int currentMode = 1;
 	GameObject * target;
 

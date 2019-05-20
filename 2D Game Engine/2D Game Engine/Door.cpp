@@ -27,7 +27,7 @@ void Door::Update(LevelManager * game) {
 	x -= 2;
 	width += 4;
 
-	for (auto go : *(game->GetObjects())) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
+	if(!locked) for(auto go : *(game->GetObjects())) if(dynamic_cast<Player *>(go) != nullptr) if(CollidesWith(go)) {
 		collided = true;
 		if(Game::inputManager->IsPressed(InputManager::interact)) {
 			closed = !closed;
@@ -71,5 +71,11 @@ void Door::RenderObject() {
 	GameObject::RenderObject();
 
 	if(collided) SDL_RenderCopy(Game::renderer, text, NULL, &textRect);
+
+}
+
+void Door::SetLocked(bool l) {
+
+	locked = l;
 
 }

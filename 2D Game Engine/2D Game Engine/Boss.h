@@ -15,6 +15,7 @@ public:
 
 	~Boss();
 
+	virtual void Update(LevelManager * game);
 	virtual void RenderObject(int l);
 
 	virtual void OnDeath(LevelManager * game, GameObject * go);
@@ -27,6 +28,8 @@ protected:
 	Item * item;
 
 	Uint8 red = 255, green = 255, blue = 255;
+
+	bool init = true;
 
 };
 

@@ -35,11 +35,10 @@ void Enemy::Update(LevelManager * game) {
 
 }
 
-void Enemy::RenderObject() {
+void Enemy::RenderObject(int l) {
 
-	GameObject::RenderObject();
-
-	for(int i = 0; i < statuses.size(); i++) statuses.at(i)->Render(i);
+	if(l == renderLayer) GameObject::RenderObject();
+	if(l == 4) for(int i = 0; i < statuses.size(); i++) statuses.at(i)->Render(i);
 
 }
 

@@ -4,6 +4,7 @@
 #include "Debris.h"
 #include "WraithProjectile.h"
 #include "Wraith.h"
+#include "PossesedBook.h"
 
 Librarian::Librarian(float x, float y) : Boss("assets/Enemies/Librarian.png", x, y, 25, 45, 3, 40, "Fanatic Librarian",
 	72, 140, 136) {
@@ -21,13 +22,15 @@ Librarian::~Librarian() {}
 
 void Librarian::Update(LevelManager * game) {
 
-	Enemy::Update(game);
+	Boss::Update(game);
 
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player*>(go) != nullptr 
 		&& DistanceToSquared(go) < 2000 * 2000) {
 		target = go;
 		break;
 	} else if(!target || target->IsDead()) target = nullptr;
+
+	if(target != nullptr) tileX = (x > target->GetX() ? 0 : 1);
 
 	for(int i = 0; i < spirits.size(); i++) 
 		if(spirits.at(i)->IsDead()) 
@@ -48,7 +51,7 @@ void Librarian::Update(LevelManager * game) {
 			spawns--;
 		} else {
 			spawnDelay = 300;
-			if(health < maxHealth / 2) maxSpawns = 5;
+			if(health < maxHealth / 2 || phase == 1) maxSpawns = 5;
 			spawns = maxSpawns;
 		}
 	}
@@ -84,14 +87,15 @@ void Librarian::Update(LevelManager * game) {
 					break;
 			}
 		}
-		if(rand() % 5 + (health > maxHealth / 2 ? 0 : 2) >= 4) {
+		if(rand() % 5 + ((health > maxHealth / 2 || phase == 1) ? 0 : 2) >= 4) {
 			if(y == spawnY) {
 				y = spawnY - 5 * 60;
+				shootDelay = 30;
 			} else if(y == spawnY - 5 * 60) {
 				y = spawnY;
 			}
 		}
-		telportDelay = health > maxHealth / 2 ? 60 * 8 : 60 * 5;
+		telportDelay = (health > maxHealth / 2 || phase == 1) ? 60 * 8 : 60 * 5;
 	}
 
 	if(target == nullptr) return;
@@ -100,7 +104,7 @@ void Librarian::Update(LevelManager * game) {
 	else if(y == spawnY - 5 * 60) {
 		game->AddObject(new Wraith(GetXCenter() - 28, GetYCenter() - 33));
 			telportDelay += 240;
-		shootDelay = spirits.size() == 0 ? 240 : 480;
+		shootDelay = spirits.size() == 0 ? 120 : 480;
 	} else {
 		if(shootSubDelay > 0) shootSubDelay--;
 		else if(shotCount > 0) {
@@ -112,7 +116,7 @@ void Librarian::Update(LevelManager * game) {
 			shotCount--;
 		} else {
 			shootDelay = spirits.size() == 0 ? 180 : 360;
-			shotCount = health > maxHealth / 2 ? 2 : 3;
+			shotCount = (health > maxHealth / 2 || phase == 1) ? 2 : 3;
 		}
 	}
 
@@ -121,5 +125,23 @@ void Librarian::Update(LevelManager * game) {
 bool Librarian::OverrideCollision(GameObject * go) {
 
 	return dynamic_cast<Wraith *>(go) != nullptr;
+
+}
+
+void Librarian::OnDeath(LevelManager * game, GameObject * go) {
+
+	if(phase == 0) {
+		health = maxHealth / 2;
+		phase++;
+		for(auto s : spirits) {
+			((Spirit *)s)->SetParent(nullptr);
+			if(target != nullptr) ((Spirit *)s)->SetTarget(target);
+		}
+		return;
+	}
+
+	Boss::OnDeath(game, go);
+
+	game->AddTile(new ImageTile("assets/Enemies/Librarian.png", x, y, 25, 45, 0, 1, 3, renderLayer));
 
 }

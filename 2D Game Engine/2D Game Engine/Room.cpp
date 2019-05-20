@@ -23,6 +23,7 @@
 #include "IceTome_2.h"
 #include "SlotMachine.h"
 #include "BloodBank.h"
+#include "PossesedBook.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -348,7 +349,7 @@ void Room::Render(int layer) {
 
 	for(auto it : tiles) if(revealed && it->GetLayer() == layer) it->Render();
 	for(auto go : objects) if((revealed || go == door)) {
-		if(dynamic_cast<Boss *>(go) != nullptr) ((Boss *)go)->RenderObject(layer);
+		if(dynamic_cast<Enemy *>(go) != nullptr) ((Enemy *)go)->RenderObject(layer);
 		else if(go->GetRenderLayer() == layer) go->RenderObject();
 	}
 	

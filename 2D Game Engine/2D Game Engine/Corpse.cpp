@@ -39,6 +39,6 @@ void Corpse::Update(LevelManager * game) {
 
 bool Corpse::OverrideCollision(GameObject * go) {
 
-	return go->IsMoveable();
+	return go->IsMoveable() && go->IsSolid();
 
 }

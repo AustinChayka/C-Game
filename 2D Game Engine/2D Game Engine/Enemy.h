@@ -15,7 +15,7 @@ public:
 
 	virtual void Update(LevelManager * game);
 
-	virtual void RenderObject();
+	virtual void RenderObject(int l);
 
 	virtual void DealDamage(int d, LevelManager * game, GameObject * go);
 	virtual void OnDeath(LevelManager * game, GameObject * go);

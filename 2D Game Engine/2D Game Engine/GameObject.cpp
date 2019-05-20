@@ -483,7 +483,7 @@ void GameObject::DealDamage(int d, LevelManager * game, GameObject * go) {
 
 	if(health <= 0) {
 		OnDeath(game, go);
-		dead = true;
+		if(health <= 0) dead = true;
 	}
 
 }
@@ -498,7 +498,7 @@ void GameObject::DealDamage(int d, LevelManager * game) {
 
 	if(health <= 0) {
 		OnDeath(game, nullptr);
-		dead = true;
+		if(health <= 0) dead = true;
 	}
 
 }

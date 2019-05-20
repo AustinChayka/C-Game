@@ -1,10 +1,8 @@
 #include "Projectile.h"
 
-#include "Ember.h"
 #include <cmath>
 #include "Player.h"
-
-#include "Explosion.h"
+#include "Particle.h"
 
 Projectile::Projectile(const char * path, float x, float y, float init_vX, float init_vY, int init_xDir, int init_yDir, GameObject * init_spawner) 
 	: GameObject(path, x, y, 6, 6, 2) {

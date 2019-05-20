@@ -1,6 +1,7 @@
 #include "Boss.h"
 
 #include "ItemObject.h"
+#include "Room.h"
 
 Boss::Boss(const char * filepath, float x, float y, int width, int height, float scale, int h, const char * name) :
 	Enemy(filepath, x, y, width, height, scale, h) {
@@ -45,10 +46,26 @@ Boss::~Boss() {
 
 }
 
+void Boss::Update(LevelManager * game) {
+
+	Enemy::Update(game);
+
+	if(init) {
+		for(int i = 0; i < game->GetRooms()->size() - 1; i++) if(game->GetRooms()->at(i)->IsRevealed() &&
+			!game->GetRooms()->at(i + 1)->IsRevealed()) for(auto go : *game->GetRooms()->at(i + 1)->GetObjects())
+			if(dynamic_cast<Door *>(go) != nullptr) ((Door *)go)->SetLocked(true);
+		init = false;
+	}
+
+	if(!dead) Game::camera->SetTarget((GetXCenter() + LevelManager::player->GetXCenter()) / 2,
+		(GetYCenter() + LevelManager::player->GetYCenter()) / 2);
+
+}
+
 void Boss::RenderObject(int l) {
 
-	if(l == renderLayer) Enemy::RenderObject();
-	else if(l == 4) {
+	Enemy::RenderObject(l);
+	if(l == 4) {
 
 		if(target == nullptr || DistanceToSquared(target) > 2000 * 2000) return;
 
@@ -71,6 +88,11 @@ void Boss::RenderObject(int l) {
 void Boss::OnDeath(LevelManager * game, GameObject * go) {
 
 	GameObject::OnDeath(game, go);
+
+	Game::camera->SetTarget(LevelManager::player);
+	for(int i = 0; i < game->GetRooms()->size() - 1; i++) if(game->GetRooms()->at(i)->IsRevealed() &&
+		!game->GetRooms()->at(i + 1)->IsRevealed()) for(auto go : *game->GetRooms()->at(i + 1)->GetObjects())
+		if(dynamic_cast<Door *>(go) != nullptr) ((Door *)go)->SetLocked(false);
 
 	if(item != nullptr) game->AddObject(new ItemObject(GetXCenter() - 12, GetYCenter() - 12, item));
 

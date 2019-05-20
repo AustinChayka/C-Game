@@ -146,9 +146,10 @@ void Player::Update(LevelManager * game) {
 					
 }
 
-void Player::RenderObject() {
+void Player::RenderObject(int l) {
 
-	Enemy::RenderObject();
+	Enemy::RenderObject(l);
+	RenderItems(l);
 
 }
 

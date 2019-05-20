@@ -88,6 +88,10 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 13));
 	roomOffsetY += 9 * 60;
 	roomOffsetX += 20 * 60;
+	roomOffsetY -= 60 * 2;
+	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 11));
+	roomOffsetX += 8 * 60;
+	roomOffsetY += 60 * 2;
 	*/
 	int treasureRoom = rand() % size, specialRoom = -1;
 	
@@ -111,7 +115,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 
 			if(!IsBlacklisted(3)) n = 3;
 
-			if(((Player *)player)->GetGold() >= 150) n = 4;
+			if(((Player *)player)->GetGold() >= 50) n = 4;
 
 			if(player->GetHealth() <= player->GetMaxHealth() / 2) n = 2;
 
@@ -215,6 +219,10 @@ void LevelManager::GenerateLevel(int size, int seed) {
 		rooms->push_back(new Room(roomOffsetX, roomOffsetY, 13));
 		roomOffsetY += 9 * 60;
 		roomOffsetX += 20 * 60;
+		roomOffsetY -= 60 * 2;
+		rooms->push_back(new Room(roomOffsetX, roomOffsetY, 11));
+		roomOffsetX += 8 * 60;
+		roomOffsetY += 60 * 2;
 	}
 	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 1));
@@ -235,9 +243,12 @@ void LevelManager::Update(StateManager * sm) {
 
 	bool escaped = true;
 	
-	for(auto r : *rooms) {
-		r->Update(this);
-		if(r->IsActive()) escaped = false;
+	for(int i = 0; i < rooms->size(); i++) {
+		if(i >= activeRoom - 2 && i <= activeRoom + 2) rooms->at(i)->Update(this);
+		if(rooms->at(i)->IsActive()) {
+			escaped = false;
+			activeRoom = i;
+		}
 	}
 
 	for(auto it : *tiles) it->Update();
@@ -264,6 +275,7 @@ void LevelManager::Update(StateManager * sm) {
 		LoadLevel(currentLevel);
 		reloaded = false;
 		Game::camera->SetPos(player->GetXCenter() - Game::width / 2, player->GetYCenter() - Game::height / 2);
+		activeRoom = 0;
 	}
 
 	   
@@ -273,10 +285,12 @@ void LevelManager::Render() {
 	
 	for(int layer = 0; layer <= 4; layer++) {
 
-		for(auto r : *rooms) r->Render(layer);
+		for(int i = 0; i < rooms->size(); i++) if(i >= activeRoom - 2 && i <= activeRoom + 2) rooms->at(i)->Render(layer);
 		for(auto it : *tiles) if (it->GetLayer() == layer) it->Render();
-		for(auto go : *objects) if(go->GetRenderLayer() == layer) go->RenderObject();
-		((Player *)player)->RenderItems(layer);
+		for(auto go : *objects) {
+			if(dynamic_cast<Enemy *>(go) != nullptr) ((Enemy *)go)->RenderObject(layer);
+			else if(go->GetRenderLayer() == layer) go->RenderObject();
+		}
 
 	}
 

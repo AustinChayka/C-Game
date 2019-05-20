@@ -13,7 +13,7 @@ int main(int argc, char * argv[]) {
 	Uint32 frameStart;
 	int frameTime;
 
-	game = new Game("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 16 * scale, 9 * scale, false);
+	game = new Game("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 16 * scale, 9 * scale, true);
 		
 	while(Game::running) {
 

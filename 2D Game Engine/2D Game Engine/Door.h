@@ -18,9 +18,11 @@ public:
 	void UpdateObject(LevelManager * game);
 	void RenderObject();
 
+	void SetLocked(bool l);
+
 private:
 
-	bool closed = true, collided = false;
+	bool closed = true, collided = false, locked = false;
 
 	SDL_Texture * text;
 	SDL_Rect textRect;

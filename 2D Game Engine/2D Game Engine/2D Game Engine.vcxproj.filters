@@ -420,6 +420,12 @@
     <ClCompile Include="SpiritProjectile2.cpp">
       <Filter>Source Files\Objects\Other</Filter>
     </ClCompile>
+    <ClCompile Include="PossesedBook.cpp">
+      <Filter>Source Files\Objects\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="ShockedStatus.cpp">
+      <Filter>Source Files\Statuses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -734,8 +740,14 @@
     <ClInclude Include="VolatileHeart.h">
       <Filter>Header Files\Items\General Pool</Filter>
     </ClInclude>
+    <ClInclude Include="PossesedBook.h">
+      <Filter>Header Files\Objects\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ShockedStatus.h">
+      <Filter>Header Files\Statuses</Filter>
+    </ClInclude>
     <ClInclude Include="SpiritProjectile2.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects\Other</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
