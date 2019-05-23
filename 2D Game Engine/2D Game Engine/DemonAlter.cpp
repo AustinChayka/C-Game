@@ -19,6 +19,8 @@ DemonAlter::DemonAlter(float x, float y) : GameObject("assets/StageObjects/Demon
 DemonAlter::~DemonAlter() {
 
 	SDL_DestroyTexture(text);
+	if(((Player *)LevelManager::player)->GetAllignment() > 0)
+		((Player *)LevelManager::player)->SetAllignment(((Player *)LevelManager::player)->GetAllignment() - 1);
 
 }
 
@@ -39,6 +41,7 @@ void DemonAlter::Update(LevelManager * game) {
 				collided = false;
 				tileY = 1;
 				game->AddObject(new ItemObject(GetXCenter() - 12, y + 50 * 3 - 24, 1));
+				((Player *)go)->SetAllignment(((Player *)go)->GetAllignment() - 1);
 			}
 		}
 	} else collided = false;

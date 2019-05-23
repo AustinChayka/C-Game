@@ -18,7 +18,7 @@ int SpiralShell::OverrideDamageTotal(int damage, GameObject * go, Player * p) {
 
 	if(health == 0) return 0;
 
-	delay = 1200;
+	delay = 600;
 
 	health -= damage;
 
@@ -36,7 +36,7 @@ void SpiralShell::Update(LevelManager * game, Player * p) {
 	if(delay > 0) delay--;
 	else if(health < 8) {
 		health++;
-		delay = 180;
+		delay = 30;
 	}
 
 }
@@ -46,7 +46,7 @@ void SpiralShell::Render() {
 	int offX = 15;
 	for(int i = 0; i < health; i++) {
 		destRect.x = offX + 12 * i;
-		destRect.y = 30 + 30 * (int)(LevelManager::player->GetMaxHealth() / 20);;
+		destRect.y = 30 + 30 * (int)ceil(LevelManager::player->GetMaxHealth() / 20.0f);;
 		if(i % 2 == 1) {
 			srcRrect.x = 12;
 			offX += 5;

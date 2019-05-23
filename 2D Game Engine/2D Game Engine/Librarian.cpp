@@ -6,7 +6,7 @@
 #include "Wraith.h"
 #include "PossesedBook.h"
 
-Librarian::Librarian(float x, float y) : Boss("assets/Enemies/Librarian.png", x, y, 25, 45, 3, 40, "Fanatic Librarian",
+Librarian::Librarian(float x, float y) : Boss("assets/Enemies/Librarian.png", x, y, 25, 45, 3, 30, "Fanatic Librarian",
 	72, 140, 136) {
 
 	collidable = true;
@@ -134,9 +134,9 @@ void Librarian::OnDeath(LevelManager * game, GameObject * go) {
 		health = maxHealth / 2;
 		phase++;
 		for(auto s : spirits) {
-			((Spirit *)s)->SetParent(nullptr);
-			if(target != nullptr) ((Spirit *)s)->SetTarget(target);
+			s->DealDamage(s->GetHealth(), game);
 		}
+		spirits.clear();
 		return;
 	}
 

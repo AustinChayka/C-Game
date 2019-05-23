@@ -34,6 +34,8 @@ public:
 
 	static GameObject * player;
 
+	void AddItemRoom(float roomOffsetX, float roomOffsetY);
+
 private:
 
 	std::vector<GameObject *> * objects;

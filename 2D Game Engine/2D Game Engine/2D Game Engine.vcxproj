@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AngelAltar.cpp" />
     <ClCompile Include="BabyMaw.cpp" />
     <ClCompile Include="BleedStatus.cpp" />
     <ClCompile Include="BloatedDoll.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="ConfusedStatus.cpp" />
     <ClCompile Include="ControllsButton.cpp" />
     <ClCompile Include="Corpse.cpp" />
+    <ClCompile Include="CrownOfThorns.cpp" />
     <ClCompile Include="CursedCandle.cpp" />
     <ClCompile Include="CursedFire.cpp" />
     <ClCompile Include="CursedFireball.cpp" />
@@ -218,6 +220,7 @@
     <ClCompile Include="RubberCement.cpp" />
     <ClCompile Include="SacraficialAltar.cpp" />
     <ClCompile Include="SacraficialDagger.cpp" />
+    <ClCompile Include="SentientSword.cpp" />
     <ClCompile Include="ShockedStatus.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="SlotMachine.cpp" />
@@ -244,6 +247,7 @@
     <ClCompile Include="WraithProjectile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AngelAltar.h" />
     <ClInclude Include="BabyMaw.h" />
     <ClInclude Include="BleedStatus.h" />
     <ClInclude Include="BloatedDoll.h" />
@@ -260,6 +264,7 @@
     <ClInclude Include="ConfusedStatus.h" />
     <ClInclude Include="ControllsButton.h" />
     <ClInclude Include="Corpse.h" />
+    <ClInclude Include="CrownOfThorns.h" />
     <ClInclude Include="CursedCandle.h" />
     <ClInclude Include="CursedFire.h" />
     <ClInclude Include="CursedFireball.h" />
@@ -327,6 +332,7 @@
     <ClInclude Include="RubberCement.h" />
     <ClInclude Include="SacraficialAltar.h" />
     <ClInclude Include="SacraficialDagger.h" />
+    <ClInclude Include="SentientSword.h" />
     <ClInclude Include="ShockedStatus.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="SlotMachine.h" />

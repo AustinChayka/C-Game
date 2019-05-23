@@ -103,6 +103,12 @@
     <Filter Include="Header Files\Items\Games Pool">
       <UniqueIdentifier>{db4b9d6b-4df2-4daa-9bcf-6bb0721b54d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Items\Angel Altar Pool">
+      <UniqueIdentifier>{6decf0a0-eaec-4cf2-bac9-389bc745472c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items\Angel Altar Pool">
+      <UniqueIdentifier>{bc9d7dcf-d3f9-4bae-b76f-b7fa2f67a28f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -426,6 +432,15 @@
     <ClCompile Include="ShockedStatus.cpp">
       <Filter>Source Files\Statuses</Filter>
     </ClCompile>
+    <ClCompile Include="AngelAltar.cpp">
+      <Filter>Source Files\Objects\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="CrownOfThorns.cpp">
+      <Filter>Source Files\Items\Angel Altar Pool</Filter>
+    </ClCompile>
+    <ClCompile Include="SentientSword.cpp">
+      <Filter>Source Files\Items\Angel Altar Pool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -748,6 +763,15 @@
     </ClInclude>
     <ClInclude Include="SpiritProjectile2.h">
       <Filter>Header Files\Objects\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="AngelAltar.h">
+      <Filter>Header Files\Objects\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="CrownOfThorns.h">
+      <Filter>Header Files\Items\Angel Altar Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="SentientSword.h">
+      <Filter>Header Files\Items\Angel Altar Pool</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

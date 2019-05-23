@@ -30,7 +30,7 @@ Player::~Player() {
 }
 
 void Player::Update(LevelManager * game) {
-
+	
 	Enemy::Update(game);
 
 	for(auto item : *items) item->Update(game, this);
@@ -371,5 +371,17 @@ void Player::AddGold(int g) {
 void Player::SetGold(int g) {
 
 	gold = g;
+
+}
+
+void Player::SetAllignment(int l) {
+
+	allignment = l;
+
+}
+
+int Player::GetAllignment() {
+
+	return allignment;
 
 }

@@ -19,7 +19,7 @@ Maw::~Maw() {}
 
 void Maw::Update(LevelManager * game) {
 
-	Enemy::Update(game);
+	Boss::Update(game);
 
 	if(target == nullptr) for(auto go : *game->GetObjects()) if(dynamic_cast<Player *>(go) != nullptr) {
 		target = go;

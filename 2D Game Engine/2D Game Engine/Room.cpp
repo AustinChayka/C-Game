@@ -24,6 +24,7 @@
 #include "SlotMachine.h"
 #include "BloodBank.h"
 #include "PossesedBook.h"
+#include "AngelAltar.h"
 
 Room::Room(float offX, float offY, int type) {
 
@@ -119,21 +120,9 @@ Room::Room(float offX, float offY, int type) {
 
 		case 6:
 			Init(offX, offY, 8, 8, 5, 5, -1);
-			if(rand() % 2 == 0) {
-				objects.push_back(new ItemObject(x + 4 * 60 - 12, y + 7 * 60 - 24 - 45, 0));
-				tiles.push_back(new ImageTile("assets/StageObjects/Pedestal.png", x + 4 * 60 - 30, y + 7 * 60 - 45, 20, 15, 0, 0, 3, 2));
-				tiles.push_back(new ImageTile("assets/StageObjects/Banner.png", x + 4 * 60 - 45, y + 180, 30, 40, 0, 0, 3, 1));
-			} else {
-				objects.push_back(new DemonAlter(x + 4 * 60 - 60, y + 7 * 60 - 150));
-				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 40, y + 7 * 60 - 32, 25, 32,
-					rand() % 5, 0, 1, 1, 5, .06f));
-				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 80, y + 7 * 60 - 32, 25, 32,
-					rand() % 5, 0, 1, 1, 5, .06f));
-				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 20, y + 7 * 60 - 32, 25, 32,
-					rand() % 5, 0, 1, 1, 5, .06f));
-				tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 60, y + 7 * 60 - 32, 25, 32,
-					rand() % 5, 0, 1, 1, 5, .06f));
-			}
+			objects.push_back(new ItemObject(x + 4 * 60 - 12, y + 7 * 60 - 24 - 45, 0));
+			tiles.push_back(new ImageTile("assets/StageObjects/Pedestal.png", x + 4 * 60 - 30, y + 7 * 60 - 45, 20, 15, 0, 0, 3, 2));
+			tiles.push_back(new ImageTile("assets/StageObjects/Banner.png", x + 4 * 60 - 45, y + 180, 30, 40, 0, 0, 3, 1));
 			break;
 
 		case 7:
@@ -287,8 +276,34 @@ Room::Room(float offX, float offY, int type) {
 
 		case 14:
 			Init(offX, offY, 10, 8, 5, 5, -1);
-			objects.push_back(new BloodBank(x + 2 * 60, y + 5 * 60 - 44 * 3));
-			objects.push_back(new SlotMachine(x + 6 * 60, y + 5 * 60 - 44 * 3));
+			objects.push_back(new BloodBank(x + 2 * 60, y + 7 * 60 - 44 * 3));
+			objects.push_back(new SlotMachine(x + 6 * 60, y + 7 * 60 - 44 * 3));
+			break;
+
+		case 15:
+			Init(offX, offY, 8, 8, 5, 5, -1);
+			objects.push_back(new DemonAlter(x + 4 * 60 - 60, y + 7 * 60 - 150));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 40, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 80, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 20, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 60, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			break;
+
+		case 16:
+			Init(offX, offY, 8, 8, 5, 5, -1);
+			objects.push_back(new AngelAltar(x + 4 * 60 - 60, y + 7 * 60 - 150));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 40, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 - 60 - 80, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 20, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
+			tiles.push_back(new ImageTile("assets/StageObjects/Candle.png", x + 60 * 4 + 60 + 60, y + 7 * 60 - 32, 25, 32,
+				rand() % 5, 0, 1, 1, 5, .06f));
 			break;
 
 	}

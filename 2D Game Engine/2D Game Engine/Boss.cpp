@@ -60,6 +60,10 @@ void Boss::Update(LevelManager * game) {
 	if(!dead) Game::camera->SetTarget((GetXCenter() + LevelManager::player->GetXCenter()) / 2,
 		(GetYCenter() + LevelManager::player->GetYCenter()) / 2);
 
+	if(healthBarWidth > 600 * health / (float)maxHealth) 
+		healthBarWidth -= 1;
+	else if(healthBarWidth < 600 * health / (float)maxHealth) 
+		healthBarWidth += 1;
 }
 
 void Boss::RenderObject(int l) {
@@ -77,8 +81,19 @@ void Boss::RenderObject(int l) {
 		SDL_RenderFillRect(Game::renderer, &barRect);
 
 		barRect.x = Game::width / 2 - 300;
-		barRect.w = 600 * health / (float)maxHealth;
+		barRect.w = healthBarWidth;
 		SDL_SetRenderDrawColor(Game::renderer, red, green, blue, 255);
+		SDL_RenderFillRect(Game::renderer, &barRect);
+
+		if(healthBarWidth > 600 * health / (float)maxHealth) {
+			barRect.x = Game::width / 2 - 300 + healthBarWidth;
+			barRect.w = 600 * health / (float)maxHealth - healthBarWidth;
+			SDL_SetRenderDrawColor(Game::renderer, 100, 0, 0, 255);
+		} else if(healthBarWidth < 600 * health / (float)maxHealth) {
+			barRect.x = Game::width / 2 - 300 + 600 * health / (float)maxHealth;
+			barRect.w = healthBarWidth - 600 * health / (float)maxHealth;
+			SDL_SetRenderDrawColor(Game::renderer, 0, 100, 0, 255);
+		}
 		SDL_RenderFillRect(Game::renderer, &barRect);
 
 	}

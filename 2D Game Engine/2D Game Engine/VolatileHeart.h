@@ -13,6 +13,11 @@ public:
 	
 	void OnPickup(LevelManager * game, Player * p);
 	void OnDamageTaken(LevelManager * game, GameObject * go, Player * p);
+	void Update(LevelManager * game, Player * p);
+
+private:
+
+	int explosionDelay = 0;
 
 };
 

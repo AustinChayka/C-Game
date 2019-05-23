@@ -6,6 +6,8 @@ UseableItem::~UseableItem() {}
 
 void UseableItem::Update(LevelManager * game, Player * p) {
 
+	Item::Update(game, p);
+
 	if(recharge > 0) recharge--;
 	else {
 		if(Game::inputManager->IsPressed(InputManager::useItem)) {

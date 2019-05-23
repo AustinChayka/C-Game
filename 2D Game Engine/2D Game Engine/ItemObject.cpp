@@ -20,6 +20,8 @@
 #include "D4.h"
 #include "GamblingChip.h"
 #include "VolatileHeart.h"
+#include "CrownOfThorns.h"
+#include "SentientSword.h"
 
 std::vector<std::vector<int> *> * ItemObject::items = nullptr;
 
@@ -36,11 +38,12 @@ ItemObject::ItemObject(float x, float y, int pool) : GameObject(nullptr, x, y, 2
 
 	if(items == nullptr) {
 		items = new std::vector<std::vector<int> *>;
-		for(int i = 0; i < 4; i++) items->push_back(new std::vector<int>);
+		for(int i = 0; i < 5; i++) items->push_back(new std::vector<int>);
 		for(int i = 0; i < 10; i++) items->at(0)->push_back(i);
 		for(int i = 0; i < 5; i++) items->at(1)->push_back(i);
 		for(int i = 0; i < 2; i++) items->at(2)->push_back(i);
 		for(int i = 0; i < 3; i++) items->at(3)->push_back(i);
+		for(int i = 0; i < 2; i++) items->at(4)->push_back(i);
 	}
 	
 	GenerateItem(pool);
@@ -210,10 +213,23 @@ void ItemObject::GenerateItem(int pool) {
 			}
 			break;
 
+		case 4:
+			switch(i) {
+
+				case 0:
+					item = new CrownOfThorns();
+					break;
+
+				case 1:
+					item = new SentientSword();
+					break;
+
+			}
+			break;
 	}
 
 	texture = TextureManager::LoadTexture(Game::renderer, item->GetTexturePath());
 
 	if(items->at(pool)->size() > 0) items->at(pool)->erase(items->at(pool)->begin() + n);
-
+	
 }

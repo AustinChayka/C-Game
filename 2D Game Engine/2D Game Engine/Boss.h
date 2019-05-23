@@ -30,6 +30,7 @@ protected:
 	Uint8 red = 255, green = 255, blue = 255;
 
 	bool init = true;
+	float healthBarWidth = 600;
 
 };
 

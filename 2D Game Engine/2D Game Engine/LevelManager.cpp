@@ -15,6 +15,7 @@
 #include "Maw.h"
 #include "CursedCandle.h"
 #include "Error.h"
+#include "AngelAltar.h"
 
 GameObject * LevelManager::player = nullptr;
 
@@ -72,7 +73,7 @@ void LevelManager::LoadLevel(int n) {
 
 void LevelManager::GenerateLevel(int size, int seed) {
 
-	if(leftOverEnemies > 5) Game::gui->ShowMessage("something stirs ahead.", 255, 100, 100, 200, 180);
+	if(leftOverEnemies > 5) Game::gui->ShowMessage("maw is broken, come back later", 255, 100, 100, 200, 180);
 
 	srand(seed);
 	
@@ -95,7 +96,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	*/
 	int treasureRoom = rand() % size, specialRoom = -1;
 	
-	if(rand() % 10 > 8 - 8 * specialRoomSkips / 3.0f) {
+	if(rand() % 10 > 8 - 8 * specialRoomSkips / 2.0f) {
 		specialRoom = rand() % size;
 		specialRoomSkips = 0;
 	} else specialRoomSkips++;
@@ -104,7 +105,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 
 		if(i == treasureRoom) {
 			roomOffsetY -= 60 * 2;
-			rooms->push_back(new Room(roomOffsetX, roomOffsetY, 6));
+			AddItemRoom(roomOffsetX, roomOffsetY);
 			roomOffsetX += 8 * 60;
 			roomOffsetY += 60 * 2;
 		}
@@ -129,7 +130,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 
 				case 0:
 					roomOffsetY -= 60 * 2;
-					rooms->push_back(new Room(roomOffsetX, roomOffsetY, 6));
+					AddItemRoom(roomOffsetX, roomOffsetY);
 					roomOffsetX += 8 * 60;
 					roomOffsetY += 60 * 2;
 					break;
@@ -227,7 +228,7 @@ void LevelManager::GenerateLevel(int size, int seed) {
 	
 	rooms->push_back(new Room(roomOffsetX, roomOffsetY, 1));
 	if(leftOverEnemies > 5) {
-		rooms->at(rooms->size() - 1)->AddObject(new Maw(roomOffsetX + 260, roomOffsetY + 100));
+		//AddObject(new Maw(roomOffsetX + 260, roomOffsetY + 100));
 		leftOverEnemies = 0;
 	}
 
@@ -332,6 +333,16 @@ void LevelManager::NextLevel() {
 
 	currentLevel++;
 	reloaded = true;
+
+}
+
+void LevelManager::AddItemRoom(float roomOffsetX, float roomOffsetY) {
+
+	if(rand() % 3 == 0) {
+		if(rand() % 20 + ((Player *)player)->GetAllignment() < 10) 
+			rooms->push_back(new Room(roomOffsetX, roomOffsetY, 15));
+		else rooms->push_back(new Room(roomOffsetX, roomOffsetY, 16));
+	} else rooms->push_back(new Room(roomOffsetX, roomOffsetY, 6));
 
 }
 
