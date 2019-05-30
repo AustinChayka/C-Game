@@ -1,6 +1,6 @@
 #include "SentientSword.h"
 
-SentientSword::SentientSword() : Item("assets/Items/SentientSword.h", "Sentient Sword", "it whispers...") {
+SentientSword::SentientSword() : Item("assets/Items/SentientSword.png", "Sentient Sword", "it whispers...") {
 
 	texture = TextureManager::LoadTexture(Game::renderer, "assets/Other/SentientSword.png");
 	srcRect.w = 50;

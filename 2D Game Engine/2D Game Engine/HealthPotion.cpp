@@ -28,7 +28,7 @@ bool HealthPotion::OnUse(LevelManager * game, Player * p) {
 		charges++;
 		return false;
 	}
-	charges = 0;
+	charges = 1;
 	return true;
 
 }

@@ -1,6 +1,7 @@
 #include "GoldDrop.h"
 
 #include "Player.h"
+#include "Projectile.h"
 
 GoldDrop::GoldDrop(float x, float y, int init_value) : GameObject(nullptr, x, y, 
 	5 + 2 * (init_value - 1), 5 + 2 * (init_value - 1)) {
@@ -39,6 +40,6 @@ void GoldDrop::OnCollision(GameObject * go, LevelManager * game) {
 
 bool GoldDrop::OverrideCollision(GameObject * go) {
 
-	return go->IsMoveable() && dynamic_cast<GoldDrop *>(go) == nullptr;
+	return go->IsMoveable() && dynamic_cast<GoldDrop *>(go) == nullptr && dynamic_cast<Projectile *>(go) == nullptr;
 
 }

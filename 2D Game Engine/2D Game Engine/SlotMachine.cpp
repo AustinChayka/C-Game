@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "ItemObject.h"
 #include "Spirit.h"
+#include "Explosion.h"
 
 SlotMachine::SlotMachine(float x, float y) : GameObject("assets/StageObjects/SlotMachine.png", x, y, 33, 44, 3) {
 
@@ -57,6 +58,7 @@ void SlotMachine::Update(LevelManager * game) {
 						((Player*)LevelManager::player)->AddGold(200);
 						break;
 					case 1:
+						game->AddObject(new Explosion(GetXCenter(), GetYCenter(), 100, 2, this, game));
 						active = false;
 						break;
 					case 2:

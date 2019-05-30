@@ -131,7 +131,7 @@ bool Librarian::OverrideCollision(GameObject * go) {
 void Librarian::OnDeath(LevelManager * game, GameObject * go) {
 
 	if(phase == 0) {
-		health = maxHealth / 2;
+		health = maxHealth;
 		phase++;
 		for(auto s : spirits) {
 			s->DealDamage(s->GetHealth(), game);

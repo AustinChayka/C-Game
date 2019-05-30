@@ -20,8 +20,7 @@ AngelAltar::AngelAltar(float x, float y) : GameObject("assets/StageObjects/Angel
 AngelAltar::~AngelAltar() {
 	
 	SDL_DestroyTexture(text);
-	if(((Player *)LevelManager::player)->GetAllignment() < 0)
-		((Player *)LevelManager::player)->SetAllignment(((Player *)LevelManager::player)->GetAllignment() + 1);
+	((Player *)LevelManager::player)->SetAllignment(((Player *)LevelManager::player)->GetAllignment() - 1);
 
 }
 
@@ -37,7 +36,7 @@ void AngelAltar::Update(LevelManager * game) {
 				active = false;
 				collided = false;
 				game->AddObject(new ItemObject(GetXCenter() - 12, y + 50 * 3 - 24, 4));
-				((Player *)go)->SetAllignment(((Player *)go)->GetAllignment() + 1);
+				((Player *)go)->SetAllignment(((Player *)go)->GetAllignment() + 2);
 			}
 		}
 	} else collided = false;
